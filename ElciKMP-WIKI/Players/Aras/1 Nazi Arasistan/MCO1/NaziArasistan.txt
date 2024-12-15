@@ -1,22 +1,25 @@
-Nazi Arasistan
+Nazi Arasistan (Milattan önce 2. Binyıl)
 Resmi adıyla *Nasyonel Sosyalist Arasis Diktatörlüğü*
 
-Anaeviⁱ kıtasında bir devlet. Kuzeyinde Swenskaⁱ , Führeristanⁱ , Deucherlandⁱ; güneyinde ise Devleti Alliye Sosyalist Topluluğuç ve Doğu-Batı Xenia Konfederesi ile sınır paylaşır. 
-"" yüz ölçümüne sahiptir ve sınırları içerisinde Alfa ve Sigma nehirlerini bulundurur. Nasyonel Sosyalist Devletlerⁱ İttifakının kurucu üyesidir.
+_(Arasis Almancasıyla: Nationalsozialistische Arasis-Diktatur)_
+
+Avrupa kıtasında, orta Avrupada bir devlet. Doğusunda kendi vasallarınında ötesinde IBFIⁱ, batısında Fransa, Kuzeyinde ise Sverige Kapitalist İmparatorluğuⁱ ile sınır komşusudur. Kuzey denizi ve baltık denizine sınırdır. 
+Ülke, coğrafi olarak ılıman iklim kuşağında yer alır, Ren ve Tuna nehri devlete can veren şeylerden biridir. 
 
 <tablo>
-img.flag.naziarasistan - img.arma.naziarasistan
-img.map.MCO1
-*Başkenti*              Berlin
-*Resmi Dil*             Arasis Almancasıⁱ
-*Demonim*               Arasisⁱ
-*Hükümet*               Nasyonel Sosyalist Arasis Partisi - Tek Parti Rejimi
-*İdeoloji*              Nasyonel Sosyalizm - Katı Sağ
-*Kurucu Başkanı*        Aras Muhammed MORKOÇⁱ
-*Ekonomik Sıralaması*   1
-*Askeri Sıralaması*     1
-*Çağ Dilimi*            MC.O. 2. BYⁱ
-*Ömür*                  Bir binyıl
+    img.flag.naziarasistan - img.coatofarms.naziarasistan
+    img.map.MCO1.naziarasistan
+    *Başkenti*              Berlin
+    *Resmi Dil*             Arasis Almancasıⁱ
+    *Demonim*               Arasisⁱ
+    *Hükümet*               Askeri Arasis Partisi - Tek Parti Rejimi
+    *İdeoloji*              Nasyonel Sosyalizm / Militarizm - Katı Sağ
+    *Kurucu Başkanı*        Aras Muhammed MORKOÇⁱ
+    *Yüz Ölçümü*            752.705 km²
+    *Ekonomik Sıralaması*   8
+    *Askeri Sıralaması*     3
+    *Çağ Dilimi*            MC.O. 1. BYⁱ
+    *Ömür*                  350 yıl⁓
 <tablo /end>
 
 Nazi Arasistan, sunucunun fikir babası Aras Muhammed MORKOÇⁱ tarafından kurulan, sunucunun devletidir.
@@ -27,11 +30,4 @@ Devletin güç savaşındaki baş düşmanı Xenia İmparatorluğuⁱ, bu durum 
 Swenskaⁱ devletinin kurulmasının ardından Nasyonel Sosyalist Devletlerⁱ ittifakının kurulmasında yer alan Nazi Arasistan hükümeti, çağ sonuna kadar denge politikasını sürdürmüştür.
 
 Ayrıca bakınız:
-<açılır kapanır paragraf> Diplomatik politikalar
-    Nasyonel Sosyalist tüm devletlerin genişleme çabası içerisindeki agresifliğini ve hırsını bir arada bir silah olarak toplayan Nazi Arasistan devlet hükümeti,
-    Devleti Alliye Sosyalist Topluluğunaⁱ karşı iyi bir saldırı ve işgal planı kurmayı başarmıştır. Halk'ın hükümete olan desteğinin fazla olması, Xenian Akınlarınınⁱ iyi bir strateji ile yönetilmesi gibi etkenler; Nazi Arasistanın diplomatik açıdan yıkılmazlığını arttırmıştır.
-<açılır kapanır paragraf> Savaş stratejileri
-    Arasis savaş taktikleri üç temel aşamadan oluşan bir yıkım türüne sahiptir. Sınırsal kara savunmasını amaçlayan "Güney savunma aşaması", yıkım ve tahribatı önemseyen "kuzey akın planı" ve bitirici olarak kullanılan "Başkent yağma aşaması".
-    Nazi Almanyası tarafından kullanılan "Yıldırım Harekatı", Nazi Arasistan'ın ilk çağından sonra bile Führer'in kişisel favorisi olduğundan dolayı, bir sonraki çağda yapılan savaşlarda sık sık kullanılmıştır.
-<açılır kapanır pencere> Sunucuya katkısı
-    Nazi Arasistan, ilkel olan çağa rağmen yeni bir politika anlayışını insan belleğine kazımayı başarmış bir diktadır. Döneminde uyguladığı uzman dengeciliği, ondan sonra sık sık IBFIⁱ, Leh İmparatorluğuⁱ ve Swenskaⁱ tarafından kullanılmıştır.
+###<YAPILACAK>###

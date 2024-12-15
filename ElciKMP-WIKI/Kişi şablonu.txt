@@ -1,0 +1,17 @@
+oyuncu şablonu
+
+isim(tam ismi) oyuna başlama tarihi, nasıl ülke kurduğu, ünvanı ve bu ünvanı nasıl elde ettiği
+
+tablo
+hüküm süresi (bitmemişse tüm dönem yazılır)
+taç giymesi (ülkenin resmen devletleştiği tarih referans alınır)
+hanedan
+yönettiği devletler
+
+sunucu tarihine olan kişisel etkisinin özeti
+savaşlarda ve ekonomik durumlardaki rolü 
+
+ayrıca bakınız:
+mümkünse bir yada iki olay
+
+kaynak izni
