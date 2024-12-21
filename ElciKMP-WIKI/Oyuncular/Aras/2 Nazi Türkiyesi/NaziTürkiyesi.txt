@@ -3,10 +3,12 @@ Resmi adıyla *Nasyonel Sosyalist Türk Diktatörlüğü*
 
 _(Arasis Türkçesi ile: Nasionel Sotioli Türkie Diktasi)_
 
+Kuzeyde devasa Kazak Hanlığı, doğuda İran ve Afganistan, güneydoğuda Sverige Kapitalist İmparatorluğuⁱ'nun Hindistan sömürgesi, güneyde Arabistan ve Mısır sömürgeleri, batıda ise Atilla Romasıⁱ ile sınır paylaşmıştır. 
+Akdeniz, Karadeniz ve Basra Körfezi'ne kıyıları olan devlet, bu denizleri ticaret ve askeri seferlerinde etkin bir şekilde kullanmıştır. Anadolu Yarımadası’nın kalbinde yer alan başkent Ankara, bölgenin siyasi, ekonomik ve askeri merkezi olmuştur.
 
 <tablo>
-    img.flag.naziarasistan - img.coatofarms.naziarasistan
-    img.map.MCO1.naziarasistan
+    img.flag.naziturkey - img.coatofarms.turkey
+    img.map.MCO1.naziturkey
     *Başkenti*              Ankara (!)
     *Resmi Dil*             Türkçe / Arasis Türkçesiⁱ
     *Demonim*               Türki / Arasi
@@ -21,3 +23,42 @@ _(Arasis Türkçesi ile: Nasionel Sotioli Türkie Diktasi)_
     *Ömür*                  500 yıl⁓
 <tablo /end>
 
+
+<h2> Tarihçe
+
+<h3> 1. Arasis Göçleri ve Kuruluş
+Nazi Türkiyesi’nin temelleri, Nazi Arasistan'ın yıkılışından sonra göç eden Arasisⁱ halkının Türkiye topraklarına yerleşmesiyle atılmıştır. 
+Göçler sırasında Arasis kültürü, Türk kültürüyle harmanlanmış ve bu süreçte Arasis halkı hızla asimile olmuştur. 
+Bu kültürel kaynaşma, Türkiye’de milliyetçiliğin yükselmesine yol açmış ve Milliyetçi Türk Partisi’nin Aras Muhammed MORKOÇⁱ liderliğinde iktidara gelmesini sağlamıştır.
+
+<h3> 2. Yayılma ve Bölgesel Hakimiyet
+Arasislerin askeri doktrini ve Nazi Türkiyesi’nin yayılmacı politikaları sayesinde Suriye, Irak ve Arap Yarımadası hızlı bir şekilde ele geçirilmiştir. Atilla Romasıⁱ’nın muhalefetine rağmen Türk kuvvetleri, İran ve Afganistan’ı da kontrol altına alarak, güneydoğuda Sverige Kapitalist İmparatorluğu’nun Hindistan sömürgesiyle komşu olmuştur. 
+Devletin sınırları, kuzeyde devasa Kazak Hanlığı, güneybatıda Sverige’nin Mısır sömürgesi ve batıda Atilla Romasıⁱ ile kesişmiştir.
+
+<h3> 3. Atilla Roması ile Gerilim ve Büyük Türk-Roma Savaşı
+Atilla Romasıⁱ ile yaşanan gerilim, Roma kralı Atil Vedⁱ’in “Ya Konstantin, ya ölüm!” sloganıyla iyice tırmanmıştır. Balkanlarda yapılan stratejik hatalar, Nazist Türkiye’nin bu cephede ağır kayıplar vermesine neden olmuştur. 
+Ancak Arasisler, diğer cephelerde başarılar kazanarak Atilla Romasıⁱ’na gözdağı vermeyi başarmıştır.
+
+<h3> 4. Akdeniz Politikası ve Sömürge Çatışmaları
+Nazi Türkiyesi, Akdeniz ilerleyişini yağmalar ve stratejik seferlerle desteklemiştir. Ancak Sverigeⁱ’nin sömürge yollarına müdahale planları, Hindistan üzerinden gelen büyük bir orduyla İran cephesine saldırıya dönüşmüştür. 
+Bu saldırı, Nazist Türkiye’nin savunma hatlarını delik deşik ederek devleti çöküş sürecine sürüklemiştir.
+
+<h3> 5. Çöküş ve Başkentin Düşüşü
+Son savunma hattını başkent Ankara çevresinde kuran Nazist Türkiye, Atilla Romasıⁱ ve Sverigeⁱ kuvvetlerine karşı direniş göstermiştir. 
+230 gün süren şanlı Ankara Kuşatması, Türk-Arasis askerlerinin tarih yazdığı bir mücadele olarak anılsa da başkentin düşmesi engellenememiştir. 
+Türkiye’nin savunma gücü tamamen çökmüş ve Morkoç "Mormont"ⁱ, savaşın sonunda Sverigeⁱ tarafından teslim alınmıştır.
+
+ayrıca bakınız: 
+<açılır kapanır paragraf> Mormont’un Akıbeti ve Tarihsel Önemi
+    Aras Muhammed MORKOÇⁱ, Sverige tarafından idam edilmemiş, aksine refah içinde yaşam sürmesi sağlanmıştır. Bu durum Atilla Romasıⁱ’nda büyük bir öfkeye neden olmuştur. Mormontⁱ’un tarihe bıraktığı en önemli sözlerden biri şudur:
+
+        "Her büyük güç birgün çökecektir. Biz bir istisna değildik."
+
+<açılır kapanır paragraf> Ekonomik ve Askeri Güç
+
+    Nazi Türkiyesi, geniş toprakları ve güçlü ordusuyla dönemin en etkili devletlerinden biri olmuştur. Ancak uzun savaşlar ve savunma hatlarında verilen kayıplar, ekonomik ve askeri dengelerini sarsmıştır. 
+    Devletin çöküşü, büyük güçler arasında sıkışmışlığın ve stratejik hataların kaçınılmaz bir sonucu olmuştur.
+
+<açılır kapanır paragraf> Miras ve Etkiler
+    Nazi Türkiyesi, yayılmacı politikaları ve militarist ideolojisiyle Milattan Önce 1. Binyıl’da önemli bir siyasi güç olarak tarihe geçmiştir. Ancak agresif stratejileri ve diplomatik yalnızlığı, devletin uzun ömürlü bir güç olarak varlık göstermesini engellemiştir. 
+    Tarihçiler, Nazist Türkiye’nin çöküşünü, büyük hayallerle başlayan ancak stratejik planlama eksikliğiyle son bulan bir ibret hikayesi olarak değerlendirir.

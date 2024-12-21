@@ -3,20 +3,39 @@ Arasis Irkı
 _Burda yazan bilgiler, sunucu üzerindeki olayların üstüne kurgulanmıştır. Gerçek tarihin üstüne alternatif olarak hazırlanmış ve uygulanmıştır._
 
 
-<alt başlık> Arasis Irkının ismi kökeni                              img.map.nations.arasis
-    Arasis Irkının isimsel kökeni aslında YOKTUR. Bunun sebebi Arasislerin, geç ayrılan bir ırk olmasıdır. Irk bir türlü özgürleşememiştir.
-    Ancak Aras Muhammed MORKOÇⁱ önderliğinde kurdukları devletler neticesinde, Arasis ırkı adını almalarını sağlamıştır. Irkın bu durumu sonrasındada düzelmemiştir.
+<alt başlık> Arasis Irkının İsim Kökeni
+    Arasis Irkı’nın isimsel kökeni, tarihsel süreçte özgün bir kimlik oluşturmakta yaşadığı gecikme nedeniyle bulunmamaktadır. 
+    Arasisler, tarih boyunca birçok milletin arasında sıkışmış, özgün kültürel varlıklarını geliştirme fırsatını geç bulmuş bir topluluktur.
+    Adlarını, Aras Muhammed MORKOÇⁱ’nin liderliğiyle kurdukları devletlerin ardından almışlardır. Bu durum, Arasislerin bağımsız bir kimliğe ulaşmasını sağlamışsa da, toplumsal olarak güçlü bir aidiyet hissinin oluşturulmasında sorunlar yaratmıştır. 
+    Arasis Irkı, tarihsel bir süreçte "özgün kimliksizliğin" en önemli örneklerinden biri olmuştur.
+    Aras Muhammed MORKOÇⁱ’nin liderliği altında bu kimlik oluşturulmuş, topluluk hem kültürel hem de siyasi anlamda bir kimlik kazanmıştır. 
+    Ancak bu geç uyanış, Arasislerin tarih boyunca birçok savaş ve yıkıma karşı dirençsiz kalmalarına neden olmuştur.
 
 <alt başlık> Arasis Irkının Soyu
-    Arasis ırkı kavimler göçü sonrası avrupaya gelen kavimlerden birisidir. Ortaasyadan almanyaya yaşanan bu göç, Arasislerin diğer germen kavimlerinden ayrılmasını kısmen engellemiştir.
-    Ancak Arasisler, diğer germen kavimlerinden farklı olarak, daha çok avrupa'nın kuzey bölgelerinde toplanmışlardır. Resmen germenlerden ayrılamamaları, kültürel uyanışı geciktirmiştir.
-    Sunucu çağları başladığında, Aras Muhammed MORKOÇⁱ tarafından toplanan millet, kendi kültürel uyanışına ulaşmış, ve hızlı bir ayrılışı yaşamıştır. Aras Muhammed MORKOÇⁱ tarafından bu durum yüksek bir bütçe ile desteklenmiştir.
+    Arasisler, Kavimler Göçü sırasında Asya’nın derinliklerinden Avrupa’ya ulaşan topluluklardan biri olarak dikkat çeker. Orta Asya'dan başlayan uzun yolculukları, onları Avrupa'nın Germen kavimleriyle aynı coğrafyada buluşturmuştur. 
+    Ancak Germen halklarının aksine, Arasisler daha kuzey bölgelerine yönelmiş ve Avrupa’nın kıyılarına yakın alanlarda yerleşmiştir.
+    Bu farklılaşma, kültürel yapılarında önemli izler bırakmıştır. Germenlerin merkeziyetçi ve savaşçı yapısı Arasislerde daha çok bölgesel uyum ve çevresel adapte olma olarak kendini göstermiştir. 
+    Bununla birlikte, Germen topluluklarıyla kaynaşmaları, Arasis Irkı’nın özgün bir kültürel yapıya ulaşmasını engellemiş ve onları, daha çok Germen alt gruplarından biri olarak değerlendirilme tehlikesiyle karşı karşıya bırakmıştır.
+    Sunucu çağları başladığında, Aras Muhammed MORKOÇⁱ’nin liderliğiyle topluluk, Germenler ve diğer milletlerden ayrılarak bağımsız bir kültürel kimlik kazanmıştır. Bu süreç, geniş maddi kaynakların ve büyük bir liderlik becerisinin bir araya gelmesiyle desteklenmiştir. 
+    Arasisler, bu dönemde hızla kültürel, ekonomik ve askeri anlamda bağımsız bir millet haline gelmişlerdir.
 
-<alt başlık> Arasis Irkının yönetimde olduğu devletler
-    Nasyonel Sosyalist Arasistan Diktatörlüğüⁱ
-    Nasyonel Sosyalist Türk Diktatörlüğüⁱ
+<alt başlık> Arasis Irkının Yönetimde Olduğu Devletler
+    1. Nasyonel Sosyalist Arasistan Diktatörlüğü
+    Bu devlet, Arasis Irkı’nın tarih sahnesine güçlü bir şekilde çıkışını simgeleyen en önemli oluşumdur. Avrupa’nın orta kesimlerinde kurulan bu devlet, Arasislerin askeri yeteneklerini ve organizasyon becerilerini sergileyerek kısa sürede bölgesel bir güç haline gelmiştir.
 
-<alt başlık> Arasis Irkının Kültürel Mirası
-    Arasisler, büyük bir hüzünle, pre-çağlardaⁱ yok olmuştur. Nasıl yok oldukları tam olarak bilinmesede, tahminler, Arasislerin ülkeleri ikince kere yıkıldıktan sonra, Türkiye üstünden komşu ülkelere göç ettiklerini gösteriyor.
-    Bu aşamada kültürel miraslarını taşıyabilecek milletler, sırasıyla; Türkiye, Belçika, Suriye, Avusturya ve Kuzey Almanya'dır.
+    2. Nasyonel Sosyalist Türk Diktatörlüğü
+    Arasis Irkı’nın ikinci ve daha geniş topraklara yayılan devleti, liderlerinin Türkiye’ye göç etmesiyle kurulmuştur. Bu devlet, Orta Doğu’dan Orta Asya’ya kadar geniş bir coğrafyayı kontrol altına almış, Türk milliyetçiliğiyle Arasis kültürünü harmanlayarak güçlü bir yönetim modeli oluşturmuştur.
+Her iki devlet de Arasis Irkı’nın askeri başarıları ve yayılmacı politikalarıyla özdeşleşmiş, ancak yoğun savaşlar ve diplomatik yalnızlık nedeniyle çöküşe sürüklenmiştir.
 
+<alt başlık> Kültürel Mirasın Etkilediği Ülkeler:
+    Türkiye: Arasis kültürünün en yoğun şekilde etkilendiği bölge olarak bilinir. Dil, mimari ve askeri strateji açısından Türk kültürüne katkılar sağlanmıştır.
+    Belçika: Arasislerin Avrupa’daki etkileri arasında yer alır. Özellikle tarım ve zanaat becerileriyle yerel kültürü şekillendirmişlerdir.
+    Suriye: Göç yolları sırasında etkiledikleri bir diğer önemli bölgedir. Askeri organizasyon becerileri ve ticaret stratejileri bu bölgede kalıcı etkiler bırakmıştır.
+    Avusturya: Arasislerin Germen kökenine olan bağlantılarının sürdüğü bölgelerden biridir.
+    Kuzey Almanya: Arasislerin göçleri sırasında ilk yerleştikleri bölgelerden biri olan Kuzey Almanya, onların kültürel izlerini taşımaya devam etmiştir.
+
+<alt başlık> Kültürel Özellikler:
+    Mimari: Arasis mimarisi, sağlam ve işlevsel yapılarla öne çıkmıştır. Savaş sırasında kolay savunulabilir yapılar inşa etme becerileri, onların askeri mimari alanında yenilikçi bir millet olmasını sağlamıştır.
+    Dil: Arasis Türkçesi, hem Türkçe hem de Germen dilleri üzerinde etkiler bırakan bir dildir. Bu dil, Türk milliyetçiliğinin yükselişiyle birlikte Nazi Türkiyesi döneminde yeniden canlandırılmıştır.
+    Askeri Strateji: Arasislerin hızlı hareket kabiliyeti ve esnek savunma stratejileri, savaş tarihine önemli katkılarda bulunmuştur.
+    Arasislerin yok oluşu, güçlü devletlerin baskısı ve iç savaşların etkisiyle gerçekleşmiş, ancak geride bıraktıkları kültürel miras, etkiledikleri milletler tarafından kısmen yaşatılmaya devam etmiştir.

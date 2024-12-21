@@ -1,8 +1,6 @@
 Swaführer Aras
 Aras Muhammed MORKOÇ, 2019-2020 de katıldı.
 
-Sunucunun kurulduğu çağda, her oyuncuya eşit toprak bölüştürülmesi yapıldığı için, kendi bölgesine kurulmuştur.
-
 <tablo>
     *Oyunda bulunma süresi*             Eternicalⁱ
     *taç giymesi*                       MC.O. 2. binyılⁱ
@@ -11,19 +9,39 @@ Sunucunun kurulduğu çağda, her oyuncuya eşit toprak bölüştürülmesi yap�
     *Ünvanıⁱ*                           Swaführer
 <tablo /end>
 
-Sunucunun kurulması aşamasında diplomatik anlaşmazlıklarla alakalı çoğu kuralın konulmasında rol almıştır, Bu konuda konulan kuralların sağlamlığı bu kuralları kalıcılaştırmıştır.
-<alıntı karesi: "7.1 Antlaşmalarda, antlaşma tarafları, maddeleri ve tarafların antlaşmayı bozma sonucu ödeyecekleri veya yapacakları son olaraksa antlaşma süresi antlaşmada belirtilmelidir.">
-Sunucunun fikir babası olarak Mr. Elciⁱ'ye yol gösterici olmuştur. Sonraki çağlarda soyut oyuncu olarak sunucudaki devletlerle alakalı stratejik planlarda oyun kuruculuğu üstlenmiştir.
-<alıntı karesi: "Adam resmen heryerde ###, birisine saldırıyoruz ve 3 gün sonra 8 kişi birden saldırıyorlar." $- Uygar>
+<h2> Sunucudaki Diplomatik Anlaşmazlıklar ve Aras Muhammed MORKOÇ’un Rolü
+    Sunucunun ilk aşamalarında ortaya çıkan diplomatik anlaşmazlıklar, oyuncular arasında ciddi çatışmalara yol açabilecek potansiyel taşıyordu. 
+    Bu durum, taraflar arasındaki anlaşmazlıkları önlemek ve çatışmaları en aza indirmek amacıyla kapsamlı bir dizi kuralın oluşturulmasını zorunlu kıldı.
+    Aras Muhammed MORKOÇ, bu süreçte kritik bir rol üstlenerek kuralların temel çerçevesini belirlemiş ve sunucu tarihinin en sağlam diplomatik altyapılarından birinin kurulmasına önayak olmuştur.
+    Aras’ın liderliğiyle şekillenen bu kurallar, oyuncular arasında uzun süreli barış ve işbirliğini mümkün kılmıştır. Öyle ki, sunucunun en temel diplomatik metinlerinden biri olan 7.1 Antlaşmalar Maddesi onun rehberliği ile ortaya çıkmıştır:
+    <alıntı karesi> "7.1 Antlaşmalarda, antlaşma tarafları, maddeleri ve tarafların antlaşmayı bozma sonucu ödeyecekleri veya yapacakları son olaraksa antlaşma süresi antlaşmada belirtilmelidir."
+    Bu düzenlemeler, diplomasiye dayalı ilişkileri daha istikrarlı hale getirmiş ve pek çok devlet tarafından uygulanabilir standartlar olarak benimsenmiştir. 
+    Bu kuralların sağlamlığı, sunucu tarihindeki pek çok anlaşmazlığı çözmekle kalmamış, aynı zamanda diplomatik uygulamaları kalıcılaştırmıştır.
 
-ayrıca bakınız:
-<açılır kapanır paragraf> Ünvanını alma sebebi
-    Aras Muhammed MORKOÇ'un resmi bir ünvanı dışında bulunan lakabı, bize tarihi hakkında bilgi verebilir. Swaführer ünvanı, nispeten yeni bir ünvandır.
-    <alıntı karesi: "Nazi Türkiyesi, sunucuya uzun bir süre boyunca gelmiş son faşist devletti. Ankarada Atilla Romaⁱ'sının bayrağınının dalgalandığı gün, Faşistler için olabilcek son gündü." -MrElci>
-    Bu ünvanından önce kullandığı "Letzfuhrer¹" ünvanı, onun sunucuya gelen son faşist olduğunu noktalamak için verilmişken; pre-sunucu dönemindeⁱ yükselişe geçen otoriter rejimlerle Aras, *Swaführer* ünvanına layık görülmüştür.
-<açılır kapanır paragraf> Lakabı
-    Aras Muhammed MORKOÇ'a, giydiği mor mont nedeniyle, yakın çevresinde Mormont denmiştir, hatta bir süre sonra; bu mont bir aile geleneği haline gelmiş, ve lakabı kalıcı olmuştur.
-<açılır kapanır paragraf> Remzi Kapanⁱ Meselesi
-    ###<YAPILICAK>###
-<açılır kapanır paragraf> MC.S. 2.B.Y. 1. Dünya savaşındaki rolü
-    ###<YAPILICAK>###
+<h2> Mr. Elci’ye Yol Gösterici Olarak Aras Muhammed MORKOÇ
+    Sunucunun fikir babası olarak bilinen Mr. Elciⁱ, pek çok konuda Aras Muhammed MORKOÇ’un rehberliğinden yararlanmıştır. 
+    MORKOÇ, stratejik planlamalar ve diplomatik düzenlemeler konusunda oyun kurucu rolünü üstlenmiş, sonraki çağlarda soyut oyuncu olarak etkisini sürdürmüştür.
+    Bu etkisi, sadece diplomatik kurallarla sınırlı kalmamış; aynı zamanda savaş stratejilerinde ve ittifak planlamalarında da kendini göstermiştir. 
+    Uygar adlı oyuncunun şu sözleri, MORKOÇ’un stratejik etkisinin boyutunu açıkça ortaya koymaktadır:
+        <alıntı karesi> "Adam resmen heryerde ###, birisine saldırıyoruz ve 3 gün sonra 8 kişi birden saldırıyorlar."
+    Bu sözler, MORKOÇ’un sadece kendi devletini değil, diğer oyuncuların da stratejilerini etkileme kapasitesine sahip olduğunu kanıtlar niteliktedir.
+
+Ayrıca bakınız:
+
+<açılır kapanır pencere> Ünvanını Alma Sebebi
+    Aras Muhammed MORKOÇ’un taşıdığı Swaführer ünvanı, onun sunucu tarihindeki otoriter rejimlerle olan ilişkisini ve liderlik yeteneklerini yansıtır. 
+    Bu ünvan, Aras’ın Nazi Türkiyesi gibi son faşist rejimlerden birini kurarak tarihteki yerini sağlamlaştırmasından sonra verilmiştir.
+    Bu bağlamda Mr. Elciⁱ’nin şu sözleri oldukça anlamlıdır:
+
+        "Nazi Türkiyesi, sunucuya uzun bir süre boyunca gelmiş son faşist devletti. Ankara’da Atilla Romaⁱ’sının bayrağının dalgalandığı gün, faşistler için olabilecek son gündü."
+
+    Aras’ın, Swaführer ünvanını almasından önceki "Letzfuhrer" ünvanı, onun son faşist devlet lideri olarak tanınmasını ifade etmektedir. 
+    Ancak otoriter rejimlerin pre-sunucu dönemindeⁱ yükselişe geçmesi, Aras’ın liderlik özelliklerini uluslararası arenada daha fazla ön plana çıkarmış ve onun Swaführer olarak anılmasını sağlamıştır.
+
+<açılır kapanır pencere> Lakabı: Mormont
+    Aras Muhammed MORKOÇ’un "Mormont" lakabı, giydiği mor monttan gelmektedir. Yakın çevresi tarafından sıkça kullanılan bu lakap, zamanla bir aile geleneği haline gelmiştir. 
+    Aras’ın giydiği mor mont, sadece bir giysi olmaktan öte, onun kişisel tarzını ve karizmasını yansıtan bir sembol haline gelmiştir. Öyle ki, bu lakap yalnızca MORKOÇ’un çevresinde değil, tüm sunucu tarihinde tanınan bir sembol olarak kalmıştır.
+
+    Mor mont, MORKOÇ ailesinin sonraki nesillerinde de giyilmeye devam edilmiş ve bu durum, lakabın kalıcılaşmasına katkı sağlamıştır. 
+    Sunucu tarihinde "Mormont" adı, Aras Muhammed MORKOÇ’un güçlü liderliğini ve benzersiz karakterini temsil eden bir anı olarak varlığını sürdürmektedir.
+
