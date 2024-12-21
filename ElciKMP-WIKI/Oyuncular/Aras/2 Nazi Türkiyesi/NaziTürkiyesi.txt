@@ -1,0 +1,23 @@
+Nazi Türkiyesi (Milattan önce 1. Binyıl)
+Resmi adıyla *Nasyonel Sosyalist Türk Diktatörlüğü*
+
+_(Arasis Türkçesi ile: Nasionel Sotioli Türkie Diktasi)_
+
+
+<tablo>
+    img.flag.naziarasistan - img.coatofarms.naziarasistan
+    img.map.MCO1.naziarasistan
+    *Başkenti*              Ankara (!)
+    *Resmi Dil*             Türkçe / Arasis Türkçesiⁱ
+    *Demonim*               Türki / Arasi
+    *Hükümet*               Milliyetçi Türk Partisi - Tek Parti Rejimi
+    *İdeoloji*              Militarizm / Türk Milliyetçiliği - Katı Sağ
+    *Kurucu Başkanı*        Aras Muhammed MORKOÇⁱ
+    *Yüz Ölçümü*            6,936,223 km²
+    *Nüfus*                 409.9 milyon
+    *Ekonomik Sıralaması*   12
+    *Askeri Sıralaması*     2
+    *Çağ Dilimi*            MC.O. 1. BYⁱ
+    *Ömür*                  500 yıl⁓
+<tablo /end>
+

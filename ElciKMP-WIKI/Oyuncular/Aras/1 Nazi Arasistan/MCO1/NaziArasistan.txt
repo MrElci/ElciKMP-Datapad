@@ -1,10 +1,10 @@
-Nazi Arasistan (Milattan önce 2. Binyıl)
+Nazi Arasistan (Milattan önce 1. Binyıl)
 Resmi adıyla *Nasyonel Sosyalist Arasis Diktatörlüğü*
 
 _(Arasis Almancasıyla: Nationalsozialistische Arasis-Diktatur)_
 
-Avrupa kıtasında, orta Avrupada bir devlet. Doğusunda kendi vasallarınında ötesinde IBFIⁱ, batısında Fransa, Kuzeyinde ise Sverige Kapitalist İmparatorluğuⁱ ile sınır komşusudur. Kuzey denizi ve baltık denizine sınırdır. 
-Ülke, coğrafi olarak ılıman iklim kuşağında yer alır, Ren ve Tuna nehri devlete can veren şeylerden biridir. 
+Nazi Arasistan, Avrupa'nın orta kesiminde konumlanan, Milattan Önce 2. Binyıl’da varlık göstermiş bir devlettir. Devletin doğusunda vasalları ve IBFI, batısında Fransa, kuzeyinde ise Sverige Kapitalist İmparatorluğu ile sınırları bulunmaktadır. 
+Kuzey Denizi ve Baltık Denizi'ne kıyısı olan bu devlet, stratejik ve coğrafi avantajlarıyla dikkat çekmiştir. Ren ve Tuna nehirleri, ülkenin ekonomik ve sosyal yaşamının temelini oluşturmuştur.
 
 <tablo>
     img.flag.naziarasistan - img.coatofarms.naziarasistan
@@ -22,12 +22,29 @@ Avrupa kıtasında, orta Avrupada bir devlet. Doğusunda kendi vasallarınında 
     *Ömür*                  350 yıl⁓
 <tablo /end>
 
-Nazi Arasistan, sunucunun fikir babası Aras Muhammed MORKOÇⁱ tarafından kurulan, sunucunun devletidir.
-<alt başlık> Güçlenme dönemi
-Nazi Arasistan kıtaya kurulan devletlerin kıtayı bölüşmesi sırasında kurulan dengeyi bozan devletlerden biridir, devletin büyümesi hızlı ve ani olmuş, bu durumda rakiplerini hazırlıksız yakalamasında avantaj sağlamıştır.
-Kıtada Arasislerle ilk anlaşmazlık Devleti Alliye ile yaşanmış ve Arasisler, Xenianlarⁱ ile anlaşmaya oturarak Devleti Alliye Koalisyonⁱ savaşlarını başlatmıştır.
-Devletin güç savaşındaki baş düşmanı Xenia İmparatorluğuⁱ, bu durum karşısında boyun eğme yolunu tercih etsede, şartlar konusunda uyumsuzluk yaşanması Xenia Akınlarınıⁱ başlatmıştır.
-Swenskaⁱ devletinin kurulmasının ardından Nasyonel Sosyalist Devletlerⁱ ittifakının kurulmasında yer alan Nazi Arasistan hükümeti, çağ sonuna kadar denge politikasını sürdürmüştür.
 
-Ayrıca bakınız:
-###<YAPILACAK>###
+Tarihçe
+
+<altbaşlık> 1. Kuruluş ve İlk Savaşlar
+Nazi Arasistan, yeni dünya düzeninde kurulan bir güç merkezi olarak başlangıçta yabancı devletlerin gözünde marjinal bir konumdaydı. 
+Ancak kısa sürede bölgede etkin bir askeri güç olarak öne çıktı. Kurucu lider Aras Muhammed MORKOÇⁱ'un vizyonuyla Nasyonel Sosyalist ideolojiyi benimseyen devlet, çevresindeki düşmanlarına karşı agresif bir politika izledi. 
+Xenia İmparatorluğuⁱ ile yapılan savaşlarda aktif rol alarak kurulmaya çalışan Atilla Romasıⁱ’na askeri destek sağlamasada dolaylı olarak kendi düşmanını beslemiştir.
+
+<altbaşlık> 2. Yayılma ve Toprak Kazanımları
+Xenian savaşlarınınⁱ ardından Nazi Arasistanⁱ, Slovakya ve Avusturya’yı vasal statüsüne alarak gücünü pekiştirdi. Batıda ise Fransa’dan önemli topraklar alarak sınırlarını genişletti. 
+IBFIⁱ ile yaptığı stratejik anlaşmalar neticesinde Kaliningrad ve Belarus'u satın aldı. Daha sonra Litvanya’yı fethederek Baltık bölgesindeki hâkimiyetini ilan etti. Ancak bu hakimiyet sadece 1 yıl sürdü.
+
+img.map.vassal.naziarasistan
+
+<altbaşlık> 3. Devleti Alliye ve Sverige Savaşları
+Güçlenen Nazi Arasistanⁱ, DASCⁱ ve SKIⁱ arasındaki savaşlara da müdahil oldu. Bu savaşlarda sergilediği başarılı stratejilerle bölgedeki dengeyi lehine çevirmeyi başardı. 
+Ancak bu çatışmalar, devletin insan gücü ve kaynakları üzerinde büyük bir yük oluşturdu.
+
+<altbaşlık> 4. Çöküş ve Yıkılış
+Atilla Roması’nın yükselişiyle birlikte Nazi Arasistan iç sorunlarla boğuşmaya başladı. Alman ve Leh muhaliflerin önderliğinde çıkan büyük çaplı isyanlar, devletin siyasi ve askeri yapısını sarstı. 
+İsyanların sonunda Nazi Arasistan, 350 yıllık bir egemenliğin ardından tarih sahnesinden silindi.
+
+Ayrıca bakınız;
+<Açılır kapanır başlık> Coğrafya ve İklim
+Ilıman iklim kuşağında yer alan Nazi Arasistan, verimli toprakları ve bol su kaynaklarıyla tarım ve hayvancılık açısından önemli bir potansiyele sahipti.
+Ren ve Tuna nehirleri, ticaret ve tarımın gelişiminde hayati rol oynadı. Kuzey Denizi ve Baltık Denizi’ne kıyısı sayesinde deniz ticaretinde stratejik bir konuma sahipti.
