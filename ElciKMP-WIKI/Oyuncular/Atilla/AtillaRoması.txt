@@ -1,0 +1,73 @@
+Atilla Roması
+Resmi adı ile §4 §l Atilla Roman İmparatorluğu
+§o  (İtalyancası ile: Atil impero romano)
+
+Coğrafi Konum
+
+Atilla Roması, Avrupa ve Akdeniz bölgesinde stratejik bir konuma sahiptir. Kuzeyinde Almanya, Avusturya Krallığı, Belçika ve Hollanda bulunurken; doğusunda Nazi Türkiyesi, Yunanistan’daki Sverige kolonisi ve güneydoğusunda Mısır Sverige sömürgesi ile sınır komşusudur.
+Akdeniz boyunca yayılan bu geniş imparatorluk, deniz ve kara ticareti açısından önemli avantajlara sahiptir.
+
+<tablo>
+    img.flag.atilroma - img.arma.atilroma §0    (Sveriege arması)
+    img.flag.atilroma.vasalSKI
+    img.map.MCO1.atilroma
+    *Başkenti*              Floransa --> Roma
+    *Resmi Dil*             İtalyan Latincesi
+    *Hükümet*               Atil Roma konsülü - Sverige Dış Ülke konsülü
+    *İdeoloji*              Mutlak Monarşi
+    *Kurucu Başkanı*        Atil Vedⁱ
+    *Yüz Ölçümü*            6,317,595 km²
+    *Nüfus*                 357 milyon
+    *Ekonomik Sıralaması*   4
+    *Askeri Sıralaması*     3
+    *Çağ Dilimi*            MC.O. 1. BYⁱ
+    *Ömür*                  600 yıl⁓
+<tablo /end>
+
+<h2> Kuruluş ve İlk Yıllar
+    Atilla Roması, Xenia ve Nazi Arasistan arasındaki uzun ve yıkıcı savaşların ardından doğan bir devlettir. 
+    Xenia'nın yenilgisi ve dağılışından faydalanan Atil Ved, bu kaotik dönemde bir ayaklanma başlatarak Atilla Roması’nın temelini atmıştır. 
+    Kuruluşunun hemen ardından, Xenia’nın kuzeydeki son hükümetine karşı hızla harekete geçen Atil Ved, devleti tamamen yıkarak kendi otoritesini sağlamlaştırmıştır.
+    İlk yıllarında Atilla Roması, Nazi Arasistan’ın zayıflığından faydalanarak, himaye altındaki Fransa’ya odaklanmış ve bölgede yeni bir güç dengesi oluşturmayı hedeflemiştir. 
+    Nazi Arasistan’ın iç işlerini kontrol etmekte başarısız olması, Atilla Roması’nın bölgedeki demokratik hareketleri desteklemesiyle sonuçlanmıştır. 
+    Ancak bu hareketler, bölgedeki güç dengesini tehdit ettiği için Sverige Kapitalist İmparatorluğu’nun tepkisini çekmiştir. 
+    Sverige, Nazi Arasistan’ın bütünlüğünü savunmuş, ancak bu durumu engelleyememiştir.
+
+<h2> Sverige’nin Ambargosu ve Roma’nın Ekonomik Çöküşü
+    Atilla Roması’nın bölgede güçlenmesi üzerine Sverige Kapitalist İmparatorluğu, ekonomik ambargolar uygulamaya başlamış ve bu ambargolar kısa sürede Roma ekonomisini felç etmiştir. 
+    Ekonomik kriz, halkın güvenini sarstığı gibi, devletin uluslararası arenadaki itibarını da zedelemiştir. 
+    Nazi Türkiyesi’nin kurulmasıyla birlikte Sverige, ambargoyu kaldırmak için şartlarını sunmuş ve bu şartlar doğrultusunda Atilla Roması’nın yönetiminin üzerine bir Sverige Vasal Yönetim Kurulu atanmıştır.
+    Bu gelişme, Atilla Roması’nın yarı bağımsız bir koloni haline gelmesine neden olmuş ve devletin siyasi yapısını kalıcı olarak değiştirmiştir. 
+    Ancak, Roma’nın Avusturya üzerine ilerlemesi ve Nazi Türkiyesi ile olan agresif ilişkileri, yeni bir çatışma dönemini başlatmıştır.
+
+<h2> Latin-Türk Akınları ve Büyük Latin-Türk Savaşı
+    <h3> Latin-Türk Akınları
+        Atilla Roması ile Nazi Türkiyesi arasındaki sınır değişimlerine ve yoğun çatışmalara sahne olan bu dönem, iki güç arasında büyük bir düşmanlık yaratmıştır. 
+        Sverige Kapitalist İmparatorluğu’nun desteğiyle tonlarca silah satın alan Atilla Roması, bu dönemde askeri gücünü artırmış ve büyük çaplı akınlar gerçekleştirmiştir:
+        §l Birinci Latin Akını: §r Batı Trakya’nın ele geçirilmesiyle sonuçlanmıştır.
+        §l İkinci Latin Akını: §r Bulgaristan’ın kaybedilmesine neden olmuştur.
+        §l Üçüncü Latin Akını: §r İstanbul’un düşmesiyle sonuçlanmış, Roma için büyük bir zafer olmuştur.
+        §l Dördüncü ve Beşinci §r Latin Akınları: Bu akınlar, önceki mücadelelerin tekrarı niteliğinde olmuş ve sınırların sürekli değişmesine yol açmıştır.
+
+    <h3> Büyük Latin-Türk Savaşı
+        Bu dönemin zirvesi, Nazi Türkiyesi’nin büyük bir taarruz başlatmasıyla başlayan ve tüm dünyayı etkileyen Büyük Latin-Türk Savaşı olmuştur. 
+        İki tarafın ittifakları savaşı daha da büyütmüş, dünya çapında yıkıcı bir etki yaratmıştır:
+        §l Nazi Türkiyesi Tarafı: §r İnek Bayram Federe İmparatorluğu ve Avusturya Krallığı.
+        §l Atilla Roması Tarafı: §r Kazak Hanlığı ve Alman Demokrat Cumhuriyeti.
+
+        Savaşın en kritik anlarından biri, Trakya cephesinde Türk ordusunun kapana kısılması ve İstanbul'da bekleyen ordunun lojistik eksiklikler nedeniyle ilerleyememesi olmuştur. 
+        Bu durumu fırsat bilen Atilla Roması, Konstantinopolis’e (İstanbul) giriş yapmış ve ardından Ankara’ya doğru ilerlemiştir.
+
+<h2> Sverige’nin Katılımı ve Roma’nın Koloni Haline Gelmesi
+    Savaş sırasında Atilla Roması, Yunan Sverige kolonisinde bulunan Elci’ye bir antlaşma taslağı önerdi. 
+    Bu antlaşmanın kabul edilmesiyle Sverige resmen savaşa katılmış, bu katılım Atilla Roması’nın zafer kazanmasını sağlamıştır. 
+    Ancak, bu zaferin sağladığı ekonomik ve askeri başarı kısa süreli olmuştur.
+    Savaşın ardından Atilla Roması tamamen bağımsızlığını yitirerek Sverige’nin doğrudan kontrolü altına girmiştir.
+    Sverige, bu yeni kolonide geniş askeri varlık kurma hakkı kazanmış, İtalyan pazarını ucuz satışlar ve kapitülasyonlarla ele geçirmiştir. 
+    Atilla Roması, artık resmen bir Sverige kolonisi olarak varlığını sürdürmüş, ekonomik ve siyasi kontrol tamamen Sverige’nin eline geçmiştir.
+
+<h2> Sonuç ve Miras
+    Atilla Roması, Atil Ved’in karizmatik liderliğiyle güçlü bir şekilde başlamış ve Avrupa’nın en büyük güçlerinden biri haline gelmiştir. 
+    Ancak, Sverige’nin etkisi ve Nazi Türkiyesi ile olan yoğun çatışmalar, Roma’nın zayıflamasına ve nihayetinde kolonileşmesine yol açmıştır. 
+    Atilla Roması, tarih sahnesinden çekilirken, ardında sürekli değişen sınırlar, yıkıcı savaşlar ve derin bir kültürel miras bırakmıştır.
+    Bu imparatorluk, siyasi ve askeri alanda olduğu kadar, diplomatik denge oyunlarında da iz bırakmış ve tarihçiler tarafından "bağımsızlığını koruyamayan büyük güçlerin sembolü" olarak tanımlanmıştır.
