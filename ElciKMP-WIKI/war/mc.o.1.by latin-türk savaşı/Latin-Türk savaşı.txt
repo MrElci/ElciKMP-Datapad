@@ -1,0 +1,113 @@
+§l Büyük Latin-Türk savaşı 
+<tablo>
+    §l Taraflar:
+    <sağ ve sola olucak şekilde>          S.O.      S.S
+    Nazi Türkiyesi                      400.000     950.000
+    İnek Bayram Federe İmparatorluğu    250.050     50.000
+    Avusturya Krallığı                  200.000     400.000
+
+    Atilla Roması                       350.000     400.000
+    Kazak Hanlığı                       200.000     400.000
+    Alman Demokrat Cumhuriyeti          300.000     250.000
+<tablo /end>
+
+<tablo>
+    Batı Cephesi:
+        §l Taraflar:
+        Nazi Türkiyesi: 200.000
+        
+        Atilla Roması:  350.000
+
+        §l Komutanlar:
+
+        Nazi Türkiyesi: Atarlı Cihangir
+                        Polat Alemdar
+                        Aras Mormont
+
+        Atilla Roması:  İskender
+                        Byzantine
+                        Atilla Ved
+                        Belisarius
+    
+    Doğu Cephesi (Sverige katıldıktan sonra)
+        §l Taraflar:
+        Nazi Türkiyesi: 400.000
+        
+        Sverige Kapitalist İmparatorluğu: 3.500.000
+
+        §l Komutanlar:
+
+        Nazi Türkiyesi: Pala
+                        Sempatuco
+                        İbrahim yıkılmaz
+                        Icardi
+        
+        Sverige:        Rahil Şerif
+                        Madappa Cariappa
+                        Subayya Thimayya
+                        S. Mallannah
+                        Azad Keşmir
+                        Tikka Khan
+                        Sam Manekshaw
+                        MAG Osmani
+        §l Kayıplar:
+        Nazi Türkiyesi: 400.000 asker 
+                        20 bin teçhizat
+        Sverige:        15 bin asker
+<tablo /end>
+
+<h2> §l Savaşın Başlangıcı
+
+    Büyük Latin-Türk Savaşı, Nazi Türkiyesi’nin geniş çaplı bir taarruz başlatmasıyla patlak vermiştir. 
+    Balkanlarda hızla yayılan Türk kuvvetleri, Bulgaristan ve Sırbistan’ı hedef alarak bölgedeki Latin güçlerini geri çekilmeye zorlamıştır. 
+    Ancak Atilla Roması, Sverige Kapitalist İmparatorluğundan satın alınan askeri erişimle, stratejik bir karşı saldırı planı hazırlamış ve savaşı tamamen başka bir boyuta taşımıştır.
+
+<h2> §l Balkan Cephesi: Türk Ordusunun Çemberde Kalışı
+
+    Atilla Roması ordusu, Sverige'den askeri geçiş izinleri alarak Yunanistan üzerinden Trakya’ya saldırıya geçti. 
+    Bu hamle, Türk ordusunu Balkanlar’da sıkışmaya zorladı. Romalılar, Trakya cephesindeki Türk ordusunu iki taraftan kıskaca almayı başardı. 
+    Bu stratejik başarı, Nazi Türkiyesi’nin Balkanlarda büyük toprak kayıplarına yol açtı.
+
+    Ancak bu sırada güney cephesinde Nazi Türkiyesi için büyük bir felaket yaşandı. 
+    Kıbrıs’tan İsrail’e çıkarma yapan Türk ordusu, tarihindeki en büyük bozgunlardan birini yaşadı ve bu başarısızlık savaşın gidişatını Nazi Türkiyesi aleyhine çevirdi.
+
+<h2> §l Hindistan Hatası: Türkiye’nin Stratejik Çöküşü
+
+    Nazi Türkiyesi’nin savaşta yaptığı en büyük stratejik hata, Hindistan’a yönelik devasa bir saldırı planını uygulamaya koyması oldu. 
+    Hindistan’a giren 200 bin kişilik Türk ordusu, bölgedeki Roma kolonilerinden gelebilecek saldırıları durdurmayı amaçladı. 
+    Ancak burada bir sorun vardı: Hindistan’da Romalı hiçbir askeri birlik bulunmuyordu.
+    Bu saldırıyı kendisine tehdit olarak algılayan Sverige, Hindistan’daki 3 milyonu aşan devasa gücünü harekete geçirdi. 
+    Bu ordu, Türk kuvvetlerini önce Afganistan’dan, ardından aynı hızla İran’dan püskürttü. 
+    Türkiye’nin kaynaklarını tüketen bu hata, güneyde ve batıda savunma hatlarının çökmesine neden oldu.
+
+<h2> §l Ankara ve Kerkük Kuşatmaları
+    Sverige, İran ve Afganistan’da zafer kazandıktan sonra, iki ana cepheden Nazi Türkiyesi’nin kalan topraklarına ilerledi.
+
+        Mısır üzerinden: 3 milyonluk kuvvetle doğrudan güneyden saldırıya geçti.
+        Yunanistan üzerinden: Aynı büyüklükte bir kuvvetle batı cephesine yoğunlaştı.
+
+    Bu saldırılar sonucunda Nazi Türkiyesi, başkentini ve parti yönetimini Kerkük’e taşımak zorunda kaldı. 
+    Ancak bu hareket, Nazi Türkiyesi’nin daha da zayıflamasına neden oldu. Kerkük, kısa bir süre sonra 6 milyonluk Sverige ordusu ve 400 binlik Atilla Roması ordusunun saldırısıyla düştü.
+    Ankara ise Nazi Türkiyesi’nin son savunma noktası olarak direnişini sürdürdü. 
+    Başkentte 200 bin Arasis ve Türk askeri, devasa büyüklükteki düşman kuvvetlerine karşı savaşmaya devam etti. 
+    Günlerce süren çarpışmalara rağmen, Ankara doğrudan düşmedi, ancak ağır kayıplar nedeniyle teslim olmak zorunda kaldı.
+
+<h2> §l Savaşın Sonuçları ve Etkileri
+
+    Nazi Türkiyesi’nin Çöküşü:
+    Savaşın ardından Nazi Türkiyesi tamamen yıkıldı. Ülke, siyasi ve askeri olarak tarihten silindi, toprakları Sverige ve Atilla Roması arasında paylaşıldı.
+    Arasis halkı ve Türkler, bu yenilgiden sonra tarih sahnesinde bağımsız bir güç olarak varlıklarını sürdüremedi.
+
+    Atilla Roması’nın Vasallaşması:
+    Her ne kadar savaşı kazanan tarafta yer alsa da, Atilla Roması, Sverige’nin ağır ekonomik ve siyasi etkisi altına girdi. 
+    Sverige, Roma topraklarını tamamen kolonileştirerek İtalyan pazarını ele geçirdi ve ülkenin siyasi yönetimini kontrol etmeye başladı.
+
+    Sverige’nin Egemenliği:
+    Sverige Kapitalist İmparatorluğu, bu savaştan en kârlı çıkan taraf oldu. 
+    Savaş sırasında askeri üstünlüğünü ve diplomatik gücünü pekiştiren Sverige, hem İtalya’yı hem de eski Nazi Türkiyesi topraklarını etkili bir şekilde sömürgeleştirdi.
+
+<h2> §l Tarihi Anlam ve Miras
+    Büyük Latin-Türk Savaşı, dünya tarihinin en büyük güç mücadelelerinden biri olarak kabul edilir. 
+    Savaş, yalnızca iki büyük taraf arasında bir rekabet olarak kalmamış, aynı zamanda dünya siyasetinde büyük değişimlere yol açmıştır. 
+    Nazi Türkiyesi’nin çöküşü ve Atilla Roması’nın vasallaşması, Türkiye ve Roma bölgelerinin uluslararası güç dengesindeki rolünü büyük ölçüde değiştirmiştir.
+    Bu savaş, askeri stratejilerin hatalı uygulanmasının ve büyük ittifakların savaşın sonucunu nasıl etkileyebileceğinin çarpıcı bir örneği olarak tarihte yerini almıştır.

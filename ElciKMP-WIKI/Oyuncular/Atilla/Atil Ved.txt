@@ -1,0 +1,11 @@
+§4 Atil Ved
+§o Atilla Ved, Oyuna katılma tarihi belirtilmek istenmemiştir.
+
+<tablo>                                                                     img.person.atilved
+    *Oyunda bulunma süresi*             Bir binyıl
+    *taç giymesi*                       MC.O. 1. Binyılⁱ
+    *Hanedanⁱ*                          §l yok
+    *Simgesel Devletiⁱ*                 Atilla Romasıⁱ
+    *Ünvanıⁱ*                           §l yok
+<tablo /end>
+
