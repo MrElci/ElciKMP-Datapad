@@ -1,0 +1,57 @@
+Xenia United Empire 
+Resmi adıyla: §3 §l Xenia Batı ve Doğu Birleşmiş İmparatorluğu
+§o (Xenian İtalyancası ile: Imperof Unit on dian Xenia)
+
+Xenia United Empire, Avrupa ve Kuzey Afrika bölgelerinde stratejik bir alanda kurulmuş, geniş bir etki alanına sahip bir imparatorluktu. 
+Güneydoğusunda Devleti Aliyye, kuzeyinde Nazi Arasistan, kuzeybatısında Fransa ve güneyinde Cezayir İmparatorluğu ile sınır komşusuydu. 
+Akdeniz’in çevresinde konumlanan bu imparatorluk, ticaret ve askeri geçiş yollarını kontrol ederek bölgesel bir güç olmuştur.
+
+<tablo>
+    img.flag.xue - img.coatofarms.xue
+    img.map.MCO1.xue
+    *Başkenti*              Roma
+    *Resmi Dil*             İtalyanca , Xenian İtalyancası
+    *Demonim*               Xenian
+    *Hükümet*               Parlamento Imperiale dian Xenia (Xenia İmparatorluk Parlamentosu)
+    *İdeoloji*              Emperyalizm
+    *Kurucu Başkanı*        Xenia
+    *Yüz Ölçümü*            919,693 km²
+    *Nüfus*                 118.9 milyon
+    *Ekonomik Sıralaması*   3
+    *Askeri Sıralaması*     4
+    *Çağ Dilimi*            MC.O.1. BYⁱ
+    *Ömür*                  400 yıl ⁓
+<tablo /end>
+
+<h2> Tarihçe ve Hedefler
+    Xenia United Empire, tüm İtalyan imparatorluklarının geleneksel hedefi olan “Roma’yı yeniden kurma” idealini benimsemiştir. Bu vizyon, devletin emperyalist politikalarını ve bölgesel genişleme çabalarını yönlendiren ana unsur olmuştur. Ancak bu hedef, çevresindeki diğer büyük güçlerle düzenli bir rekabete ve çatışmaya yol açmıştır.
+
+    <h3> Düşmanları ve Çatışmalar:
+
+        Nazi Arasistan: Kuzeydeki bu güçlü devletle düzenli olarak güç mücadelesine girişmiştir. İki devlet arasındaki çatışmalar, Xenia’nın kuzeye genişleme hedefini zorlaştırmıştır.
+        Devleti Aliyye: Petrol zengini bu devletle olan ilişkiler, ekonomik ve askeri açıdan kritik bir öneme sahip olmuştur. Xenia, Devleti Aliyye’yi zayıflatmak için petrol akınlarını desteklemiştir.
+        Fransa: Xenia’nın batıya genişleme planlarında Fransa üzerine yaptığı saldırı, imparatorluk için felaketle sonuçlanmış ve bu başarısızlık, yıkılış sürecini hızlandırmıştır.
+
+<h2> Yükselişi ve Çöküşü
+    <h3> 1. Yükseliş:
+        Xenia, erken dönemlerinde Akdeniz ticaret yollarını kontrol ederek ekonomik gücünü artırmıştır. Roma’daki güçlü yönetim ve Parlamento Imperiale’nin etkili organizasyonu, imparatorluğun bölgedeki hakimiyetini sağlamlaştırmıştır.
+
+    <h3> 2. Atilla Roması’nın Kuruluşu:
+        Xenia’nın etkisi, Atilla Roması’nın Floransa’da kuruluşuyla sarsılmıştır. Xenia, bu yeni devleti engelleme konusunda başarısız olmuş ve bu durum bölgesel güç dengesini değiştirmiştir.
+
+    <h3> 3. Çöküş:
+        Sömürge çağının ortalarında Xenia, bir dizi askeri ve ekonomik başarısızlık yaşamıştır. Fransa üzerindeki genişleme çabalarının başarısızlığı, imparatorluğun kaynaklarını tüketmiş ve siyasi istikrarını bozmuştur. 
+        Atilla Roması ve Devleti Aliyye ile süregelen çatışmalar, Xenia’nın gücünü tüketmiş ve sonunda imparatorluk, kendi içindeki zayıflıklar nedeniyle yıkılmıştır.
+
+<h2> İdeolojik ve Ekonomik Yapı
+    Xenia’nın emperyalist ideolojisi, genişleme ve fetih politikalarını meşrulaştırmak için kullanılmıştır. 
+    İmparatorluk, ekonomik büyümesini Akdeniz ticaret yollarına dayandırmış ve İtalya’nın verimli tarım toprakları ile Afrika’dan gelen doğal kaynaklardan faydalanmıştır. 
+    Ancak bu sistem, askeri harcamaların artmasıyla sürdürülemez hale gelmiştir.
+
+<h2> Miras ve Önemi
+
+    Xenia United Empire, 400 yıl boyunca Akdeniz bölgesinde etkili bir güç olmuştur. Roma’yı merkez alarak oluşturduğu siyasi ve ekonomik yapı, tarih boyunca diğer devletler için bir model teşkil etmiştir. 
+    Ancak, Fransa üzerindeki başarısızlık ve Atilla Roması’nın yükselişi gibi faktörler, Xenia’nın zayıflamasına ve sonunda yıkılmasına yol açmıştır.
+
+    İmparatorluğun yıkılışı, Akdeniz’deki güç dengelerinin değişmesine ve yeni güçlerin ortaya çıkmasına zemin hazırlamıştır. 
+    Xenia, güçlü bir vizyonla kurulmuş ancak çevresel baskılar ve içsel zayıflıklar nedeniyle bu vizyonu sürdürememiştir.

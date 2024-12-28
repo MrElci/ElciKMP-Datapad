@@ -11,7 +11,7 @@ Akdeniz boyunca yayılan bu geniş imparatorluk, deniz ve kara ticareti açısı
     img.flag.atilroma - img.arma.atilroma §0    (Sveriege arması)
     img.flag.atilroma.vasalSKI
     img.map.MCO1.atilroma
-    *Başkenti*              Floransa --> Roma
+    *Başkenti*              Roma (Kuruluş: Floransa)
     *Resmi Dil*             İtalyan Latincesi
     *Hükümet*               Atil Roma konsülü - Sverige Dış Ülke konsülü
     *İdeoloji*              Mutlak Monarşi
