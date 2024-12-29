@@ -1,0 +1,17 @@
+Xenian Empires
+Resmi Adıyla: §4 §l Xenian Batı-Doğu Konfedere İmparatorlukları
+§o (Xenian ile: Xenian baruen zann xaant ulsuud)
+
+<tablo>
+    img.flag.xe - img.coatofarms.xe
+    img.map.MCO2.xue
+    *Demonim*               Xenian
+    *Kurucu Başkanı*        Xenia
+    *Yüz Ölçümü*            919,693 km²
+    *Nüfus*                 118.9 milyon
+    *Ekonomik Sıralaması*   3
+    *Askeri Sıralaması*     2
+    *Çağ Dilimi*            MC.O.2. BYⁱ
+<tablo /end>
+
+
