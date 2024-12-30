@@ -1,0 +1,10 @@
+§4 Xenia
+§o Xenia, 2020de oyuna katıldı.
+
+<tablo>                                                                 img.person.xenia
+    *Oyunda bulunma süresi*             1.5 binyıl
+    *taç giymesi*                       MC.O. 2. binyılⁱ
+    *Hanedanⁱ*                          Yok
+    *Simgesel Devletiⁱ*                 Xenia United Empireⁱ
+    *Ünvanıⁱ*                           Yok
+<tablo /end>
