@@ -1,0 +1,11 @@
+READMEFORUPDATELOG.txt added
+UPDATELOG added
+BMU 0.0.3.6m1.txt added
+
+Changes out code doc:
+
+    Take permission from Fuhreristan            ∑ not succesfull
+    Take permission from Lourxz                 ∑ succesfull
+    Edit on out theme                           ∑ succesfull
+    
+Frontend changed at background
