@@ -1,0 +1,53 @@
+İnek Bayram Federal İmparatorluğu
+Resmi adıyla §9 §l İnek Bayram Federe İmparatorluğu
+
+§o (Rusça ile: Коровий праздник Федеральная империя)
+
+<tablo>
+    img.flag.IBFI - img.coatofarms.IBFI
+    img.map.MCO1.naziturkey
+    *Başkenti*              Moskova
+    *Resmi Dil*             Rusça
+    *Demonim*               Ptrus
+    *Hükümet*               Tarafsız Halk Partisi
+    *İdeoloji*              Meşrutiyet - Neutral
+    *Kurucu Başkanı*        Efe Batur Tüysüzⁱ
+    *Yüz Ölçümü*            17.010.000 km²
+    *Nüfus*                 184,8 milyon
+    *Ekonomik Sıralaması*   18
+    *Askeri Sıralaması*     8
+    *Çağ Dilimi*            MC.O. 1. BYⁱ
+    *Ömür*                  1 Binyıl
+<tablo /end>
+
+<h2> Coğrafya ve İklim
+    17.010.000 km²'lik geniş bir yüzölçümüne sahip olan IBFI, Avrupa'nın doğusundan Asya'nın Pasifik kıyılarına kadar uzanır. 
+    Ülke; tundra, orman ve çöl bölgeleri gibi çok çeşitli coğrafi özelliklere sahiptir. 
+    En büyük şehirleri arasında Novosibirsk ve Vladivostok yer alır.
+
+<h2> Tarihçe ve Tarafsızlık Politikası
+
+    İmparatorluk Halk Birliği (IBFI), sunucu tarihinde "en tarafsız devlet" unvanını kazanan ve bu tarafsızlık politikasıyla tanınan bir devlettir. 
+    Sunucu üzerindeki güç dengelerine müdahale etmemesi ve askeri çatışmalardan uzak durmasıyla bilinir. 
+    IBFI, kurulduğu tarihten itibaren büyük jeopolitik krizlerin ve savaşların yaşandığı Kuzey İskandinavya ve Hazar Bölgeleri gibi stratejik alanlarda devasa toprak kayıpları yaşamış ancak buna rağmen hiçbir savaşa katılmamıştır.
+
+    IBFI’nin tarafsızlık politikası, dünya üzerinde savaşların kaderini değiştirebilecek bir güç olmasına rağmen, tüm çatışmalar karşısında sessiz kalmayı tercih etmesiyle sürmüştür. 
+    Özellikle Afrika’nın kolonizasyonu döneminde de bu sessizlik politikasını devam ettirmiştir. 
+    Devletin resmi sloganlarından biri olan "Barış için Sessizlik", bu tutumun halk tarafından benimsendiğini göstermektedir.
+
+<h2> Ekonomi ve SKI Kontrolü
+    İmparatorluk Halk Birliği’nin ekonomisi, uzun yıllardır SKI (Sverige Kapitalist Imperia) tarafından denetlenen ve kontrol edilen bir yapıya sahiptir. 
+    SKI’nin ekonomiyi kontrol etmesi, IBFI’nin küresel ekonomik sömürülerde yer almamasını da sağlamıştır. 
+    Devlet, Afrika, Güney Amerika ve Asya üzerindeki kolonizasyon hareketlerine ne katılmış ne de ekonomik çıkar sağlamak için herhangi bir ittifaka dahil olmuştur.
+    "Sessiz Kal, Güvende Kal" mottosu, IBFI'nin ekonomik politikasının temel taşıdır. 
+    Hiçbir ekonomik sömürü veya ticaret anlaşmasında doğrudan taraf olmaması, devletin ekonomisini güvenli ancak izole bir hale getirmiştir.
+
+<h2> Sonuç: Tarafsızlığın Bedeli
+    IBFI’nin sessiz ve tarafsız politikası, onu dünya üzerinde ilginç bir pozisyona yerleştirmiştir. 
+    Toprak kayıplarına ve ekonomik baskılara rağmen, IBFI hiçbir savaşa girmemiş ve tarih boyunca tarafsız kalmayı başarmıştır. 
+    Ancak bu tarafsızlık politikası, devletin uluslararası arenada büyük bir aktör haline gelmesini de engellemiştir.
+    Inek Bayram Federal Imperatorluğu sunucunun bir binyılı boyunca ayakta kalmıştır.
+
+    MrElci, yıllar sonra sürekli hatırlanan IBFI'nin tarafsızlık felsefesini şu sözlerle açıklamıştır:
+
+        "Savaşlar kazanılır ya da kaybedilir, ama sessizlik her zaman hatırlanır."

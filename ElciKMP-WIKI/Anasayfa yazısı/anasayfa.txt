@@ -1,10 +1,28 @@
 ElciKMP Wiki sayfasına hoşgeldiniz
 
-5 yıllık tarihi kaleme alan wiki
+Elci Datapad, KMP Minecraft sunucusunun bir arkadaş ekibi arasında 5 yıllık bir süre zarfında gelişimini, hikayesini ve topluluğunu anlatan bir wiki platformudur. 
+Amacımız, sunucu içerisinde oluşan kültürü, projeleri ve oyuncuların katkılarını detaylı ve eğlenceli bir şekilde belgeleyerek, yeni ve eski katılımcılar için sürekli güncellenen bir bilgi kaynağı sunmaktır.
 
-Bu wiki sitesinin temel amacı farklı oyunlarda, farklı kişilerle, farklı kurallarla hatta farklı haritalarla 5 yıldır oynanan Kingdom-Multiplayer (KMP) konseptinin;
-Elci kuruculuğunda yönetilen kısmının tarihini yazılı bir belge halinde eski ve yeni oyunculara sunmaktır.
+<h1> Hakkımızda
 
+Elci Datapad, KMP sunucusunun başlangıç hikayesinden bugüne kadar geçen sürecin tüm önemli detaylarını, yaratıcı projelerini ve unutulmaz anılarını içeren kapsamlı bir veri tabanıdır. Topluluğun ruhunu ve dostluk bağlarını öne çıkaran bu platform, Minecraft dünyasının sınırlarını aşarak gerçek hayat dostluklarının da pekiştiği bir yolculuğun izlerini taşır.
 
+<h1> Ana Temalar
+
+Sunucu Tarihi: Kuruluş aşamaları, ilk projeler ve önemli dönüm noktaları.
+
+Oyuncu Profilleri: Her oyuncunun sunucuya kattığı değer ve projeleri.
+
+Önemli Yapılar: İnşa edilen kaleler, şehirler, anıtlar ve gizli mekanlar.
+
+Savaşlar: Sunucu içerisinde yaşanan devasa savaşlar.
+
+Teknolojik Gelişmeler: Sunucu modları, eklentiler ve oyun içi mekanikler.
+
+Neden Elci Datapad?
+
+Bu wiki, yalnızca bir Minecraft sunucu rehberi olmanın ötesinde, bir dostluk manifestosudur. Yaratıcılığı, dayanışmayı ve ekip ruhunu öne çıkaran Elci Datapad, oyuncuların bir araya gelerek nasıl harikalar yaratabileceğini gösterir. Bu sayfalar, unutulmaz anılara ve gelecekteki maceralara kapı aralar.
+
+Elci Datapad dünyasına hoş geldiniz! Maceramız burada başlıyor ve sizinle devam ediyor.
 
 <ⁱ> linkli ifade <ⁱ>
