@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../assets/Minecraft.ttf') format('truetype'); 
+}  
+
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+  
+body{
+    font-family: "Minecraft";
+    color: azure;
+    background-color: #000000;
+}
+

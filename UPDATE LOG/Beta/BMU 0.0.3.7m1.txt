@@ -1,0 +1,6 @@
+Changelog:
+    try docs completly deleted
+    5 new html docs
+    trying new things
+    deleting bugs
+    creating bugs
