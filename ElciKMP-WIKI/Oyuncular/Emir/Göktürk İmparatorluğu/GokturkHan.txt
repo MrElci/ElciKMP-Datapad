@@ -1,0 +1,84 @@
+§2 §l Göktürk Hanlığı-İmparatorluğu
+
+Göktürk Hanlığı, Türk Yarımadası'nda kurulmuş ve zamanla çevresindeki bölgelere yayılan önemli bir ımparatorluktur. 
+Hanlık, askeri gücü, kültürel mirası ve çağ atlatan reformlarıyla tanınır.
+
+<tablo>
+    *Başkenti*              Ötüken
+    *Resmi Dil*             Kök Türkçe
+    *Demonim*               Kök Türk
+    *Hükümet*               EmiGrimes Hanedanı - Monarşi
+    *İdeoloji*              Emperyalizm
+    *Kurucu Başkanı*        EmiGrimesⁱ
+    *Ekonomik Sıralaması*   2 p - 4 l
+    *Askeri Sıralaması*     1 p - 3 l
+    *Çağ Dilimi*            MC.O. 1. BYⁱ
+    *Ömür*                  1 Binyıl
+<tablo /end>
+
+<h1> Tarihi Dönemler
+    <h2> Kabileler Çağı
+        Bu dönem, Göktürklerin Türk Yarımadası'nı tamamen ele geçirip "Türklerin Yenilmez Figürü" olarak tanındığı bir dönemi temsil eder. Dönemin en büyük olayı Leh Yağması'dır.
+
+        <h3> Leh Yağması
+
+            Göktürklerin ilk büyük savaşı olarak bilinen Leh Yağması, kısa sürmesine rağmen, Türklerin korkusuzluğunu dünyaya göstermiştir. 
+            Saldırgan Leh ordusu, Göktürklerin Ötüken'deki çadırlarına yaklaştığında, gece vakti gizlice pusuya yatmış 100 okçudan gelen çağlayan ok sesleriyle darmadağın edilmiştir. 
+            Leh ordusu, sadece bir gece içerisinde bozguna uğramış ve bu zafer, Göktürk tarihinin en önemli dönüşümü olarak kayda geçmiştir.
+
+        <h3> Eserler
+
+            Dev Hun Kalesi: Göktürklerin askeri mühendislikteki büyük başarısı.
+
+            Ötüken Çadırları: Hem savunma hem de göçebe yaşamın simgesi.
+    
+    <h2> Orta Göktürk Çağı
+        Bu dönem, hanlıkların krallıklara, imparatorluklara evrildiği ve yeni devletlerin sahneye çıktığı bir çağdır.
+
+        <h3> Göktürk İmparatorluğu
+            Hanlıktan İmparatorluğa geçiş, İmparator I. EmiGrimes'in liderliği altında gerçekleşmiş ve Göktürkler ekonomik ve kültürel zirveye ulaşmıştır. 
+            Yeni inşa edilen yollar, kaleler ve tarlalar, İmparatorluğun göz kamaştırıcı bir refaha ulaşmasını sağlamıştır.
+
+            Frank-Göktürk Savaşı:
+            Frank Krallığı'na karşı yapılan ilk yağma seferi, özellikle tarlaların yakılmasıyla Roma'nın dikkatini çekmiştir. 
+            Göktürklerin hızlı ve acımasız vuruşları, hem düşmanlarına gözdağı vermiş hem de yeni dostlukların temellerini atmıştır.
+
+        <h3> I. Roma-Göktürk Savaşı:
+            Bu savaş, Roma’nın zırhlı gürz ordusuyla Göktürk kılıç ve okçu birliklerinin çarpışmasını temsil eder. 
+            Roma, Türk kıyılarına yaptığı çıkarmada hızlı ilerlerken, Göktürk vur-kaç birlikleri düşmanın cephaneliğini hızla tüketmiş ve savaşın temposunu yavaşlatmıştır. 
+            Ancak, Roma komutanı GhostCenker’in stratejik hamleleriyle Ötüken düşmüş, bu savaş Göktürk tarihinin en acı kayıplarından biri olmuştur.
+    
+    <h2> Orta Roma Çağı
+        Bu dönem, Göktürklerin savaşla tekrar sahneye döndüğü ve Roma'ya karşı ikinci savaşı kazandığı bir çağdır.
+        <h3> II. Roma-Göktürk Savaşı
+            Roma'ya karşı girilen bu savaş, Göktürklerin kendini yeniden kanıtladığı bir dönüm noktasıdır. 
+            İmparator EmiGrimes'in reforme ettiği ordu, vur-kaç taktiğini daha etkili hale getirmiş ve Romalı piyadelerı tamamen çaresiz bırakmıştır. 
+            Hırvat topraklarının ele geçirilmesiyle Roma'ya ciddi bir darbe vurulmuş, ancak Leh Krallığı'nın savaşa dahil olmasıyla sınırları koruma çabaları yıpratıcı olmuştur.
+
+    <h2> Son Çağ - Ekonomik Yıpranma ve Feodal Gerilim
+        Uzun süreli savaşların ardından Göktürk ekonomisi ciddi bir yıpranmaya uğramış, Sverige Feodalitesinin uyguladığı yaptırımlar ile sadece mevcut topraklarını koruma politikaları izlenmiştir. 
+        Bu dönemdeki tek ciddi gerilim, Frank Krallığı ile yaşanmıştır. Ancak, İmparatorluğun bir kez daha toparlanma umutları belirmiş ve diplomatik zaferlerle çağı ve dolaylı olarak binyılı kapatmıştır.
+
+<h1> Göktürk Hanlığı ve Tarihe etkisi
+    <h2> Lowyer Denizi Paktı ve Seferleri
+        Lowyer Denizi Paktı, Britanya ve Sverige tarafından fonlanan küresel bir olaydır. 9. YY'da sunucuda yaşanan nüfus patlamasıyla kurulan güney krallıklarının sunucuda aktif rol oynaması için organize edilmiştir. 
+        Göktürk İmparatorluğu, bu ticaret paktına üye olmayı reddetmiş ve paktı kendisine rakip olarak görmüştür. 
+        Deniz sınırı çizimini kabul etmeyen Göktürkler, ticari deniz yollarında üstünlük sağlamak için bağımsız seferler düzenlemiş ve denizlerde etkili bir strateji geliştirmiştir. 
+        Ancak bu durum, Göktürkler ile pakt üyesi devletler arasında uzun süren bir gerilim yaratmıştır.
+
+    <h2> Göktürk Diplomasi ve Kültürel Etki
+          Göktürk İmparatorluğu, yalnızca askeri gücüyle değil, kültürel ve diplomatik nüfuzuyla da dünya siyasetine damga vurmuştur. Göktürkler, diğer uluslarla kurdukları ittifaklar ve ticari anlaşmalarla bölgesel bir denge unsuru haline gelmiştir. 
+          Özellikle yazı sistemlerinin komşu devletler üzerinde yarattığı etki, bilim ve sanat alanında bir uyanışa yol açmıştır. 
+          Göktürk alfabesi, diplomatik yazışmalarda ve antlaşma metinlerinde sıkça kullanılan bir dil haline gelmiştir.
+
+    <h2> Ticaret Yollarının Kontrolü
+        Göktürkler, İpek Yolu üzerinde kurdukları hakimiyetle sadece ekonomik değil, siyasi bir üstünlük de sağlamıştır. 
+        Ticaret yollarındaki denetimleri sayesinde hem Roma hem de Doğu imparatorluklarıyla dengeli bir ilişki kurmayı başarmışlardır. 
+        Bu yollar üzerinden taşınan mallar kadar kültürel alışveriş de Göktürk etkisini arttırmıştır. 
+        Özellikle Göktürk tüccarları, gittikleri bölgelerde kültürel izler bırakmış ve Göktürk sanatı ile geleneklerini yaymıştır.
+
+    <h2> Askeri Teknolojiler ve Yenilikler
+        Göktürk İmparatorluğu, askeri alanda geliştirdiği yeniliklerle de dünya siyasetine yön vermiştir. 
+        Göçebe savaş taktiklerini ileri düzeyde örgütleyerek, düşmanlarını stratejik açıdan alt etmeyi başarmışlardır. 
+        Bu yenilikler, yalnızca savaşlarda değil, diğer devletlerin askeri sistemlerinde de etkili olmuştur. 
+        Göktürklerin ok ve yay teknolojisindeki üstünlükleri, birçok ulusun savaş düzenini yeniden düşünmesine yol açmıştır.

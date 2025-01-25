@@ -1,0 +1,7 @@
+Change Log:
+    Gokturk Han added and finished
+    Gokturk Source img added for example and template
+    MC.S.1 Gokturkhan completly added
+    Gokturkhan source text added
+    main doc.txt get some Updates
+    map of variants added
