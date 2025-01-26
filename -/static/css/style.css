@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Minecraft';
-    src: url('../assets/Minecraft.ttf') format('truetype'); 
+    src: url('static/assets/Minecraft.ttf') format('truetype'); 
 }  
 
 *{
@@ -9,9 +9,71 @@
     margin:0;
 }
   
-body{
-    font-family: "Minecraft";
-    color: azure;
-    background-color: #000000;
+
+
+css
+/* General body styles */
+body { /* Use a pixelated font */
+    background-color: #a0d8a0; /* Light green background */
+    color: #333; /* Dark text color for readability */
+    margin: 0;
+    padding: 20px;
+    font-family: 'Minecraft';
 }
 
+/* Header styles */
+header {
+    background-color: #4e4e4e; /* Dark gray for header */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 2em;
+    border-bottom: 5px solid #8b8b8b; /* Subtle border */
+}
+
+/* Navigation styles */
+nav {
+    background-color: #6b8e23; /* Olive green for navigation */
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff; /* White text for links */
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px; /* Rounded corners */
+}
+
+nav a:hover {
+    background-color: #8fbc8f; /* Lighter green on hover */
+}
+
+/* Main content styles */
+main {
+    background-color: #f0f0f0; /* Light gray for main content */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #4e4e4e; /* Same as header */
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Block styles for content sections */
+.block {
+    background-color: #d3d3d3; /* Light gray for blocks */
+    border: 2px solid #8b8b8b; /* Darker border */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px; /* Rounded corners */
+}

@@ -18,14 +18,15 @@ Hanlık, askeri gücü, kültürel mirası ve çağ atlatan reformlarıyla tanı
 
 <h1> Tarihi Dönemler
     <h2> Kabileler Çağı
-        Bu dönem, Göktürklerin Türk Yarımadası'nı tamamen ele geçirip "Türklerin Yenilmez Figürü" olarak tanındığı bir dönemi temsil eder. Dönemin en büyük olayı Leh Yağması'dır.
+        Bu dönem, Göktürklerin Türk Yarımadasıⁱ'nı tamamen ele geçirip "Türklerin Yenilmez Figürü" olarak tanındığı bir dönemi temsil eder. Dönemin Türkler için en büyük olayı Leh Yağması'dır.
 
         <h3> Leh Yağması
 
-            Göktürklerin ilk büyük savaşı olarak bilinen Leh Yağması, kısa sürmesine rağmen, Türklerin korkusuzluğunu dünyaya göstermiştir. 
-            Saldırgan Leh ordusu, Göktürklerin Ötüken'deki çadırlarına yaklaştığında, gece vakti gizlice pusuya yatmış 100 okçudan gelen çağlayan ok sesleriyle darmadağın edilmiştir. 
-            Leh ordusu, sadece bir gece içerisinde bozguna uğramış ve bu zafer, Göktürk tarihinin en önemli dönüşümü olarak kayda geçmiştir.
-
+            Göktürklerin ilk büyük savaşı olarak bilinen Leh Yağması, sunucu tarihinin en kısa yağma ve savaşı, bütün Lehistanⁱ kaynaklarının boşalması ile sonuçlanmıştır.
+            Lehlerin başkentine kadar ilerleyen yağma ordusu, yol üstündeki tarım alanlarını ve sandıkları talan etmiştir.
+            EmiGrimesⁱ'ın göz korkutma amaçlı viking vergi binasını yağmalaması ve viking kralı Kōng Elciⁱ'nin konuya karşı hiçbir tepkide bulunmaması ironik bir şekilde Lehistanⁱ'ın özgürleşmesiyle sonuçlanmıştır.
+            Göktürkler, yağma ve savaştan sonra Lehistanⁱ'ı terk ederek bölgedeki dağınık topluluklara yeni bir umut sağlamıştır. Bu umut, birleşmeyi ve yeni bir Lehistan Krallığı ile sonuçlanmıştır.
+            
         <h3> Eserler
 
             Dev Hun Kalesi: Göktürklerin askeri mühendislikteki büyük başarısı.
