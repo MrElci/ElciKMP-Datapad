@@ -4,6 +4,6 @@ BFPU error: Bir hata nedeniyle güncellemelerin aksadğını bildirmek için ekl
 BFIU: Image Updates, Beta for Image Updates
 BFWU: Beta for War Updates
 BMU: Beta Moderation Updates
-BFCU: Beta For Country Updates
+BFCU: Beta For Code Updates
 
 Updateleri bundan sonra txt'ye ekleyeceğim. Yeni kategoriler zamanla açılacak.

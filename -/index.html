@@ -1,48 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Title: Features</title>
-    <link rel="stylesheet" href="static/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Game Title: Features</h1>
-        <nav>
-            <ul>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#gameplay">Gameplay Mechanics</a></li>
-                <li><a href="#characters">Character Classes</a></li>
-                <li><a href="#items">Items and Equipment</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section id="introduction">
-            <h2>Introduction</h2>
-            <p>This game is an immersive experience that...</p>
-        </section>
-        
-        <section id="gameplay">
-            <h2>Gameplay Mechanics</h2>
-            <p>Players can engage in various activities such as...</p>
-        </section>
-        
-        <section id="characters">
-            <h2>Character Classes</h2>
-            <p>There are several character classes to choose from...</p>
-        </section>
-        
-        <section id="items">
-            <h2>Items and Equipment</h2>
-            <p>Players can collect various items and equipment...</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Game Wiki</p>
-    </footer>
-</body>
+<html lang="tr">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Elci Data PAD - Anasayfa</title>
+      <link rel="stylesheet" href="static/css/style.css">
+      <link rel="icon" href="images/logo.png">
+   </head>
+   <body>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <div class="menu-container" id="menu">
+         <div class="menu-header">
+            <button class="close-menu" onclick="toggleMenu()">✖</button>
+            <img src="images/logo.png" alt="Logo">
+            <div>Elci DataPAD</div>
+         </div>
+         <div class="menu-content">
+            <a href="#001">/•Ön Yazı</a>
+            <a href="#002">/•Hakkımızda</a>
+            <a href="#003">/•Ana Temalar</a>
+         </div>
+      </div>
+      <div class="scroll-container">
+         <button class="scroll-up">▲</button>
+         <div class="content">
+            <div class="container">
+                  <header>
+                     <img src="images/logo.png" alt="">
+                     <h1>Elci Data PAD</h1>
+                     <p>5 yıllık tarihi kaleme alan wiki sayfası, Olabildiğince ayrıntılı, ve derli bilgi</p>
+
+                     <nav>
+                        <ul>
+                           <li><a href="Oyuncular/index.html">Oyuncular</a></li>
+                           <li><a href="#olaylar">Olaylar</a></li>
+                           <li><a href="templates/ages.html">Çağlar</a></li>
+                           <li><a href="#kavramlar">Kavramlar</a></li>
+                        </ul>
+                     </nav>
+                  </header>
+                  <main>
+                     <section>
+                        <a id="001">Ön Yazı</a>
+                        <p>ElciKMP Wiki sayfasına hoşgeldiniz
+                           Elci Datapad, KMP Minecraft sunucusunun bir arkadaş ekibi arasında 5 yıllık bir süre zarfında gelişimini, hikayesini ve topluluğunu anlatan bir wiki platformudur. 
+                           Amacımız, sunucu içerisinde oluşan kültürü, projeleri ve oyuncuların katkılarını detaylı ve eğlenceli bir şekilde belgeleyerek, yeni ve eski katılımcılar için sürekli güncellenen bir bilgi kaynağı sunmaktır.
+                        </p>
+                        <a id="002">Hakkımızda</a>
+                        <p>
+                           Elci Datapad, KMP sunucusunun başlangıç hikayesinden bugüne kadar geçen sürecin tüm önemli detaylarını, yaratıcı projelerini ve unutulmaz anılarını içeren kapsamlı bir veri tabanıdır. Topluluğun ruhunu ve dostluk bağlarını öne çıkaran bu platform, Minecraft dünyasının sınırlarını aşarak gerçek hayat dostluklarının da pekiştiği bir yolculuğun izlerini taşır.
+                        </p>
+                        <a id="003">Ana Temalar</a>
+                        <p>
+                           Sunucu Tarihi: Kuruluş aşamaları, ilk projeler ve önemli dönüm noktaları.
+                        </p>
+                        <p>
+                           Oyuncu Profilleri: Her oyuncunun sunucuya kattığı değer ve projeleri.
+                        </p>
+                        <p>
+                           Önemli Yapılar: İnşa edilen kaleler, şehirler, anıtlar ve gizli mekanlar.
+                        </p>
+                        <p>
+                           Savaşlar: Sunucu içerisinde yaşanan devasa savaşlar.
+                        </p>
+                        <p>
+                           Teknolojik Gelişmeler: Sunucu modları, eklentiler ve oyun içi mekanikler.
+                        </p>
+                        Neden Elci Datapad?
+                        Bu wiki, yalnızca bir Minecraft sunucu rehberi olmanın ötesinde, bir dostluk manifestosudur. Yaratıcılığı, dayanışmayı ve ekip ruhunu öne çıkaran Elci Datapad, oyuncuların bir araya gelerek nasıl harikalar yaratabileceğini gösterir. Bu sayfalar, unutulmaz anılara ve gelecekteki maceralara kapı aralar.
+                        Elci Datapad dünyasına hoş geldiniz! Maceramız burada başlıyor ve sizinle devam ediyor.</p>
+                     </section>
+                  </main>
+                  <footer>
+                     <p>© ElciKMP - DataPAD</p>
+                  </footer>
+               <button class="scroll-down">▼</button>
+            </div>
+         </div>
+      </div>
+      <script src="./static/js/script.js"></script>
+   </body>
 </html>

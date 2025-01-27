@@ -1,79 +1,260 @@
+/* Minecraft fontunu yükleme */
 @font-face {
     font-family: 'Minecraft';
-    src: url('static/assets/Minecraft.ttf') format('truetype'); 
-}  
-
-*{
-    box-sizing: border-box;
-    padding:0;
-    margin:0;
-}
-  
-
-
-css
-/* General body styles */
-body { /* Use a pixelated font */
-    background-color: #a0d8a0; /* Light green background */
-    color: #333; /* Dark text color for readability */
-    margin: 0;
-    padding: 20px;
-    font-family: 'Minecraft';
-}
-
-/* Header styles */
-header {
-    background-color: #4e4e4e; /* Dark gray for header */
-    color: #fff; /* White text */
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 2em;
-    border-bottom: 5px solid #8b8b8b; /* Subtle border */
-}
-
-/* Navigation styles */
-nav {
-    background-color: #6b8e23; /* Olive green for navigation */
-    padding: 10px;
-    text-align: center;
-}
-
-nav a {
-    color: #fff; /* White text for links */
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 0 5px;
-    border-radius: 5px; /* Rounded corners */
-}
-
-nav a:hover {
-    background-color: #8fbc8f; /* Lighter green on hover */
-}
-
-/* Main content styles */
-main {
-    background-color: #f0f0f0; /* Light gray for main content */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #4e4e4e; /* Same as header */
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Block styles for content sections */
-.block {
-    background-color: #d3d3d3; /* Light gray for blocks */
-    border: 2px solid #8b8b8b; /* Darker border */
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px; /* Rounded corners */
-}
+    src: url('../assets/suspackstga.ttf') format('truetype');
+    }
+    
+    *{
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Minecraft', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        background: url('../img/bg/bg3.png');
+        background-size: 50%;
+    }
+    
+    .container {
+        font-family: 'Minecraft', Arial, sans-serif;
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+    }
+    
+    header {
+        background: url('../img/bg/bg2.png');
+        background-size: 50%;
+        height: 35dvh;
+        color: #000;
+        border-bottom: 1px solid #aaa;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    header img {
+        height: 150px;
+        width: auto;
+        position: absolute;
+        left:10px;
+        top:1px
+    }
+    
+    header nav {
+        background: rgb(39, 39, 39, 0.5);
+        background-size: 50%; 
+        color:white;
+        padding: 10px;
+        position: absolute;
+        bottom:-1px;
+        width: 100%;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+    
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    nav ul li a:hover {
+        color: #4a2c63;
+    }
+    
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    
+    main {
+        background: url('../img/bg/bg2.png');
+        background-size: 50%;
+        font-family: 'Minecraft', Arial, sans-serif;
+        padding: 20px;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+    
+    section a {
+        font-size: 1.75em;
+        color: #000000;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    
+    section a:hover{
+        color: #4a2c63;
+    }
+    
+    section a::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: #000000;
+        margin-bottom: 10px;
+    }
+    
+    p {
+        margin: 10px 0;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background: #f0f0f0;
+        color: #000;
+        border-top: 1px solid #aaa;
+        margin-top: 20px;
+        background: url('../img/bg/bg2.png');
+        background-size: 50%;
+    }
+    
+    .scroll-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden; /* Kaydırma çubuğunu gizle */
+    }
+      
+    .content {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        scrollbar-width: none; /* Firefox için kaydırma çubuğunu gizle */
+    }
+      
+    .content::-webkit-scrollbar {
+        display: none; /* Chrome ve diğer WebKit tarayıcıları için */
+    }
+      
+    .scroll-up,
+    .scroll-down {
+        position: absolute;
+        right: -7px; /* Sola hizala */
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        z-index: 10;
+    }
+      
+    .scroll-up {
+        top: 10px;
+    }
+      
+    .scroll-down {
+        bottom: 10px;
+    }
+      
+    .scroll-up:hover,
+    .scroll-down:hover {
+        background-color: #555;
+    }
+    
+    .menu-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-image: url('../img/bg/bg5.png');
+        background-repeat: repeat;
+        background-size: 150%;
+        color: #000000;
+        transform: translateX(-250px);
+        transition: transform 0.3s ease;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 10; /* Menü üstte olacak */
+        font-size: 12px;
+    }
+    
+    .menu-container.open {
+        transform: translateX(0);
+    }
+    
+    .menu-header {
+        padding: 20px;
+        text-align: center;
+        font-size: 20px;
+        background-color: rgb(39, 39, 39, 0.5);
+        position: relative;
+        color: #ffffff;
+    
+    }
+    
+    .menu-header img {
+        max-width: 150px;
+        margin-bottom: 10px;
+    }
+    
+    .close-menu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #000000;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .menu-content {
+        padding: 15px;
+        z-index: 10; /* Menü üstte olacak */
+    }
+    
+    .menu-content pre {
+        color: #ccc;
+    }
+    
+    .menu-content a {
+        color: #000000;
+        text-decoration: none;
+        display: block;
+        margin: 10px 0;
+    }
+    
+    .menu-content a:hover{
+        color: #dcc8ed;
+    }
+    
+    .menu-toggle {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background-color: #333; 
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 10; /* Menü üstte olacak */
+    }
+    
+    .menu-toggle:hover {
+        color: #91819e;
+    }
