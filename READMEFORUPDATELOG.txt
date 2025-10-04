@@ -6,4 +6,6 @@ BFWU: Beta for War Updates
 BMU: Beta Moderation Updates
 BFCU: Beta For Code Updates
 
+
+
 Updateleri bundan sonra txt'ye ekleyeceğim. Yeni kategoriler zamanla açılacak.

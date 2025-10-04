@@ -1,0 +1,40 @@
+§c §l Lehistan Krallığı
+
+Lehistan Krallığı Prussleh adasına kurulmuş ve sonraki dönemlerde sınırları içinde gelişimini sürdüren önemli bir krallıktır.
+
+<tablo>
+    *Başkenti*              Varşova
+    *Resmi Dil*             Lehçe
+    *Demonim*               Leh
+    *Hükümet*               Monarşik Leh yönetimi
+    *İdeoloji*              Emperyalizm
+    *Kurucu Başkanı*        EmiGrimesⁱ
+    *Ekonomik Sıralaması*   4 p - 6 l
+    *Askeri Sıralaması*     2 p - 4 l
+    *Çağ Dilimi*            MC.O. 1. BYⁱ
+    *Ömür*                  1 Binyıl
+<tablo /end>
+
+<h1> Tarihi Dönemler
+    <h2> Kabileler Çağı
+        Bu dönemin tek düzenli krallığı olan Lehistan Krallığı, en hızlı kurulan krallıktır. Kurulduğu zaman itibari ile medeniyetin beşiği adı alsada bunu elinde tutamamıştır.
+        Dönem boyunca 2 yağma ve bir savaş gören Lehistan milletinin kültürel bir travma yaşayarak devasa surlar inşa etme alışkanlığını kazanmıştır.
+
+        <h3> Viking Yağması
+            Vikingler, Lehistan krallığının ilk yıllarında tarlalara saldırırak krallığı kısa süreliğine dağıtmıştır. Vikingler, basit kayıklarla kıyılara çıkarak Prussleh kıtasını talan etmiştir.
+            Bu saldırı sonrasında ise Lehistan Krallığı kurulan İsveç Feodalitesini tanıyan ilk millet olmuştur.
+
+        <h3> Göktürk Yağması
+            Lehler'in vikingler yüzünden için iç çatışma yaşadığı, bir anda saldıran döneminin çok ilerisindeki türk ordusuna karşı sadece birkaç saat dayanabilmiştir.
+            Saldırı Leh tarlalarının yanması ve İsveç Feodalitesinin elçiliğinin yakılması ile son bulmuştur.
+
+        <h3> Göktürklere yapılan Karşı Saldırısı
+            Ordusunu yeni toparlamış olan Lehistan krallığı, Göktürk Hanlığına ait olan Lowyer adasına saldırarak kaynak almaya çalışsada, yaklaşık 3 dakikalık kuşatma sonrası mahvolan ordu geri çekilmiştir.
+            Bu saldırının başarısızlığı nedeniyle Göktürk Hanlığı saldırıyı dikkat bile etmemiştir. (Göktürk ordusu savaşa bile katılmamıştır. Lowyer adasına ilerleyen Leh ordusu saldırı sırasında batan gemilerle boğulmuştur.)
+
+    <h2> Orta Göktürk Çağı
+        Lehistan Krallığı ilanını verdiği andan itibaren ekonomik bir güç olmayı istemiştir. Bu nedenle hızla etrafına savunma duvarları inşa etmiş ve yağmalar sonrası yakılan tarlaları tekrar inşa etmeye çalışmıştır.
+        Göktürk devletinin gücüne güç katması ile birlikte yaşanan piyasadaki silah artışı nedeniyle silahlar oldukça ucuzlamıştır. Bundan yararlanan Lehistan Krallığı kendi silahlanmasını iyi yönetmiştir.
+        isveç Feodalitesi bu dönemde çıkan Roma-Göktürk gerilimlerinde Lehlerin bulunmaması için Lehistan Krallığı ile birçok antlaşmaya oturmuş ve bu sayede Lehistan büyük bir refaha ulaşmayı başarmıştır.
+        
+        <h3> Roma-Göktürk Savaşı sırasında Lehistan

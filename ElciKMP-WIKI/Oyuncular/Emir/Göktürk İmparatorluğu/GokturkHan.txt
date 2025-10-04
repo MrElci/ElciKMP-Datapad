@@ -1,7 +1,7 @@
 §2 §l Göktürk Hanlığı-İmparatorluğu
 
-Göktürk Hanlığı, Türk Yarımadası'nda kurulmuş ve zamanla çevresindeki bölgelere yayılan önemli bir ımparatorluktur. 
-Hanlık, askeri gücü, kültürel mirası ve çağ atlatan reformlarıyla tanınır.
+Göktürk Hanlığı, Türk Yarımadası'nda kurulmuş ve zamanla çevresindeki bölgelere yayılan önemli bir imparatorluktur. 
+Hanlık, yayılmacı politikaları ve gücü ile dünya siyasetinde söz sahibi olmuş bir devletidir.
 
 <tablo>
     *Başkenti*              Ötüken
@@ -22,64 +22,104 @@ Hanlık, askeri gücü, kültürel mirası ve çağ atlatan reformlarıyla tanı
 
         <h3> Leh Yağması
 
-            Göktürklerin ilk büyük savaşı olarak bilinen Leh Yağması, sunucu tarihinin en kısa yağma ve savaşı, bütün Lehistanⁱ kaynaklarının boşalması ile sonuçlanmıştır.
+            Göktürklerin ilk büyük savaşı olarak bilinen Leh Yağması, sunucu tarihinin en kısa yağma ve savaşı, bütün Lehistanⁱ kaynaklarının yok olması ile sonuçlanmıştır.
             Lehlerin başkentine kadar ilerleyen yağma ordusu, yol üstündeki tarım alanlarını ve sandıkları talan etmiştir.
-            EmiGrimesⁱ'ın göz korkutma amaçlı viking vergi binasını yağmalaması ve viking kralı Kōng Elciⁱ'nin konuya karşı hiçbir tepkide bulunmaması ironik bir şekilde Lehistanⁱ'ın özgürleşmesiyle sonuçlanmıştır.
-            Göktürkler, yağma ve savaştan sonra Lehistanⁱ'ı terk ederek bölgedeki dağınık topluluklara yeni bir umut sağlamıştır. Bu umut, birleşmeyi ve yeni bir Lehistan Krallığı ile sonuçlanmıştır.
+            EmiGrimesⁱ'ın göz korkutma amaçlı viking vergi binasını yağmalaması ve viking kralı Kōng Elciⁱ'nin konuya karşı hiçbir tepkide bulunmaması eleştirilere sebep olmuştur.
             
         <h3> Eserler
+            Dev Hun Kalesi: Göktürklerin askeri mühendislikteki büyük başarısıdır. 
+            Tüm sunucu tarihi boyunca bu yapının tekrarlı inşası denensede ileriki sunucularda bu sağlanamamıştır.
 
-            Dev Hun Kalesi: Göktürklerin askeri mühendislikteki büyük başarısı.
-
-            Ötüken Çadırları: Hem savunma hem de göçebe yaşamın simgesi.
+            Ötüken Çadırları: Hem savunma hem de göçebe yaşamın simgesi. 
+            Kale etrafındaki bölgelere çadırlar kurularak herhangi bir savaşta hızlı erişim için buralara silah depoları inşa edilmiştir.
     
     <h2> Orta Göktürk Çağı
-        Bu dönem, hanlıkların krallıklara, imparatorluklara evrildiği ve yeni devletlerin sahneye çıktığı bir çağdır.
-
-        <h3> Göktürk İmparatorluğu
-            Hanlıktan İmparatorluğa geçiş, İmparator I. EmiGrimes'in liderliği altında gerçekleşmiş ve Göktürkler ekonomik ve kültürel zirveye ulaşmıştır. 
-            Yeni inşa edilen yollar, kaleler ve tarlalar, İmparatorluğun göz kamaştırıcı bir refaha ulaşmasını sağlamıştır.
-
-            Frank-Göktürk Savaşı:
-            Frank Krallığı'na karşı yapılan ilk yağma seferi, özellikle tarlaların yakılmasıyla Roma'nın dikkatini çekmiştir. 
-            Göktürklerin hızlı ve acımasız vuruşları, hem düşmanlarına gözdağı vermiş hem de yeni dostlukların temellerini atmıştır.
+        Bu dönem, hanlıkların krallıklara, imparatorluklara evrildiği ve ilk güçlerin sahneye çıktığı bir çağdır.
+        Hanlıktan İmparatorluğa geçiş, Frank yağması üzerinden olmuştur. O sunucu dönem kurallarındaⁱ imparatorluk şartlarından biriside büyük çaplı savaşlar kazanmaktı.
+        Göktürkler'in başını çeken EmiGrimesⁱ, Rus Çarlığı ile yakınlaşmaya giderek sınırında bulunan ve isveç Feodalitesi tarafından açık açık desteklenen Frank krallığına yağma savaşı açmıştır.
+        Göktürkler, Frank yağması'nı kazanarak imparatorluğa geçiş yapmış ve ilerdeki Rus-dostu politikası ile hızla yükselen italyan Krallığıⁱ (ve hızlı reformuyla Roma İmparatorluğuⁱ) karşısında bir piyon rolü almıştır.
+        Rus Çarlığının Çarı, I. Iswhlⁱ'in tahttan indirilmesi ile Roma-Göktürk gerilimi bir güç savaşına dönüşmüştür.
+ 
+        <h3> Frank-Göktürk Savaşı:
+            Frank Krallığıⁱ'na karşı yapılan ilk yağma seferi (sonrasında anlaşılacağı üzere) yeni kurulan isveç Feodalitesiⁱ ile kurulacak gelecek ilişkiler için oldukça yanlış bir adımdı.
+            Frankların o sırada inşaatına başladığı kaleye girilerek oraya yapılan isveç yardımlarına el konulması ve Rus Çarlığı arasında bulunan Frank Krallığının yağması üzerinden kurulan dostluk politikası; 
+            İtalya krallığı ve isveç Feodalitesi arasında yakınlaşma başlatarak Göktürk İmparatorluğunun I. Roma-Göktürk savaşında farkedeceği devasa bir hatadır.
 
         <h3> I. Roma-Göktürk Savaşı:
-            Bu savaş, Roma’nın zırhlı gürz ordusuyla Göktürk kılıç ve okçu birliklerinin çarpışmasını temsil eder. 
-            Roma, Türk kıyılarına yaptığı çıkarmada hızlı ilerlerken, Göktürk vur-kaç birlikleri düşmanın cephaneliğini hızla tüketmiş ve savaşın temposunu yavaşlatmıştır. 
-            Ancak, Roma komutanı GhostCenker’in stratejik hamleleriyle Ötüken düşmüş, bu savaş Göktürk tarihinin en acı kayıplarından biri olmuştur.
+            Bir binyıl boyunca sürecek Roma-Göktürk çatışmalarının başlangıcı olan I. Roma-Göktürk savaşı, Hırvatistan ve İtalyan Krallığının oluşturduğu Roma ordusu; 
+            Doğu türk körfezine 2B'luk ordu ile çıkartma düzenlemiştir. Bu çıkartma Türklerin kırbaç ve kılıç kullanan ordusu, gürzlü ve ağır zırhlı tahribat ordusuna karşı koymakta zorlanarak körfezden çekildi.
+            Roma İmparatorluğu'nun tahribat'a özel birliği, sandıkları yağmalarken, Hırvatistan uyruklu atak ordusu, başkente doğru ilerlemiştir. Göktürk İmparatorluğu küçük düşürücü yenilgiler alarak bu ilerleyişi izlemek zorunda kalmıştır.
+            Göktürk İmparatorluğunun başkentte yaptığı son savunmanında başarısız olması, barış antlaşmasında anlaşmadan çok boyun eğmesi ile sonuç almıştır, isveç Feodalitesinin liderlik ettiği antlaşmada türk körfezi kaybedilmiştir.
+
+            <tablo> 
+                img.map.mcs1.var.gokturkhan.blue
+                Taraflar: Göktürk İmparatorluğu - Roma İmparatorluğu
+                Ara bulucu: isveç Feodalitesi
+                Antlaşma koşulları:
+                - Anadolija vilayeti tamamen Roma yönetimine devredilecek.
+                - Roma İmparatorluğu Güney denizi ve Lowyer adası üzerinde tekrar hakimiyet sağlayacak.
+                - Lowyer adası Roma İmparatorluğuna verilecek.
+                - Frank Krallığı özgür olacak. 
+                (ek madde: Lowyer adası ekonomik borçlar nedeniyle isveç Feodalitesine verilecek.)
+            <tablo>
     
     <h2> Orta Roma Çağı
-        Bu dönem, Göktürklerin savaşla tekrar sahneye döndüğü ve Roma'ya karşı ikinci savaşı kazandığı bir çağdır.
+        Göktürk İmparatorluğunun yeni bir politika izlemesi bu çağda Leh Krallığıⁱ ile yakınlaşma başlatmıştır. 
+        Yağma sonrası ekonomik toparlanmadan çok askeri toparlanmaya önem verilmiş, ve devlete önemli miktarda silah getirilmiştir. 
+        Bu silahlar'ın ödenmesi için devlet militarist politikalar yürütmüş ve ittifak devleti Leh Krallığının silah üretiminden yararlanmıştır.
+        isveç Feodalitesiⁱnin güney devlet yatırımlarından yararlanamamasına rağmen, Göktürk İmparatorluğu hızla toparlanmaya ve askeri açığı kapatmaya devam etmiştir.
+        
         <h3> II. Roma-Göktürk Savaşı
-            Roma'ya karşı girilen bu savaş, Göktürklerin kendini yeniden kanıtladığı bir dönüm noktasıdır. 
-            İmparator EmiGrimes'in reforme ettiği ordu, vur-kaç taktiğini daha etkili hale getirmiş ve Romalı piyadelerı tamamen çaresiz bırakmıştır. 
-            Hırvat topraklarının ele geçirilmesiyle Roma'ya ciddi bir darbe vurulmuş, ancak Leh Krallığı'nın savaşa dahil olmasıyla sınırları koruma çabaları yıpratıcı olmuştur.
+            Göktürk İmparatorluğun kaybettiği toprakları geri alma umuduyla başlattığı savaşta, Türk orduları hızla alınmış olan Anadolija körfezine girerek burda bulunan Roma garnizonunu dağıtmıştır.
+            Türk orduları hızla Anadolija üzerinden ilerlerken, Roma'nın bir önceki savaşta kullandığı askeri teçhizattan öteye gidemeyen ordusu, hızla tükenen zırh ve silahlara karşılık olarak ihtiyacı isveç Feodalitesinin ihraç ettiği ucuz zırhla kapatmaya çalışmıştır.
+            Bu durum, ileriki çatışmalarda Roma ordularının küçük düşürücü kayıplar almasına neden olmuştur. Leh Krallığıⁱ üzerinden Roma'ya kadar ilerleyen Türk ordusu, tekrar tekrar akınlarla başkenti düşürmüştür.
+            <tablo> 
+                img.map.mcs1.var.gokturkhan.prime
+                Taraflar: Göktürk İmparatorluğu - Roma İmparatorluğu
+                Ara bulucu: isveç Feodalitesiⁱ
+                Antlaşma koşulları:
+                - Anadolija vilayeti ve Hırvatistan vilayeti Göktürk yönetimine geçecek.
+                - Frank Krallığının özgürlük garantisi kalkacak. 
+                - Leh Krallığı Benelüx vilayetini devralacak.
+                - Leh Krallığı Slovenya vilayetini devralacak.
+            <tablo>
 
-    <h2> Son Çağ - Ekonomik Yıpranma ve Feodal Gerilim
-        Uzun süreli savaşların ardından Göktürk ekonomisi ciddi bir yıpranmaya uğramış, Sverige Feodalitesinin uyguladığı yaptırımlar ile sadece mevcut topraklarını koruma politikaları izlenmiştir. 
-        Bu dönemdeki tek ciddi gerilim, Frank Krallığı ile yaşanmıştır. Ancak, İmparatorluğun bir kez daha toparlanma umutları belirmiş ve diplomatik zaferlerle çağı ve dolaylı olarak binyılı kapatmıştır.
+    <h2> Feodal Çağ
+        Göktürk İmparatorluğunun Roma İmparatorluğu ile olan son savaşının yaşandığı çağdır. Bu çağda devamlı savaşlar ve askeri harcamalar çatışan iki devletin ekonomisini harabeye çevirmiştir.
+        Ekonomik güçten küresel güce dönüşen isveç Feodalitesiⁱnin lowyer adası ve çevresindeki sularda hatta karalarda olan Göktürk hakimiyetini zayıflatmıştır.
+        Ekonomisi zayıf Göktürk İmparatorluğu kapışmayı eşitlemeye çalışsada özellikle o dönemde yaşanan Leh Ekonomik Kriziⁱ, Göktürk İmparatorluğunun çabalarını boşa çıkarmıştır.
+        
+        <h3> Son Roma-Göktürk Savaşı
+            Roma ordularının hızla Hırvat vilayetine girerek burayı işgal etmesiyle başlayan savaş, oldukça yıpranmış olan iki ordunun çatışmaları ile devam etmiştir.
+            Savaş boyunca kesin bir kazanma söz konusu olamayınca, sınırların normale döndürülmesi gerektiği tartışılmaya başlandı.
+            isveç Feodalitesiⁱnin baskıları sonucu antlaşma masasına oturularak eski sınırlara dönüldü.
+        <tablo>
+            img.map.mcs1.gokturkhan
+            Taraflar: Göktürk İmparatorluğu - Roma İmparatorluğu
+            Ara bulucu: isveç Feodalitesiⁱ
+            Antlaşma koşulları:
+            - Hırvat vilayeti Roma İmparatorluğuna geri bırakılacak.
+            - Roma İmparatorluğu savaş için aldığı borçlar karşılığında gürcü vilayetini isveç Feodalitesine devredecek.
+            - Göktürk İmparatorluğu deniz sınırlarından feragat edecek.
+        <tablo>
 
-<h1> Göktürk Hanlığı ve Tarihe etkisi
-    <h2> Lowyer Denizi Paktı ve Seferleri
-        Lowyer Denizi Paktı, Britanya ve Sverige tarafından fonlanan küresel bir olaydır. 9. YY'da sunucuda yaşanan nüfus patlamasıyla kurulan güney krallıklarının sunucuda aktif rol oynaması için organize edilmiştir. 
-        Göktürk İmparatorluğu, bu ticaret paktına üye olmayı reddetmiş ve paktı kendisine rakip olarak görmüştür. 
-        Deniz sınırı çizimini kabul etmeyen Göktürkler, ticari deniz yollarında üstünlük sağlamak için bağımsız seferler düzenlemiş ve denizlerde etkili bir strateji geliştirmiştir. 
-        Ancak bu durum, Göktürkler ile pakt üyesi devletler arasında uzun süren bir gerilim yaratmıştır.
+    <h2> Son Çağ
+        Göktürk İmparatorluğu sunucunun son çağında ekonomik ve askeri açığı kapatmaya çalışırken, Feodalitenin çöküşüⁱ ve Sunucu oyuncu akınıⁱ gibi devasa olayların etkisinde yıpranmıştır.
+        Göktürk İmparatorluğu'nun son savaşında yaşadığı yıpranma, onu sadece topraklarını korumaya itmiştir. Yeni ittifaklar ve kaynaklarla geri güçlenmeye başladığındaysa, sunucunun bu binyılı son bularak onu tarih etmiştir.
 
-    <h2> Göktürk Diplomasi ve Kültürel Etki
-          Göktürk İmparatorluğu, yalnızca askeri gücüyle değil, kültürel ve diplomatik nüfuzuyla da dünya siyasetine damga vurmuştur. Göktürkler, diğer uluslarla kurdukları ittifaklar ve ticari anlaşmalarla bölgesel bir denge unsuru haline gelmiştir. 
-          Özellikle yazı sistemlerinin komşu devletler üzerinde yarattığı etki, bilim ve sanat alanında bir uyanışa yol açmıştır. 
-          Göktürk alfabesi, diplomatik yazışmalarda ve antlaşma metinlerinde sıkça kullanılan bir dil haline gelmiştir.
+<h1> Ayrıca Bakınız:
+    <button> Lowyer meselesi
+        Lowyer adası ilk başta Göktürk İmparatorluğu tarafından ele geçirilmiş ve Leh Krallığı arasında bir köprü olarak kullanılması amaçlanmıştır. 
+        Roma ve isveç Feodalitesi arasındaki yakınlaşma ve dostluk ilişkileri, Roma-Göktürk savaşları sırasında önce Roma İmparatorluğuⁱna sonrasında ise para yolu ile isveç Feodalitesine geçmiştir.
+        Sonraki yüz yıllarda Lowyer adasıⁱ silah satışının merkezi olarak ekonomik yolların çakıştığı yerdir.
 
-    <h2> Ticaret Yollarının Kontrolü
-        Göktürkler, İpek Yolu üzerinde kurdukları hakimiyetle sadece ekonomik değil, siyasi bir üstünlük de sağlamıştır. 
-        Ticaret yollarındaki denetimleri sayesinde hem Roma hem de Doğu imparatorluklarıyla dengeli bir ilişki kurmayı başarmışlardır. 
-        Bu yollar üzerinden taşınan mallar kadar kültürel alışveriş de Göktürk etkisini arttırmıştır. 
-        Özellikle Göktürk tüccarları, gittikleri bölgelerde kültürel izler bırakmış ve Göktürk sanatı ile geleneklerini yaymıştır.
+    <button> Göktürk İmparatorluğu'nun savaş stratejileri
+        Uzaktan vurmak ve kırbaç taktikleri Göktürk ordusunun kalbidir. Özellikle kırbaç birlikleri oluşturan türk ordusunun temel hedefi, gürzlü ve ağır silahlı askerleri öndeki taaruz ordusuna yaklaştırmamaktı.
+        Göktürk ordusu 2 farklı bölümden oluşur, Taaruz ve Defans. Taaruz ordusu gürzlü süvariler ve oklu-kılıçlı süvarilerden oluşur. Defans ordusu ise kırbaçlılardan oluşur.
+        Göktürk ordusunun savaş stratejisi, düşman ordusunu yaklaştığı an kırbaçlılarla ön saldırıları engellemek, ve anlık atlı saldırıları ile orduyu yararak yok etmektir.
 
-    <h2> Askeri Teknolojiler ve Yenilikler
-        Göktürk İmparatorluğu, askeri alanda geliştirdiği yeniliklerle de dünya siyasetine yön vermiştir. 
-        Göçebe savaş taktiklerini ileri düzeyde örgütleyerek, düşmanlarını stratejik açıdan alt etmeyi başarmışlardır. 
-        Bu yenilikler, yalnızca savaşlarda değil, diğer devletlerin askeri sistemlerinde de etkili olmuştur. 
-        Göktürklerin ok ve yay teknolojisindeki üstünlükleri, birçok ulusun savaş düzenini yeniden düşünmesine yol açmıştır.
+    <button> Demire hücumda Göktürk İmparatorluğu
+        Feodal Çağın başlangıcında yaşanan Demire Hücum devrinde, Göktürk İmparatorluğu; isveç Feodalitesini açıktan destekleyerek Roma ekonomisinin çökmesine yardımcı olmuştur.
+        Ekonomik olarak büyümesine büyüme katan isveç Feodalitesine karşı Göktürk İmparatorluğunun hiçbir önlem almaması sonrasında ekonomik yaptırımlar yemesine rağmen boyun eğmesi, ekonomik gücünün göründüğü kadar dolu olmadığını kanıtlamıştır.
+        Roma İmparatorluğu ise bu durumu yakından takip etmiş ve son savaşını vermek, Hırvat vilayetini geri almak gibi amaçlarla borçlanması ve sürekli askeri yatırımlarını arttırarak savaşa hazırlanması; dönemine uygun olmamış ve zincirleme ekonomik krizlere sebep olmuştur.
+    

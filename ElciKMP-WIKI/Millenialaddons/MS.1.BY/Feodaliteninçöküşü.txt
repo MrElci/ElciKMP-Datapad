@@ -1,0 +1,27 @@
+§e Feodalitenin Çöküşü - MC.O. 1. BYⁱ
+
+Sverige Feodalitesinin Çöküşü, yalnızca devasa ve merkeziyetçi bir feodal güç olan Sverige Feodalitesi ve onun ardıllarını etkileyen büyük yapısal yıkım sürecidir.
+Bu çöküş, feodalitenin yerini daha esnek idari modellerin aldığı, devlet yapılarının satraplıklara ve nihayetinde şirketsel deniz devletlerine evrildiği bir dönemle tanımlanır. 
+Süreç, yalnızca siyasi sonuçlar doğurmakla kalmamış; sonraki sezonlarda yaşanan tüm ekonomik krizlerde sistemin önceki çatırdamalarının izleri görülmüştür.
+
+<tablo>
+    *Olayın başkenti*       Sverige
+    *Olay Süresi*           3 binyıl 
+    *Olayın başlangıcı*     MC.O. 1.BYⁱ
+    *Olayın Bitişi*         MC.S. 2.BYⁱ (Bazı kaynaklara göre MC.S. 3.BYⁱ)
+<tablo /end>
+
+<h1> Yıkılış Süreci
+    Çöküş süreci, Sverige Feodalitesi ve onun ardıl devletlerini etkilemiştir. Diğer yapılar bu dönüşümden büyük ölçüde bağımsız kalmıştır. 
+    Sverige’nin dağılması, birkaç sezon boyunca aşamalı şekilde gerçekleşmiştir:
+
+    <h2> Feodal dönemin sonu
+        Sverige Feodalitesindeki şirket yapılarının, feodal lordlardan ve sonrasında merkezi güçten daha güçlü hale gelmesiyle, feodal yönetimi dağıtmasıdır.
+        Sözde feodal kalan yapının, şirkete bağlı hissedarların toprak sahibi olmasıyla iyice güçsüzleşmiştir, bazı hissedarlar ise farklı ülkelere katılarak total yönetime zarar vermiştir.
+        
+
+    <h2> Satraplık geçişi 
+        Bölgesel yöneticiler daha özerk hale geldi, fakat siyasi birlik korunamadı.
+
+    <h2> Şirketsel deniz devletleri dönemi 
+        Ekonomik temelli, daha dinamik yönetim biçimleri ortaya çıktı. Eski feodal hiyerarşilerin yerini ticaret, deniz aşırı faaliyetler ve kâr odaklı yapılar aldı.
