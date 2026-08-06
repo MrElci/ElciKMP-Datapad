@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oyuncular – ElciKMP-DataPad</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-window">
+    <div class="title-bar">
+      <div class="title-bar-text">ElciKMP-DataPad</div>
+      <div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div>
+    </div>
+    <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+    <div class="toolbar">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="players.html" class="active">Oyuncular</a>
+      <a href="countries.html">Ülkeler</a>
+      <a href="wars.html">Savaşlar</a>
+      <a href="#">Olaylar</a>
+      <a href="#">Kronoloji</a>
+    </div>
+    <div class="main-area">
+      <div class="sidebar">
+        <div class="sidebar-title">Oyuncu Listesi</div>
+        <ul id="playerList"></ul>
+      </div>
+      <div class="content-pane">
+        <h2>Oyuncular</h2>
+        <div class="item-grid" id="playerGrid"></div>
+      </div>
+    </div>
+    <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    (async () => {
+      const folders = await fetchPlayerFolders();
+      const players = [];
+      for (const f of folders) {
+        const info = await fetchPlayerInfo(f);
+        if (info) players.push(info);
+      }
+      players.sort((a,b)=> a.displayName.localeCompare(b.displayName,'tr'));
+
+      // Sidebar listesi
+      const sidebarList = document.getElementById('playerList');
+      players.forEach(p => {
+        const li = document.createElement('li');
+        li.textContent = p.displayName;
+        li.onclick = () => location.href = `player.html?player=${encodeURIComponent(p.folder)}`;
+        sidebarList.appendChild(li);
+      });
+
+      // Grid
+      const grid = document.getElementById('playerGrid');
+      players.forEach(p => {
+        const card = document.createElement('a');
+        card.className = 'item-card';
+        card.href = `player.html?player=${encodeURIComponent(p.folder)}`;
+        card.innerHTML = '<div style="font-size:2rem;">👤</div><div class="item-name">' + p.displayName + '</div>';
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>

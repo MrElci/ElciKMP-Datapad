@@ -1,0 +1,487 @@
+/* ===== ELciKMP-DATAPAD VAKIF ARŞİVİ – CRT TERMİNAL TEMASI ===== */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ----- CRT EKRAN EFEKTLERİ ----- */
+body {
+  background: #000;
+  color: #BDBDBD;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 16px;                              /* büyütüldü */
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;                                   /* kenar boşluğu sıfırlandı */
+  margin: 0;
+}
+
+/* Tarama çizgileri */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0px,
+    rgba(0, 0, 0, 0.2) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Hafif parlama ve titreşim */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  z-index: 9998;
+  animation: flicker 0.12s infinite alternate;
+}
+@keyframes flicker {
+  0% { opacity: 0.85; }
+  100% { opacity: 1; }
+}
+
+/* ----- ANA PENCERE (VAKIF ARŞİVİ) ----- */
+.app-window {
+  width: 100%;                                   /* tam genişlik */
+  max-width: 100%;                               /* sınır kaldırıldı */
+  height: 100vh;                                 /* tam ekran yükseklik */
+  background: #202020;
+  border: 2px solid #555;
+  border-top: 2px solid #777;
+  border-left: 2px solid #666;
+  box-shadow: 4px 4px 0 #000, inset 0 0 15px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;                              /* taşmaları engelle */
+}
+
+/* Başlık çubuğu */
+.title-bar {
+  background: linear-gradient(90deg, #000080, #1084D0);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-weight: bold;
+  font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #000;
+  user-select: none;
+  flex-shrink: 0;
+}
+.title-bar-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.window-buttons {
+  display: flex;
+  gap: 4px;
+}
+.window-buttons span {
+  display: block;
+  width: 20px; height: 20px;
+  background: #C0C0C0;
+  border: 1px outset #FFF;
+  text-align: center;
+  line-height: 18px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Menü çubuğu */
+.menu-bar {
+  background: #C0C0C0;
+  padding: 4px 8px;
+  border-bottom: 1px solid #808080;
+  display: flex;
+  gap: 2px;
+  font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+  font-size: 14px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.menu-bar span {
+  padding: 3px 10px;
+  cursor: pointer;
+  color: #000;
+}
+.menu-bar span:hover {
+  background: #000080;
+  color: white;
+}
+
+/* Araç çubuğu (sekmeler) */
+.toolbar {
+  background: #C0C0C0;
+  border-bottom: 1px solid #808080;
+  padding: 5px 8px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.toolbar a {
+  text-decoration: none;
+  color: #000;
+  background: #C0C0C0;
+  border: 1px outset #FFF;
+  padding: 4px 12px;
+  font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+}
+.toolbar a:active,
+.toolbar a.active {
+  border-style: inset;
+  background: #A0A0A0;
+}
+
+/* Ana içerik alanı */
+.main-area {
+  display: flex;
+  flex: 1;
+  min-height: 0;                  /* taşma kontrolü */
+  overflow: hidden;
+}
+
+/* Sol panel */
+.sidebar {
+  width: 200px;
+  background: #181818;
+  border-right: 2px solid #555;
+  padding: 10px;
+  font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+  font-size: 13px;
+  color: #CCC;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.sidebar-title {
+  font-weight: bold;
+  color: #0F0;
+  border-bottom: 1px solid #444;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+.sidebar ul {
+  list-style: none;
+  margin-left: 6px;
+}
+.sidebar li {
+  padding: 5px 8px;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  font-size: 14px;
+}
+.sidebar li:hover {
+  background: #222;
+  border-left-color: #0F0;
+}
+.sidebar li.active {
+  background: #333;
+  border-left-color: #0F0;
+  font-weight: bold;
+}
+
+/* İçerik paneli */
+.content-pane {
+  flex: 1;
+  padding: 20px;
+  background: #0C0C0C;
+  overflow-y: auto;
+  color: #BDBDBD;
+}
+
+/* ----- TİPOGRAFİ ----- */
+h1.article-title {
+  font-size: 2rem;                          /* büyütüldü */
+  color: #00FF00;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 4px #00FF00;
+}
+.article-subtitle {
+  color: #AAA;
+  margin-bottom: 18px;
+  font-style: italic;
+  font-size: 1rem;
+}
+h2 {
+  font-size: 1.5rem;                       /* büyütüldü */
+  color: #0F0;
+  border-bottom: 1px solid #333;
+  margin: 24px 0 12px;
+  padding-bottom: 5px;
+}
+p {
+  margin-bottom: 1em;
+  font-size: 1rem;
+}
+a {
+  color: #00FFFF;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ----- BİLGİ KUTUSU (İNFOBOX) ----- */
+.infobox {
+  float: right;
+  width: 240px;
+  background: #000;
+  border: 2px solid #555;
+  border-top: 2px solid #777;
+  border-left: 2px solid #666;
+  padding: 10px;
+  margin: 0 0 18px 18px;
+  font-size: 13px;
+  box-shadow: 2px 2px 0 #000;
+}
+.infobox-image {
+  background: #111;
+  border: 2px inset #444;
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 5px;
+}
+.infobox-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.infobox-row {
+  display: flex;
+  border-bottom: 1px solid #333;
+  padding: 4px 0;
+}
+.infobox-label {
+  width: 45%;
+  font-weight: bold;
+  color: #999;
+}
+.infobox-value {
+  width: 55%;
+  color: #CCC;
+}
+
+/* ----- ALINTI ----- */
+blockquote {
+  border-left: 3px solid #00FF00;
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: #111;
+  color: #BBB;
+  font-style: italic;
+}
+
+/* ----- AÇILIR KAPANIR (XP TARZI) ----- */
+details {
+  margin: 12px 0;
+  border: 2px solid #555;
+  background: #1A1A1A;
+}
+summary {
+  padding: 8px 12px;
+  background: #333;
+  border: 1px solid #555;
+  color: #0F0;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.95rem;
+}
+summary::before {
+  content: '▶ ';
+  font-size: 0.75rem;
+}
+details[open] summary::before {
+  content: '▼ ';
+}
+.details-content {
+  padding: 10px 14px;
+  background: #111;
+  border-top: 1px solid #555;
+}
+
+/* ----- ÜLKE / OYUNCU GRİDİ ----- */
+.item-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 110px;
+  padding: 8px 6px;
+  text-decoration: none;
+  color: #CCC;
+  border: 1px solid transparent;
+  font-size: 12px;
+}
+.item-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: #555;
+}
+.item-card img {
+  width: 72px;
+  height: 54px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  border: 1px solid #444;
+  background: #000;
+}
+.item-card .item-name {
+  text-align: center;
+  word-break: break-word;
+  color: #DDD;
+  font-size: 0.85rem;
+}
+
+/* ----- TABLO ----- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111;
+  border: 2px solid #555;
+  font-size: 0.9rem;
+}
+.data-table th {
+  background: #333;
+  color: #0F0;
+  padding: 8px 10px;
+  border: 1px solid #555;
+  text-align: left;
+  font-size: 0.85rem;
+}
+.data-table td {
+  padding: 7px 10px;
+  border: 1px solid #444;
+}
+
+/* ----- RESİM KÜÇÜK KUTUSU ----- */
+.wiki-thumb {
+  float: right;
+  margin: 0 0 14px 14px;
+  border: 2px solid #555;
+  background: #111;
+  padding: 5px;
+  max-width: 240px;
+}
+.wiki-thumb img {
+  width: 100%;
+  display: block;
+}
+.thumb-caption {
+  font-size: 12px;
+  color: #AAA;
+  padding: 5px 3px 0;
+}
+
+/* ----- HARİTA ----- */
+.map-container {
+  margin: 14px 0;
+  border: 2px solid #555;
+  background: #000;
+  padding: 5px;
+  text-align: center;
+}
+.map-container img {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+/* ----- LIGHTBOX ----- */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center; align-items: center; flex-direction: column;
+}
+.lightbox-modal.active { display: flex; }
+.lightbox-content {
+  max-width: 90%; max-height: 80vh; object-fit: contain;
+  border: 2px solid #555;
+}
+.lightbox-close {
+  position: absolute; top: 20px; right: 30px;
+  font-size: 28px; color: #fff; cursor: pointer;
+}
+.lightbox-download {
+  margin-top: 12px; padding: 6px 14px;
+  background: #555; color: #fff; text-decoration: none;
+  border: 2px outset #777;
+}
+
+/* ----- FOOTER ----- */
+.status-bar {
+  background: #C0C0C0;
+  border-top: 1px solid #808080;
+  padding: 5px 12px;
+  font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+  font-size: 12px;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+/* ----- MOBİL ----- */
+@media (max-width: 750px) {
+  body {
+    padding: 0;
+  }
+  .app-window {
+    height: auto;
+    min-height: 100vh;
+  }
+  .main-area {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #555;
+    padding: 8px;
+    max-height: 140px;
+  }
+  .infobox {
+    float: none;
+    width: 100%;
+    margin: 0 0 14px 0;
+  }
+  .toolbar a {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  h1.article-title {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+}

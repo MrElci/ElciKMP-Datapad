@@ -1,13 +1,19 @@
 §d Swaführer Aras
 §o Aras Muhammed MORKOÇ, 2019-2020 de katıldı.
 
-<tablo>                                                                 img.person.aras
+<tablo>                                                                 
+    img.person.aras
     *Oyunda bulunma süresi*             Eternicalⁱ
     *taç giymesi*                       MC.O. 2. binyılⁱ
     *Hanedanⁱ*                          Mormontlarⁱ
     *Simgesel Devletiⁱ*                 Nazi Arasistanⁱ
     *Ünvanıⁱ*                           Swaführer
+    *Yönettiği Devletler*               Nazi Arasistan, Arasis Cumhuriyeti, Arasis Tiranlığı, Nazi Türkiyesi, Ankara Faşist Hükümeti, Türk Direnişçileri, Güney Çinhindi Faşist Tiranlığı
 <tablo /end>
+<h2> Aras Muhammed MORKOÇ kimdir?
+    Sunucunun gruplaşmasındaki lider isim olan Aras Muhammed MORKOÇ, ünlü bir stratejist, savaş lideri ve istikrar şefidir. Yönettiği devletlerdeki karizması ve saldırgan yapısı ile sıkça işaretlenir.
+    Sunucu ile ilgili oyuna bağlı ilişkisini Minecraft Miladı ile birlikte bitirsede, sunucu içerisinde düzenli olarak ittifak lideri, sekreter, savaş lideri gibi sanal oyuncu rollerini almıştır. Savaşlar konusundaki görüşleri çoğu zaman yol gösterici olmuştur.
+    Sunucu içerisindeki faşist devrim ve devlerin çöküşü çağlarının başlatıcısıdır, 2 binyıl sürecek nazi devrimleri ve faşist görüşünde manifestosunu yazan yegane kişidir.
 
 <h2> Sunucudaki Diplomatik Anlaşmazlıklar ve Aras Muhammed MORKOÇ’un Rolü
     Sunucunun ilk aşamalarında ortaya çıkan diplomatik anlaşmazlıklar, oyuncular arasında ciddi çatışmalara yol açabilecek potansiyel taşıyordu. 
@@ -23,8 +29,10 @@
     MORKOÇ, stratejik planlamalar ve diplomatik düzenlemeler konusunda oyun kurucu rolünü üstlenmiş, sonraki çağlarda soyut oyuncu olarak etkisini sürdürmüştür.
     Bu etkisi, sadece diplomatik kurallarla sınırlı kalmamış; aynı zamanda savaş stratejilerinde ve ittifak planlamalarında da kendini göstermiştir. 
     Uygar adlı oyuncunun şu sözleri, MORKOÇ’un stratejik etkisinin boyutunu açıkça ortaya koymaktadır:
-        <alıntı karesi> "Bir savaş yada herhangi bir planlamada Aras'ı orda görmemek imkansızdı, Elci onu her zaman gruba alır ve düşüncelerine önem verirdi."
+    <alıntı karesi> "Bir savaş yada herhangi bir planlamada Aras'ı orda görmemek imkansızdı, Elci onu her zaman gruba alır ve düşüncelerine önem verirdi."
     Bu sözler, MORKOÇ’un sadece kendi devletini değil, diğer oyuncuların da stratejilerini etkileme kapasitesine sahip olduğunu kanıtlar niteliktedir.
+
+
 
 Ayrıca bakınız:
 
@@ -32,7 +40,7 @@ Ayrıca bakınız:
     Aras Muhammed MORKOÇ’un taşıdığı Swaführer ünvanı, onun sunucu tarihindeki otoriter rejimlerle olan ilişkisini ve liderlik yeteneklerini yansıtır. 
     Bu ünvan, Aras’ın Nazi Türkiyesi gibi son faşist rejimlerden birini kurarak tarihteki yerini sağlamlaştırmasından sonra verilmiştir.
     Bu bağlamda Mr. Elciⁱ’nin şu sözleri oldukça anlamlıdır:
-        "Nazi Türkiyesi, sunucuya uzun bir süre boyunca gelmiş son faşist devletti. Ankara’da Atilla Romaⁱ’sının bayrağının dalgalandığı gün, faşistler için olabilecek son gündü."
+    <alıntı karesi> "Nazi Türkiyesi, sunucuya uzun bir süre boyunca gelmiş son faşist devletti. Ankara’da Atilla Romaⁱ’sının bayrağının dalgalandığı gün, faşistler için olabilecek son gündü."
 
     Aras’ın, Swaführer ünvanını almasından önceki "Letzfuhrer" ünvanı, onun son faşist devlet lideri olarak tanınmasını ifade etmektedir. 
     Ancak otoriter rejimlerin pre-sunucu dönemindeⁱ yükselişe geçmesi, Aras’ın liderlik özelliklerini uluslararası arenada daha fazla ön plana çıkarmış ve onun Swaführer olarak anılmasını sağlamıştır.

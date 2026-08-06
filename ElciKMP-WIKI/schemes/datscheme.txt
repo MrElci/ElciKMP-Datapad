@@ -1,0 +1,3 @@
+Ülkelerde:
+display name
+all klasörü txt name

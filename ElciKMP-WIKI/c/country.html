@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ülke – ElciKMP-DataPad</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-window">
+    <div class="title-bar"><div class="title-bar-text">Ülke Detayı</div><div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div></div>
+    <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+    <div class="toolbar">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="players.html">Oyuncular</a>
+      <a href="countries.html">Ülkeler</a>
+      <a href="wars.html">Savaşlar</a>
+      <a href="#">Olaylar</a>
+      <a href="#">Kronoloji</a>
+    </div>
+    <div class="main-area">
+      <div class="sidebar">
+        <div class="sidebar-title">Hızlı Erişim</div>
+        <ul><li onclick="location.href='countries.html'">← Ülke Listesi</li></ul>
+      </div>
+      <div class="content-pane" id="mainContent">Yükleniyor...</div>
+    </div>
+    <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    (async () => {
+      const main = document.getElementById('mainContent');
+      const params = new URLSearchParams(window.location.search);
+      const folder = params.get('country');
+      if (!folder) { main.innerHTML = '<p>Ülke belirtilmedi.</p>'; return; }
+      try {
+        const info = await fetchCountryInfo(folder);
+        if (!info) throw new Error('Bilgi yok');
+        let html = await loadCountryPageContent(folder);
+        main.innerHTML = html;
+
+        // İlgili makaleler
+        if (info.countryClass) {
+          const related = await getCountriesByClass(info.countryClass);
+          const filtered = related.filter(c => c.folder !== folder);
+          if (filtered.length) {
+            let relHtml = '<div class="related-section"><h3>İlgili Makaleler</h3><ul class="related-links">';
+            filtered.forEach(c => relHtml += `<li><a href="country.html?country=${encodeURIComponent(c.folder)}">${c.displayName}</a></li>`);
+            relHtml += '</ul></div>';
+            main.innerHTML += relHtml;
+          }
+        }
+      } catch(e) { main.innerHTML = '<p>Hata: ' + e.message + '</p>'; }
+    })();
+  </script>
+</body>
+</html>

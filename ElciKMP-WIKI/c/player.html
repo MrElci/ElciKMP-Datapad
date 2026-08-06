@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oyuncu – ElciKMP-DataPad</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-window">
+    <div class="title-bar"><div class="title-bar-text">Oyuncu Detayı</div><div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div></div>
+    <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+    <div class="toolbar">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="players.html">Oyuncular</a>
+      <a href="countries.html">Ülkeler</a>
+      <a href="wars.html">Savaşlar</a>
+      <a href="#">Olaylar</a>
+      <a href="#">Kronoloji</a>
+    </div>
+    <div class="main-area">
+      <div class="sidebar">
+        <div class="sidebar-title">Hızlı Erişim</div>
+        <ul>
+          <li onclick="location.href='players.html'">← Oyuncu Listesi</li>
+        </ul>
+      </div>
+      <div class="content-pane" id="mainContent">Yükleniyor...</div>
+    </div>
+    <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    (async () => {
+      const main = document.getElementById('mainContent');
+      const params = new URLSearchParams(window.location.search);
+      const folder = params.get('player');
+      if (!folder) { main.innerHTML = '<p>Oyuncu belirtilmedi.</p>'; return; }
+      try {
+        const html = await loadPlayerPageContent(folder);
+        main.innerHTML = html;
+      } catch(e) { main.innerHTML = '<p>Hata: ' + e.message + '</p>'; }
+    })();
+  </script>
+</body>
+</html>

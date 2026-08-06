@@ -1,0 +1,43 @@
+§d Büyük Kral Kiros
+§o Kiros, M.Ö. 559-530 yılları arasında hüküm sürdü.
+
+<tablo>                                                                 img.person.kyros
+    *Hükümdarlık süresi*             M.Ö. 559 – 530
+    *Tahta çıkışı*                   M.Ö. 559, Anshan
+    *Hanedan*                        Ahamenişler
+    *İmparatorluğu*                  Pers İmparatorluğu
+    *Ünvanı*                         Büyük Kral, Kralların Kralı
+<tablo /end>
+
+<h2> İmparatorluktaki Diplomatik Anlaşmazlıklar ve Kiros’un Rolü
+    Antik Yakın Doğu’nun karmaşık siyasi yapısında, farklı krallıklar ve halklar arasındaki anlaşmazlıklar sıkça savaşlara yol açıyordu.
+    Kiros, bu ortamda yalnızca askerî bir fatih değil, aynı zamanda olağanüstü bir diplomat olarak öne çıktı.
+    Fethettiği topraklardaki yerel geleneklere, dinlere ve yönetim biçimlerine gösterdiği saygı, imparatorluğun uzun süreli barış içinde kalmasını sağladı.
+    Onun izlediği bu hoşgörü politikası, antik dünyanın en sağlam diplomatik çerçevelerinden birinin temelini oluşturdu.
+    Öyle ki, Kiros’un Babil’i ele geçirdikten sonra yayımladığı ünlü ferman, tarihte ilk insan hakları bildirilerinden biri olarak kabul edilir.
+    <alıntı karesi> "Ben, Kiros, dünya kralı, büyük kral, güçlü kral, Babil kralı, Sümer ve Akad kralı, dört bir yanın kralı… Babil’in tüm mabetlerini yeniden inşa ettim ve tanrıların heykellerini yerlerine iade ettim. Tüm insanların barış içinde yaşamasını sağladım."
+    Bu yaklaşım, imparatorluğun farklı etnik ve dini grupları arasında güven tesis etmiş, isyanları ve iç çatışmaları en aza indirmiştir.
+    Kiros’un diplomatik dehası, yalnızca fetihlerle değil, antlaşmalarla da sınırlarını genişleten bir model yarattı.
+
+<h2> Danışmanlarına Yol Gösterici Olarak Kiros
+    İmparatorluğun kuruluş aşamasında, Kiros’un en yakın danışmanları ve generalleri (özellikle Harpagos) onun stratejik vizyonundan derinden etkilenmiştir.
+    Kiros, sadece savaş meydanlarında değil, taht odasında da bir akıl hocasıydı; planlamaları, ittifak kurma yöntemleri ve yönetim felsefesi, sonraki Ahameniş krallarına da ilham kaynağı oldu.
+    Bu etkisi, askerî taktiklerden vergi düzenlemelerine kadar uzanmıştır.
+    Herodot’un aktardığına göre, Kiros, oğlu Kambises’e verdiği öğütlerde şöyle demiştir:
+        <alıntı karesi> "Kral olmak, kazanmaktan çok, kazandıklarını korumaktır. Düşmanlarını anlaşmayla bağla, dostlarını adaletle tut. Çünkü kılıçla alınan toprak, gönülle korunur."
+    Bu sözler, Kiros’un sadece kendi dönemini değil, imparatorluğun sonraki nesillerini de şekillendiren bir rehber olduğunu gösterir.
+
+Ayrıca bakınız:
+
+<açılır kapanır pencere> "Büyük" Ünvanını Alma Sebebi
+    Kiros’a "Büyük" ünvanı, yalnızca askerî başarılarından dolayı değil, aynı zamanda benzersiz yönetim anlayışı nedeniyle verilmiştir.
+    Med İmparatorluğu’nu devirip, Lidya ve Babil gibi güçlü krallıkları tek bir çatı altında birleştirerek dünyanın o zamana kadar gördüğü en geniş imparatorluğu kurdu.
+    Ancak asıl büyüklüğü, fethettiği halklara kendi dinlerini, dillerini ve yasalarını yaşatma izni tanımasında yatar.
+    Bu hoşgörü, eski Yakın Doğu’da eşi benzeri görülmemiş bir politikaydı ve Kiros’u sıradan fatihlerden ayırdı.
+    Ksenophon, "Kiros’un yönetimi altında kimse kendi yurdunda yabancı hissetmezdi" diyerek onun bu özelliğini övmüştür.
+
+<açılır kapanır pencere> Lakabı: Perslerin Babası
+    Kiros’un "Perslerin Babası" olarak anılması, onun kendi halkına karşı tutumundan kaynaklanır.
+    Herodot, Perslerin Kiros’u "baba" olarak gördüklerini çünkü onları yoksulluktan kurtarıp özgürlük ve onur verdiğini yazar.
+    Bu lakap, aynı zamanda onun soyundan gelen Ahameniş krallarının da benimsediği bir unvan haline gelmiş; imparatorluk boyunca kraliyet portrelerinde ve yazıtlarında sıkça vurgulanmıştır.
+    Kiros’un mezar taşında yazan "Ey yolcu, ben Kiros’um, Pers imparatorluğunu kurdum, Asya’nın kralıyım. Sakın bu mezarı kıskanma" sözü, onun ne denli ulvi bir figür olarak hatırlanmak istediğini gösterir.
