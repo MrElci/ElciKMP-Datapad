@@ -1,0 +1,62 @@
+§l §d Leh Krallığı (Bönlend)
+
+Resmî adıyla §l §d Lehistan Krallığı
+(Erlence: §o Królestwo Lehii / Bönlend)
+
+<tablo>
+    img.flag.leh|img.coatofarms.leh
+    img.map.MCO1.leh
+    *Başkenti*              Warşav (sonra Kalingrad)
+    *Resmî Dili*            Erlence (Lehçe benzeri)ⁱ
+    *Demonim*               Leh / Erlen
+    *Hükûmet*               Feodal Monarşi – Kral ve Soylu Meclisi
+    *İdeoloji*              Merkeziyetçi Feodalizm / Askerî Reformculuk
+    *Kurucu Kral*           I. Erdal Bönlendⁱ
+    *Yüz Ölçümü*            1.250.000 km² (prime dönem)
+    *Ekonomik Sıralama*     6
+    *Askerî Sıralama*       5
+    *Çağ Dilimi*            M.Ö. 1. Binyıl – Sömürge Öncesi Çağ
+    *Ömür*                  yaklaşık 450 yıl (kesintili)
+<tablo /end>
+
+
+<h1>Tarihçe</h1>
+
+<h2>1. Kuruluş: Erlen Hanedanının Yükselişi
+    Leh Krallığı, Polonya ovasında Erlen (Erdalin) kabilelerinin birleşmesiyle kuruldu. Kurucu kral I. Erdal Bönlend, Vistül nehri kıyısında Warşav’ı başkent ilan etti. Krallık, doğal savunma hatlarından yoksun olmasına rağmen, hızlı süvarileri ve merkezi ordusuyla çevresindeki beylikleri hâkimiyeti altına aldı. İlk yıllarda Baltık kıyılarına ve Karpat eteklerine doğru genişleyen Lehistan, bölgenin en kalabalık devletlerinden biri hâline geldi. Yüksek tarım sistemleri, ağır ve hafif süvarilerin verimli yapısı ve en önemlisi yolsuzluğu ağır şekilde cezalandıran sistem ve devlet kültürü yayılım hızında etkili oldu. Belarus, Ukrayna, Moldova, Baltık devletleri ve Kalingrad hızla Lehistan hakimiyetine geçti
+
+<h2>2. Nazi Arasistan ile İlk Savaş ve Aşağılayıcı Yenilgi</h2>
+    Krallığın karşılaştığı ilk büyük sınav, batıdan yükselen Nazi Arasistan’dı. Arasis orduları, Leh topraklarına akınlar düzenledi ve başkent Warşav’ı ateşe verdi. Kral, ordusunun büyük bir kısmını kaybetti ve ağır bir yenilgiye imza attı. Bu hezimet üzerine başkent geçici olarak Kalingrad’a taşındı. Savaş sonrası Kral, devleti ekonomik reformlarla ayağa kaldırmaya çalıştı; ancak Warşav’ın yeniden inşası IBFI ile girişilen yeni savaşlar nedeniyle yarım kaldı. Leh halkı bu duruma rağmen dağılmamış ve Arasis akınlarına karşı halk orduları kurulmuştur. 
+
+<h2>3. IBFI ile Mücadele ve Doğu Cephesi</h2>
+    Doğudaki büyük güç IBFI (İnek Bayramı Federe İmparatorluğu), Lehistan’ın zayıflamasını fırsat bilerek sınır boylarına yığıldı. Leh Krallığı, IBFI ile savaşan tek Avrupa devleti oldu. Savaşlar yıllarca sürdü; Lehler, gerilla taktikleri ve sağlam kalelerle IBFI akınlarını püskürttü. Ancak bu mücadele hazineyi tüketti ve Krallık, batıdaki eski topraklarının bir kısmını Nazi Arasistan’a kaptırdı. Warşav’ın yeniden başkent ilan edilmesi ancak IBFI-Leh savaşlarının ikinci evresinde gerçekleşebildi. Ancak bu kısa sürdü ve Polonyanın tamamen Nazi Arasistan hakimiyetine geçmesiyle başkent Kalingrada geri taşındı. Kraliyet, Kalingrad üstünde topladığı 400 bin kişilik ordu ile önce Belarustaki askeri yapılanmayı yanına aldı, ardından baltıklardan topladığı ordularla sayısını 800 bine ulaştırdı. IBFI ovalarında hızla ilerleyen ordu, yeterli lojistik sayesinde Moskovaya ulaştı ve IBFI savaşlarını bitirdi. Belarus ve Ukraynaın tam hakimiyetide Leh Krallığına geçti.
+
+<h2>4. Swenska ile Baltık Denizi Hâkimiyet Mücadelesi</h2>
+    Baltık Denizi’ndeki stratejik limanlar, Leh Krallığı için hayati önem taşıyordu. Swenska Diktası ile girişilen deniz savaşları sonucunda Lehistan, Estonya’yı kaybetti. Buna rağmen Swenska ile diplomatik ilişkiler geliştirilerek ticaret yolları yeniden canlandırıldı. Bu dönemde Leh donanması, kadırga teknolojisinde Swenska’nın gerisinde kalsa da, kara ordusu disiplinini korudu. Swenska ikinci bir deniz seferiyle letonya ve litvanyayıda kontrolü altına alınca bu kara ordusu düzenli akınlarla bölgeyi geri almaya çalıştı. Ancak akınlar Swenska'nın tartışmasız zaferi ile sonuçlandı. IBFI ile tekrar bir savaşa girmemek ve zayıflamış gözükmemek adına Leh Krallığı savaştan Swenskanın çekilmesini diplomatik yollarla sağladı ve birkaç sandık dolusu altınla savaşı bitirdi. Altınlar ekonomik kalkınmaya harcandı.
+
+<h2>5. Xenia-Devleti Alliye Savaşlarındaki Rolü</h2>
+    Xenia Krallığı ile Devleti Alliye arasındaki ilk büyük çatışmada Leh Krallığı, Devleti Alliye’nin yanında yer aldı. Leh orduları, Xenia’nın doğu kanadına sarkarak savaşın gidişatını etkiledi. Ancak savaşın ardından Lehistan desteğini çekti ve Xenia ile ayrı bir barış antlaşması imzaladı. Bu hamle, hem Devleti Alliye’nin yalnız kalmasına hem de Lehistan’ın uluslararası arenada güvenilmez bir müttefik olarak anılmasına yol açtı. Yinede, Nazi Arasistan-Xenia çatışmalarında bu diplomatik manevra, devletin iki taraftan birden destek almasını sağlayarak Lehleri dünyanın yaşadığı ekonomik krizden etkilenmekten kurtaran hamle oldu.
+
+<h2>6. İç Reformlar ve Geç Dönem
+    Sürekli savaşların ardından Leh Krallığı, tarım ve ticareti teşvik eden bir dizi reform başlattı. Soylular Meclisi’nin yetkileri kısıtlandı, merkezi bürokrasi güçlendirildi. Ancak bu reformlar, Krallığın komşuları karşısındaki stratejik konumunu değiştirmedi. Lehistan, sonraki çağlarda hem bir tampon devlet hem de büyük güçlerin rekabet alanı olarak varlığını sürdürdü. Sömürge çağı başladığında coğrafya yetersizlikleri ve oyuncu aktifliği nedeniyle aktif bir güçten ziyade bir izleyiciydi.
+
+<h2>7. Yıkılış
+    Latin türk savaşlarından 100 yıl kadar önce, Nazi Arasistan 
+
+
+<h1>Ayrıca Bakınız</h1>
+
+<açılır kapanır pencere> Coğrafya ve İklim
+    Leh Krallığı, Orta Avrupa’nın geniş ovalarına yayılmıştı. Vistül, Oder ve Dinyeper nehirleri, tarım ve ticaretin can damarlarıydı. Baltık kıyıları, krallığa deniz ticareti imkânı sunuyordu. Kışlar sert, yazlar ılıman geçerdi. Ormanlar ve bataklıklar, doğal savunma unsurları olarak kullanıldı.
+
+<açılır kapanır pencere> Ekonomi ve Ticaret
+    Tarım (buğday, çavdar, keten), hayvancılık ve orman ürünleri ekonominin temelini oluşturuyordu. Baltık limanları üzerinden yapılan kereste, kehribar ve tahıl ticareti, krallığa önemli gelir sağladı. Leh darphanesinde “Leh Duka” adlı gümüş sikke basıldı. Ancak sürekli savaşlar ve savaş tazminatları hazineyi zayıflattı. Yinede karizmatik liderler, güçlü halk iradesi gibi etmenler tarihçilere göre Leh ekonomisini sürekli aktif tuttu ve büyümeyi sürdürdü.
+
+<açılır kapanır pencere> Askerî Yapı
+    Leh ordusu, ağır zırhlı süvarileri (hussar benzeri birlikler), okçu piyadeleri ve hafif süvarilerden oluşuyordu. Kaleleri ve surları, dönemin en sağlam savunma hatları arasında sayılırdı. Donanma, Swenska ve IBFI karşısında yetersiz kaldığı için deniz savaşlarında pasif bir strateji izlendi. Ordu, savaş zamanı 150.000’e kadar çıkabilirken, barış dönemlerinde 40.000 civarında tutuldu.
+
+<açılır kapanır pencere> Kültürel Miras
+    Leh Krallığı, Erlen gelenekleri ile Slav unsurlarını harmanlayan özgün bir kültür geliştirdi. Ahşap kiliseler, kaleler ve saraylar, dönemin mimarisinin izlerini taşır. Destanlar ve kahramanlık şiirleri, özellikle IBFI ve Swenska’ya karşı kazanılan ufak zaferleri anlatır. Krallığın resmî tarih yazıcılığı, *“Bönlend Günlükleri”* adlı eserde toplanmıştır. Ne var ki, savaşlar nedeniyle bu eserlerin çoğu günümüze ulaşamamıştır.
+
+<açılır kapanır pencere> Diplomasi ve İttifaklar
+    Leh Krallığı, varlığı boyunca büyük güçler arasında denge politikası izlemek zorunda kaldı. Devleti Alliye, Nazi Arasistan, Swenska ve IBFI arasında gidip gelen ittifaklar, krallığın bağımsızlığını korumasına yardımcı oldu. Ancak bu esnek politika, Lehistan’ın *“dönek”* olarak anılmasına da sebep oldu. Soylular Meclisi, ittifak kararlarında kralın yetkilerini sınırlayan en önemli kurumdu.

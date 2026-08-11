@@ -1,21 +1,21 @@
-§l §1 Xenia Krallığı
+§l §9 Xenia Krallığı
 
 Resmî adıyla §l §9 Xenian İmparatorluk Krallığı
 §o (Latince: Regnum Xenianum Imperiale)
 <tablo> 
-img.flag.xue - img.coatofarms.xue 
-img.map.MCO1.xue 
-*Başkenti* Roma (batı ve doğu olmak üzere iki idarî merkez) 
-*Resmî Dili* Xeniantancaⁱ 
-*Demonim* Xenian 
-*Hükûmet* Doğu-Batı Monarşik yönetimi
-*İdeoloji* Emperyalizm / Roma Rönesansı / Meritokratik Aristokrasi
-*Kurucu Krallar* Büyük Xenia 
-*Yüz Ölçümü* 1.482.000 km² (prime dönem) 
-*Ekonomik Sıralama* 3
-*Askerî Sıralama* 2 
-*Çağ Dilimi* M.Ö. 1. Binyıl – Sömürge Öncesi Çağ 
-*Ömür* yaklaşık 320 yıl 
+    img.flag.xue|img.coatofarms.xue
+    img.map.MCO1.xue 
+    *Başkenti* Roma (batı ve doğu olmak üzere iki idarî merkez) 
+    *Resmî Dili* Xeniantancaⁱ 
+    *Demonim* Xenian 
+    *Hükûmet* Doğu-Batı Monarşik yönetimi
+    *İdeoloji* Emperyalizm / Roma Rönesansı / Meritokratik Aristokrasi
+    *Kurucu Krallar* Büyük Xenia 
+    *Yüz Ölçümü* 1.482.000 km² (prime dönem) 
+    *Ekonomik Sıralama* 3
+    *Askerî Sıralama* 2 
+    *Çağ Dilimi* M.Ö. 1. Binyıl – Sömürge Öncesi Çağ 
+    *Ömür* yaklaşık 320 yıl 
 <tablo /end>
  
 <h1>Tarihçe</h1>
@@ -37,8 +37,9 @@ img.map.MCO1.xue
 
     topraklarını fethederek Batı Roma’nın sınırlarına neredeyse ulaşmıştır. Bu genişleme, krallığın deniz ticaret yollarını kontrol altına almasını ve Akdeniz’in batı havzasında tek hâkim güç olmasını sağlamıştır.
     Kuzey Afrika’da (Tunus, Cezayir) ve Yunanistan’da kurulan koloniler, Xenian Roma’nın doğudaki rakibi Devleti Alliye ile doğrudan temasa geçmesine neden olmuştur. Ayrıca Adriyatik savaşları döneminde, Xenianın üstünlüğünü kaybedişide tetiklenmiştir.
-<h2>2.1. Yönetim ve Kültür</h2>
-    Prime dönemini kültürel hakimiyet politikasına ve eksiksiz Roma geleneğine borçlu olan Xenia, Nazi Arasistan - Xenia savaşları döneminde faşist gelenek ve kültürle tanışmıştır. Bu tanışma, hükümet dairelerinde hızla gelişen otokrat anlayışı pekiştirmiş ve Xenia İberya yönetimi ile Roma yönetimini karşı karşıya getirmiştir. Bu iç karışıklıklara rağmen bürokrasinin hızlı işlemesi ise kendi oluşturdukları devlet oluşumunun bir başarısıdır. 
+
+<img> img.addon.xuedreams | §o Xenia hükümeti tarafından gösterilen hedef toprakları
+
 <h2>3. Doğu ile Mücadele: Devleti Alliye ve Leh İttifakı</h2>
     Xenia’nın Yunanistan ve Kuzey Afrika’daki varlığı, Anadolu merkezli Devleti Alliye Sosyalist İmparatorluğu ile kaçınılmaz bir çatışmaya yol açtı. Devleti Alliye, Leh Krallığı’nın gizli desteğiyle Xenia’nın doğu eyaletlerine saldırdı. Ardından Nazi Arasistan'ın Devleti Alliyeye sağladığı kaynaklardan kazanma umuduyla Lehistan Krallığıda açık desteğini açıkladı.
 
@@ -61,3 +62,5 @@ img.map.MCO1.xue
     Çağın gidişatını tamamen değiştiren ve eski güçleri yıkan savaşlardan biri olan Adriyatik savaşı sırasında Xenia, düzenli olarak Swenska Diktasına geçiş hakkı sağladı. Bu durum, Devleti Alliyenin donanma ile yapabileceklerini tamamen kısıtlarken ayrıca İzmir civarında yaşanan minik çaplı çıkartmalarla Devleti Alliye'nin hareket kabiliyetini kısıtlamıştır. Xenia Adriyatik Savaşları özelinde geleceğini unutan imparatorluk olarak anılmıştır.
 <açılır kapanır pencere> Mirası
     Xenia İmparatorluğu, sunucuda soyu en kısa sürmüş imparatorluk olarak tarihe geçer. Hanedan üyelerinin tamamının acımasızca katledilmesi, Çöküşün çok yavaş ve başarıya gölge düşürecek şekilde olması, Xenian ünvanının daha İmparatorluk yaşıyorken bile yarattığı sorunlar nedeniyle soğuk bakılması gibi özellikler, Devlet sonrası halklara bağlı yeni devletleri, yeni imparatorluklarda Xenian ünvanını ve kültürel mirasın taşınmasını engellemiştir.
+<açılır kapanır pencere> Yönetim ve Kültür
+    Prime dönemini kültürel hakimiyet politikasına ve eksiksiz Roma geleneğine borçlu olan Xenia, Nazi Arasistan - Xenia savaşları döneminde faşist gelenek ve kültürle tanışmıştır. Bu tanışma, hükümet dairelerinde hızla gelişen otokrat anlayışı pekiştirmiş ve Xenia İberya yönetimi ile Roma yönetimini karşı karşıya getirmiştir. Bu iç karışıklıklara rağmen bürokrasinin hızlı işlemesi ise kendi oluşturdukları devlet oluşumunun bir başarısıdır. 

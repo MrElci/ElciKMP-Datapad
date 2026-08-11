@@ -2,3 +2,4 @@ Nazi Türkiyesi
 NaziTürkiyesi.txt
 naziturkey.png
 faşist
+>naziturkey.aras.faşist

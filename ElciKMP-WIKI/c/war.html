@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Savaş – ElciKMP-DataPad</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savaş – ElciKMP-DataPad</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-window">
-    <div class="title-bar"><div class="title-bar-text">Savaş Detayı</div><div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div></div>
-    <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
-    <div class="toolbar">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="players.html">Oyuncular</a>
-      <a href="countries.html">Ülkeler</a>
-      <a href="wars.html">Savaşlar</a>
-      <a href="#">Olaylar</a>
-      <a href="#">Kronoloji</a>
+    <div class="app-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Savaş Detayı</div>
+            <div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div>
+        </div>
+        <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+        <div class="toolbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="players.html">Oyuncular</a>
+            <a href="countries.html">Ülkeler</a>
+            <a href="wars.html">Savaşlar</a>
+            <a href="#">Olaylar</a>
+            <a href="#">Kronoloji</a>
+        </div>
+        <div class="main-area">
+            <div class="sidebar">
+                <div class="sidebar-title">Gezinti</div>
+                <ul id="quickAccessList"></ul>
+            </div>
+            <div class="content-pane" id="mainContent">Yükleniyor...</div>
+        </div>
+        <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
     </div>
-    <div class="main-area">
-      <div class="sidebar">
-        <div class="sidebar-title">Hızlı Erişim</div>
-        <ul><li onclick="location.href='wars.html'">← Savaş Listesi</li></ul>
-      </div>
-      <div class="content-pane" id="mainContent">Yükleniyor...</div>
-    </div>
-    <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
-  </div>
-  <script src="script.js"></script>
-  <script>
-    (async () => {
-      const main = document.getElementById('mainContent');
-      const params = new URLSearchParams(window.location.search);
-      const folder = params.get('war');
-      if (!folder) { main.innerHTML = '<p>Savaş belirtilmedi.</p>'; return; }
-      try {
-        const info = await fetchWarInfo(folder);
-        if (!info) throw new Error('Bilgi yok');
-        let html = await loadWarPageContent(folder);
-        main.innerHTML = html;
-        // İlgili makaleler
-        const related = [...new Set([...info.attackers, ...info.defenders, ...info.relatedEvents])];
-        if (related.length) {
-          let relHtml = '<div class="related-section"><h3>İlgili Makaleler</h3><ul class="related-links">';
-          related.forEach(item => {
-            relHtml += `<li><a href="country.html?country=${encodeURIComponent(item)}">${item}</a></li>`;
-          });
-          relHtml += '</ul></div>';
-          main.innerHTML += relHtml;
-        }
-        enableImageLightbox(main);
-      } catch(e) { main.innerHTML = '<p>Hata: ' + e.message + '</p>'; }
-    })();
-  </script>
+    <script src="script.js"></script>
+    <script>
+        (async () => {
+            const main = document.getElementById('mainContent');
+            const params = new URLSearchParams(window.location.search);
+            const folder = params.get('war');
+            if (!folder) { main.innerHTML = '<p>Savaş belirtilmedi.</p>'; return; }
+            try {
+                const info = await fetchWarInfo(folder);
+                if (!info) throw new Error('Bilgi yok');
+                let html = await loadWarPageContent(folder);
+                main.innerHTML = html;
+
+                if (info.classmans && info.classmans.length) {
+                    const related = await getRelatedItemsByClassmans(info.classmans, folder);
+                    main.innerHTML += renderRelatedItems(related);
+                }
+
+                enableImageLightbox(main);
+                applyAccentColor();
+                buildQuickAccess();
+            } catch(e) { main.innerHTML = '<p>Hata: ' + e.message + '</p>'; }
+        })();
+    </script>
 </body>
 </html>

@@ -2,4 +2,4 @@ Nazi Arasistan Devleti
 NaziArasistan.txt
 naziarasistan.png
 faşist
-- Nazi-Arasistan-2
+>faşist.aras

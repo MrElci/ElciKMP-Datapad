@@ -7,7 +7,7 @@ Nazi Arasistan, Avrupa'nın orta kesiminde konumlanan, Milattan Önce 2. Binyıl
 Kuzey Denizi ve Baltık Denizi'ne kıyısı olan bu devlet, stratejik ve coğrafi avantajlarıyla dikkat çekmiştir. Ren ve Tuna nehirleri, ülkenin ekonomik ve sosyal yaşamının temelini oluşturmuştur.
 
 <tablo>
-    img.flag.naziarasistan - img.coatofarms.naziarasistan
+    img.flag.naziarasistan|img.coatofarms.naziarasistan
     img.map.MCO1.naziarasistan
     *Başkenti*              Berlin
     *Resmi Dil*             Arasis Almancasıⁱ

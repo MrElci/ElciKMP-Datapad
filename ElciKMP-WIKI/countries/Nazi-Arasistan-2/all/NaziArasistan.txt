@@ -7,7 +7,7 @@ Anaeviⁱ kıtasında bir devlet. Kuzeyinde Swenskaⁱ , Führeristanⁱ , Deuch
 473.600 km² yüz ölçümüne sahiptir ve sınırları içerisinde Alfa ve Sigma nehirlerini bulundurur. Nasyonel Sosyalist Devletlerⁱ İttifakının kurucu üyesidir.
 
 <tablo>
-    img.flag.naziarasistan - img.coatofarms.naziarasistan
+    img.flag.naziarasistan|img.coatofarms.naziarasistan
     img.map.MCO2.naziarasistan
     *Başkenti*              Berlin
     *Resmi Dil*             Arasis Almancasıⁱ
@@ -23,12 +23,13 @@ Anaeviⁱ kıtasında bir devlet. Kuzeyinde Swenskaⁱ , Führeristanⁱ , Deuch
 <tablo /end>
 
 Nazi Arasistan, sunucunun fikir babası Aras Muhammed MORKOÇⁱ tarafından kurulan, sunucunun devletidir.
-<alt başlık> Güçlenme dönemi
+<img> img.map.MCO2.home | O dönem kıta
+<h2> Güçlenme dönemi
 Nazi Arasistan kıtaya kurulan devletlerin kıtayı bölüşmesi sırasında kurulan dengeyi bozan devletlerden biridir, devletin büyümesi hızlı ve ani olmuş, bu durumda rakiplerini hazırlıksız yakalamasında avantaj sağlamıştır.
 Kıtada Arasislerle ilk anlaşmazlık Devleti Alliye ile yaşanmış ve Arasisler, Xenianlarⁱ ile anlaşmaya oturarak Devleti Alliye Koalisyonⁱ savaşlarını başlatmıştır.
 Devletin güç savaşındaki baş düşmanı Xenia İmparatorluğuⁱ, bu durum karşısında boyun eğme yolunu tercih etsede, şartlar konusunda uyumsuzluk yaşanması Xenia Akınlarınıⁱ başlatmıştır.
 Swenskaⁱ devletinin kurulmasının ardından Nasyonel Sosyalist Devletlerⁱ ittifakının kurulmasında yer alan Nazi Arasistan hükümeti, çağ sonuna kadar denge politikasını sürdürmüştür.
-<img> img.map.MCO2.home
+
 Ayrıca bakınız:
 <açılır kapanır paragraf> Diplomatik politikalar
     Nasyonel Sosyalist tüm devletlerin genişleme çabası içerisindeki agresifliğini ve hırsını bir arada bir silah olarak toplayan Nazi Arasistan devlet hükümeti,

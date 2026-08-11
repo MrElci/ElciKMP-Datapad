@@ -1,3 +1,149 @@
-Ülkelerde:
-display name
-all klasörü txt name
+**ElciKMP-DataPad – dat.txt Yazım Rehberi**  
+Sürüm 1.0 · Son Güncelleme: 06.08.2026
+
+Bu rehber, ElciKMP-DataPad Vakıf Arşivi’ne içerik eklemek isteyen herkes için hazırlanmıştır. Her klasörün içinde bulunan `dat.txt` dosyası, sisteme o içeriğin ne olduğunu, hangi dosyadan okunacağını ve nasıl sınıflandırılacağını anlatır.
+
+---
+
+## 1. Genel Kurallar
+
+- `dat.txt` dosyası **UTF‑8** kodlamasıyla, düz metin olarak kaydedilmelidir.
+- Her satır bir bilgi içerir. Satır başında veya sonunda gereksiz boşluk bırakmayın.
+- **İlk iki satır** her zaman aynıdır:
+  1. **Görünen ad** (display name): Başlık olarak kullanılır.
+  2. **İçerik dosyasının adı**: `all` klasörü içindeki `.txt` dosyası.
+- `>` işaretiyle başlayan satır **classman (etiket)** satırıdır ve her `dat.txt` dosyasında en fazla bir tane bulunur. Birden fazla classman nokta (.) ile ayrılır.
+- Diğer satırlar sayfanın türüne göre değişiklik gösterir.
+
+---
+
+## 2. Oyuncu (players) dat.txt
+
+**Konum:** `players/<klasör_adı>/dat.txt`  
+**Amaç:** Bir oyuncuya ait sayfanın tanımlanması.
+
+### Satır sırası
+
+| Satır | İçerik | Açıklama |
+|-------|--------|----------|
+| 1 | Görünen ad | Örn: `Aras Muhammed MORKOÇ` |
+| 2 | İçerik dosyası | Örn: `aras.txt` (bu dosya `all/` içinde olmalı) |
+| (opsiyonel) | Classman satırı | `>` ile başlar. Örn: `>admins.moderators` |
+
+### Örnek
+
+```
+Aras Muhammed MORKOÇ
+aras.txt
+>founders.legends
+```
+
+**Not:** Oyuncu sayfalarında şu an için ek bir satır yoktur; ileride eklenecek olursa 3. ve 4. satırlar kullanılabilir.
+
+---
+
+## 3. Ülke (countries) dat.txt
+
+**Konum:** `countries/<klasör_adı>/dat.txt`  
+**Amaç:** Bir ülkenin sayfa bilgilerini ve bağlantılarını tanımlamak.
+
+### Satır sırası
+
+| Satır | İçerik | Açıklama |
+|-------|--------|----------|
+| 1 | Görünen ad | Örn: `Nazi Arasistan` |
+| 2 | İçerik dosyası | Örn: `naziarasistan.txt` |
+| 3 | Bayrak resmi | Dosya adı (örn: `naziarasistan.png`). `img/flags/` klasöründe olmalı. |
+| 4 | Ülke sınıfı | Bir kelime (örn: `Monarşi`, `Faşist`). Aynı sınıftaki ülkeler “İlgili Makaleler”de listelenir. |
+| 5 | Önceki‑sonraki devlet | `önceki-sonraki` biçiminde. Yoksa `-` veya boş bırakılır. Örn: `İran-Nazi Arasistan` |
+| (opsiyonel) | Classman satırı | `>` ile başlar. Örn: `>adriyatik.eastwars.latinage.xenia` |
+
+### Örnek
+
+```
+Nazi Arasistan
+naziarasistan.txt
+naziarasistan.png
+Faşist
+İran-
+>adriyatik.eastwars
+```
+
+Bu örnekte:
+- Ülkenin adı “Nazi Arasistan”
+- İçerik dosyası `all/naziarasistan.txt`
+- Bayrak dosyası `img/flags/naziarasistan.png`
+- Ülke sınıfı “Faşist”
+- Önceki devlet “İran”, sonraki devlet yok
+- Classman’leri: `adriyatik` ve `eastwars`
+
+---
+
+## 4. Savaş (wars) dat.txt
+
+**Konum:** `wars/<klasör_adı>/dat.txt`  
+**Amaç:** Bir savaşın taraflarını ve ilişkili olduğu olayları tanımlamak.
+
+### Satır sırası
+
+| Satır | İçerik | Açıklama |
+|-------|--------|----------|
+| 1 | Görünen ad | Örn: `Kudüs Savaşı` |
+| 2 | İçerik dosyası | Örn: `jeruaslemwar.txt` |
+| 3 | Saldıran ülkeler | Nokta (.) ile ayrılmış klasör adları. Örn: `italy.darkloig.germany` |
+| 4 | Savunan ülkeler | Aynı biçim. Örn: `iran.tameris.xian` |
+| 5 | İlgili olaylar | Nokta ile ayrılmış olay klasör adları. Örn: `fallofdarkloig.europeanrise` |
+| (opsiyonel) | Classman satırı | `>` ile başlar. |
+
+### Örnek
+
+```
+Kudüs Savaşı
+jeruaslemwar.txt
+italy.darkloig.germany
+iran.tameris.xian
+fallofdarkloig.europeanrise
+>crusades.eastwars
+```
+
+---
+
+## 5. Classman Sistemi Nedir?
+
+Classman, içerikleri konularına göre birbirine bağlayan etiketlerdir.  
+Bir `dat.txt` dosyasında `>` ile başlayan satırda nokta ile ayrılmış olarak yazılır.
+
+**Örnek:** `>adriyatik.eastwars.latinage`
+
+Bu satır, o içeriğin **adriyatik**, **eastwars** ve **latinage** classman’lerine sahip olduğunu gösterir.  
+Aynı classman’e sahip bütün içerikler (ülke, savaş, oyuncu) sayfanın altındaki “İlgili Makaleler” bölümünde otomatik olarak listelenir.
+
+**Önemli:** Classman satırı her zaman `>` ile başlar ve dat.txt içinde **sadece bir tane** bulunur.
+
+---
+
+## 6. Sık Yapılan Hatalar
+
+- ❌ `dat.txt` dosyasının adını büyük harfle yazmak (Dat.txt, DAT.TXT)  
+- ❌ Satır sonlarına boşluk bırakmak  
+- ❌ Classman satırını unutup `>` işaretini koymamak  
+- ❌ İçerik dosyası adını `all/` klasörüne koymayı unutmak  
+- ❌ Bayrak dosyasını `img/flags/` dışında bir yere kaydetmek  
+- ❌ Birden fazla `>` satırı eklemek – sadece bir tane olmalıdır.
+
+---
+
+## 7. Hızlı Kontrol Listesi
+
+- [ ] `dat.txt` UTF‑8 olarak kaydedildi mi?  
+- [ ] İlk satırda görünen ad yazıyor mu?  
+- [ ] İkinci satırda `all/` içindeki dosya adı doğru mu?  
+- [ ] Ülke ise 3. satırda bayrak dosyası, 4. satırda sınıf adı var mı?  
+- [ ] Savaş ise 3., 4. ve 5. satırlarda doğru ülke/olay adları nokta ile ayrılmış mı?  
+- [ ] Classman satırı `>` ile başlıyor mu?  
+- [ ] Gereksiz boş satır bırakılmamış mı?
+
+---
+
+Bu rehberi takip ederek arşive yeni içerikler ekleyebilirsiniz.  
+Herhangi bir sorunuz olursa sistem yöneticisine danışın.
