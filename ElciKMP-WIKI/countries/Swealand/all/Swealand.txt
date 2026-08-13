@@ -1,0 +1,107 @@
+§l §6 Swealand Kapitalist İmparatorluğu
+
+Resmî adıyla §l §6 Swealand Kapitalist İmparatorluk Devleti
+(Ülke dilinde adı: §o Kejsardömet Swealand Imperia)
+
+<tablo>
+    img.flag.SKI
+    img.coatofarms.SKI
+    img.map.MCO1.SKI
+    *Başkenti*              Stockholm
+    *Resmî Dili*            İsveççeⁱ (halk arasında Norveççe, Danca ve Fince)
+    *Demonim*               Swealandlı
+    *Hükûmet*               Kapitalist Emperyal Monarşi – İmparator ve Şirketler & Tüccarlar Konseyi
+    *İdeoloji*              Kapitalizm / Denizcilik Emperyalizmi / Katı Realpolitik
+    *Kurucu Hanedan*        Sandeburg Hanedanıⁱ (ilk üyeleri)
+    *Yüz Ölçümü*            64.2 - 64.5 milyon km² (sömürgeler dâhil, prime dönem)
+    *Ekonomik Sıralama*     1 (sürekli)
+    *Askerî Sıralama*       1-3
+    *Çağ Dilimi*            M.Ö. 1. Binyıl – Minecraft Binyılı başı
+    *Ömür*                  yaklaşık 1000 yıl
+<tablo /end>
+
+
+<h1>Tarihçe</h1>
+
+<img> img.addon.SKIstartborders | §6
+
+<h2>1. Kökenler: Swenska Diktası ve Erken Dönem
+    Swealand’ın temelleri, İskandinav yarımadasında kurulan Swenska Diktası’na dayanır. Swenska, ilk çağlarda vahşi bir diktatörlük olarak ortaya çıkmış ve Mr.Elci tarafından dünya haritasına geçen sunucuda reforme edilmiştir. 
+
+<h2>2. Feodal Dönem ve Sverige Feodalitesi</h2>
+Swenska’nın diktatörlük rejimi, yerini feodal bir yapıya bıraktığında ülke adını Sverige Feodalitesi olarak değiştirdi. Bu dönem, Lordlar Meclisi’nin güç kazandığı, denizaşırı kolonilerin ilk kez kurulduğu bir evredir. Sverige, Mısır, Hindistan ve Kanada’da ticaret üsleri inşa ederek küresel bir ticaret ağı oluşturdu. Feodal lordlar arasındaki rekabet, devletin sürekli iç çatışmalarla sarsılmasına neden olsa da, dışarıya karşı birlikte hareket etme geleneği korundu. Bu dönemde Alp İmparatorluğu ve Britanya ile rekabet başladı.
+
+<h2>3. Kutsal Sandeburg İmparatorluğu (KSI) Dönemi</h2>
+Sverige Feodalitesi’nin en parlak dönemi, Kutsal Sandeburg İmparatorluğu (KSI) olarak yeniden yapılandığı zamandır. KSI, İsveç, Norveç, Finlandiya ve Estonya’yı tek bir çatı altında topladı. Başkent Stockholm, devasa limanlar, ticaret merkezleri ve askerî üslerle donatıldı. KSI, Kanada ve Afrika’da devasa sömürgeler kurdu; WeakFatality-11 salgını sırasında dünyanın en etkili sağlık örgütü KHYÖ’yü kurarak uluslararası itibar kazandı. Ancak iç rekabet ve Ragnarok Lordluğu’nun ayrılması, imparatorluğu zayıflattı. KSI, virüsün ardından yaşanan ekonomik kriz ve diplomatik felaketler zinciriyle çöktü; mirasını Ragnarok ve İsveç Krallığı paylaştı.
+
+<h2>4. Sömürgecilik ve SUOK</h2>
+Swealand’ın en belirleyici kurumlarından biri, **Swealand Dış Devletler Yönetim Kurumu (SUOK)** idi. SUOK, imparatorluğun sömürge politikalarını yürüten, kukla devletler kuran ve ticaret yollarını kontrol eden gizli bir yönetim organıydı. SUOK aracılığıyla:
+- Atilla Roması, Akdeniz’deki çıkarları korumak için kuruldu ve finanse edildi.
+- Kanada kolonileri, Ragnarok ve Sandeburg ortaklığıyla yönetildi.
+- Afrika’da (Mısır, Sudan, Etiyopya) ve Asya’da (Hindistan, Endonezya) ticaret üsleri inşa edildi.
+- Baltık Denizi, “Swealand Gölü” haline getirildi; Danimarka ve Norveç arasına geçiş savunma hattı örüldü.
+
+SUOK, aynı zamanda Swealand’ın finansal imparatorluğunun beyniydi; ticaret yolları, vergi oranları ve sömürge yönetimleri bu kurum tarafından belirlenirdi.
+
+<h2>5. Adriyatik Savaşları ve Akdeniz Hâkimiyeti</h2>
+Adriyatik Savaşları, Swealand’ın Akdeniz’deki en büyük meydan okumasıydı. Devleti Alliye’nin Balkan petrolüne yönelmesi ve Xenia’nın dağılmasıyla bölgede güç boşluğu oluştu. Swealand, bu boşluğu doldurmak için:
+- Atilla Roması’nı destekleyerek İtalya ve Yunanistan’da nüfuz kurdu.
+- Yunan ve Arnavut isyanlarını finanse ederek Devleti Alliye’nin dağılmasını hızlandırdı.
+- Marmara’da gerçekleştirdiği vahşî katliamla, rakiplerine gözdağı verdi.
+
+Bu savaşlar, Swealand’ın Akdeniz’deki hâkimiyetini pekiştirirken, aynı zamanda imparatorluğun “barbar” yüzünü de tüm dünyaya gösterdi.
+
+<h2>6. KSI’nın Çöküşü ve İskandinavya İmparatorluğu</h2>
+KSI’nın çöküşünün ardından Swealand, İskandinavya İmparatorluğu olarak yeniden doğdu. Bu yeni yapı, eski KSI mirasına sahip çıkarak:
+- Ragnarok Krallığı, Finlandiya ve İsveç’i yeniden birleştirdi.
+- Kanada ve Afrika’daki sömürgeleri korudu.
+- İran ve Darkloig arasındaki küresel çatışmada tarafsız kalmayı tercih etti; ancak İran’a karşı açık bir cephe almaktan kaçındı.
+
+İskandinavya İmparatorluğu, dönemin en gelişmiş donanmasına ve ticaret filosuna sahipti; ancak artık süpergüç konumundan çok, bölgesel bir güç olarak varlığını sürdürdü.
+
+<h2>7. Geç Dönem ve Miras</h2>
+Swealand’ın son yüzyılları, iç isyanlar ve sömürgelerin bağımsızlaşma çabalarıyla geçti. Britanya’nın yükselişi, Alp İmparatorluğu’nun genişlemesi ve İran’ın Doğu’daki hâkimiyeti, Swealand’ı giderek dar bir alana sıkıştırdı. Buna rağmen imparatorluk, kültürel ve ekonomik mirasını İskandinavya’da yaşatmaya devam etti. Bugün, Swealand’ın bayrağı ve kurumları, İsveç, Norveç ve Finlandiya’nın ortak tarihinde önemli bir yere sahiptir.
+
+
+<h1>Ayrıca Bakınız</h1>
+
+<açılır kapanır pencere> Coğrafya ve İklim
+Swealand, İskandinav yarımadasından başlayarak Baltık, Kuzey Denizi ve Atlantik’e yayılmıştır. Sert kışlar, kısa yazlar ve geniş ormanlar (tayga), anakaranın karakteristik özellikleridir. Sömürgeler (Kanada, Afrika, Asya) farklı iklim kuşaklarını içerir; bu da imparatorluğa ticari ürün çeşitliliği sağlamıştır.
+
+<açılır kapanır pencere> Ekonomi ve Ticaret
+Swealand’ın ekonomisi, deniz ticareti, gemi yapımı, kereste, kürk ve balıkçılığa dayanıyordu. Kanada’daki tarım kolonileri, Afrika’daki altın ve fildişi, Asya’daki baharat ticareti, imparatorluğa muazzam bir zenginlik kazandırdı. Swealand Kronu (şifreli demir), dönemin en istikrarlı para birimlerinden biriydi. Bankacılık sistemi ve SUOK’un yatırım ağı, ekonominin bel kemiğini oluşturuyordu.
+
+<açılır kapanır pencere> SUOK – Swealand Dış Devletler Yönetim Kurumu
+SUOK, imparatorluğun en gizemli ve en etkili kurumuydu. Görevleri arasında:
+
+- Kukla devletler kurmak ve yönetmek (Atilla Roması, Danimarka Lordluğu).
+- Sömürgelerdeki vergi toplama ve ticaret düzenlemelerini yapmak.
+- Rakip devletleri ekonomik olarak zayıflatmak için ambargolar uygulamak.
+- İstihbarat ağlarını yönetmek ve diplomatik krizleri yönlendirmek.
+
+SUOK, Swealand’ın emperyal stratejisinin merkezinde yer almış; imparatorluk çökerken bile varlığını sürdürmüştür.
+
+<açılır kapanır pencere> Sömürgeler ve Koloni Yönetimi
+Swealand’ın sömürge ağı dünyanın dört bir yanına yayılmıştı:
+
+- **Kanada Kolonileri:** Tarım, kereste ve kürk üretimi; Ragnarok Lordluğu ile ortak yönetildi.
+- **Afrika Kolonileri:** Mısır, Sudan, Etiyopya ve Somali’de ticaret üsleri; altın ve fildişi ticareti.
+- **Asya Kolonileri:** Hindistan, Endonezya ve Hong Kong’da limanlar ve ticaret merkezleri.
+- **Akdeniz Üsleri:** Malta, Kıbrıs ve Girit’te deniz üsleri.
+
+Sömürgeler, yerel yöneticiler aracılığıyla dolaylı yoldan yönetilir; ancak tüm kararlar SUOK tarafından onaylanırdı.
+
+<açılır kapanır pencere> Deniz Hakimiyeti ve Donanma
+Swealand’ın donanması, çağın en gelişmiş gemilerine sahipti. Kadırgalardan buharlı gemilere geçiş, Swealand’ın teknolojik üstünlüğünü pekiştirdi. Baltık, Kuzey Denizi, Atlantik ve Akdeniz’de üsleri olan donanma, dünyanın en büyük ikinci deniz gücüydü (İran’dan sonra). Donanma, aynı zamanda ticaret yollarını korumak ve korsanlığı bastırmakla görevliydi.
+
+<açılır kapanır pencere> Kültürel Miras
+Swealand, İskandinav mitolojisi, Viking gelenekleri ve Hristiyanlığı harmanlayan özgün bir kültür geliştirdi. KSI döneminde yapılan Gothenburg Köşkü, Kanada-Norveç Grönanburg Ray Hattı ve Stockholms Slot gibi eserler, günümüze kadar ulaşmıştır. Edebiyatta ise destansı şiirler ve krallık günlükleri öne çıkar. Swealand’ın “kapitalist emperyalizm” anlayışı, sonraki devletlere model olmuş; özellikle Britanya ve İran tarafından taklit edilmiştir.
+
+<açılır kapanır pencere> Diplomasi ve Dış İlişkiler
+Swealand, varlığı boyunca hiçbir kalıcı ittifaka girmeden, kısa vadeli çıkarlara göre hareket etti. Nazi Arasistan ile işbirliği yaptı, Xenia’ya karşı Devleti Alliye’yi destekledi, ardından Atilla Roması’nı kendi çıkarları için kullandı. İran ile uzun süre gizli bir rekabet içinde oldu; ancak doğrudan savaştan kaçındı. En büyük diplomatik başarısı, sömürgelerini kaybetmeden 800 yıl boyunca bağımsız kalabilmesidir.
+
+
+**Dipnotlar:**  
+ⁱ İsveççe, yönetim ve ordu dili olarak kullanılmış; halk arasında Norveççe, Danca ve Fince de yaygındı.  
+ⁱ Sandeburg Hanedanı, efsaneye göre İskandinav tanrıları Odin ve Thor’un soyundan gelir.  
+ⁱ Swealand’ın farklı dönemlerdeki adları (Sverige, KSI, İskandinavya İmparatorluğu) aynı hanedanın farklı siyasî evrelerini temsil eder.

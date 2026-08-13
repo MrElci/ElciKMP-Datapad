@@ -1,55 +1,29 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ülkeler – ElciKMP-DataPad</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ülkeler – ElciKMP-DataPad</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-window">
-    <div class="title-bar"><div class="title-bar-text">Ülke Listesi</div><div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div></div>
-    <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
-    <div class="toolbar">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="players.html">Oyuncular</a>
-      <a href="countries.html" class="active">Ülkeler</a>
-      <a href="wars.html">Savaşlar</a>
-      <a href="#">Olaylar</a>
-      <a href="#">Kronoloji</a>
+    <div class="app-window">
+        <div class="title-bar"><span>ElciKMP-DataPad – Ülkeler</span><div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div></div>
+        <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+        <div class="toolbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="players.html">Oyuncular</a>
+            <a href="countries.html" class="active">Ülkeler</a>
+            <a href="wars.html">Savaşlar</a>
+            <a href="#">Olaylar</a>
+            <a href="#">Kronoloji</a>
+        </div>
+        <div class="main-area" id="xpContainer"></div>
+        <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
     </div>
-    <div class="main-area">
-      <div class="sidebar">
-        <div class="sidebar-title">Ülkeler</div>
-        <ul id="countrySidebar"></ul>
-      </div>
-      <div class="content-pane">
-        <h2>Ülke Listesi</h2>
-        <div class="item-grid" id="countryGrid"></div>
-      </div>
-    </div>
-    <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
-  </div>
-  <script src="script.js"></script>
-  <script>
-    buildCountryGrid('countryGrid');
-    // Sidebar için de doldurma
-    (async () => {
-      const folders = await fetchCountryFolders();
-      const countries = [];
-      for (const f of folders) {
-        const info = await fetchCountryInfo(f);
-        if (info) countries.push(info);
-      }
-      countries.sort((a,b)=> a.displayName.localeCompare(b.displayName,'tr'));
-      const side = document.getElementById('countrySidebar');
-      countries.forEach(c => {
-        const li = document.createElement('li');
-        li.textContent = c.displayName;
-        li.onclick = () => location.href = `country.html?country=${encodeURIComponent(c.folder)}`;
-        side.appendChild(li);
-      });
-    })();
-  </script>
+    <script src="script.js"></script>
+    <script>
+        buildXPList('xpContainer', 'country');
+    </script>
 </body>
 </html>

@@ -3,4 +3,4 @@ latinoturkowar.txt
 AtillaRoma.KazakHanlık.AlmanDemokratCumhuriyet.SverigeKapitalistImparatoru
 NaziTurkey.InekBayramFedereImparatorluğu.Avusturya
 fallofffascism
->naziturkey.SKI.
+>latinoturko

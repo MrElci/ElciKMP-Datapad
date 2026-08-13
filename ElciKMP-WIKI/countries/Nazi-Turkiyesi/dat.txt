@@ -1,5 +1,5 @@
 Nazi Türkiyesi
 NaziTürkiyesi.txt
-naziturkey.png
-faşist
->naziturkey.aras.faşist
+*img.flag.naziturkey | first.txt
+ancient
+>naziturkey.aras.faşist.latinoturko

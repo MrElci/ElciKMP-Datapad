@@ -1,5 +1,5 @@
 Nazi Arasistan Diktatörlüğü
 NaziArasistan.txt
-naziarasistan2.png
-faşist
+*img.flag.naziarasistan2 | first.txt
+ancient
 >faşist.aras

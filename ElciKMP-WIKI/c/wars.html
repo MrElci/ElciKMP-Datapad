@@ -1,51 +1,29 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Savaşlar – ElciKMP-DataPad</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savaşlar – ElciKMP-DataPad</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-window">
-    <div class="title-bar"><div class="title-bar-text">Savaş Listesi</div><div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div></div>
-    <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
-    <div class="toolbar">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="players.html">Oyuncular</a>
-      <a href="countries.html">Ülkeler</a>
-      <a href="wars.html" class="active">Savaşlar</a>
-      <a href="#">Olaylar</a>
-      <a href="#">Kronoloji</a>
+    <div class="app-window">
+        <div class="title-bar"><span>ElciKMP-DataPad – Savaşlar</span><div class="window-buttons"><span>─</span><span>□</span><span>✕</span></div></div>
+        <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+        <div class="toolbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="players.html">Oyuncular</a>
+            <a href="countries.html">Ülkeler</a>
+            <a href="wars.html" class="active">Savaşlar</a>
+            <a href="#">Olaylar</a>
+            <a href="#">Kronoloji</a>
+        </div>
+        <div class="main-area" id="xpContainer"></div>
+        <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
     </div>
-    <div class="main-area">
-      <div class="sidebar">
-        <div class="sidebar-title">Savaşlar</div>
-        <ul id="warSidebar"></ul>
-      </div>
-      <div class="content-pane" id="warGrid">Yükleniyor...</div>
-    </div>
-    <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
-  </div>
-  <script src="script.js"></script>
-  <script>
-    buildWarGrid('warGrid');
-    (async () => {
-      const folders = await fetchWarFolders();
-      const wars = [];
-      for (const f of folders) {
-        const info = await fetchWarInfo(f);
-        if (info) wars.push(info);
-      }
-      wars.sort((a,b)=> a.displayName.localeCompare(b.displayName,'tr'));
-      const side = document.getElementById('warSidebar');
-      wars.forEach(w => {
-        const li = document.createElement('li');
-        li.textContent = w.displayName;
-        li.onclick = () => location.href = `war.html?war=${encodeURIComponent(w.folder)}`;
-        side.appendChild(li);
-      });
-    })();
-  </script>
+    <script src="script.js"></script>
+    <script>
+        buildXPList('xpContainer', 'war');
+    </script>
 </body>
 </html>

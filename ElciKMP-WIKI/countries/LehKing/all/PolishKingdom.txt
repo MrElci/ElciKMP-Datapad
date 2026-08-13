@@ -21,7 +21,7 @@ Resmî adıyla §l §d Lehistan Krallığı
 
 
 <h1>Tarihçe</h1>
-
+<img> img.addon.polearmy | §o Kanatlı Süvarilere ait bir örnek görsel
 <h2>1. Kuruluş: Erlen Hanedanının Yükselişi
     Leh Krallığı, Polonya ovasında Erlen (Erdalin) kabilelerinin birleşmesiyle kuruldu. Kurucu kral I. Erdal Bönlend, Vistül nehri kıyısında Warşav’ı başkent ilan etti. Krallık, doğal savunma hatlarından yoksun olmasına rağmen, hızlı süvarileri ve merkezi ordusuyla çevresindeki beylikleri hâkimiyeti altına aldı. İlk yıllarda Baltık kıyılarına ve Karpat eteklerine doğru genişleyen Lehistan, bölgenin en kalabalık devletlerinden biri hâline geldi. Yüksek tarım sistemleri, ağır ve hafif süvarilerin verimli yapısı ve en önemlisi yolsuzluğu ağır şekilde cezalandıran sistem ve devlet kültürü yayılım hızında etkili oldu. Belarus, Ukrayna, Moldova, Baltık devletleri ve Kalingrad hızla Lehistan hakimiyetine geçti
 
@@ -29,7 +29,7 @@ Resmî adıyla §l §d Lehistan Krallığı
     Krallığın karşılaştığı ilk büyük sınav, batıdan yükselen Nazi Arasistan’dı. Arasis orduları, Leh topraklarına akınlar düzenledi ve başkent Warşav’ı ateşe verdi. Kral, ordusunun büyük bir kısmını kaybetti ve ağır bir yenilgiye imza attı. Bu hezimet üzerine başkent geçici olarak Kalingrad’a taşındı. Savaş sonrası Kral, devleti ekonomik reformlarla ayağa kaldırmaya çalıştı; ancak Warşav’ın yeniden inşası IBFI ile girişilen yeni savaşlar nedeniyle yarım kaldı. Leh halkı bu duruma rağmen dağılmamış ve Arasis akınlarına karşı halk orduları kurulmuştur. 
 
 <h2>3. IBFI ile Mücadele ve Doğu Cephesi</h2>
-    Doğudaki büyük güç IBFI (İnek Bayramı Federe İmparatorluğu), Lehistan’ın zayıflamasını fırsat bilerek sınır boylarına yığıldı. Leh Krallığı, IBFI ile savaşan tek Avrupa devleti oldu. Savaşlar yıllarca sürdü; Lehler, gerilla taktikleri ve sağlam kalelerle IBFI akınlarını püskürttü. Ancak bu mücadele hazineyi tüketti ve Krallık, batıdaki eski topraklarının bir kısmını Nazi Arasistan’a kaptırdı. Warşav’ın yeniden başkent ilan edilmesi ancak IBFI-Leh savaşlarının ikinci evresinde gerçekleşebildi. Ancak bu kısa sürdü ve Polonyanın tamamen Nazi Arasistan hakimiyetine geçmesiyle başkent Kalingrada geri taşındı. Kraliyet, Kalingrad üstünde topladığı 400 bin kişilik ordu ile önce Belarustaki askeri yapılanmayı yanına aldı, ardından baltıklardan topladığı ordularla sayısını 800 bine ulaştırdı. IBFI ovalarında hızla ilerleyen ordu, yeterli lojistik sayesinde Moskovaya ulaştı ve IBFI savaşlarını bitirdi. Belarus ve Ukraynaın tam hakimiyetide Leh Krallığına geçti.
+    Doğudaki güç IBFI (İnek Bayramı Federe İmparatorluğu), Lehistan’ın zayıflamasını fırsat bilerek sınır boylarına yığıldı. Leh Krallığı, IBFI ile savunma savaşında savaşan tek Avrupa devleti oldu. Savaşlar yıllarca sürdü; Lehler, gerilla taktikleri ve sağlam kalelerle IBFI akınlarını püskürttü. Ancak bu mücadele hazineyi tüketti ve Krallık, batıdaki eski topraklarının bir kısmını Nazi Arasistan’a kaptırdı. Warşav’ın yeniden başkent ilan edilmesi ancak IBFI-Leh savaşlarının ikinci evresinde gerçekleşebildi. Ancak bu kısa sürdü ve Polonyanın tamamen Nazi Arasistan hakimiyetine geçmesiyle başkent Kalingrada geri taşındı. Kraliyet, Kalingrad üstünde topladığı 400 bin kişilik ordu ile önce Belarustaki askeri yapılanmayı yanına aldı, ardından baltıklardan topladığı ordularla sayısını 800 bine ulaştırdı. IBFI ovalarında hızla ilerleyen ordu, yeterli lojistik sayesinde Moskovaya ulaştı ve IBFI savaşlarını bitirdi. Belarus ve Ukraynaın tam hakimiyetide Leh Krallığına geçti.
 
 <h2>4. Swenska ile Baltık Denizi Hâkimiyet Mücadelesi</h2>
     Baltık Denizi’ndeki stratejik limanlar, Leh Krallığı için hayati önem taşıyordu. Swenska Diktası ile girişilen deniz savaşları sonucunda Lehistan, Estonya’yı kaybetti. Buna rağmen Swenska ile diplomatik ilişkiler geliştirilerek ticaret yolları yeniden canlandırıldı. Bu dönemde Leh donanması, kadırga teknolojisinde Swenska’nın gerisinde kalsa da, kara ordusu disiplinini korudu. Swenska ikinci bir deniz seferiyle letonya ve litvanyayıda kontrolü altına alınca bu kara ordusu düzenli akınlarla bölgeyi geri almaya çalıştı. Ancak akınlar Swenska'nın tartışmasız zaferi ile sonuçlandı. IBFI ile tekrar bir savaşa girmemek ve zayıflamış gözükmemek adına Leh Krallığı savaştan Swenskanın çekilmesini diplomatik yollarla sağladı ve birkaç sandık dolusu altınla savaşı bitirdi. Altınlar ekonomik kalkınmaya harcandı.
@@ -39,11 +39,41 @@ Resmî adıyla §l §d Lehistan Krallığı
 
 <h2>6. İç Reformlar ve Geç Dönem
     Sürekli savaşların ardından Leh Krallığı, tarım ve ticareti teşvik eden bir dizi reform başlattı. Soylular Meclisi’nin yetkileri kısıtlandı, merkezi bürokrasi güçlendirildi. Ancak bu reformlar, Krallığın komşuları karşısındaki stratejik konumunu değiştirmedi. Lehistan, sonraki çağlarda hem bir tampon devlet hem de büyük güçlerin rekabet alanı olarak varlığını sürdürdü. Sömürge çağı başladığında coğrafya yetersizlikleri ve oyuncu aktifliği nedeniyle aktif bir güçten ziyade bir izleyiciydi.
-
+<img> img.addon.lehfall | §o §9 Yeni Polonya / Eski Nazi Arasistan işgal bölgesi §2 IBFI §6 Swealand Kapitalist İmparatorluğu §d Leh Krallığı §7 Leh Krallığı belli bir süre sonra Yeni Polonyaya bağlanmıştır.
 <h2>7. Yıkılış
-    Latin türk savaşlarından 100 yıl kadar önce, Nazi Arasistan 
+    Atilla Romasının yükselişi sırasında Swealand Kapitalist İmparatorluğu istihbaratı tarafından yerleştirilen beyler, Lehistanda isyanlar başlattılar. Tarlaların kundaklanması, önemli komutanların suikaste uğraması ve Nazi Arasistanın (Leh yardımlarıyla) çöküşü, bölgedeki istikrarsızlıkların körüklenmesine sebebiyet verdi. Leh komutanları bu konuda müdahelelerde yetersiz kalınca kraliyet akıllıca bir politika geliştiremedi. Kraliyet, Nazi Arasistanın çöküşünden yıllar sonra bizzat kral tarafından fes edildi.
 
 
+<h1> Teknoloji
+        Lehistan, döneminde kendisine ait bir mühendislik dalına sahip devletlerden biriydi. Leh sanayisi temelde kraliyetin belirlediği büyük şehirlerde yoğunlaşmıştı ve hızla demirleşen dünyaya ayak sağlayamamış olsada kuşatma aletleri ve donanma mühendisliği konusunda farklı icatlara imza atmıştır.
+<h2> Donanma teknolojileri
+    <img> img.tech.polemangonel | §o Karadan denize taşınan top mekanizmasına ait bir görsel
+    <h3> Taşınabilir ağır mancınık teknolojisi
+        Leh mühendisleri tarafından geliştirilmiş bir ağır mancınıktır. Gemiler tarafından taşınabilmesi için mekanizma olabilecek en hafif hale getirilmiş, kullanım için içine kumu cam bir top haline getiren bir fırın eklenmiştir. Bu mancınık, Swenska tarafından geliştirilmiş deniz altı kum toplama ve anında camlaştırma mekanizmasını bir araya getirmiş ve savaşlarda cephane tükenmesini engellemeye çalışmıştır. Devasa yığınlar halinde kumla yüklenen gemiler, mancınık topu bittiğinde küreklerle fırına kum yüklemiş ve pırıl pırıl cam topları saldırıda kullanmıştır. Mancınık ateşleri bir gemiyi rahatlıkla batırabilecek kadar hasar verirken bir yandanda hızla yeniden yüklenebilmektedir. Cam kürelerin herhangi birinin yarıçapı 1.5-1 metre arasında değişmekte ve mancınık ağırlığı ve toplar buna rağmen oldukça hafif kalmaktadır.
+
+    <h3> Yanan kamikaze gemisi teknolojisi
+        Tamamen yanması için oluşturulmuş bir kamikaze gemi modeli. Tamamen yanıcı olan bu model genellikle ahşap donanmalara karşı olan savaşlar boyunca düzenli olarak krallık tarafından kullanıldı. Ayrıca Swenska limanlarında bulunan rum ateşinin benzeri savunma mekanizmalarınında ilk hedefiydiler. Ancak bu kamikaze gemileri özelliklerini demir gemiler çağında hızla kaybetti.
+
+<h2> Kuşatma teknolojileri
+    <h3> Kale şarapnelleri
+        Kale duvarlarını bir pompalı şarapneli gibi şarapnellerle birden fazla noktadan parçalayan bir top teknolojisidir. Swenskalı ve Lehistanlı mühendisler tarafından helsinkide geliştirilmiştir. Tasarım iki devlet tarafından farklı şekillerde geliştirilsede, Leh-IBFI savaşlarında tercih edilen model, taşınabilir ve alevli bir modeldi.
+
+<h1> Tarihi Yorumlar
+Tarihte, Lehler ile alakalı, fetihlerden sonra veya tarihi araştırmalarda söylenen bazı cümleler;
+<alıntı karesi> 
+    §oLehler büyük savaşçılardı. Öyle ki tek bir leh kanatlı süvarisini devirmek için 4 elit gerekirdi. Sorun şuydu ki, Arasisler 20 elitle geldiler. 
+    - MrElci
+</alıntı karesi>
+-
+<alıntı karesi> 
+    §oVarşova yok edilemezdi, ele geçirdiğinizde elinizden kayan bir sabun gibi geri alınır ve yeniden inşa edilirdi 
+    - Aras Muhammed MORKOÇ
+</alıntı karesi>
+-
+<alıntı karesi> 
+    §o İngiliz gibi onurlu, Leh gibi dik duruşlu, Pers gibi güçlü ve aynı bir Grek gibi bağımsız duracağız.
+    - Lourxz
+</alıntı karesi>
 <h1>Ayrıca Bakınız</h1>
 
 <açılır kapanır pencere> Coğrafya ve İklim

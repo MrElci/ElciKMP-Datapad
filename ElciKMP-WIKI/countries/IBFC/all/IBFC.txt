@@ -1,0 +1,91 @@
+§l §2 I. İnek Bayramı Federe İmparatorluğu (IBFI)
+
+Resmî adıyla §l §2 I. İnek Bayramı Federe İmparatorluğu
+(Kısaca: IBFI)
+
+<tablo>
+    img.flag.IBFC|img.coatofarms.IBFC
+    img.map.MCO1.IBFC
+    *Başkenti*              Moskova / Novgorod (dönemsel)
+    *Resmî Dili*            Bayraimce
+    *Demonim*               Bayramlı / Rus
+    *Hükûmet*               Federatif Monarşi – İmparator ve Boyar Meclisi
+    *İdeoloji*              Genişlemeci Feodalizm / Tarım-Askerî Ekonomi
+    *Kurucu İmparator*      I. Efe Batur Tüysüz
+    *Yüz Ölçümü*            1.900.000 km² (prime dönem)
+    *Ekonomik Sıralama*     16
+    *Askerî Sıralama*       6 (savaş dönemi), 10 (pasif dönem)
+    *Çağ Dilimi*            M.Ö. 1. Binyıl – Sömürge Öncesi Çağ
+    *Ömür*                  yaklaşık 300 yıl (kesintili)
+<tablo /end>
+
+
+<h1>Tarihçe</h1>
+
+<h2>1. Kuruluş
+    I. Inek Bayram Federe İmparatorluğu (veya aynı isimli imparatorluklardan ayırmak için kullanılan Swealand literatüründeki Inek Bayram Federe Cumhuriyeti) Moskovada, Efe Batur TÜYSÜZ tarafından kuruldu. Devlet oldukça geniş çaplı bir tarım kampanyası ile ekonomisini canlandırdı ve ticari antlaşmalar imzaladı. Ancak bürokrasi konusunda devletin bir türlü başarılı bir sistem kuramaması, en ufak ticari izni bile yıllara yayılan bir süreç haline getirmişti. Buda imparatorluğun işleyişini zayıflattı ve hızlı kararları imkansızlaştırdı.
+
+<h2>2. Yükseliş denemeleri ve İlk Savaşlar</h2>
+    Kuruluşun ardından IBFI, batıda Leh Krallığı, güneyde ise Devleti Alliye ile temasa geçti. Doğal sınırlarının (Ural Dağları, Karadeniz) ötesine geçmek isteyen İmparatorluk, Leh topraklarına yöneldi. Tek büyük taaruz Lehistan ile yaşandı; ancak IBFI, Leh ordusunun disiplinli süvarileri karşısında ağır bir yenilgi aldı. Bu hezimet, devletin *“pasif dönem”* olarak adlandırılan ilk duraklama evresini başlattı. Savaş boyunca sürekli olarak yaşanan diplomatik ve askeri gecikmeler bürokrasinin yavaşlığına bağlandı ve IBFI yönetimi bunu çözme kararı olsada yıl sonunda bu karar alt bölgelere ulaşmadı bile. Bunun sebebi IBFI'nin oldukça seyrek olan nüfusuydu. Bir şehirden öbürüne iletişim bile oldukça yavaştı. Savaş sonrası toplumda ise bu oldukça yavaşladı.
+
+<h2>3. Pasif Dönem: Sessizliğin Stratejisi</h2>
+    Pasif dönem, Efe Batur TÜYSÜZ'ün sarayda eğlencelerini sürdürürken, çeşitli sebeplerle ulaşamadığı halka emirler yağdırmayı keserek başı boş bürokratların imparatorlukta at koşturmasına izin verdiği döneme verilen addır. Pasif dönemde IBFI reformları sıfırlandı, tarım alanında sabitleşme sürdü. Ticaret hacmi oranı düştükçe düştü ve asker dağıldı. IBFI açık bir şekilde boş toprak konumuna doğru düştükçe düştü. Bu dönemde Swealand ve Lehistan arasında denge kurmaya çalışarak hayatta kalan IBFI, tüm bu başarısını başıboş diplomatların kurduğu "IBFI Diplomatları Topluluğu" isimli örgüte borçluydu. Diplomatlar bürokratik engelleri kaldırmak için adeta devlet içinde bir devlet kurarak resmi iletişim kanalları ve elçilikler açtılar. Örgüt faaliyetlerine Lehistanın saldırısına kadar devam etti.
+
+<img> img.addon.moscowburnin | §o Moskova yanıyor. Bütün şöhreti ve güzelliğiyle - Komutan Logar Kremlin
+
+<h2>4. Lehistan ile İkinci Savaş ve Anadolu Macerası</h2>
+    Pasif dönemin sonunu getiren olaylar, IBFIDT (IBFI Diplomatlar Topluluğu) liderinin Efe Batur Tüysüzü tahttan indirmeye çalışması ile başladı. Bu girişim başarısız olsada, Swealand ajanları tarafından kaydedilen olay Swealand literatüründe ülkenin adına Cumhuriyet takısı ekledi. Swealand Bilgi Ajansı ve SUOK ortak raporunda Inek Bayram Federe İmparatorluğunun, Cumhuriyete dönmesi muhtemel olarak not düşülmüştür. Bu döneme "uyanma dönemi" adı verildi. Stratejistler ve diplomatlar sarayı bastılar ve kralı zorla karar almaya yönlendirdiler. Efe Batur Tüysüz baskıya karşılık verdi ve askerlerini Leh sınırına yığdı. Ancak Lehistan tarafından sunulan kasa kasa altınlar ve diplomatik jestler sonucunda saldırı kararından cayan Efe Batur Tüysüz, dinç ordusunu yeni güçlenen Swealande doğru çevirdi. Swealand bu dönemde baltık savaşları ve adriyatik savaşlarından yeni çıkmıştı. Yinede hızla ordusunu doğuya çevirdi ve tüm Novgorod bölgesini ele geçirdi. Ardından Swealand ordusu başını moskovaya yöneltti ve Moskovayı alevler içinde bıraktılar. IBFI barışa çekilmek zorunda kaldı. Antlaşma şartına bağlı olarak Ermeni isyancılarına yüklü miktarda altın bağışlayan IBFI batıya yayılma hayalinden vazgeçti ve diplomat başarısı ile Novgorodu kaybetmedi. Sadece baltık sınırlarını tamamen kaybetti ve 1930lar finlandiya sınırına geri çekildi.
+
+    Bu sırada diplomatlar yeni bir hedefe gözünü kestirdi. Bürokratlar yaptıkları bir toplantıda Adriyatik savaşları ve Devleti Alliye Sosyalist Cumhuriyetlerinin hızla düşüşünden karlı çıkmak adına Ermeni Savaşına katılımı öne sürdü. Efe Batur'un imzası ile girilen savaşla birlikte iran sınırına kadar kafkaslar ve doğu anadolu ele geçirildi. Ermenilerin özgürlüğünü kazanmasına engel olan IBFI yönetimi, tamamen Bürokratların kontrolüne geçti ve Kral sözdeleşti. 
+
+<h2>5. Swealand ve Nazi Arasistan ile Mücadele</h2>
+    IBFI, batıda Swealand’nın yükselişini yakından izledi. Swealand’nın Baltık limanlarına yaptığı hamleleri engelleyememiş olan imparatorluk, İstanbula giren Grek ordusunuda yakından izledi. Bu durum IBFI’nin Karadeniz ticaretini tehdit etti. Ancak doğrudan bir savaşa girmek yerine, IBFI dolaylı yollardan Swealand’ya rakip devletleri (Lehistan, Nazi Arasistan) desteklemeyi tercih etti. Bu strateji, imparatorluğun uzun ömürlü olmasını sağladı ancak prestijine zarar verdi. Ayrıca sonrasında, SUOK tarafından fonlanan Ermeni Çetelerine karşı verilen ültimatomlarıda güçsüz kıldı. Latin-Türk savaşlarında savaşa girmeside tam olarak bu nedenleydi ancak savaşın yarattığı yıkım IBFI bünyesine daha büyük bir zarar verince, IBFI tamamen beyaz sessizlik dönemine girdi.
+
+<h2>6. Beyaz Sessizlik</h2>
+    IBFI’nin son dönemleri, iç isyanlar ve ekonomik darboğazlarla geçti. Pasif dönemlerin sıklığı, merkezî otoriteyi zayıflattı; boyarlar giderek bağımsızlaştı. İmparatorluk, gücünü yitirdikçe komşu devletlerin (özellikle Swealand) nüfuz alanına girdi. Nihayetinde IBFI, tarih sahnesinden sessizce silindi. Bürokratlar tüm devleti ele geçirdi ancak çoğu Swealand tarafından satın alınarak Swealand hükmüne geçti. Bu döneme Beyaz sessizlik dendi çünkü bu dönemde IBFI üniforması olan siyah ceket beyaz gömlek ve pantalondaki inek sembolleri söküldü ve diplomatlar ceketleri bırakarak tamamen beyaz ünvansız üniformalara geçtiler. Bunun sebebi ünvanların gerçek manada hiçbir değerinin kalmamış olmasıydı.
+
+
+<h1> Tarihçi notları
+    Tuhaf bir şekilde IBFI hakkında oldukça fazla yorum bulunmaktadır.
+    <alıntı karesi> 
+        §o Bir devlet düşünün ki hiçbir amacı, sebebi veya ideolojik iddiası olmasın. Inek Bayram Federe devletlerine hoşgeldiniz. 
+        - MrElci
+    </alıntı karesi>
+    -
+    <alıntı karesi> 
+        §o Efe Batur Tüysüz ADAMDIR.
+        - Aras Muhammed MORKOÇ
+    </alıntı karesi>
+    -
+    <alıntı karesi> 
+        §o Swealand diye bir ülke mi vardı? Ne savaşından söz ediyorsunuz?
+        - Efe Batur TÜYSÜZ
+    </alıntı karesi>
+    -
+
+
+<h1>Ayrıca Bakınız</h1>
+
+<açılır kapanır pencere> Coğrafya ve İklim
+    IBFI, dünyanın en geniş topraklarına yayılmıştı. Kuzeyde tundra, ortada iğne yapraklı ormanlar (tayga), güneyde verimli bozkırlar yer alıyordu. Don nehri, Volga ve Dinyeper, ticaret ve ulaşımın can damarlarıydı. Sert kışlar, doğal bir savunma unsuru oluştururken; kısa yazlar tarımı sınırlandırıyordu.
+
+<açılır kapanır pencere> Ekonomi ve Ticaret
+    İmparatorluk, buğday, çavdar, kürk ve kereste ihracatına dayanıyordu. Karadeniz limanları üzerinden Bizans ve İslam dünyasıyla ticaret yapılıyordu. Darphanede “Bayram Rublesi” adlı gümüş sikke basıldı. Ancak pasif dönemlerde vergi gelirleri düşüyor; savaş dönemlerinde ise hazine hızla tükeniyordu. Pasif dönemlerde mevcut ekonomiyi yok etmişti.
+
+<açılır kapanır pencere> Askerî Yapı
+IBFI ordusu, ağır zırhlı süvariler (drujina), okçu piyadeler ve hafif atlı birliklerden oluşuyordu. Sayıca büyük fakat lojistik açıdan zayıftı. Kuşatma teknolojisi, Batı Avrupa’nın gerisindeydi. Donanma, Karadeniz’de etkili olsa da, Swealand’nın Baltık filosu karşısında yetersizdi. Ordunun en büyük zafiyeti, boyarlar arasındaki siyasî çekişmelerdi.
+
+<açılır kapanır pencere> Kültürel Miras
+IBFI, Slav paganizmi ile Bizans Hristiyanlığı arasında bir sentez geliştirdi. Ahşap kiliseler, kaleler ve kremlinler, mimarisinin temelini oluşturur. “İnek Bayramı” geleneği, baharın gelişini ve bereketi kutlayan bir ritüeldi; bu gelenek, imparatorluğun sona ermesine rağmen halk arasında yaşatıldı. Sözlü edebiyat, kahramanlık destanları ve boyar ailelerinin şeceresiyle doluydu. Ancak bu kültür, resmî tarih yazıcılığından ziyade halk arasında aktarıldı.
+
+<açılır kapanır pencere> Pasif Dönemin Anlamı
+IBFI’nin pasif dönemleri, tarihçiler tarafından hem bir zayıflık hem de bir strateji olarak yorumlanır. Bir yandan devleti savaş yorgunluğundan koruyup ekonomiyi canlandırmış; diğer yandan komşu güçlerin imparatorluğu *“tehdit dışı”* görmesine yol açmıştır. Bu dönemler, IBFI’yi büyük savaşlardan uzak tutmuş, ancak *“savaşçı imparatorluk”* kimliğini de zedelemiştir. Pasif dönemler olmasaydı IBFI’nin ömrünün çok daha kısa olacağı genel kabul gören bir tezdir.
+
+<açılır kapanır pencere> Diplomasi ve Dış İlişkiler
+IBFI, varlığı boyunca Swealand, Lehistan ve Nazi Arasistan arasında denge politikası izledi. Devleti Alliye ile kısa süreli ittifaklar kursa da, bu ittifaklar hiçbir zaman kalıcı olmadı. Xenia’ya karşı tarafsız kalması, bölgesel güçler arasında manevra alanını korumasını sağladı. En büyük diplomatik başarısı, Anadolu’dan çekilirken toprak kaybı yaşamamasıdır; bu, pasif dönem diplomasisinin zaferi olarak kabul edilir.
+
+
+**Dipnotlar:**  
+ⁱ Rusça, resmî dil olmakla birlikte, imparatorluğun çok etnili yapısı nedeniyle farklı lehçeler de yaygındı.  
+ⁱ I. Bayram İnek, tarihsel gerçekliği tartışmalı olan efsanevî bir figürdür; bazı kaynaklar onu bir boy şefi, bazıları ise mitolojik bir kahraman olarak tanımlar.  
+ⁱ IBFI’nin pasif dönemleri, toplam ömrünün yaklaşık üçte birini oluşturur; bu dönemlerde hiçbir savaşa girilmemiştir.

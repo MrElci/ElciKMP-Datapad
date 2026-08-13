@@ -1,5 +1,5 @@
 Nazi Arasistan Devleti
 NaziArasistan.txt
-naziarasistan.png
-faşist
+*img.flag.naziarasistan | first.txt
+ancient
 >faşist.aras

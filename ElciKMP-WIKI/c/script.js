@@ -1,5 +1,5 @@
 // =============================================
-// ELciKMP-DataPad – Tam Betik (v8.2 – h3 desteği)
+// ELciKMP-DataPad – Tam Betik (v9.0 – XP Explorer)
 // =============================================
 
 /* ---------- Minecraft Biçimlendirme ---------- */
@@ -62,15 +62,12 @@ function enableImageLightbox(container) {
                     </div>`;
                 document.body.appendChild(modal);
                 modal.querySelector('.lightbox-close').onclick = () => modal.classList.remove('active');
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) modal.classList.remove('active');
-                });
+                modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
             }
-            const lightboxImg = document.getElementById('lightboxImg');
-            const lightboxDownload = document.getElementById('lightboxDownload');
-            lightboxImg.src = img.src;
-            lightboxDownload.href = img.src;
-            lightboxDownload.download = img.src.split('/').pop() || 'gorsel.png';
+            document.getElementById('lightboxImg').src = img.src;
+            const dl = document.getElementById('lightboxDownload');
+            dl.href = img.src;
+            dl.download = img.src.split('/').pop() || 'gorsel.png';
             modal.classList.add('active');
         });
     });
@@ -162,7 +159,6 @@ function parseWarInfobox(rawText, titleColor) {
     return html;
 }
 
-/* ---------- Ana Bölüm Parser ---------- */
 function parseMainSection(lines, startIdx) {
     let html = '';
     let groups = [];
@@ -214,7 +210,6 @@ function parseMainSection(lines, startIdx) {
     return { html, newIdx: i };
 }
 
-/* ---------- Cephe Bloğu Parser ---------- */
 function parseTheaterBlock(lines, startIdx) {
     let html = '<div style="padding:6px;">';
     let i = startIdx;
@@ -253,7 +248,7 @@ function parseTheaterBlock(lines, startIdx) {
 }
 
 /* ===========================================
-   ANA PARSE (h3 ve açılır pencere düzeltmeleriyle)
+   ANA PARSE
    =========================================== */
 function parseWikiText(raw) {
     const lines = raw.split('\n').map(l => l.trim());
@@ -314,7 +309,6 @@ function parseWikiText(raw) {
             html += `<h2>${applyMinecraftFormatting(line.replace(/<h2>/i, '').trim())}</h2>`;
             continue;
         }
-        // --- YENİ: <h3> desteği ---
         if (line.includes('<h3>')) {
             html += `<h3>${applyMinecraftFormatting(line.replace(/<h3>/i, '').trim())}</h3>`;
             continue;
@@ -395,18 +389,28 @@ function parseWikiText(raw) {
             continue;
         }
 
-        if (line.startsWith('<alıntı karesi>')) {
-            i++;
-            let quote = '';
-            while (i < lines.length && !lines[i].startsWith('</alıntı')) {
-                quote += lines[i] + ' ';
-                i++;
+    if (line.startsWith('<alıntı karesi>')) {
+        i++;
+        let quote = '';
+        while (i < lines.length) {
+            const nextLine = lines[i];
+            if (nextLine === '<alıntı karesi /end>' || nextLine === '</alıntı karesi>') {
+                i++; break;
             }
-            html += `<blockquote><p>${applyMinecraftFormatting(quote.trim())}</p></blockquote>`;
-            continue;
+            if (nextLine.startsWith('<h1>') || nextLine.startsWith('<h2>') ||
+                nextLine.startsWith('<h3>') || nextLine.startsWith('<tablo>') ||
+                nextLine.startsWith('<tablowar>') || nextLine.startsWith('<map>') ||
+                nextLine.startsWith('<img>') || nextLine.startsWith('<açılır') ||
+                nextLine.startsWith('<alıntı karesi>')) {
+                break;
+            }
+            if (nextLine !== '') quote += nextLine + ' ';
+            i++;
         }
+        html += `<blockquote><p>${applyMinecraftFormatting(quote.trim())}</p></blockquote>`;
+        continue;
+    }
 
-        // --- DÜZELTİLMİŞ <açılır kapanır pencere> ---
         if (line.startsWith('<açılır')) {
             const title = applyMinecraftFormatting(line.replace(/<açılır kapanır pencere>/i, '').trim());
             i++;
@@ -420,9 +424,7 @@ function parseWikiText(raw) {
                     nextLine.startsWith('<use>')) {
                     break;
                 }
-                if (nextLine !== '') {
-                    det += `<p>${applyMinecraftFormatting(nextLine)}</p>`;
-                }
+                if (nextLine !== '') det += `<p>${applyMinecraftFormatting(nextLine)}</p>`;
                 i++;
             }
             i--;
@@ -447,15 +449,13 @@ function parseWikiText(raw) {
             html = html.slice(0, close + 5) + infoboxHtml + html.slice(close + 5);
         } else html = infoboxHtml + html;
     }
-        // Renk değişkenini başlık rengine göre güncelle (başlıkta § kodu olmasa bile çalışır)
     html = `<style>:root{--accent-color:${titleColor};--accent-glow:0 0 4px ${titleColor};}</style>` + html;
 
     return html;
 }
 
-
 /* ===========================================
-   VERİ OKUMA
+   VERİ OKUMA (güncellendi: *img.xxx|file.txt desteği)
    =========================================== */
 async function fetchList(path) {
     try {
@@ -476,8 +476,20 @@ async function fetchDatInfo(folder, type) {
         const dataLines = allLines.filter(l => !l.startsWith('>'));
         if (dataLines.length < 2) return null;
         const info = { folder, displayName: dataLines[0], mainFile: dataLines[1], classmans };
+
+        // YENİ: *img.xxx|dosya.txt formatı
+        const previewLine = allLines.find(l => l.startsWith('*img.'));
+        if (previewLine) {
+            const match = previewLine.match(/^\*(img\..+)\|(.+)$/);
+            if (match) {
+                info.previewImage = resolveImagePath(match[1].trim());
+                info.previewFile = match[2].trim(); // all/ içindeki dosya adı
+            }
+        }
+
+        // Eski formatlarla uyumluluk
         if (type === 'country' && dataLines.length >= 3) {
-            info.flagImage = dataLines[2] || '';
+            if (!info.previewImage) info.flagImage = dataLines[2] || '';
             info.countryClass = dataLines[3] || '';
             info.prevNext = dataLines[4] || '';
         }
@@ -510,32 +522,168 @@ const loadPlayerPageContent = f => loadContent(f, 'player');
 const loadCountryPageContent = f => loadContent(f, 'country');
 const loadWarPageContent = f => loadContent(f, 'war');
 
-async function buildCountryGrid(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const folders = await fetchCountryFolders();
-    const items = (await Promise.all(folders.map(f => fetchCountryInfo(f)))).filter(Boolean);
+/* ===========================================
+   YENİ: WINDOWS XP EXPLORER STİLİ LİSTE
+   =========================================== */
+/* ===========================================
+   YENİ: XP EXPLORER 3-PANEL FONKSİYONU
+   =========================================== */
+async function buildXPList(containerId, type) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    let folders, infoFn, detailPageBase;
+    if (type === 'player') {
+        folders = await fetchPlayerFolders();
+        infoFn = fetchPlayerInfo;
+        detailPageBase = 'player.html?player=';
+    } else if (type === 'country') {
+        folders = await fetchCountryFolders();
+        infoFn = fetchCountryInfo;
+        detailPageBase = 'country.html?country=';
+    } else if (type === 'war') {
+        folders = await fetchWarFolders();
+        infoFn = fetchWarInfo;
+        detailPageBase = 'war.html?war=';
+    }
+
+    const items = [];
+    for (const folder of folders) {
+        const info = await infoFn(folder);
+        if (info) items.push(info);
+    }
     items.sort((a, b) => a.displayName.localeCompare(b.displayName, 'tr'));
-    el.innerHTML = '<div class="item-grid">' + items.map(c => {
-        const flag = c.flagImage ? `../img/flag/${c.flagImage}` : '';
-        return `<a href="country.html?country=${encodeURIComponent(c.folder)}" class="item-card">
-            ${flag ? `<img src="${flag}" alt="">` : '<div style="width:64px;height:48px;background:#000;border:1px solid #444;"></div>'}
-            <div class="item-name">${c.displayName}</div></a>`;
-    }).join('') + '</div>';
+
+    // XP Explorer ana yapısı
+    container.innerHTML = `
+        <div class="xp-explorer">
+            <div class="xp-tree">
+                <div class="xp-tree-title">Klasörler</div>
+                <div class="xp-tree-item active" data-type="${type}">
+                    <span class="xp-tree-icon">»</span> ${type === 'player' ? 'Oyuncular' : type === 'country' ? 'Ülkeler' : 'Savaşlar'}
+                </div>
+            </div>
+            <div class="xp-file-panel">
+                <div class="xp-file-header">Ad</div>
+                <ul class="xp-file-list" id="xpFileList"></ul>
+            </div>
+            <div class="xp-preview-pane" id="xpPreviewPane">
+                <p style="color:#666;">Bir öğe seçin</p>
+            </div>
+        </div>
+    `;
+
+    const fileList = document.getElementById('xpFileList');
+    const previewPane = document.getElementById('xpPreviewPane');
+
+    // Dosya listesini oluştur
+    items.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'xp-file-item';
+        li.dataset.index = index;
+
+        // İkon (bayrak veya varsayılan)
+        let iconHtml = '';
+        if (item.previewImage) {
+            iconHtml = `<img src="${item.previewImage}" class="xp-file-icon" alt="">`;
+        } else if (item.flagImage) {
+            iconHtml = `<img src="../img/flag/${item.flagImage}" class="xp-file-icon" alt="">`;
+        } else {
+            iconHtml = `<span style="font-size:18px;">⌀</span>`;
+        }
+
+        li.innerHTML = `${iconHtml} ${item.displayName}`;
+        li.addEventListener('click', () => selectItem(index));
+        fileList.appendChild(li);
+    });
+
+    // Seçili öğeyi ve önizlemeyi güncelle
+    async function selectItem(index) {
+        fileList.querySelectorAll('.xp-file-item').forEach(li => li.classList.remove('selected'));
+        const selectedLi = fileList.querySelectorAll('.xp-file-item')[index];
+        if (selectedLi) selectedLi.classList.add('selected');
+
+        const item = items[index];
+        if (!item) return;
+
+        let previewHTML = '';
+        if (item.previewImage) {
+            previewHTML += `<img src="${item.previewImage}" class="xp-preview-image" alt="">`;
+        } else if (item.flagImage) {
+            previewHTML += `<img src="../img/flag/${item.flagImage}" class="xp-preview-image" alt="">`;
+        }
+
+        if (item.previewFile) {
+            try {
+                const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
+                const res = await fetch(`../${base}/${item.folder}/all/${item.previewFile}`, { cache: 'no-store' });
+                if (res.ok) {
+                    const text = await res.text();
+                    previewHTML += `<div class="xp-preview-text">${text}</div>`;
+                } else {
+                    previewHTML += `<div class="xp-preview-text">Önizleme metni yüklenemedi.</div>`;
+                }
+            } catch (e) {
+                previewHTML += `<div class="xp-preview-text">Hata: ${e.message}</div>`;
+            }
+        } else {
+            previewHTML += `<div class="xp-preview-text"><strong>${item.displayName}</strong><br>`;
+            if (type === 'country') previewHTML += `Sınıf: ${item.countryClass || '—'}`;
+            if (type === 'war') previewHTML += `Saldıran: ${item.attackers.join(', ') || '—'}<br>Savunan: ${item.defenders.join(', ') || '—'}`;
+            previewHTML += `</div>`;
+        }
+
+        previewHTML += `<p style="margin-top:12px;"><a href="${detailPageBase}${encodeURIComponent(item.folder)}">Wiki Sayfası</a></p>`;
+        previewPane.innerHTML = previewHTML;
+    }
+
+    if (items.length > 0) selectItem(0);
 }
 
-async function buildWarGrid(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const folders = await fetchWarFolders();
-    const items = (await Promise.all(folders.map(f => fetchWarInfo(f)))).filter(Boolean);
-    items.sort((a, b) => a.displayName.localeCompare(b.displayName));
-    el.innerHTML = `<table class="players-table"><thead><tr><th>Savaş</th><th>Saldıran</th><th>Savunan</th></tr></thead><tbody>
-        ${items.map(w => `<tr><td><a href="war.html?war=${encodeURIComponent(w.folder)}">${w.displayName}</a></td>
-            <td>${w.attackers.join(', ')}</td><td>${w.defenders.join(', ')}</td></tr>`).join('')}
-    </tbody></table>`;
+/* ===========================================
+   GEZİNME ÇUBUĞU (detay sayfaları için)
+   =========================================== */
+function buildQuickAccess() {
+    const list = document.getElementById('quickAccessList');
+    if (!list) return;
+    list.innerHTML = '';
+
+    const contentPane = document.querySelector('.content-pane');
+    if (!contentPane) return;
+
+    const headings = contentPane.querySelectorAll('h1, h2, h3');
+    headings.forEach((heading, index) => {
+        if (!heading.id) heading.id = `section-${index}`;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent;
+        if (heading.tagName === 'H2') li.style.paddingLeft = '15px';
+        else if (heading.tagName === 'H3') li.style.paddingLeft = '30px';
+        li.appendChild(a);
+        li.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById(heading.id).scrollIntoView({ behavior: 'smooth' });
+        });
+        list.appendChild(li);
+    });
 }
 
+function applyAccentColor() {
+    const h1 = document.querySelector('h1.article-title');
+    if (!h1) return;
+    let color = window.getComputedStyle(h1).color;
+    const span = h1.querySelector('span');
+    if (span) color = window.getComputedStyle(span).color;
+    if (color) {
+        document.documentElement.style.setProperty('--accent-color', color);
+        document.documentElement.style.setProperty('--accent-glow', `0 0 4px ${color}`);
+    }
+}
+
+/* ===========================================
+   CLASSMAN İLGİLİ MAKALELER
+   =========================================== */
 async function getRelatedItemsByClassmans(classmans, excludeFolder) {
     if (!classmans.length) return [];
     const all = [];
@@ -560,57 +708,4 @@ function renderRelatedItems(items) {
                      `player.html?player=${encodeURIComponent(i.folder)}`;
         return `<li><a href="${href}">${i.displayName} (${i.type})</a></li>`;
     }).join('')}</ul></div>`;
-}
-/* =============================================
-   GEZİNME ÇUBUĞU OLUŞTURUCU
-   ============================================= */
-function buildQuickAccess() {
-    const list = document.getElementById('quickAccessList');
-    if (!list) return;
-
-    // Mevcut liste öğelerini temizle (statik linkler dahil)
-    list.innerHTML = '';
-
-    const contentPane = document.querySelector('.content-pane');
-    if (!contentPane) return;
-
-    const headings = contentPane.querySelectorAll('h1, h2, h3');
-    headings.forEach((heading, index) => {
-        // id yoksa ekle
-        if (!heading.id) {
-            heading.id = `section-${index}`;
-        }
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = `#${heading.id}`;
-        a.textContent = heading.textContent;
-        
-        // Başlık seviyesine göre girinti
-        if (heading.tagName === 'H2') {
-            li.style.paddingLeft = '15px';
-        } else if (heading.tagName === 'H3') {
-            li.style.paddingLeft = '30px';
-        }
-        
-        li.appendChild(a);
-        li.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById(heading.id).scrollIntoView({ behavior: 'smooth' });
-        });
-        list.appendChild(li);
-    });
-}
-/* =============================================
-   RENK SENKRONİZASYONU
-   ============================================= */
-function applyAccentColor() {
-    const h1 = document.querySelector('h1.article-title');
-    if (!h1) return;
-    let color = window.getComputedStyle(h1).color;
-    const span = h1.querySelector('span');
-    if (span) color = window.getComputedStyle(span).color;
-    if (color) {
-        document.documentElement.style.setProperty('--accent-color', color);
-        document.documentElement.style.setProperty('--accent-glow', `0 0 4px ${color}`);
-    }
 }
