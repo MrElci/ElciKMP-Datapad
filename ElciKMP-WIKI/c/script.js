@@ -1,5 +1,5 @@
 // =============================================
-// ELciKMP-DataPad – Tam Betik (v11.0 – <vid> desteği)
+// ELciKMP-DataPad – Tam Betik (v11.1 – Render Uyumlu)
 // =============================================
 
 /* ---------- Minecraft Biçimlendirme ---------- */
@@ -36,14 +36,14 @@ function applyMinecraftFormatting(text) {
 function resolveImagePath(raw) {
     if (!raw || !raw.startsWith('img.')) return raw;
     const parts = raw.substring(4).split('.');
-    return '../img/' + parts.join('/') + '.png';
+    return 'img/' + parts.join('/') + '.png';
 }
 
 /* ---------- Video Yolu Çözümleyici ---------- */
 function resolveVideoPath(raw) {
     if (!raw || !raw.startsWith('img.vid.')) return raw;
-    const parts = raw.substring(4).split('.'); // "vid.xxx" -> ["vid","xxx"]
-    return '../img/' + parts.join('/') + '.mp4';
+    const parts = raw.substring(4).split('.');
+    return 'img/' + parts.join('/') + '.mp4';
 }
 
 /* ---------- Lightbox (resimler için) ---------- */
@@ -90,7 +90,7 @@ function openVideoModal(src, title) {
         modal.innerHTML = `
             <div class="video-window">
                 <div class="video-title-bar">
-                    <span>Video</span>
+                    <span id="videoTitle">Video</span>
                     <span class="video-close">✕</span>
                 </div>
                 <div class="video-content-wrapper">
@@ -111,7 +111,6 @@ function openVideoModal(src, title) {
         modal.querySelector('.video-close').onclick = () => modal.classList.remove('active');
         modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
 
-        // Kontrol olayları
         const video = modal.querySelector('#videoPlayer');
         const playPauseBtn = modal.querySelector('#videoPlayPause');
         const backwardBtn = modal.querySelector('#videoBackward');
@@ -404,7 +403,7 @@ function parseWikiText(raw) {
         }
 
         if (line.startsWith('<vid>')) {
-            const content = line.substring(5).trim(); // "Açıklama | img.vid.xxx"
+            const content = line.substring(5).trim();
             let desc = '', videoRaw = '';
             const parts = content.split('|').map(s => s.trim());
             if (parts.length >= 2) {
@@ -629,7 +628,7 @@ function parseWikiText(raw) {
 }
 
 /* ===========================================
-   VERİ OKUMA
+   VERİ OKUMA (Render uyumlu: ../ kaldırıldı)
    =========================================== */
 async function fetchList(path) {
     try {
@@ -642,7 +641,7 @@ async function fetchList(path) {
 async function fetchDatInfo(folder, type) {
     const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
     try {
-        const res = await fetch(`../${base}/${folder}/dat.txt`, { cache: 'no-store' });
+        const res = await fetch(`${base}/${folder}/dat.txt`, { cache: 'no-store' });
         if (!res.ok) return null;
         const text = await res.text();
         const allLines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
@@ -674,9 +673,9 @@ async function fetchDatInfo(folder, type) {
     } catch { return null; }
 }
 
-async function fetchPlayerFolders() { return fetchList('../players/playerList.txt'); }
-async function fetchCountryFolders() { return fetchList('../countries/countryList.txt'); }
-async function fetchWarFolders() { return fetchList('../wars/warList.txt'); }
+async function fetchPlayerFolders() { return fetchList('players/playerList.txt'); }
+async function fetchCountryFolders() { return fetchList('countries/countryList.txt'); }
+async function fetchWarFolders() { return fetchList('wars/warList.txt'); }
 async function fetchPlayerInfo(f) { return fetchDatInfo(f, 'player'); }
 async function fetchCountryInfo(f) { return fetchDatInfo(f, 'country'); }
 async function fetchWarInfo(f) { return fetchDatInfo(f, 'war'); }
@@ -685,7 +684,7 @@ async function loadContent(folder, type) {
     const info = await fetchDatInfo(folder, type);
     if (!info) throw new Error('Bilgi alınamadı');
     const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
-    const res = await fetch(`../${base}/${folder}/all/${info.mainFile}`, { cache: 'no-store' });
+    const res = await fetch(`${base}/${folder}/all/${info.mainFile}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Dosya bulunamadı');
     return parseWikiText(await res.text());
 }
@@ -749,7 +748,7 @@ async function buildXPList(containerId, type) {
         if (item.previewImage) {
             iconHtml = `<img src="${item.previewImage}" class="xp-file-icon" alt="">`;
         } else if (item.flagImage) {
-            iconHtml = `<img src="../img/flag/${item.flagImage}" class="xp-file-icon" alt="">`;
+            iconHtml = `<img src="img/flag/${item.flagImage}" class="xp-file-icon" alt="">`;
         } else {
             iconHtml = `<span style="font-size:18px;">⌀</span>`;
         }
@@ -770,13 +769,13 @@ async function buildXPList(containerId, type) {
         if (item.previewImage) {
             previewHTML += `<img src="${item.previewImage}" class="xp-preview-image" alt="">`;
         } else if (item.flagImage) {
-            previewHTML += `<img src="../img/flag/${item.flagImage}" class="xp-preview-image" alt="">`;
+            previewHTML += `<img src="img/flag/${item.flagImage}" class="xp-preview-image" alt="">`;
         }
 
         if (item.previewFile) {
             try {
                 const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
-                const res = await fetch(`../${base}/${item.folder}/all/${item.previewFile}`, { cache: 'no-store' });
+                const res = await fetch(`${base}/${item.folder}/all/${item.previewFile}`, { cache: 'no-store' });
                 if (res.ok) {
                     const text = await res.text();
                     previewHTML += `<div class="xp-preview-text">${text}</div>`;
@@ -807,7 +806,7 @@ async function buildCountryGrid(id) {
     const items = (await Promise.all(folders.map(f => fetchCountryInfo(f)))).filter(Boolean);
     items.sort((a, b) => a.displayName.localeCompare(b.displayName, 'tr'));
     el.innerHTML = '<div class="item-grid">' + items.map(c => {
-        const flag = c.flagImage ? `../img/flag/${c.flagImage}` : '';
+        const flag = c.flagImage ? `img/flag/${c.flagImage}` : '';
         return `<a href="country.html?country=${encodeURIComponent(c.folder)}" class="item-card">
             ${flag ? `<img src="${flag}" alt="">` : '<div style="width:64px;height:48px;background:#000;border:1px solid #444;"></div>'}
             <div class="item-name">${c.displayName}</div></a>`;
