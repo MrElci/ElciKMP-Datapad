@@ -484,3 +484,171 @@ details[open] summary::before { content: '▼ '; }
   font-size: 12px;
   text-decoration: none;
 }
+.qa-button {
+    background: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 3px 10px;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+}
+.qa-button:hover {
+    background: #0f0;
+    color: #000;
+}
+.progress-line { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+.block-bar { font-family: var(--crt-font); letter-spacing: 0; }
+.progress-label { color: var(--crt-amber); font-size: 16px; }
+/* Deprem efekti */
+@keyframes quake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-4px, -2px) rotate(-0.2deg); }
+    20% { transform: translate(3px, 2px) rotate(0.2deg); }
+    30% { transform: translate(-6px, 1px) rotate(-0.3deg); }
+    40% { transform: translate(5px, -3px) rotate(0.3deg); }
+    50% { transform: translate(-2px, 4px) rotate(-0.1deg); }
+    60% { transform: translate(6px, -1px) rotate(0.2deg); }
+    70% { transform: translate(-5px, -4px) rotate(-0.2deg); }
+    80% { transform: translate(4px, 3px) rotate(0.1deg); }
+    90% { transform: translate(-3px, 1px) rotate(-0.1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.quake-active .crt-screen {
+    animation: quake 0.4s infinite;
+}
+
+/* Tüplü TV yatay bozulma bandı */
+.glitch-band {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10003;
+    mix-blend-mode: screen;
+    animation: bandMove 3s linear infinite;
+}
+@keyframes bandMove {
+    0% { top: -5%; }
+    100% { top: 105%; }
+}
+
+/* Kırmızı tema */
+.admin-red {
+    --crt-green: #ff3333;
+    --crt-amber: #ff9966;
+    --crt-text: #ffcccc;
+    --crt-glow: 0 0 12px rgba(255, 0, 0, 0.8);
+    --crt-muted: #663333;
+}
+
+/* Mami Radar */
+.mami-radar {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--crt-green);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+    overflow: hidden;
+    display: none;
+    z-index: 10004;
+}
+.mami-radar.active { display: block; }
+.radar-sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--crt-green), transparent);
+    transform-origin: left center;
+    animation: radarSpin 2s linear infinite;
+}
+@keyframes radarSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.radar-label {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 8px;
+    color: var(--crt-green);
+    letter-spacing: 1px;
+}
+
+/* Admin Dosya Paneli */
+.admin-panel {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100% - 100px);
+    background: rgba(0,0,0,0.9);
+    border-right: 2px solid var(--crt-green);
+    z-index: 10005;
+    display: none;
+    flex-direction: column;
+    font-size: 14px;
+}
+.admin-panel.active { display: flex; }
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--crt-muted);
+    color: var(--crt-green);
+    font-weight: bold;
+}
+.admin-close {
+    background: transparent;
+    border: 1px solid var(--crt-muted);
+    color: var(--crt-green);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin-file-tree {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+}
+.file-node {
+    margin-left: 0;
+    cursor: pointer;
+}
+.file-node .folder {
+    color: var(--crt-amber);
+    font-weight: bold;
+}
+.file-node .file {
+    color: var(--crt-text);
+}
+.file-node .children {
+    margin-left: 16px;
+    display: none;
+}
+.file-node.open > .children {
+    display: block;
+}
+.quake-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255,0,0,0.05);
+    pointer-events: none;
+    z-index: 10002;
+    display: none;
+}

@@ -3,6 +3,19 @@
 // =============================================
 
 /* ---------- Minecraft Biçimlendirme ---------- */
+(function() {
+  var favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.type = 'image/png';
+  favicon.href = 'img/site/logo.png';
+
+  var appleTouch = document.createElement('link');
+  appleTouch.rel = 'apple-touch-icon';
+  appleTouch.href = 'img/site/logo.png';
+
+  document.head.appendChild(favicon);
+  document.head.appendChild(appleTouch);
+})();
 function applyMinecraftFormatting(text) {
     const colorMap = {
         '0': '#000000', '1': '#0000AA', '2': '#00AA00', '3': '#00AAAA',
@@ -885,4 +898,674 @@ function applyAccentColor() {
         document.documentElement.style.setProperty('--accent-color', color);
         document.documentElement.style.setProperty('--accent-glow', `0 0 4px ${color}`);
     }
+}
+/* ===========================================
+   CMD TERMİNAL SİSTEMİ (ELCIKMP DATAPAD)
+   =========================================== */
+
+async function fetchQA() {
+    try {
+        const res = await fetch('maintext/QA.txt', { cache: 'no-store' });
+        if (!res.ok) throw new Error('QA.txt bulunamadı');
+        return await res.text();
+    } catch (e) {
+        console.error(e);
+        return '';
+    }
+}
+
+function parseQAData(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    const data = {
+        maqs: [],
+        reqs: []   // { command, response, admin }
+    };
+    let i = 0;
+    while (i < lines.length) {
+        const line = lines[i];
+
+        if (line.startsWith('<maq>')) {
+            const question = line.substring(5).trim();
+            i++;
+            let answer = '';
+            while (i < lines.length && !lines[i].startsWith('<maq/>')) {
+                answer += lines[i] + '\n';
+                i++;
+            }
+            i++; // skip <maq/>
+            data.maqs.push({ question, answer: answer.trim() });
+            continue;
+        }
+
+        if (line.startsWith('<REQ>')) {
+            const command = line.substring(5).trim();
+            i++;
+            let response = '';
+            let admin = false;
+            while (i < lines.length && !lines[i].startsWith('<REQ/')) {
+                response += lines[i] + '\n';
+                i++;
+            }
+            if (i < lines.length && lines[i].startsWith('<REQ/')) {
+                const closing = lines[i];
+                admin = closing.includes('admin');
+                i++; // skip <REQ/...>
+            }
+            data.reqs.push({ command, response: response.trim(), admin });
+            continue;
+        }
+        i++;
+    }
+    return data;
+}
+
+const BOOT_TEXT = `
+ELCIKMP - DATAPAD v4.00PG
+Copyright (c) 2020-26, ElciKMP-DataPAD & the Sandeburg Legacy.
+Firmware: KSI Foundation Build 1453 – "Ötüken's Ashes".
+Patents: Zerdüşt Firewall, Göktürk Cache Coherency, WeakFatality-11 Immunity.
+
+===============================================================================
+CPU: Holy Sandeburg Empire – Pentium II MMX (Cenker's Forge Edition)
+    Base Clock: 233 MHz (Overclockable to 266 MHz via Ragnarok Rune)
+    L1 Cache: 16 KB (Legionary Cohort) ...................... [ PASSED ]
+    L2 Cache: 256 KB (Praetorian – Alp Guard) ............... [ PASSED ]
+    Microcode: MDS (Mongol Double-Spear) – patched by Sun Pala.
+    FPU: Sasani Fire Co-Processor (Ahura Mazda v2.1) ........ [ ONLINE ]
+    Thermal: 41°C – cooled by Siberian Permafrost (IBFI).
+
+===============================================================================
+RAM Test (Persepolis Memory Bank):
+    Base Memory: 65,536 Drachmae (KSI Standard)
+    Extended:   131,072 Drachmae (Sasani Treasury)
+    Total:      196,608 KB – all Zerdüşt-certified.
+    Shadow RAM: 64 KB (reserved for Oracle of Delphi – Uygar's visions).
+    Conventional [0–640 KB] .................................. [ OK ]
+    Upper [640–1024 KB] ...................................... [ OK ]
+    XMS (Göktürk Steppe expansion) .......................... [ OK ]
+    EMS (Xenian Punic banking) ............................... [ OK ]
+    Cacheable ROM: mapped to Sun Pala archives.
+
+===============================================================================
+ROM BIOS Checksum: 0xDEADBEEF (EmiGrimes' signature) ......... [ PASSED ]
+CMOS Battery: Nominal – powered by İnek Bayram's eternal flame.
+System Date & Time (Gregorian / AUC / Byzantine):
+    Current: 2026-08-14
+    AUC (Ab Urbe Condita): 2779
+    Byzantine Indiction: 5th cycle – "Era of the Seven Satraps".
+
+>>> EASTER EGG – HISTORICAL CALENDAR TRIGGERS <<<
+    If date == 15-MAR : "Beware the Ides of Göktürk!" – trigger Ötüken raid alarm.
+    If date == 02-AUG : "Kudüs Savaşı anniversary" – load Persian steel drivers.
+    If date == 29-MAY : "Fall of KSI" – display Theodosian wall screensaver.
+    If date == 21-APR : "Foundation of İranshar" – show Cyrus cylinder animation.
+    If date == 01-JAN : "New Consul of Floransa" – reset fiscal year.
+    If date == 12-DEC : "Saturnalia of Ragnarok" – reverse byte order.
+    If date == 17-DEC : "WeakFatality-11 outbreak" – enable anti‑virus quarantine.
+    If date == 14-AUG : "Elci's birthday" – print "𐎠𐎼𐎫𐎠" in gold.
+
+===============================================================================
+IDE / SCSI Storage (Imperial Census of 2026):
+    Primary Master   : NAZI ARASISTAN – "Blitzkrieg Granary" (6.4 GB)
+        Cyl: 16383, Hd: 16, Sec: 63 – Cache: 256 KB (Gestapo buffer).
+        Status: [ ONLINE ] – Mounted as C:\\ (Reichskanzlei)
+
+    Primary Slave    : DEVLETI ALLIYE – "Sosyalist Silo" (2.1 GB)
+        Punic War encryption disabled. Status: [ STANDBY ] (awaiting revolution).
+
+    Secondary Master : GÖKTÜRK HOPLITE CD-ROM – "Kaan's Bow" (24x)
+        Disk inserted: "Ötüken Chronicles – Director's Cut". [ READY ]
+
+    Secondary Slave  : XENIAN FLOPPY – "Senatus Populusque" (720 KB)
+        Augury: Unfavorable – no birds sighted. [ EMPTY ]
+
+    SCSI Controller  : SASANI ROYAL ROAD (Achaemenid Bridge)
+        Device 0: Hanging Gardens RAM-disk (2 GB) – [ ONLINE ]
+        Device 1: Cyrus Cylinder Archive (Read‑Only) – [ MOUNTED ]
+
+===============================================================================
+PCI Local Bus (Via Appia – Sandeburg Edition):
+    Bus 0, Dev 0: KSI NORTHBRIDGE – "Holy Forge"
+        Rev: 0x02, AGP 4x (Ragnarok charge rate). Bandwidth: 1.06 GB/s.
+
+    Bus 0, Dev 1: SOUTHBRIDGE – "Athenian Agora (Lourxz' design)"
+        PIIX4E – Pericles Integrated I/O.
+        USB 1.1: Centurion – [ DISABLED (security risk) ]
+        SMBus: monitoring grain tributes.
+
+    Bus 1, Dev 0: PUNIC WAR GRAPHICS – "Hannibal's Elephants" (4 MB SGRAM)
+        IRQ: 11, I/O: 0xE000, Mem: 0xA0000.
+        VESA 2.0 – Max res: 1024x768 (Roman Mosaic, Uygar edition).
+
+    Bus 1, Dev 1: HOPLITE AUDIO – "AC'97 (Spartan Phalanx)"
+        IRQ: 5, DMA: 1 – loaded with Greek tragedy samples.
+        Surround: Colosseum ambience.
+
+    Bus 2, Dev 0: AQUEDUCT LAN – "Legionary NIC" (10/100 Mbps)
+        IRQ: 10, MAC: 00-AA-BB-CC-DD-EE (Forge of Vulcan).
+        PXE: Disabled – barbarians at the gate.
+
+    Bus 2, Dev 1: GOTHIC INVASION FIREWALL – "Visigothic Filter"
+        State: [ ARMING ] – blocks all packets from 476 AD (Fall of Rome).
+
+===============================================================================
+System Memory Map (City Planning – İsfahan Model):
+    0x00000000 – 0x0009FFFF : Plebeian District (DOS compatibility)
+    0x000A0000 – 0x000BFFFF : VGA Frame Buffer (Senatorial Forums)
+    0x000C0000 – 0x000C7FFF : Video ROM (Cyclops' eye)
+    0x000C8000 – 0x000DFFFF : Option ROMs (Provincial outposts)
+    0x000E0000 – 0x000FFFFF : BIOS Shadow (Vestal scrolls)
+    0x00100000 – 0x0FFFFFFF : Barbarian territories (free men)
+    0x10000000 – 0xFFFFFFFF : PCI/ISA MMI/O (Imperial palaces)
+
+===============================================================================
+Interrupt Request (IRQ) – Senatorial Seats:
+    IRQ 0  : System Timer (Sundial of Augustus) ............ [ OK ]
+    IRQ 1  : Keyboard (Stylus & wax tablet) ................ [ OK ]
+    IRQ 2  : Cascade (Tribune of the Plebs) ................ [ OK ]
+    IRQ 3  : COM2 – Pigeon Post ............................. [ OK ]
+    IRQ 4  : COM1 – Carrier Pigeon .......................... [ OK ]
+    IRQ 5  : Hoplite Sound .................................. [ OK ]
+    IRQ 6  : Floppy – Etruscan rites ........................ [ OK ]
+    IRQ 7  : LPT1 – Scroll Printer .......................... [ OK ]
+    IRQ 8  : RTC – Clepsydra water clock .................... [ OK ]
+    IRQ 9  : ACPI / SCI – Oracle's vision ................... [ OK ]
+    IRQ 10 : Aqueduct LAN ................................... [ OK ]
+    IRQ 11 : Punic War VGA .................................. [ OK ]
+    IRQ 12 : PS/2 Mouse – Roman Dodecahedron ................ [ OK ]
+    IRQ 13 : FPU – Greek Fire Co‑Processor .................. [ OK ]
+    IRQ 14 : Primary IDE – Nazi Arasistan ................... [ OK ]
+    IRQ 15 : Secondary IDE – Göktürk CD ..................... [ OK ]
+
+===============================================================================
+DMA Channels (Slaves of the State):
+    Ch 0 : Memory refresh (Aqueduct maintenance) ............ [ OK ]
+    Ch 1 : Sound – Hoplite DMA .............................. [ OK ]
+    Ch 2 : Floppy – Etruscan divination ..................... [ OK ]
+    Ch 3 : LPT1 – Senate decrees ............................ [ OK ]
+    Ch 4 : Cascade – Proconsul .............................. [ OK ]
+    Ch 5 : Reserved – Triumph processions ................... [ OK ]
+    Ch 6 : Reserved – Gladiatorial combats .................. [ OK ]
+    Ch 7 : Reserved – Chariot races ......................... [ OK ]
+
+===============================================================================
+MS-DOS 7.1 (Modus Operandi – Legions of DOS) Loader:
+    Checking boot sector (Codex Justinianus) ................ [ PASSED ]
+    System files from the Library of Celsus:
+        KAĞAN.SYS    (IO.SYS) .............................. [ LOADED ]
+        SHAH.SYS     (MSDOS.SYS) ........................... [ LOADED ]
+        EMIR.COM     (COMMAND.COM) ......................... [ LOADED ]
+        ZERDÜST.SYS  (HIMEM.SYS) ........................... [ LOADED ]
+        AHURA.EXE    (EMM386.EXE) .......................... [ LOADED ]
+        DBLSPACE.BIN (Carthaginian encryption – disabled)
+
+    Parsing CONFIG.SYS (Twelve Tables of Law):
+        DEVICE=C:\\WINDOWS\\SETVER.EXE ...................... [ EXECUTED ]
+        DEVICE=C:\\DOS\\ANSI.SYS (Greek polytonic) .......... [ LOADED ]
+        DEVICE=C:\\DOS\\DISPLAY.SYS CON=(EGA,437) ........... [ LOADED ]
+        COUNTRY=039,850,C:\\DOS\\COUNTRY.SYS – Roman province.
+        SHELL=C:\\EMIR.COM C:\\ /P /E:4096 – Senate decree.
+
+    Creating virtual drives (Colonies):
+        RAMDRIVE.SYS – 2 MB from Treasury of Delphi.
+        Mounting D:\\ as "PROVINCIA_GALLIA".
+        Mounting E:\\ as "PROVINCIA_AEGYPTUS" (Tameris).
+
+===============================================================================
+AUTOEXEC.BAT (Consular Orders – Elci's script):
+    C:\\> ECHO OFF
+    C:\\> PROMPT $P$G (Legionary standard)
+    C:\\> PATH=C:\\;C:\\DOS;C:\\WINDOWS;C:\\TOOLS (Roman roads)
+    C:\\> SET TEMP=C:\\TEMP (Temporary camp)
+    C:\\> SET TMP=C:\\TEMP
+    C:\\> SET COMSPEC=C:\\EMIR.COM
+    C:\\> SET BLASTER=A220 I5 D1 H5 P330 T3 (Hoplite tune)
+    C:\\> SET DIRCMD=/O:GEN (organise by generational cohorts)
+    C:\\> DOSKEY /INSERT (Tacitus buffer) .................. [ LOADED ]
+    C:\\> LH C:\\DOS\\MSCDEX.EXE /D:MSCD001 (Spartan CD) .... [ LOADED ]
+    C:\\> LH C:\\DOS\\SMARTDRV.EXE /X (Roman census caching) [ LOADED ]
+    C:\\> LH C:\\WINDOWS\\MOUSE.COM (Dodecahedron stylus) ... [ LOADED ]
+
+===============================================================================
+Loading Legionary Device Drivers (Auxiliaries – from Elci's kernel):
+    SASSANID.SYS    (Persian fire – disk caching) ......... [ ACTIVE ]
+    GOKTURK.SYS     (Steppe cavalry – network burst) ...... [ ACTIVE ]
+    RAGNAROK.SYS    (Northern wolf – thermal management) .. [ ACTIVE ]
+    DARKLOIG.SYS    (Collectivist – null device) .......... [ ACTIVE ]
+    XP.SYS          (Xian – high‑speed DMA) ............... [ ACTIVE ]
+    SUNPALA.SYS     (Great Wall – firewall extension) ..... [ ACTIVE ]
+    IBFI.SYS        (Russian steppe – random number gen) .. [ ACTIVE ]
+    FLORANSA.SYS    (Italian renaissance – GUI fallback) .. [ ACTIVE ]
+    CATAPULT.SYS    (Siege engine – packet thrower) ....... [ ACTIVE ]
+    TRIREME.SYS     (Naval stack – TCP/IP over galleys) ... [ ACTIVE ]
+
+===============================================================================
+Network Stack & Protocols (Roman Roads & Smoke Signals):
+    Initializing TCP/IP via Milvian Bridge:
+        DHCP request to Oracle of Delphi ...
+        Response: "Know thyself" – IP: 192.168.1.10
+        Mask: 255.255.255.0 (Praetorian perimeter)
+        Gateway: 192.168.1.1 (Pons Sublicius)
+
+    Binding protocols to Aqueduct NIC:
+        IPX/SPX  (Inter‑Provincial Exchange) ............... [ BOUND ]
+        NetBEUI  (Barbarian tribal NetBIOS) ................ [ BOUND ]
+        Silk Road Protocol (SRP) ............................ [ ONLINE ]
+        Red Cross Messaging (RCM) ........................... [ ONLINE ]
+
+    Mounting SMB shares:
+        \\\\KSI\\HOLY_GOTHBURG (Read‑only – KSI archives)
+        \\\\RAGNAROK\\KANADA_COLONY (Disconnected – rebellion)
+
+===============================================================================
+Virtual Memory & Paging (Treasury Reserves):
+    Allocating 256 MB paging file: C:\\PAGEFILE.SYS
+    Memory blocks:
+        0xFFFF0000 – 0xFFFFFFFF : Imperial Guard reserved.
+        Kernel stack: 8192 Denarii (bytes).
+        User stack:   4096 Denarii.
+    Heap manager: Augustus – first‑fit algorithm.
+
+===============================================================================
+Plug and Play (Pax Romana) Auto‑Configuration:
+    ISA legacy devices:
+        Sound Blaster Pro – I/O 220, IRQ 5, DMA 1, HDMA 5.
+        Joystick (Chariot controller) – I/O 201 [ NOT DETECTED ]
+        MIDI (Lyre synthesizer) – I/O 330 [ DETECTED ]
+
+    Peripheral Autodetect (Centurion scouts):
+        Keyboard: PS/2 (Latin with macrons)
+        Mouse: Serial (Roman Dodecahedron – 3 buttons)
+        USB Mass Storage: Aegyptian obelisk flash – [ MOUNTED AS F: ]
+
+===============================================================================
+Deep Calendar Scan – Easter Egg Overdrive:
+    Julian default, Gregorian bypass.
+    Epoch drift since 1 AUC (753 BC) – recalculating...
+    Zodiac alignment (Roman constellations) – loaded.
+    If today == 15-MAR : "Et tu, Brute?" shutdown timer (60s).
+    If today == 21-APR : Palatine Hill background image.
+    If today == 01-MAY : Floralia – floral screensaver.
+    If today == 21-JUN : Summer solstice – fan speed ++.
+    If today == 01-AUG : Ara Pacis – defrag memory.
+    If today == 02-SEP : Actium victory – naval fanfare.
+    If today == 13-NOV : Festival of Jupiter – boost cache.
+    If today == 17-DEC : Saturnalia – reverse endianness.
+
+    Byzantine Indiction check:
+        Current cycle: 5 (15‑year tax).
+        Solar cycle: 11, Lunar: 8.
+        Computus – Easter Sunday (Dionysius Exiguus): 2026‑04‑05.
+        Loading Easter egg basket driver.
+
+    Y2K38 (2038 problem) simulation:
+        32‑bit time_t overflow on 19 Jan 2038, 03:14:07 UTC.
+        Solution: migrate to 64‑bit Consular timekeeping.
+
+===============================================================================
+Graphics & Sound Subsystem Finalization:
+    VBE 2.0 – Mode 0x118 (1024x768x16M – Roman Fresco).
+    Gamma: 1.0 (natural marble lighting).
+    Equalizer: Colosseum Surround (acoustic amphitheatre).
+    Fonts: Latin Extended, Greek, Coptic, Runic.
+    Palette: Tyrian purple and golden eagle motifs.
+
+===============================================================================
+File System Integrity Check (Censorship by the Senate):
+    Scanning C:\\ (Nazi Arasistan) for lost fragments...
+        Found 3 fragmented scrolls – defragmenting...
+        Moving files to contiguous Roman roads...
+        Rebuilding FAT32 (Palatine registry).
+        Root directory: 512 entries (501 free).
+    Scanning D:\\ (Gallic Province) for corrupted data...
+        Gallic wars intact – Vercingetorix quarantined.
+    Scanning E:\\ (Tameris) – verifying pyramid metadata ... [ OK ]
+
+===============================================================================
+Final Bootstrapping Sequence (Triumph Parade):
+    Applying registry hives (Senate decrees) ...
+    Loading user profile "CAESAR" (Administrator).
+    Starting Windows GUI (optional) – bypassed for CLI.
+    Starting DOS Shell (EMIR.COM).
+
+    System initialization progress:
+    ████████████████████████████████████████████████████ 100%
+
+    All systems nominal. Pax Romana established.
+
+    ==================================================
+    ELCIKMP - DATAPAD v4.00PG
+    Boot completed at: 14-Aug-2026 09:32:15 (AUC 2779)
+    ==================================================
+
+    Warning: The following outposts are offline:
+        - Parthian Provinces (network timeout)
+        - Britannia Hadrian's Wall (sector read error)
+        - Sun Pala outpost – awaiting diplomatic resolution.
+        Type "HELP" to display commands.
+
+`;
+
+/* Yardımcı: terminale typewriter satır yaz */
+async function typewriterLine(terminal, text, speed = 1) {
+    const lineDiv = document.createElement('div');
+    lineDiv.className = 'line';
+    terminal.appendChild(lineDiv);
+    terminal.scrollTop = terminal.scrollHeight;
+
+    for (let char of text) {
+        lineDiv.textContent += char;
+        await new Promise(r => setTimeout(r, speed));
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+    return lineDiv;
+}
+
+/* Yardımcı: bloklu progress bar çiz ve doldur */
+async function drawBlockBar(terminal, speed = 300) {
+    const barLine = document.createElement('div');
+    barLine.className = 'progress-line';
+    terminal.appendChild(barLine);
+    terminal.scrollTop = terminal.scrollHeight;
+
+    const barSpan = document.createElement('span');
+    barSpan.className = 'block-bar';
+    barLine.appendChild(barSpan);
+
+    const label = document.createElement('span');
+    label.className = 'progress-label';
+    barLine.appendChild(label);
+
+    const totalBlocks = 10;
+    const target = 100;
+    for (let i = 0; i <= target; i++) {
+        const filled = Math.round((i / target) * totalBlocks);
+        barSpan.textContent = '▨'.repeat(filled) + '▩'.repeat(totalBlocks - filled);
+        label.textContent = `${i}%`;
+        await new Promise(r => setTimeout(r, speed / target));
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+}
+
+/* Bilgisayar düşünme animasyonu */
+async function showThinking(terminal) {
+    const thinkDiv = document.createElement('div');
+    thinkDiv.className = 'line';
+    terminal.appendChild(thinkDiv);
+    terminal.scrollTop = terminal.scrollHeight;
+
+    const base = 'Düşünüyor';
+    for (let i = 0; i < 4; i++) {
+        thinkDiv.textContent = base + '.'.repeat(i % 4);
+        await new Promise(r => setTimeout(r, 300));
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+    thinkDiv.textContent = '';
+}
+
+/* Aşamaları uygula */
+async function applyAdminPhases() {
+    const crtScreen = document.getElementById('crtScreen');
+    const body = document.body;
+
+    // T1: Flicker
+    crtScreen.classList.add('phase-flicker');
+    body.classList.add('red-theme');
+    spawnRedParticles(20);
+    await new Promise(r => setTimeout(r, 1000));
+    crtScreen.classList.remove('phase-flicker');
+
+    // T2: Karakter bozulması
+    crtScreen.classList.add('phase-garble');
+    await new Promise(r => setTimeout(r, 2000));
+    crtScreen.classList.remove('phase-garble');
+
+    // T3: UI parçalanması
+    crtScreen.classList.add('phase-shatter');
+    await new Promise(r => setTimeout(r, 2000));
+    crtScreen.classList.remove('phase-shatter');
+
+    // T4: Neredeyse okunmaz
+    crtScreen.classList.add('phase-unreadable');
+}
+
+function spawnRedParticles(count) {
+    for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.animationDuration = (2 + Math.random() * 3) + 's';
+        p.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 5000);
+    }
+}
+
+function startAdminQuake() {
+    const glitchBand = document.getElementById('glitchBand');
+    glitchBand.classList.add('active');
+}
+
+function stopAdminQuake() {
+    const glitchBand = document.getElementById('glitchBand');
+    glitchBand.classList.remove('active');
+}
+
+function startAdminFiles() {
+    const mamiRadar = document.getElementById('mamiRadar');
+    const adminPanel = document.getElementById('adminPanel');
+    mamiRadar.classList.add('active');
+    adminPanel.classList.add('active');
+    const tree = document.getElementById('adminFileTree');
+    tree.innerHTML = `
+        <div class="file-node open">
+            <span class="folder">📁 c</span>
+            <div class="children">
+                <div class="file-node"><span class="file">📄 index.html</span></div>
+                <div class="file-node"><span class="file">📄 cmd.html</span></div>
+                <div class="file-node"><span class="file">📄 players.html</span></div>
+                <div class="file-node"><span class="file">📄 countries.html</span></div>
+                <div class="file-node"><span class="file">📄 wars.html</span></div>
+                <div class="file-node open">
+                    <span class="folder">📁 players</span>
+                    <div class="children">
+                        <div class="file-node"><span class="file">📄 playerList.txt</span></div>
+                    </div>
+                </div>
+                <div class="file-node open">
+                    <span class="folder">📁 countries</span>
+                    <div class="children">
+                        <div class="file-node"><span class="file">📄 countryList.txt</span></div>
+                    </div>
+                </div>
+                <div class="file-node open">
+                    <span class="folder">📁 img</span>
+                    <div class="children">
+                        <div class="file-node"><span class="file">📄 site</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    tree.querySelectorAll('.folder').forEach(folder => {
+        folder.addEventListener('click', () => {
+            folder.parentElement.classList.toggle('open');
+        });
+    });
+}
+
+function stopAdminFiles() {
+    document.getElementById('mamiRadar').classList.remove('active');
+    document.getElementById('adminPanel').classList.remove('active');
+}
+
+async function initCmdPage() {
+    const terminal = document.getElementById('terminalOutput');
+    const commandLine = document.getElementById('commandLine');
+    const commandInput = document.getElementById('commandInput');
+    const qButton = document.getElementById('questionMarkBtn');
+    const maqPanel = document.getElementById('maqPanel');
+    const clockEl = document.getElementById('clock');
+    const skipBtn = document.getElementById('skipBtn');
+
+    if (!terminal || !commandLine || !commandInput) return;
+
+    const skipRequested = { value: false };
+    if (skipBtn) {
+        skipBtn.addEventListener('click', () => {
+            skipRequested.value = true;
+            skipBtn.style.display = 'none';
+        });
+    }
+
+    function updateClock() {
+        const now = new Date();
+        clockEl.textContent = now.toLocaleTimeString('tr-TR', { hour12: false });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Boot metnini satır satır işle
+    const bootLines = BOOT_TEXT.split('\n');
+    for (const line of bootLines) {
+        if (skipRequested.value) break;
+        await typewriterLine(terminal, line, 1);
+        if (/\[.*\]/.test(line)) {
+            await drawBlockBar(terminal, 300);
+        }
+    }
+
+    if (skipBtn) skipBtn.style.display = 'none';
+
+    commandLine.style.display = 'flex';
+    commandInput.focus();
+
+    const qaText = await fetchQA();
+    const data = parseQAData(qaText);
+
+    if (data.maqs.length > 0) {
+        maqPanel.innerHTML = '';
+        data.maqs.forEach((maq, index) => {
+            const item = document.createElement('div');
+            item.className = 'maq-item';
+            item.innerHTML = `<span class="q-symbol">[?]</span> ${maq.question}`;
+            item.addEventListener('click', async () => {
+                await showThinking(terminal);
+                await typewriterLine(terminal, '> ' + maq.question, 10);
+                for (const ansLine of maq.answer.split('\n')) {
+                    await typewriterLine(terminal, ansLine, 10);
+                }
+                commandInput.focus();
+            });
+            maqPanel.appendChild(item);
+        });
+    } else {
+        maqPanel.innerHTML = '<div class="line">Soru bulunamadı.</div>';
+    }
+
+    qButton.addEventListener('click', () => {
+        maqPanel.classList.toggle('visible');
+    });
+
+    let waitingForYN = false;
+    let ynResolver = null;
+
+    commandInput.addEventListener('keydown', async (e) => {
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+
+        const input = commandInput.textContent.trim();
+        commandInput.textContent = '';
+
+        // Y/N bekleniyorsa bunu işle
+        if (waitingForYN) {
+            if (input.toUpperCase() === 'Y' || input.toUpperCase() === 'N') {
+                waitingForYN = false;
+                commandInput.focus();
+                if (ynResolver) ynResolver(input.toUpperCase());
+            } else {
+                await typewriterLine(terminal, 'Lütfen Y veya N girin.', 10);
+                commandInput.focus();
+            }
+            return;
+        }
+
+        const cmdLine = document.createElement('div');
+        cmdLine.className = 'line';
+        terminal.appendChild(cmdLine);
+        cmdLine.textContent = 'C:\\> ' + input;
+        terminal.scrollTop = terminal.scrollHeight;
+
+        const upperCmd = input.toUpperCase();
+
+        if (upperCmd === 'HELP') {
+            const helpLines = [
+                'Mevcut komutlar:',
+                '  HELP          - bu yardım listesini gösterir',
+                '  CLS           - ekranı temizler',
+                '  VER           - sürüm bilgisini gösterir',
+                '  EXIT          - ana siteye döner'
+            ];
+            const publicReqs = data.reqs.filter(r => !r.admin);
+            publicReqs.forEach(r => {
+                helpLines.push('  ' + r.command.padEnd(12) + ' - özel komut');
+            });
+            for (const line of helpLines) {
+                await typewriterLine(terminal, line, 10);
+            }
+        } else if (upperCmd === 'CLS') {
+            terminal.innerHTML = '';
+        } else if (upperCmd === 'VER') {
+            await typewriterLine(terminal, 'ELCIKMP - DATAPAD v4.00PG', 10);
+        } else if (upperCmd === 'EXIT') {
+            window.location.href = 'index.html';
+        } else if (upperCmd === 'GOD IS DEAD') {
+            // Bozulma aşamalarını başlat
+            await applyAdminPhases();
+            startAdminQuake();
+
+            await showThinking(terminal);
+            await typewriterLine(terminal, '> Tekrar hoşgeldiniz admin. Dosyaları görmek ister misiniz ........ Y/N?', 10);
+            commandInput.focus();
+
+            // Y/N bekle
+            waitingForYN = true;
+            const answer = await new Promise(resolve => { ynResolver = resolve; });
+            ynResolver = null;
+
+            if (answer === 'Y') {
+                stopAdminQuake();
+                document.getElementById('crtScreen').classList.remove('phase-unreadable');
+                document.body.classList.remove('red-theme');
+                startAdminFiles();
+                await typewriterLine(terminal, 'Dosyalar yüklendi. Hoşgeldin admin.', 10);
+            } else {
+                stopAdminQuake();
+                document.getElementById('crtScreen').classList.remove('phase-unreadable');
+                document.body.classList.remove('red-theme');
+                await typewriterLine(terminal, 'Erişim iptal edildi. Sistem normale döndü.', 10);
+            }
+        } else {
+            const req = data.reqs.find(r => r.command === input);
+            if (req) {
+                await showThinking(terminal);
+                for (const line of req.response.split('\n')) {
+                    await typewriterLine(terminal, line, 10);
+                }
+            } else {
+                const maq = data.maqs.find(m => m.question.toLowerCase() === input.toLowerCase());
+                if (maq) {
+                    await showThinking(terminal);
+                    for (const ansLine of maq.answer.split('\n')) {
+                        await typewriterLine(terminal, ansLine, 10);
+                    }
+                } else {
+                    await typewriterLine(terminal, 'Bilinmeyen komut. HELP yazın.', 10);
+                }
+            }
+        }
+
+        commandInput.focus();
+        terminal.scrollTop = terminal.scrollHeight;
+    });
 }

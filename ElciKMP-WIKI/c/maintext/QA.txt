@@ -1,0 +1,22 @@
+
+<maq> Sunucu hakkında bütün bu bilgiler nereden geliyor?
+> Çeşitli yazışmaların analizi ve tarih yazıcı oyuncular sayesinde tüm bu tarihe ulaşabiliyoruz.
+<maq/>
+
+<maq> Neden her devlet aynı derece detaylı bilgiye sahip değil?
+> Sunucu çapı tarih araştırmaları çok kısıtlı ve çoğu bilgi silinmiş durumda. Bazı devletler ise bizzat yöneticisi tarafından her detayıyla kaydedildiği için sağlam
+<maq/>
+
+-- REQUESTS
+
+<REQ> GOD IS DEAD
+> Tekrar hoşgeldiniz admin. Dosyaları görmek ister misiniz?
+<REQ/.admin>
+
+<REQ> deletegayland
+<SYSTEMUPGRADE.100/100.100/100.100/100>
+deleting gayland
+deletes cheats
+bans players
+<SYSTEMUPGRADE /END.fast>
+<REQ/.mami>

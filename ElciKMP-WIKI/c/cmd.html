@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElciKMP-DataPad – Terminal</title>
+    <style>
+        :root {
+            --crt-bg: #010101;
+            --crt-green: #1a7a4a;
+            --crt-amber: #997000;
+            --crt-text: #88aa99;
+            --crt-muted: #445544;
+            --crt-glow: 0 0 6px rgba(26,122,74,0.5);
+            --crt-border: #0f1a14;
+            --crt-font: 'VT323', 'IBM Plex Mono', 'Courier New', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #000;
+            color: var(--crt-text);
+            font-family: var(--crt-font);
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+            z-index: 9999;
+            animation: scanline 0.1s linear infinite;
+        }
+        @keyframes scanline { 0% { transform: translateY(0); } 100% { transform: translateY(2px); } }
+
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9997;
+            opacity: 0.4;
+            mix-blend-mode: overlay;
+        }
+
+        .crt-screen {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            border: 4px solid var(--crt-border);
+            border-radius: 0;
+            box-shadow: var(--crt-glow), inset 0 0 60px rgba(0,0,0,0.9);
+            padding: 24px 20px;
+            overflow: hidden;
+            animation: flicker 0.08s infinite alternate;
+            display: flex;
+            flex-direction: column;
+        }
+        @keyframes flicker { 0% { opacity: 0.92; } 100% { opacity: 1; } }
+
+        .terminal-output {
+            flex: 1;
+            overflow-y: auto;
+            font-size: 20px;
+            line-height: 1.3;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: var(--crt-text);
+            text-shadow: 0 0 3px var(--crt-glow);
+            scrollbar-width: thin;
+            scrollbar-color: var(--crt-muted) transparent;
+        }
+        .terminal-output::-webkit-scrollbar { width: 6px; }
+        .terminal-output::-webkit-scrollbar-track { background: transparent; }
+        .terminal-output::-webkit-scrollbar-thumb { background: var(--crt-muted); border-radius: 4px; }
+
+        .line { opacity: 0; animation: fadeIn 0.2s forwards; display: flex; align-items: center; gap: 6px; min-height: 24px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+
+        .command-line {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 20px;
+            color: var(--crt-text);
+        }
+        .prompt { color: var(--crt-green); font-weight: bold; white-space: pre; }
+        #commandInput {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--crt-text);
+            font-family: var(--crt-font);
+            font-size: 20px;
+            caret-color: var(--crt-green);
+        }
+        #commandInput::placeholder { color: var(--crt-muted); opacity: 0.7; }
+
+        .question-mark-btn {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--crt-green);
+            border-radius: 50%;
+            background: transparent;
+            color: var(--crt-green);
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+        .question-mark-btn:hover {
+            background: var(--crt-green);
+            color: #000;
+            box-shadow: 0 0 15px var(--crt-green);
+        }
+
+        .skip-btn {
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            padding: 4px 12px;
+            background: transparent;
+            border: 1px solid var(--crt-amber);
+            color: var(--crt-amber);
+            font-family: var(--crt-font);
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10001;
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+        .skip-btn:hover {
+            background: var(--crt-amber);
+            color: #000;
+            box-shadow: 0 0 10px var(--crt-amber);
+        }
+
+        .maq-panel {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 300px;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.85);
+            border: 1px solid var(--crt-muted);
+            padding: 12px;
+            z-index: 10002;
+            font-size: 16px;
+        }
+        .maq-panel.visible { display: block; animation: fadeIn 0.3s forwards; }
+        .maq-item {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            color: var(--crt-amber);
+        }
+        .maq-item:hover { background: rgba(51,255,153,0.1); }
+        .maq-item .q-symbol { color: var(--crt-green); font-weight: bold; }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--crt-muted);
+            border-top: 1px solid var(--crt-border);
+            padding-top: 8px;
+            margin-top: 8px;
+        }
+
+        .progress-line { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+        .block-bar { font-family: var(--crt-font); letter-spacing: 0; }
+        .progress-label { color: var(--crt-amber); font-size: 16px; }
+
+        /* Bozulma aşamaları */
+        .phase-flicker { animation: phaseFlicker 0.1s infinite alternate; }
+        @keyframes phaseFlicker {
+            0% { opacity: 0.9; filter: brightness(1); }
+            100% { opacity: 1; filter: brightness(1.2); }
+        }
+        .phase-garble { animation: phaseGarble 0.15s steps(2) infinite; }
+        @keyframes phaseGarble {
+            0% { transform: translate(0, 0) skew(0); }
+            25% { transform: translate(-2px, 1px) skew(0.5deg); }
+            50% { transform: translate(2px, -1px) skew(-0.5deg); }
+            75% { transform: translate(-1px, 2px) skew(0.2deg); }
+            100% { transform: translate(1px, -2px) skew(-0.2deg); }
+        }
+        .phase-shatter { animation: phaseShatter 0.3s infinite; }
+        @keyframes phaseShatter {
+            0% { filter: none; transform: scale(1); }
+            20% { filter: hue-rotate(30deg) saturate(2); transform: scale(1.01); }
+            40% { filter: blur(1px); transform: scale(0.99); }
+            60% { filter: invert(0.8); transform: scale(1.02); }
+            80% { filter: hue-rotate(-50deg); transform: scale(0.98); }
+            100% { filter: none; transform: scale(1); }
+        }
+        .phase-unreadable { animation: phaseUnreadable 0.4s infinite; }
+        @keyframes phaseUnreadable {
+            0% { filter: blur(2px) brightness(0.3); }
+            50% { filter: blur(5px) brightness(0.1); }
+            100% { filter: blur(2px) brightness(0.3); }
+        }
+
+        .red-theme {
+            --crt-green: #ff3333;
+            --crt-amber: #ff9966;
+            --crt-text: #ffcccc;
+            --crt-glow: 0 0 12px rgba(255, 0, 0, 0.8);
+            --crt-muted: #663333;
+        }
+
+        .particle {
+            position: fixed;
+            top: -10px;
+            width: 2px;
+            height: 8px;
+            background: #ff0000;
+            opacity: 0.7;
+            z-index: 10006;
+            animation: particleFall linear infinite;
+            pointer-events: none;
+        }
+        @keyframes particleFall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 0.9; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .glitch-band {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 0, 0, 0.1);
+            pointer-events: none;
+            z-index: 10003;
+            mix-blend-mode: screen;
+            animation: bandMove 3s linear infinite;
+            display: none;
+        }
+        .glitch-band.active { display: block; }
+        @keyframes bandMove { 0% { top: -5%; } 100% { top: 105%; } }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="glitch-band" id="glitchBand"></div>
+
+    <div class="crt-screen" id="crtScreen">
+        <button class="skip-btn" id="skipBtn">SKIP</button>
+        <button class="question-mark-btn" id="questionMarkBtn">?</button>
+        <div class="maq-panel" id="maqPanel"></div>
+
+        <div class="terminal-output" id="terminalOutput"></div>
+
+        <div class="command-line" id="commandLine" style="display:none;">
+            <span class="prompt">C:\&gt;</span>
+            <input type="text" id="commandInput" placeholder="Komut yazın..." autofocus>
+        </div>
+
+        <div class="status-bar">
+            <span>SYSTEM: READY</span>
+            <span id="clock">00:00:00</span>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // ==================== BOOT TEXT ====================
+        const BOOT_TEXT = `
+ELCIKMP - DATAPAD v4.00PG
+Copyright (c) 2020-26, ElciKMP-DataPAD & the Sandeburg Legacy.
+Firmware: KSI Foundation Build 1453 – "Ötüken's Ashes".
+Patents: Zerdüşt Firewall, Göktürk Cache Coherency, WeakFatality-11 Immunity.
+
+===============================================================================
+CPU: Holy Sandeburg Empire – Pentium II MMX (Cenker's Forge Edition)
+    Base Clock: 233 MHz (Overclockable to 266 MHz via Ragnarok Rune)
+    L1 Cache: 16 KB (Legionary Cohort) ...................... [ PASSED ]
+    L2 Cache: 256 KB (Praetorian – Alp Guard) ............... [ PASSED ]
+    Microcode: MDS (Mongol Double-Spear) – patched by Sun Pala.
+    FPU: Sasani Fire Co-Processor (Ahura Mazda v2.1) ........ [ ONLINE ]
+    Thermal: 41°C – cooled by Siberian Permafrost (IBFI).
+
+===============================================================================
+RAM Test (Persepolis Memory Bank):
+    Base Memory: 65,536 Drachmae (KSI Standard)
+    Extended:   131,072 Drachmae (Sasani Treasury)
+    Total:      196,608 KB – all Zerdüşt-certified.
+    Shadow RAM: 64 KB (reserved for Oracle of Delphi – Uygar's visions).
+    Conventional [0–640 KB] .................................. [ OK ]
+    Upper [640–1024 KB] ...................................... [ OK ]
+    XMS (Göktürk Steppe expansion) .......................... [ OK ]
+    EMS (Xenian Punic banking) ............................... [ OK ]
+    Cacheable ROM: mapped to Sun Pala archives.
+
+===============================================================================
+ROM BIOS Checksum: 0xDEADBEEF (EmiGrimes' signature) ......... [ PASSED ]
+CMOS Battery: Nominal – powered by İnek Bayram's eternal flame.
+System Date & Time (Gregorian / AUC / Byzantine):
+    Current: 2026-08-14
+    AUC (Ab Urbe Condita): 2779
+    Byzantine Indiction: 5th cycle – "Era of the Seven Satraps".
+
+>>> EASTER EGG – HISTORICAL CALENDAR TRIGGERS <<<
+    If date == 15-MAR : "Beware the Ides of Göktürk!" – trigger Ötüken raid alarm.
+    If date == 02-AUG : "Kudüs Savaşı anniversary" – load Persian steel drivers.
+    If date == 29-MAY : "Fall of KSI" – display Theodosian wall screensaver.
+    If date == 21-APR : "Foundation of İranshar" – show Cyrus cylinder animation.
+    If date == 01-JAN : "New Consul of Floransa" – reset fiscal year.
+    If date == 12-DEC : "Saturnalia of Ragnarok" – reverse byte order.
+    If date == 17-DEC : "WeakFatality-11 outbreak" – enable anti‑virus quarantine.
+    If date == 14-AUG : "Elci's birthday" – print "𐎠𐎼𐎫𐎠" in gold.
+
+===============================================================================
+IDE / SCSI Storage (Imperial Census of 2026):
+    Primary Master   : NAZI ARASISTAN – "Blitzkrieg Granary" (6.4 GB)
+        Cyl: 16383, Hd: 16, Sec: 63 – Cache: 256 KB (Gestapo buffer).
+        Status: [ ONLINE ] – Mounted as C:\\ (Reichskanzlei)
+
+    Primary Slave    : DEVLETI ALLIYE – "Sosyalist Silo" (2.1 GB)
+        Punic War encryption disabled. Status: [ STANDBY ] (awaiting revolution).
+
+    Secondary Master : GÖKTÜRK HOPLITE CD-ROM – "Kaan's Bow" (24x)
+        Disk inserted: "Ötüken Chronicles – Director's Cut". [ READY ]
+
+    Secondary Slave  : XENIAN FLOPPY – "Senatus Populusque" (720 KB)
+        Augury: Unfavorable – no birds sighted. [ EMPTY ]
+
+    SCSI Controller  : SASANI ROYAL ROAD (Achaemenid Bridge)
+        Device 0: Hanging Gardens RAM-disk (2 GB) – [ ONLINE ]
+        Device 1: Cyrus Cylinder Archive (Read‑Only) – [ MOUNTED ]
+
+===============================================================================
+PCI Local Bus (Via Appia – Sandeburg Edition):
+    Bus 0, Dev 0: KSI NORTHBRIDGE – "Holy Forge"
+        Rev: 0x02, AGP 4x (Ragnarok charge rate). Bandwidth: 1.06 GB/s.
+
+    Bus 0, Dev 1: SOUTHBRIDGE – "Athenian Agora (Lourxz' design)"
+        PIIX4E – Pericles Integrated I/O.
+        USB 1.1: Centurion – [ DISABLED (security risk) ]
+        SMBus: monitoring grain tributes.
+
+    Bus 1, Dev 0: PUNIC WAR GRAPHICS – "Hannibal's Elephants" (4 MB SGRAM)
+        IRQ: 11, I/O: 0xE000, Mem: 0xA0000.
+        VESA 2.0 – Max res: 1024x768 (Roman Mosaic, Uygar edition).
+
+    Bus 1, Dev 1: HOPLITE AUDIO – "AC'97 (Spartan Phalanx)"
+        IRQ: 5, DMA: 1 – loaded with Greek tragedy samples.
+        Surround: Colosseum ambience.
+
+    Bus 2, Dev 0: AQUEDUCT LAN – "Legionary NIC" (10/100 Mbps)
+        IRQ: 10, MAC: 00-AA-BB-CC-DD-EE (Forge of Vulcan).
+        PXE: Disabled – barbarians at the gate.
+
+    Bus 2, Dev 1: GOTHIC INVASION FIREWALL – "Visigothic Filter"
+        State: [ ARMING ] – blocks all packets from 476 AD (Fall of Rome).
+
+===============================================================================
+System Memory Map (City Planning – İsfahan Model):
+    0x00000000 – 0x0009FFFF : Plebeian District (DOS compatibility)
+    0x000A0000 – 0x000BFFFF : VGA Frame Buffer (Senatorial Forums)
+    0x000C0000 – 0x000C7FFF : Video ROM (Cyclops' eye)
+    0x000C8000 – 0x000DFFFF : Option ROMs (Provincial outposts)
+    0x000E0000 – 0x000FFFFF : BIOS Shadow (Vestal scrolls)
+    0x00100000 – 0x0FFFFFFF : Barbarian territories (free men)
+    0x10000000 – 0xFFFFFFFF : PCI/ISA MMI/O (Imperial palaces)
+
+===============================================================================
+Interrupt Request (IRQ) – Senatorial Seats:
+    IRQ 0  : System Timer (Sundial of Augustus) ............ [ OK ]
+    IRQ 1  : Keyboard (Stylus & wax tablet) ................ [ OK ]
+    IRQ 2  : Cascade (Tribune of the Plebs) ................ [ OK ]
+    IRQ 3  : COM2 – Pigeon Post ............................. [ OK ]
+    IRQ 4  : COM1 – Carrier Pigeon .......................... [ OK ]
+    IRQ 5  : Hoplite Sound .................................. [ OK ]
+    IRQ 6  : Floppy – Etruscan rites ........................ [ OK ]
+    IRQ 7  : LPT1 – Scroll Printer .......................... [ OK ]
+    IRQ 8  : RTC – Clepsydra water clock .................... [ OK ]
+    IRQ 9  : ACPI / SCI – Oracle's vision ................... [ OK ]
+    IRQ 10 : Aqueduct LAN ................................... [ OK ]
+    IRQ 11 : Punic War VGA .................................. [ OK ]
+    IRQ 12 : PS/2 Mouse – Roman Dodecahedron ................ [ OK ]
+    IRQ 13 : FPU – Greek Fire Co‑Processor .................. [ OK ]
+    IRQ 14 : Primary IDE – Nazi Arasistan ................... [ OK ]
+    IRQ 15 : Secondary IDE – Göktürk CD ..................... [ OK ]
+
+===============================================================================
+DMA Channels (Slaves of the State):
+    Ch 0 : Memory refresh (Aqueduct maintenance) ............ [ OK ]
+    Ch 1 : Sound – Hoplite DMA .............................. [ OK ]
+    Ch 2 : Floppy – Etruscan divination ..................... [ OK ]
+    Ch 3 : LPT1 – Senate decrees ............................ [ OK ]
+    Ch 4 : Cascade – Proconsul .............................. [ OK ]
+    Ch 5 : Reserved – Triumph processions ................... [ OK ]
+    Ch 6 : Reserved – Gladiatorial combats .................. [ OK ]
+    Ch 7 : Reserved – Chariot races ......................... [ OK ]
+
+===============================================================================
+MS-DOS 7.1 (Modus Operandi – Legions of DOS) Loader:
+    Checking boot sector (Codex Justinianus) ................ [ PASSED ]
+    System files from the Library of Celsus:
+        KAĞAN.SYS    (IO.SYS) .............................. [ LOADED ]
+        SHAH.SYS     (MSDOS.SYS) ........................... [ LOADED ]
+        EMIR.COM     (COMMAND.COM) ......................... [ LOADED ]
+        ZERDÜST.SYS  (HIMEM.SYS) ........................... [ LOADED ]
+        AHURA.EXE    (EMM386.EXE) .......................... [ LOADED ]
+        DBLSPACE.BIN (Carthaginian encryption – disabled)
+
+    Parsing CONFIG.SYS (Twelve Tables of Law):
+        DEVICE=C:\\WINDOWS\\SETVER.EXE ...................... [ EXECUTED ]
+        DEVICE=C:\\DOS\\ANSI.SYS (Greek polytonic) .......... [ LOADED ]
+        DEVICE=C:\\DOS\\DISPLAY.SYS CON=(EGA,437) ........... [ LOADED ]
+        COUNTRY=039,850,C:\\DOS\\COUNTRY.SYS – Roman province.
+        SHELL=C:\\EMIR.COM C:\\ /P /E:4096 – Senate decree.
+
+    Creating virtual drives (Colonies):
+        RAMDRIVE.SYS – 2 MB from Treasury of Delphi.
+        Mounting D:\\ as "PROVINCIA_GALLIA".
+        Mounting E:\\ as "PROVINCIA_AEGYPTUS" (Tameris).
+
+===============================================================================
+AUTOEXEC.BAT (Consular Orders – Elci's script):
+    C:\\> ECHO OFF
+    C:\\> PROMPT $P$G (Legionary standard)
+    C:\\> PATH=C:\\;C:\\DOS;C:\\WINDOWS;C:\\TOOLS (Roman roads)
+    C:\\> SET TEMP=C:\\TEMP (Temporary camp)
+    C:\\> SET TMP=C:\\TEMP
+    C:\\> SET COMSPEC=C:\\EMIR.COM
+    C:\\> SET BLASTER=A220 I5 D1 H5 P330 T3 (Hoplite tune)
+    C:\\> SET DIRCMD=/O:GEN (organise by generational cohorts)
+    C:\\> DOSKEY /INSERT (Tacitus buffer) .................. [ LOADED ]
+    C:\\> LH C:\\DOS\\MSCDEX.EXE /D:MSCD001 (Spartan CD) .... [ LOADED ]
+    C:\\> LH C:\\DOS\\SMARTDRV.EXE /X (Roman census caching) [ LOADED ]
+    C:\\> LH C:\\WINDOWS\\MOUSE.COM (Dodecahedron stylus) ... [ LOADED ]
+
+===============================================================================
+Loading Legionary Device Drivers (Auxiliaries – from Elci's kernel):
+    SASSANID.SYS    (Persian fire – disk caching) ......... [ ACTIVE ]
+    GOKTURK.SYS     (Steppe cavalry – network burst) ...... [ ACTIVE ]
+    RAGNAROK.SYS    (Northern wolf – thermal management) .. [ ACTIVE ]
+    DARKLOIG.SYS    (Collectivist – null device) .......... [ ACTIVE ]
+    XP.SYS          (Xian – high‑speed DMA) ............... [ ACTIVE ]
+    SUNPALA.SYS     (Great Wall – firewall extension) ..... [ ACTIVE ]
+    IBFI.SYS        (Russian steppe – random number gen) .. [ ACTIVE ]
+    FLORANSA.SYS    (Italian renaissance – GUI fallback) .. [ ACTIVE ]
+    CATAPULT.SYS    (Siege engine – packet thrower) ....... [ ACTIVE ]
+    TRIREME.SYS     (Naval stack – TCP/IP over galleys) ... [ ACTIVE ]
+
+===============================================================================
+Network Stack & Protocols (Roman Roads & Smoke Signals):
+    Initializing TCP/IP via Milvian Bridge:
+        DHCP request to Oracle of Delphi ...
+        Response: "Know thyself" – IP: 192.168.1.10
+        Mask: 255.255.255.0 (Praetorian perimeter)
+        Gateway: 192.168.1.1 (Pons Sublicius)
+
+    Binding protocols to Aqueduct NIC:
+        IPX/SPX  (Inter‑Provincial Exchange) ............... [ BOUND ]
+        NetBEUI  (Barbarian tribal NetBIOS) ................ [ BOUND ]
+        Silk Road Protocol (SRP) ............................ [ ONLINE ]
+        Red Cross Messaging (RCM) ........................... [ ONLINE ]
+
+    Mounting SMB shares:
+        \\\\KSI\\HOLY_GOTHBURG (Read‑only – KSI archives)
+        \\\\RAGNAROK\\KANADA_COLONY (Disconnected – rebellion)
+
+===============================================================================
+Virtual Memory & Paging (Treasury Reserves):
+    Allocating 256 MB paging file: C:\\PAGEFILE.SYS
+    Memory blocks:
+        0xFFFF0000 – 0xFFFFFFFF : Imperial Guard reserved.
+        Kernel stack: 8192 Denarii (bytes).
+        User stack:   4096 Denarii.
+    Heap manager: Augustus – first‑fit algorithm.
+
+===============================================================================
+Plug and Play (Pax Romana) Auto‑Configuration:
+    ISA legacy devices:
+        Sound Blaster Pro – I/O 220, IRQ 5, DMA 1, HDMA 5.
+        Joystick (Chariot controller) – I/O 201 [ NOT DETECTED ]
+        MIDI (Lyre synthesizer) – I/O 330 [ DETECTED ]
+
+    Peripheral Autodetect (Centurion scouts):
+        Keyboard: PS/2 (Latin with macrons)
+        Mouse: Serial (Roman Dodecahedron – 3 buttons)
+        USB Mass Storage: Aegyptian obelisk flash – [ MOUNTED AS F: ]
+
+===============================================================================
+Deep Calendar Scan – Easter Egg Overdrive:
+    Julian default, Gregorian bypass.
+    Epoch drift since 1 AUC (753 BC) – recalculating...
+    Zodiac alignment (Roman constellations) – loaded.
+    If today == 15-MAR : "Et tu, Brute?" shutdown timer (60s).
+    If today == 21-APR : Palatine Hill background image.
+    If today == 01-MAY : Floralia – floral screensaver.
+    If today == 21-JUN : Summer solstice – fan speed ++.
+    If today == 01-AUG : Ara Pacis – defrag memory.
+    If today == 02-SEP : Actium victory – naval fanfare.
+    If today == 13-NOV : Festival of Jupiter – boost cache.
+    If today == 17-DEC : Saturnalia – reverse endianness.
+
+    Byzantine Indiction check:
+        Current cycle: 5 (15‑year tax).
+        Solar cycle: 11, Lunar: 8.
+        Computus – Easter Sunday (Dionysius Exiguus): 2026‑04‑05.
+        Loading Easter egg basket driver.
+
+    Y2K38 (2038 problem) simulation:
+        32‑bit time_t overflow on 19 Jan 2038, 03:14:07 UTC.
+        Solution: migrate to 64‑bit Consular timekeeping.
+
+===============================================================================
+Graphics & Sound Subsystem Finalization:
+    VBE 2.0 – Mode 0x118 (1024x768x16M – Roman Fresco).
+    Gamma: 1.0 (natural marble lighting).
+    Equalizer: Colosseum Surround (acoustic amphitheatre).
+    Fonts: Latin Extended, Greek, Coptic, Runic.
+    Palette: Tyrian purple and golden eagle motifs.
+
+===============================================================================
+File System Integrity Check (Censorship by the Senate):
+    Scanning C:\\ (Nazi Arasistan) for lost fragments...
+        Found 3 fragmented scrolls – defragmenting...
+        Moving files to contiguous Roman roads...
+        Rebuilding FAT32 (Palatine registry).
+        Root directory: 512 entries (501 free).
+    Scanning D:\\ (Gallic Province) for corrupted data...
+        Gallic wars intact – Vercingetorix quarantined.
+    Scanning E:\\ (Tameris) – verifying pyramid metadata ... [ OK ]
+
+===============================================================================
+Final Bootstrapping Sequence (Triumph Parade):
+    Applying registry hives (Senate decrees) ...
+    Loading user profile "CAESAR" (Administrator).
+    Starting Windows GUI (optional) – bypassed for CLI.
+    Starting DOS Shell (EMIR.COM).
+
+    System initialization progress:
+    ████████████████████████████████████████████████████ 100%
+
+    All systems nominal. Pax Romana established.
+
+    ==================================================
+    ELCIKMP - DATAPAD v4.00PG
+    Boot completed at: 14-Aug-2026 09:32:15 (AUC 2779)
+    ==================================================
+
+    Warning: The following outposts are offline:
+        - Parthian Provinces (network timeout)
+        - Britannia Hadrian's Wall (sector read error)
+        - Sun Pala outpost – awaiting diplomatic resolution.
+        Type "HELP" to display commands.
+
+`;
+
+        // ==================== YARDIMCILAR ====================
+        const terminal = document.getElementById('terminalOutput');
+        const commandLine = document.getElementById('commandLine');
+        const commandInput = document.getElementById('commandInput');
+        const qButton = document.getElementById('questionMarkBtn');
+        const maqPanel = document.getElementById('maqPanel');
+        const clockEl = document.getElementById('clock');
+        const skipBtn = document.getElementById('skipBtn');
+        const crtScreen = document.getElementById('crtScreen');
+        const glitchBand = document.getElementById('glitchBand');
+
+        let skipRequested = false;
+
+        function updateClock() {
+            const now = new Date();
+            clockEl.textContent = now.toLocaleTimeString('tr-TR', { hour12: false });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        async function typewriterLine(text, speed = 1) {
+            const lineDiv = document.createElement('div');
+            lineDiv.className = 'line';
+            terminal.appendChild(lineDiv);
+            terminal.scrollTop = terminal.scrollHeight;
+
+            for (let char of text) {
+                if (skipRequested) {
+                    lineDiv.textContent = text;
+                    break;
+                }
+                lineDiv.textContent += char;
+                await new Promise(r => setTimeout(r, speed));
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+            return lineDiv;
+        }
+
+        async function drawBlockBar(speed = 300) {
+            const barLine = document.createElement('div');
+            barLine.className = 'progress-line';
+            terminal.appendChild(barLine);
+            terminal.scrollTop = terminal.scrollHeight;
+
+            const barSpan = document.createElement('span');
+            barSpan.className = 'block-bar';
+            barLine.appendChild(barSpan);
+
+            const label = document.createElement('span');
+            label.className = 'progress-label';
+            barLine.appendChild(label);
+
+            const totalBlocks = 10;
+            const target = 100;
+            for (let i = 0; i <= target; i++) {
+                if (skipRequested) {
+                    barSpan.textContent = '▨'.repeat(totalBlocks);
+                    label.textContent = '100%';
+                    break;
+                }
+                const filled = Math.round((i / target) * totalBlocks);
+                barSpan.textContent = '▨'.repeat(filled) + '▩'.repeat(totalBlocks - filled);
+                label.textContent = `${i}%`;
+                await new Promise(r => setTimeout(r, speed / target));
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+        }
+
+        async function showThinking() {
+            const thinkDiv = document.createElement('div');
+            thinkDiv.className = 'line';
+            terminal.appendChild(thinkDiv);
+            terminal.scrollTop = terminal.scrollHeight;
+
+            const base = 'Düşünüyor';
+            for (let i = 0; i < 4; i++) {
+                thinkDiv.textContent = base + '.'.repeat(i % 4);
+                await new Promise(r => setTimeout(r, 300));
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+            thinkDiv.textContent = '';
+        }
+
+        function spawnRedParticles(count) {
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (2 + Math.random() * 3) + 's';
+                p.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 5000);
+            }
+        }
+
+        async function applyAdminPhases() {
+            crtScreen.classList.add('phase-flicker');
+            document.body.classList.add('red-theme');
+            spawnRedParticles(20);
+            await new Promise(r => setTimeout(r, 1000));
+            crtScreen.classList.remove('phase-flicker');
+
+            crtScreen.classList.add('phase-garble');
+            await new Promise(r => setTimeout(r, 2000));
+            crtScreen.classList.remove('phase-garble');
+
+            crtScreen.classList.add('phase-shatter');
+            await new Promise(r => setTimeout(r, 2000));
+            crtScreen.classList.remove('phase-shatter');
+
+            crtScreen.classList.add('phase-unreadable');
+        }
+
+        function startAdminQuake() {
+            glitchBand.classList.add('active');
+        }
+
+        function stopAdminQuake() {
+            glitchBand.classList.remove('active');
+        }
+
+        // ==================== MAQ & REQ ====================
+        async function fetchQA() {
+            try {
+                const res = await fetch('maintext/QA.txt', { cache: 'no-store' });
+                if (!res.ok) throw new Error('QA.txt bulunamadı');
+                return await res.text();
+            } catch (e) { console.error(e); return ''; }
+        }
+
+        function parseQAData(text) {
+            const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const data = { maqs: [], reqs: [] };
+            let i = 0;
+            while (i < lines.length) {
+                const line = lines[i];
+                if (line.startsWith('<maq>')) {
+                    const question = line.substring(5).trim();
+                    i++;
+                    let answer = '';
+                    while (i < lines.length && !lines[i].startsWith('<maq/>')) {
+                        answer += lines[i] + '\n';
+                        i++;
+                    }
+                    i++;
+                    data.maqs.push({ question, answer: answer.trim() });
+                    continue;
+                }
+                if (line.startsWith('<REQ>')) {
+                    const command = line.substring(5).trim();
+                    i++;
+                    let response = '';
+                    let admin = false;
+                    while (i < lines.length && !lines[i].startsWith('<REQ/')) {
+                        response += lines[i] + '\n';
+                        i++;
+                    }
+                    if (i < lines.length && lines[i].startsWith('<REQ/')) {
+                        admin = lines[i].includes('admin');
+                        i++;
+                    }
+                    data.reqs.push({ command, response: response.trim(), admin });
+                    continue;
+                }
+                i++;
+            }
+            return data;
+        }
+
+        // ==================== BAŞLAT ====================
+        async function bootSequence() {
+            const bootLines = BOOT_TEXT.split('\n');
+            for (const line of bootLines) {
+                if (skipRequested) break;
+                await typewriterLine(line, 1);
+                if (/\[.*\]/.test(line)) {
+                    await drawBlockBar(300);
+                }
+            }
+
+            if (skipBtn) skipBtn.style.display = 'none';
+            commandLine.style.display = 'flex';
+            commandInput.focus();
+
+            // MAQ yükle
+            const qaText = await fetchQA();
+            const data = parseQAData(qaText);
+
+            if (data.maqs.length > 0) {
+                maqPanel.innerHTML = '';
+                data.maqs.forEach((maq, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'maq-item';
+                    item.innerHTML = `<span class="q-symbol">[?]</span> ${maq.question}`;
+                    item.addEventListener('click', async () => {
+                        await showThinking();
+                        await typewriterLine('> ' + maq.question, 10);
+                        for (const ansLine of maq.answer.split('\n')) {
+                            await typewriterLine(ansLine, 10);
+                        }
+                        commandInput.focus();
+                    });
+                    maqPanel.appendChild(item);
+                });
+            } else {
+                maqPanel.innerHTML = '<div class="line">Soru bulunamadı.</div>';
+            }
+
+            qButton.addEventListener('click', () => {
+                maqPanel.classList.toggle('visible');
+            });
+
+            // Komut işleme
+            let waitingForYN = false;
+            let ynResolver = null;
+
+            commandInput.addEventListener('keydown', async (e) => {
+                if (e.key !== 'Enter') return;
+                e.preventDefault();
+                const input = commandInput.value.trim();
+                commandInput.value = '';
+
+                if (waitingForYN) {
+                    if (input.toUpperCase() === 'Y' || input.toUpperCase() === 'N') {
+                        waitingForYN = false;
+                        if (ynResolver) ynResolver(input.toUpperCase());
+                    } else {
+                        await typewriterLine('Lütfen Y veya N girin.', 10);
+                        commandInput.focus();
+                    }
+                    return;
+                }
+
+                const cmdLine = document.createElement('div');
+                cmdLine.className = 'line';
+                terminal.appendChild(cmdLine);
+                cmdLine.textContent = 'C:\\> ' + input;
+                terminal.scrollTop = terminal.scrollHeight;
+
+                const upperCmd = input.toUpperCase();
+
+                if (upperCmd === 'HELP') {
+                    const helpLines = [
+                        'Mevcut komutlar:',
+                        '  HELP          - bu yardım listesini gösterir',
+                        '  CLS           - ekranı temizler',
+                        '  VER           - sürüm bilgisini gösterir',
+                        '  EXIT          - ana siteye döner'
+                    ];
+                    const publicReqs = data.reqs.filter(r => !r.admin);
+                    publicReqs.forEach(r => {
+                        helpLines.push('  ' + r.command.padEnd(12) + ' - özel komut');
+                    });
+                    for (const line of helpLines) {
+                        await typewriterLine(line, 10);
+                    }
+                } else if (upperCmd === 'CLS') {
+                    terminal.innerHTML = '';
+                } else if (upperCmd === 'VER') {
+                    await typewriterLine('ELCIKMP - DATAPAD v4.00PG', 10);
+                } else if (upperCmd === 'EXIT') {
+                    window.location.href = 'index.html';
+                } else if (upperCmd === 'GOD IS DEAD') {
+                    await applyAdminPhases();
+                    startAdminQuake();
+                    await showThinking();
+                    await typewriterLine('> Tekrar hoşgeldiniz admin. Dosyaları görmek ister misiniz ........ Y/N?', 10);
+                    commandInput.focus();
+
+                    waitingForYN = true;
+                    const answer = await new Promise(resolve => { ynResolver = resolve; });
+                    ynResolver = null;
+
+                    if (answer === 'Y') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        stopAdminQuake();
+                        crtScreen.classList.remove('phase-unreadable');
+                        document.body.classList.remove('red-theme');
+                        await typewriterLine('Erişim iptal edildi. Sistem normale döndü.', 10);
+                    }
+                } else {
+                    const req = data.reqs.find(r => r.command === input);
+                    if (req) {
+                        await showThinking();
+                        for (const line of req.response.split('\n')) {
+                            await typewriterLine(line, 10);
+                        }
+                    } else {
+                        const maq = data.maqs.find(m => m.question.toLowerCase() === input.toLowerCase());
+                        if (maq) {
+                            await showThinking();
+                            for (const ansLine of maq.answer.split('\n')) {
+                                await typewriterLine(ansLine, 10);
+                            }
+                        } else {
+                            await typewriterLine('Bilinmeyen komut. HELP yazın.', 10);
+                        }
+                    }
+                }
+                commandInput.focus();
+                terminal.scrollTop = terminal.scrollHeight;
+            });
+        }
+
+        skipBtn.addEventListener('click', () => {
+            skipRequested = true;
+            skipBtn.style.display = 'none';
+        });
+
+        bootSequence();
+    })();
+    </script>
+</body>
+</html>

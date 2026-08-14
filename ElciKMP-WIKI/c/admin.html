@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElciKMP-DataPad – Admin</title>
+    <style>
+        /* ===================== RETRO CRT TERMINAL ===================== */
+        :root {
+            --crt-bg: #010101;
+            --crt-green: #1a7a4a;
+            --crt-amber: #997000;
+            --crt-text: #88aa99;
+            --crt-muted: #445544;
+            --crt-glow: 0 0 6px rgba(26,122,74,0.5);
+            --crt-border: #0f1a14;
+            --crt-font: 'VT323', 'IBM Plex Mono', 'Courier New', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #000;
+            color: var(--crt-text);
+            font-family: var(--crt-font);
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+            z-index: 9999;
+            animation: scanline 0.1s linear infinite;
+        }
+        @keyframes scanline { 0% { transform: translateY(0); } 100% { transform: translateY(2px); } }
+
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9997;
+            opacity: 0.4;
+            mix-blend-mode: overlay;
+        }
+
+        .crt-screen {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            border: 4px solid var(--crt-border);
+            border-radius: 0;
+            box-shadow: var(--crt-glow), inset 0 0 60px rgba(0,0,0,0.9);
+            padding: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-workspace {
+            flex: 1;
+            display: flex;
+            gap: 12px;
+            min-height: 0;
+        }
+
+        .file-explorer-pane, .file-preview-pane {
+            background: #0a0a0a;
+            border: 2px solid var(--crt-border);
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .file-explorer-pane { flex: 1; max-width: 320px; }
+        .file-preview-pane { flex: 2; }
+
+        .pane-title {
+            color: var(--crt-amber);
+            border-bottom: 1px solid var(--crt-muted);
+            padding-bottom: 6px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .file-list {
+            overflow-y: auto;
+            flex: 1;
+            list-style: none;
+        }
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 8px;
+            cursor: pointer;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 14px;
+            color: var(--crt-text);
+        }
+        .file-item:hover { background: #111; }
+        .file-item.selected { background: #003300; color: #fff; }
+        .file-item .icon { font-size: 14px; }
+        .file-item .tag {
+            margin-left: auto;
+            font-size: 10px;
+            color: var(--crt-muted);
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .preview-content {
+            flex: 1;
+            overflow-y: auto;
+            background: #000;
+            padding: 8px;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: var(--crt-text);
+        }
+        .preview-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: 1px solid var(--crt-muted);
+        }
+        .preview-content .binary {
+            color: var(--crt-amber);
+            font-style: italic;
+        }
+
+        .command-panel {
+            margin-top: 12px;
+            border-top: 2px solid var(--crt-border);
+            padding-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .terminal-output {
+            height: 60px;
+            overflow-y: auto;
+            font-size: 12px;
+            color: var(--crt-muted);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .prompt { color: var(--crt-green); font-weight: bold; }
+        #commandInput {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--crt-text);
+            font-family: var(--crt-font);
+            font-size: 14px;
+            caret-color: var(--crt-green);
+        }
+        #commandInput::placeholder { color: var(--crt-muted); opacity: 0.6; }
+
+        .exit-btn {
+            background: transparent;
+            border: 1px solid var(--crt-amber);
+            color: var(--crt-amber);
+            padding: 4px 12px;
+            font-family: var(--crt-font);
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .exit-btn:hover {
+            background: var(--crt-amber);
+            color: #000;
+        }
+
+        @media (max-width: 750px) {
+            .admin-workspace { flex-direction: column; }
+            .file-explorer-pane { max-width: none; flex: 1; }
+            .file-preview-pane { flex: 2; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="crt-screen">
+        <div class="admin-workspace">
+            <div class="file-explorer-pane">
+                <div class="pane-title">FILE EXPLORER</div>
+                <ul class="file-list" id="fileList"></ul>
+            </div>
+            <div class="file-preview-pane">
+                <div class="pane-title">PREVIEW</div>
+                <div class="preview-content" id="previewContent"></div>
+            </div>
+        </div>
+        <div class="command-panel">
+            <div class="terminal-output" id="terminalOutput"></div>
+            <div class="input-row">
+                <span class="prompt" id="prompt">C:\&gt;</span>
+                <input type="text" id="commandInput" placeholder="Komut yazın..." autofocus>
+                <button class="exit-btn" id="exitBtn">Exit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // ===================== GITHUB AYARLARI =====================
+        const GITHUB_OWNER = 'MrElci';
+        const GITHUB_REPO = 'ElciKMP-Datapad';
+        const BRANCH = 'main'; // veya master
+
+        const fileListEl = document.getElementById('fileList');
+        const previewContentEl = document.getElementById('previewContent');
+        const terminalOutputEl = document.getElementById('terminalOutput');
+        const commandInputEl = document.getElementById('commandInput');
+        const promptEl = document.getElementById('prompt');
+        const exitBtn = document.getElementById('exitBtn');
+
+        let treeData = null;   // GitHub ağacı
+        let currentPath = [];  // repo köküne göre dizi
+        let selectedItem = null;
+
+        // ===================== GITHUB API =====================
+        async function fetchRepoTree() {
+            try {
+                const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/trees/${BRANCH}?recursive=1`, {
+                    headers: { 'Accept': 'application/vnd.github+json' }
+                });
+                if (!res.ok) throw new Error('GitHub API hatası: ' + res.status);
+                const data = await res.json();
+                return data.tree.filter(node => node.type === 'blob' || node.type === 'tree');
+            } catch (e) {
+                terminalOutputEl.innerHTML = 'Dosya ağacı alınamadı: ' + e.message;
+                return [];
+            }
+        }
+
+        function getChildren(pathArray) {
+            const base = pathArray.join('/');
+            const children = [];
+            for (const node of treeData) {
+                const fullPath = node.path;
+                if (pathArray.length === 0) {
+                    // kök altındakiler
+                    if (!fullPath.includes('/')) {
+                        children.push(node);
+                    }
+                } else {
+                    const prefix = base + '/';
+                    if (fullPath.startsWith(prefix)) {
+                        const sub = fullPath.substring(prefix.length);
+                        if (!sub.includes('/')) {
+                            children.push(node);
+                        }
+                    }
+                }
+            }
+            return children;
+        }
+
+        function renderList() {
+            fileListEl.innerHTML = '';
+            const children = getChildren(currentPath);
+            if (children.length === 0) {
+                const li = document.createElement('li');
+                li.className = 'file-item';
+                li.innerHTML = '<span style="color:#666;">Boş klasör</span>';
+                fileListEl.appendChild(li);
+                return;
+            }
+            children.forEach(node => {
+                const name = node.path.split('/').pop();
+                const li = document.createElement('li');
+                li.className = 'file-item';
+                const icon = node.type === 'tree' ? '📁' : '📄';
+                const tag = node.type === 'tree' ? 'FOLDER' : (node.path.split('.').pop() || 'FILE').toUpperCase();
+                li.innerHTML = `<span class="icon">${icon}</span>${name}<span class="tag">${tag}</span>`;
+                li.addEventListener('click', () => {
+                    if (node.type === 'tree') {
+                        currentPath.push(name);
+                        selectedItem = null;
+                        previewContentEl.innerHTML = '';
+                        renderList();
+                        updatePrompt();
+                        appendTerminal('cd ' + name);
+                    } else {
+                        selectedItem = { name, node };
+                        document.querySelectorAll('.file-item').forEach(el => el.classList.remove('selected'));
+                        li.classList.add('selected');
+                        previewFile(node);
+                    }
+                });
+                fileListEl.appendChild(li);
+            });
+        }
+
+        function previewFile(node) {
+            const ext = node.path.split('.').pop().toLowerCase();
+            if (['png','jpg','jpeg','gif','bmp','svg','webp'].includes(ext)) {
+                const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${BRANCH}/${node.path}`;
+                previewContentEl.innerHTML = `<img src="${rawUrl}" alt="${node.path}">`;
+            } else {
+                fetchFileContent(node.path);
+            }
+        }
+
+        async function fetchFileContent(filePath) {
+            try {
+                const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${BRANCH}/${filePath}`;
+                const res = await fetch(rawUrl);
+                if (!res.ok) throw new Error('Dosya okunamadı');
+                const text = await res.text();
+                previewContentEl.innerHTML = `<pre>${text}</pre>`;
+            } catch (e) {
+                previewContentEl.innerHTML = `<div class="binary">[Önizleme alınamadı]</div>`;
+            }
+        }
+
+        function updatePrompt() {
+            promptEl.textContent = 'C:\\' + currentPath.join('\\') + '>';
+        }
+
+        function appendTerminal(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            terminalOutputEl.appendChild(div);
+            terminalOutputEl.scrollTop = terminalOutputEl.scrollHeight;
+        }
+
+        function goUp() {
+            if (currentPath.length > 0) {
+                currentPath.pop();
+                selectedItem = null;
+                previewContentEl.innerHTML = '';
+                renderList();
+                updatePrompt();
+                appendTerminal('cd ..');
+            } else {
+                appendTerminal('Zaten kök dizindesiniz.');
+            }
+        }
+
+        function processCommand(cmd) {
+            const parts = cmd.trim().split(/\s+/);
+            const command = parts[0].toLowerCase();
+            const arg = parts[1];
+
+            switch(command) {
+                case 'ls':
+                case 'dir':
+                    renderList();
+                    appendTerminal('Dizin listelendi.');
+                    break;
+                case 'cd':
+                    if (!arg) { appendTerminal('Kullanım: cd <klasör>'); return; }
+                    if (arg === '..') { goUp(); return; }
+                    if (arg === '.') { appendTerminal('Zaten aynı dizindesiniz.'); return; }
+                    const fullPath = currentPath.concat(arg).join('/');
+                    const folderNode = treeData.find(n => n.path === fullPath && n.type === 'tree');
+                    if (folderNode) {
+                        currentPath.push(arg);
+                        selectedItem = null;
+                        previewContentEl.innerHTML = '';
+                        renderList();
+                        updatePrompt();
+                        appendTerminal('cd ' + arg);
+                    } else {
+                        appendTerminal('Klasör bulunamadı: ' + arg);
+                    }
+                    break;
+                case 'op':
+                case 'open':
+                    if (!arg) { appendTerminal('Kullanım: op <dosya>'); return; }
+                    const filePath = currentPath.concat(arg).join('/');
+                    const fileNode = treeData.find(n => n.path === filePath && n.type === 'blob');
+                    if (fileNode) {
+                        selectedItem = { name: arg, node: fileNode };
+                        renderList();
+                        previewFile(fileNode);
+                        appendTerminal('Açıldı: ' + arg);
+                    } else {
+                        appendTerminal('Dosya bulunamadı: ' + arg);
+                    }
+                    break;
+                case 'clear':
+                case 'cls':
+                    terminalOutputEl.innerHTML = '';
+                    break;
+                case 'help':
+                    appendTerminal('Komutlar: ls, cd <klasör>, cd .., op <dosya>, clear, exit');
+                    break;
+                case 'exit':
+                    window.location.href = 'cmd.html';
+                    break;
+                default:
+                    appendTerminal('Bilinmeyen komut: ' + command);
+            }
+        }
+
+        exitBtn.addEventListener('click', () => {
+            window.location.href = 'cmd.html';
+        });
+
+        commandInputEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const cmd = commandInputEl.value;
+                commandInputEl.value = '';
+                if (cmd.trim()) {
+                    appendTerminal('C:\\' + currentPath.join('\\') + '> ' + cmd);
+                    processCommand(cmd);
+                }
+            }
+        });
+
+        // ===================== BAŞLANGIÇ =====================
+        (async () => {
+            appendTerminal('GitHub dosya sistemi yükleniyor...');
+            treeData = await fetchRepoTree();
+            if (treeData && treeData.length > 0) {
+                appendTerminal('Dosya ağacı alındı. Toplam ' + treeData.length + ' öğe.');
+                renderList();
+                updatePrompt();
+            } else {
+                appendTerminal('Dosya ağacı alınamadı. GitHub ayarlarınızı kontrol edin.');
+            }
+        })();
+    })();
+    </script>
+</body>
+</html>

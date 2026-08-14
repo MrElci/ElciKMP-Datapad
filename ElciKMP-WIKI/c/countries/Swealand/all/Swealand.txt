@@ -108,10 +108,12 @@ Resmî adıyla §l §6 Swealand Kapitalist İmparatorluk Devleti
     <h3> Köleliğin Anotomisi
         Swealand Köleliği, normal avrupa köleliğinden farklı olarak tüccarlar ve sivil halktan gizli yapılıyordu. Şirketler bazen sadece kap taşımak için kullanılacak taşıma bandının fiyatı nedeniyle bile kölelere insanlık dışı muameleler edebiliyordu. Günde 18 saat çalışma, açlık, susuzluk ve türlü işkenceler nedeniyle köleleştirilmiş köylülerin soykırımdan farksız şekilde katledilmesi, ganj nehrine fırlatılan cesetlerin nehri kızıla boyaması, Mısırda 20 bine yakın kölenin tecavüze bağlı hamile kalmış olması, yüzbinlerce insanın harcanması ve Swealandlı üretme planına harcanan avrupalı köleler, Swealand Kapitalist İmparatorluğunun asla içerdeki siviller tarafından görülmeyen pis yüzünün ne kadar acımasız olabileceğinin bir kanıtıdır.
 
-
     <h3> Latin Türk Savaşları Zaferi
         Latin Türk Savaşı sırasında Swealand sürekli kazanan olma durumunu çok ince bir şekilde ayarlamıştır. Ondan nefret eden ve satın alınması zor Nazi Türkiyesinin yenilmesini sağlamış, Atilla Romasının yıpranmasını öncelemiştir. Savaş boyu Atilla Romasının zor durumda kalmasını sağlayacak kararların alınması, yunan sınırının kapatılması, Nazi Türkiyesine silah satılması ve sürekli borca teşvik, Atilla Romasının bağlılık sürecini kesinleştirmiştir. Yunanistan üstünden zorla geçmeye çalışan Atilla romasının;
         - Lojistik anlamda bitirilmesi
+
+<img> img.addon.siegeofkerkuk | Kerkük Kuşatması
+
         - Tüm banka ve işletmelerinin çökecek kadar ağır zararlar etmesi
         - Resmi bankasının iflas etmesi
         - Ekecek veya yiyecek tarım ürününden yoksun kalması
@@ -126,7 +128,8 @@ Resmî adıyla §l §6 Swealand Kapitalist İmparatorluk Devleti
 
 <h1> Şirketler
     <h2> Swealand Dış Devletler Yönetim Kurumu
-        Swealand temelde dışa dönük özel şirketlerin tam verimle çalışabilmesi ve politikaların devlet iradesi ile yönlendirilebilmesi için bu kuruluşu kurdu. SUOK'un asıl açılımı olan Swealand Uzak Organizasyonlar Kuruluşu adıda burdan gelmekteydi. Ülke içi ve dışı politikalar arasındaki dev farklar nedeniyle dış şirketlerin silahlaştırılması bir ekonomik politika haline geldi. Bunu sağlamak adına rüşvet ve politik çürümeyi dış devletlerde körükleyen lobiler kurmayı deneyen Swealand bu konuda oldukça başarısız oldu. Lobi deneyimi olmayan Swealand'de lobiler yerine SUOK aracılığıyla
+        Swealand temelde dışa dönük özel şirketlerin tam verimle çalışabilmesi ve politikaların devlet iradesi ile yönlendirilebilmesi için bu kuruluşu kurdu. SUOK'un asıl açılımı olan Swealand Uzak Organizasyonlar Kuruluşu adıda burdan gelmekteydi. Ülke içi ve dışı politikalar arasındaki dev farklar nedeniyle dış şirketlerin silahlaştırılması bir ekonomik politika haline geldi. Bunu sağlamak adına rüşvet ve politik çürümeyi dış devletlerde körükleyen lobiler kurmayı deneyen Swealand bu konuda oldukça başarısız oldu. Lobi deneyimi olmayan Swealand'de lobiler yerine SUOK aracılığıyla yönetilen şirketler aracılığıyla politikacıları satın almaya başladı ve buda şirketlerin dış kuklalar politikasında bile kendi bağımsızlıklarına sahip olmasına neden oldu. 
+
 
 
 
@@ -169,9 +172,3 @@ Swealand, İskandinav mitolojisi, Viking gelenekleri ve Hristiyanlığı harmanl
 
 <açılır kapanır pencere> Diplomasi ve Dış İlişkiler
 Swealand, varlığı boyunca hiçbir kalıcı ittifaka girmeden, kısa vadeli çıkarlara göre hareket etti. Nazi Arasistan ile işbirliği yaptı, Xenia’ya karşı Devleti Alliye’yi destekledi, ardından Atilla Roması’nı kendi çıkarları için kullandı. İran ile uzun süre gizli bir rekabet içinde oldu; ancak doğrudan savaştan kaçındı. En büyük diplomatik başarısı, sömürgelerini kaybetmeden 800 yıl boyunca bağımsız kalabilmesidir.
-
-
-**Dipnotlar:**  
-ⁱ İsveççe, yönetim ve ordu dili olarak kullanılmış; halk arasında Norveççe, Danca ve Fince de yaygındı.  
-ⁱ Sandeburg Hanedanı, efsaneye göre İskandinav tanrıları Odin ve Thor’un soyundan gelir.  
-ⁱ Swealand’ın farklı dönemlerdeki adları (Sverige, KSI, İskandinavya İmparatorluğu) aynı hanedanın farklı siyasî evrelerini temsil eder.
