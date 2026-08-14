@@ -4,7 +4,7 @@ Resmî adıyla §l §d Lehistan Krallığı
 (Erlence: §o Królestwo Lehii / Bönlend)
 
 <tablo>
-    img.flag.Leh|img.coatofarms.Leh
+    img.flag.leh|img.coatofarms.Leh
     img.map.MCO1.Leh
     *Başkenti*              Warşav (sonra Kalingrad)
     *Resmî Dili*            Erlence (Lehçe benzeri)ⁱ
