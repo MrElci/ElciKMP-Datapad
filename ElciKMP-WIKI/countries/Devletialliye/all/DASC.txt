@@ -3,9 +3,10 @@
 Resmî adıyla §l §c Devlet-i Alliye Sosyalist Cumhuriyeti
 (Osmanlı Türkçesi: §o دولت عليه سوسياليست امپراتورلوغى)
 <tablo> 
-    img.flag.DASC
-    img.coatofarms.DASC 
-    img.map.MCO1.DASC
+    §c Devlet-i Alliye Sosyalist Cumhuriyeti
+    §o دولت عليه سوسياليست امپراتورلوغى
+    img.flag.DASC|img.coatofarms.DASC: Bayrak|Arma
+    img.map.MCO1.DASC: Harita
     *Başkenti* İstanbul (Konstantiniyye) 
     *Resmî Dili* Osmanlı Türkçesiⁱ
     *Demonim* Alliyeli / Cengerli / Türk

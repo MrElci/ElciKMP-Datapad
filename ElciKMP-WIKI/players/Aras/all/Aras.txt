@@ -1,8 +1,10 @@
 §d Swaführer Aras
 §o Aras Muhammed MORKOÇ, 2019-2020 de katıldı.
 
-<tablo>                                                                 
-    img.person.aras
+<tablo>
+    §d Swaführer Aras
+    §o Aras Muhammed MORKOÇ                                                                 
+    img.person.aras: Portre
     *Oyunda bulunma süresi*             Eternicalⁱ
     *taç giymesi*                       MC.O. 2. binyılⁱ
     *Hanedanⁱ*                          Mormontlarⁱ

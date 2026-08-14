@@ -1,5 +1,5 @@
 // =============================================
-// ELciKMP-DataPad – Tam Betik (v9.0 – XP Explorer)
+// ELciKMP-DataPad – Tam Betik (v11.0 – <vid> desteği)
 // =============================================
 
 /* ---------- Minecraft Biçimlendirme ---------- */
@@ -39,7 +39,14 @@ function resolveImagePath(raw) {
     return '../img/' + parts.join('/') + '.png';
 }
 
-/* ---------- Lightbox ---------- */
+/* ---------- Video Yolu Çözümleyici ---------- */
+function resolveVideoPath(raw) {
+    if (!raw || !raw.startsWith('img.vid.')) return raw;
+    const parts = raw.substring(4).split('.'); // "vid.xxx" -> ["vid","xxx"]
+    return '../img/' + parts.join('/') + '.mp4';
+}
+
+/* ---------- Lightbox (resimler için) ---------- */
 function enableImageLightbox(container) {
     container.querySelectorAll('img').forEach(img => {
         img.style.cursor = 'pointer';
@@ -69,6 +76,100 @@ function enableImageLightbox(container) {
             dl.href = img.src;
             dl.download = img.src.split('/').pop() || 'gorsel.png';
             modal.classList.add('active');
+        });
+    });
+}
+
+/* ---------- Video Modalı Aç ---------- */
+function openVideoModal(src, title) {
+    let modal = document.getElementById('videoModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'videoModal';
+        modal.className = 'video-modal';
+        modal.innerHTML = `
+            <div class="video-window">
+                <div class="video-title-bar">
+                    <span>Video</span>
+                    <span class="video-close">✕</span>
+                </div>
+                <div class="video-content-wrapper">
+                    <video id="videoPlayer" controls></video>
+                </div>
+                <div class="video-controls">
+                    <button id="videoBackward" title="10 saniye geri">-10s</button>
+                    <button id="videoPlayPause" title="Oynat/Durdur">⏯</button>
+                    <button id="videoForward" title="10 saniye ileri">+10s</button>
+                    <button id="videoSpeedDown" title="Hızı azalt">-</button>
+                    <span id="videoSpeedDisplay">1x</span>
+                    <button id="videoSpeedUp" title="Hızı artır">+</button>
+                    <a id="videoDownload" href="#" download>İndir</a>
+                </div>
+            </div>`;
+        document.body.appendChild(modal);
+
+        modal.querySelector('.video-close').onclick = () => modal.classList.remove('active');
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+        // Kontrol olayları
+        const video = modal.querySelector('#videoPlayer');
+        const playPauseBtn = modal.querySelector('#videoPlayPause');
+        const backwardBtn = modal.querySelector('#videoBackward');
+        const forwardBtn = modal.querySelector('#videoForward');
+        const speedDownBtn = modal.querySelector('#videoSpeedDown');
+        const speedUpBtn = modal.querySelector('#videoSpeedUp');
+        const speedDisplay = modal.querySelector('#videoSpeedDisplay');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) video.play();
+            else video.pause();
+        });
+
+        backwardBtn.addEventListener('click', () => {
+            video.currentTime = Math.max(0, video.currentTime - 10);
+        });
+
+        forwardBtn.addEventListener('click', () => {
+            video.currentTime = Math.min(video.duration || Infinity, video.currentTime + 10);
+        });
+
+        speedDownBtn.addEventListener('click', () => {
+            const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2];
+            const idx = speeds.indexOf(video.playbackRate);
+            if (idx > 0) {
+                video.playbackRate = speeds[idx - 1];
+                speedDisplay.textContent = video.playbackRate + 'x';
+            }
+        });
+
+        speedUpBtn.addEventListener('click', () => {
+            const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2];
+            const idx = speeds.indexOf(video.playbackRate);
+            if (idx !== -1 && idx < speeds.length - 1) {
+                video.playbackRate = speeds[idx + 1];
+                speedDisplay.textContent = video.playbackRate + 'x';
+            }
+        });
+
+        video.addEventListener('play', () => playPauseBtn.textContent = '⏸');
+        video.addEventListener('pause', () => playPauseBtn.textContent = '⏯');
+    }
+
+    const video = modal.querySelector('#videoPlayer');
+    video.src = src;
+    video.playbackRate = 1;
+    modal.querySelector('#videoSpeedDisplay').textContent = '1x';
+    modal.querySelector('#videoDownload').href = src;
+    modal.querySelector('#videoTitle').textContent = title || 'Video';
+    modal.classList.add('active');
+    video.play();
+}
+
+/* ---------- Video Butonlarını Etkinleştir ---------- */
+function enableVideoLinks(container) {
+    container.querySelectorAll('.vid-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            openVideoModal(btn.dataset.src, btn.dataset.title);
         });
     });
 }
@@ -269,7 +370,8 @@ function parseWikiText(raw) {
     function isSpecialTag(l) {
         return l.startsWith('<h1>') || l.startsWith('<h2>') || l.startsWith('<h3>') ||
                l.startsWith('<tablo>') || l.startsWith('<tablowar>') || l.startsWith('<map>') ||
-               l.startsWith('<img>') || l.startsWith('<alıntı') || l.startsWith('<açılır');
+               l.startsWith('<img>') || l.startsWith('<alıntı') || l.startsWith('<açılır') ||
+               l.startsWith('<krono>') || l.startsWith('<vid>') || l.startsWith('<randomfunfact>');
     }
 
     for (let i = idx; i < lines.length; i++) {
@@ -301,6 +403,21 @@ function parseWikiText(raw) {
             continue;
         }
 
+        if (line.startsWith('<vid>')) {
+            const content = line.substring(5).trim(); // "Açıklama | img.vid.xxx"
+            let desc = '', videoRaw = '';
+            const parts = content.split('|').map(s => s.trim());
+            if (parts.length >= 2) {
+                desc = parts[0];
+                videoRaw = parts[1];
+            } else {
+                videoRaw = content;
+            }
+            const videoSrc = resolveVideoPath(videoRaw);
+            html += `<button class="vid-button" data-src="${videoSrc}" data-title="${applyMinecraftFormatting(desc)}">▶ ${applyMinecraftFormatting(desc)}</button>`;
+            continue;
+        }
+
         if (line.includes('<h1>')) {
             html += `<h1 class="article-title">${applyMinecraftFormatting(line.replace(/<h1>/i, '').trim())}</h1>`;
             continue;
@@ -314,66 +431,104 @@ function parseWikiText(raw) {
             continue;
         }
 
+        if (line.startsWith('<randomfunfact>')) {
+            i++;
+            let factText = '';
+            if (i < lines.length) {
+                factText = lines[i].replace(/^"/, '').replace(/"$/, '').trim();
+                i++;
+            }
+            if (i < lines.length) {
+                const closing = lines[i];
+                let position = 'mid';
+                if (closing.includes('.right')) position = 'right';
+                else if (closing.includes('.left')) position = 'left';
+                else if (closing.includes('.mid')) position = 'mid';
+                i++;
+                const cls = `rff-box rff-${position}`;
+                html += `<div class="${cls}"><span class="rff-icon">ⓘ</span> <span>${applyMinecraftFormatting(factText)}</span></div>`;
+            }
+            continue;
+        }
+
         if (line.startsWith('<tablo>')) {
             i++;
             let dataRows = '';
-            let imageRows = [];
+            let titleHtml = '';
+            let subtitleHtml = '';
+            let mediaRows = [];
 
             while (i < lines.length && !lines[i].startsWith('<tablo /end>')) {
                 const row = lines[i];
                 if (row === '') { i++; continue; }
 
-                if (row.startsWith('img.') || row.includes('|')) {
-                    const parts = row.split('|').map(p => p.trim());
-                    const rowItems = [];
-                    for (const part of parts) {
-                        if (part.startsWith('img.')) {
-                            rowItems.push({ type: 'img', src: resolveImagePath(part) });
-                        } else if (part === '') {
-                            rowItems.push({ type: 'gap' });
-                        } else {
-                            rowItems.push({ type: 'text', text: part });
-                        }
+                if (row.startsWith('§')) {
+                    if (row.startsWith('§o')) {
+                        subtitleHtml = applyMinecraftFormatting(row.replace('§o', '').trim());
+                    } else {
+                        titleHtml = applyMinecraftFormatting(row);
                     }
-                    if (rowItems.length > 0) imageRows.push(rowItems);
+                    i++;
+                    continue;
                 }
-                else if (row.startsWith('*')) {
-                    const m = row.match(/^\*(.+?)\*\s+(.+)/);
-                    if (m) {
-                        dataRows += `<div class="infobox-row"><span class="infobox-label">${m[1]}</span><span class="infobox-value">${m[2]}</span></div>`;
+
+                if (row.startsWith('img.') || row.includes('img.')) {
+                    const colonIdx = row.indexOf(':');
+                    let imgPart = row;
+                    let labelPart = '';
+                    if (colonIdx !== -1) {
+                        imgPart = row.substring(0, colonIdx).trim();
+                        labelPart = row.substring(colonIdx + 1).trim();
                     }
+
+                    const imgTokens = imgPart.split('|').map(s => s.trim()).filter(s => s.startsWith('img.'));
+                    const labelTokens = labelPart ? labelPart.split('|').map(s => s.trim()) : [];
+
+                    const imgs = imgTokens.map((imgRaw, idx) => ({
+                        src: resolveImagePath(imgRaw),
+                        label: labelTokens[idx] || ''
+                    }));
+
+                    if (imgs.length === 1) {
+                        mediaRows.push({ type: 'single', imgs });
+                    } else if (imgs.length > 1) {
+                        mediaRows.push({ type: 'multi', imgs });
+                    }
+                    i++;
+                    continue;
+                }
+
+                const m = row.match(/^\*(.+?)\*\s+(.+)/);
+                if (m) {
+                    dataRows += `<div class="infobox-row"><span class="infobox-label">${m[1]}</span><span class="infobox-value">${m[2]}</span></div>`;
                 }
                 i++;
             }
 
-            let ib = '<div class="infobox"><div class="infobox-image">';
-            if (imageRows.length > 0) {
-                const containerWidth = 260;
-                const gap = 4;
-                imageRows.forEach(rowItems => {
-                    const totalItems = rowItems.length;
-                    const maxWidth = Math.floor((containerWidth - (totalItems - 1) * gap) / totalItems);
-                    let maxHeight;
-                    if (totalItems === 1) maxHeight = 200;
-                    else if (totalItems === 2) maxHeight = 120;
-                    else maxHeight = 80;
+            let ib = '<div class="infobox">';
+            if (titleHtml) ib += `<div class="infobox-title">${titleHtml}</div>`;
+            if (subtitleHtml) ib += `<div class="infobox-subtitle">${subtitleHtml}</div>`;
 
-                    ib += `<div style="display:flex; justify-content:center; gap:${gap}px; flex-wrap:wrap; margin:2px 0;">`;
-                    rowItems.forEach(item => {
-                        if (item.type === 'img') {
-                            ib += `<img src="${item.src}" style="max-width:${maxWidth}px; max-height:${maxHeight}px; width:auto; height:auto; object-fit:contain; border:1px solid #444; background:#000;">`;
-                        } else if (item.type === 'gap') {
-                            ib += `<div style="width:${maxWidth}px; height:${maxHeight}px; border:1px solid transparent;"></div>`;
-                        } else if (item.type === 'text') {
-                            ib += `<span style="font-size:10px; color:#aaa;">${item.text}</span>`;
-                        }
+            mediaRows.forEach(mr => {
+                if (mr.type === 'single') {
+                    const img = mr.imgs[0];
+                    ib += `<div class="infobox-map">
+                        <img src="${img.src}" alt="${img.label}">
+                        <span class="map-label">${img.label}</span>
+                    </div>`;
+                } else {
+                    ib += '<div class="infobox-flags">';
+                    mr.imgs.forEach(img => {
+                        ib += `<div class="flag-box">
+                            <img src="${img.src}" alt="${img.label}">
+                            <span class="flag-label">${img.label}</span>
+                        </div>`;
                     });
                     ib += '</div>';
-                });
-            } else {
-                ib += '<span>img</span>';
-            }
-            ib += '</div>' + dataRows + '</div>';
+                }
+            });
+
+            ib += dataRows + '</div>';
             infoboxHtml += ib;
             continue;
         }
@@ -389,27 +544,48 @@ function parseWikiText(raw) {
             continue;
         }
 
-    if (line.startsWith('<alıntı karesi>')) {
-        i++;
-        let quote = '';
-        while (i < lines.length) {
-            const nextLine = lines[i];
-            if (nextLine === '<alıntı karesi /end>' || nextLine === '</alıntı karesi>') {
-                i++; break;
-            }
-            if (nextLine.startsWith('<h1>') || nextLine.startsWith('<h2>') ||
-                nextLine.startsWith('<h3>') || nextLine.startsWith('<tablo>') ||
-                nextLine.startsWith('<tablowar>') || nextLine.startsWith('<map>') ||
-                nextLine.startsWith('<img>') || nextLine.startsWith('<açılır') ||
-                nextLine.startsWith('<alıntı karesi>')) {
-                break;
-            }
-            if (nextLine !== '') quote += nextLine + ' ';
+        if (line.startsWith('<krono>')) {
             i++;
+            let kronoItems = [];
+            while (i < lines.length && !lines[i].startsWith('<krono /end>')) {
+                const itemLine = lines[i];
+                if (itemLine && itemLine !== '') {
+                    const isStar = itemLine.endsWith('*');
+                    const name = isStar ? itemLine.slice(0, -1).trim() : itemLine.trim();
+                    kronoItems.push({ name, bold: isStar });
+                }
+                i++;
+            }
+            let kHTML = '<div class="krono-box">';
+            kHTML += '<div class="krono-title">Kronoloji</div>';
+            kHTML += '<ul class="krono-list">';
+            kronoItems.forEach(item => {
+                kHTML += `<li class="krono-item"><span class="krono-arrow">→</span><span class="krono-name ${item.bold ? 'krono-bold' : ''}">${applyMinecraftFormatting(item.name)}</span></li>`;
+            });
+            kHTML += '</ul></div>';
+            infoboxHtml += kHTML;
+            continue;
         }
-        html += `<blockquote><p>${applyMinecraftFormatting(quote.trim())}</p></blockquote>`;
-        continue;
-    }
+
+        if (line.startsWith('<alıntı karesi>')) {
+            i++;
+            let quote = '';
+            while (i < lines.length) {
+                const nextLine = lines[i];
+                if (nextLine === '<alıntı karesi /end>' || nextLine === '</alıntı karesi>') {
+                    i++; break;
+                }
+                if (nextLine.startsWith('<h1>') || nextLine.startsWith('<h2>') || nextLine.startsWith('<h3>') ||
+                    nextLine.startsWith('<tablo>') || nextLine.startsWith('<tablowar>') || nextLine.startsWith('<map>') ||
+                    nextLine.startsWith('<img>') || nextLine.startsWith('<açılır') || nextLine.startsWith('<alıntı karesi>')) {
+                    break;
+                }
+                if (nextLine !== '') quote += nextLine + ' ';
+                i++;
+            }
+            html += `<blockquote><p>${applyMinecraftFormatting(quote.trim())}</p></blockquote>`;
+            continue;
+        }
 
         if (line.startsWith('<açılır')) {
             const title = applyMinecraftFormatting(line.replace(/<açılır kapanır pencere>/i, '').trim());
@@ -420,8 +596,7 @@ function parseWikiText(raw) {
                 if (nextLine.startsWith('<h2>') || nextLine.startsWith('<h1>') || nextLine.startsWith('<h3>') ||
                     nextLine.startsWith('<tablo>') || nextLine.startsWith('<tablowar>') ||
                     nextLine.startsWith('<map>') || nextLine.startsWith('<img>') ||
-                    nextLine.startsWith('<alıntı') || nextLine.startsWith('<açılır') ||
-                    nextLine.startsWith('<use>')) {
+                    nextLine.startsWith('<alıntı') || nextLine.startsWith('<açılır') || nextLine.startsWith('<use>')) {
                     break;
                 }
                 if (nextLine !== '') det += `<p>${applyMinecraftFormatting(nextLine)}</p>`;
@@ -450,12 +625,11 @@ function parseWikiText(raw) {
         } else html = infoboxHtml + html;
     }
     html = `<style>:root{--accent-color:${titleColor};--accent-glow:0 0 4px ${titleColor};}</style>` + html;
-
     return html;
 }
 
 /* ===========================================
-   VERİ OKUMA (güncellendi: *img.xxx|file.txt desteği)
+   VERİ OKUMA
    =========================================== */
 async function fetchList(path) {
     try {
@@ -477,17 +651,15 @@ async function fetchDatInfo(folder, type) {
         if (dataLines.length < 2) return null;
         const info = { folder, displayName: dataLines[0], mainFile: dataLines[1], classmans };
 
-        // YENİ: *img.xxx|dosya.txt formatı
         const previewLine = allLines.find(l => l.startsWith('*img.'));
         if (previewLine) {
             const match = previewLine.match(/^\*(img\..+)\|(.+)$/);
             if (match) {
                 info.previewImage = resolveImagePath(match[1].trim());
-                info.previewFile = match[2].trim(); // all/ içindeki dosya adı
+                info.previewFile = match[2].trim();
             }
         }
 
-        // Eski formatlarla uyumluluk
         if (type === 'country' && dataLines.length >= 3) {
             if (!info.previewImage) info.flagImage = dataLines[2] || '';
             info.countryClass = dataLines[3] || '';
@@ -522,12 +694,6 @@ const loadPlayerPageContent = f => loadContent(f, 'player');
 const loadCountryPageContent = f => loadContent(f, 'country');
 const loadWarPageContent = f => loadContent(f, 'war');
 
-/* ===========================================
-   YENİ: WINDOWS XP EXPLORER STİLİ LİSTE
-   =========================================== */
-/* ===========================================
-   YENİ: XP EXPLORER 3-PANEL FONKSİYONU
-   =========================================== */
 async function buildXPList(containerId, type) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -554,7 +720,6 @@ async function buildXPList(containerId, type) {
     }
     items.sort((a, b) => a.displayName.localeCompare(b.displayName, 'tr'));
 
-    // XP Explorer ana yapısı
     container.innerHTML = `
         <div class="xp-explorer">
             <div class="xp-tree">
@@ -576,13 +741,10 @@ async function buildXPList(containerId, type) {
     const fileList = document.getElementById('xpFileList');
     const previewPane = document.getElementById('xpPreviewPane');
 
-    // Dosya listesini oluştur
     items.forEach((item, index) => {
         const li = document.createElement('li');
         li.className = 'xp-file-item';
         li.dataset.index = index;
-
-        // İkon (bayrak veya varsayılan)
         let iconHtml = '';
         if (item.previewImage) {
             iconHtml = `<img src="${item.previewImage}" class="xp-file-icon" alt="">`;
@@ -591,13 +753,11 @@ async function buildXPList(containerId, type) {
         } else {
             iconHtml = `<span style="font-size:18px;">⌀</span>`;
         }
-
         li.innerHTML = `${iconHtml} ${item.displayName}`;
         li.addEventListener('click', () => selectItem(index));
         fileList.appendChild(li);
     });
 
-    // Seçili öğeyi ve önizlemeyi güncelle
     async function selectItem(index) {
         fileList.querySelectorAll('.xp-file-item').forEach(li => li.classList.remove('selected'));
         const selectedLi = fileList.querySelectorAll('.xp-file-item')[index];
@@ -640,17 +800,64 @@ async function buildXPList(containerId, type) {
     if (items.length > 0) selectItem(0);
 }
 
-/* ===========================================
-   GEZİNME ÇUBUĞU (detay sayfaları için)
-   =========================================== */
+async function buildCountryGrid(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const folders = await fetchCountryFolders();
+    const items = (await Promise.all(folders.map(f => fetchCountryInfo(f)))).filter(Boolean);
+    items.sort((a, b) => a.displayName.localeCompare(b.displayName, 'tr'));
+    el.innerHTML = '<div class="item-grid">' + items.map(c => {
+        const flag = c.flagImage ? `../img/flag/${c.flagImage}` : '';
+        return `<a href="country.html?country=${encodeURIComponent(c.folder)}" class="item-card">
+            ${flag ? `<img src="${flag}" alt="">` : '<div style="width:64px;height:48px;background:#000;border:1px solid #444;"></div>'}
+            <div class="item-name">${c.displayName}</div></a>`;
+    }).join('') + '</div>';
+}
+
+async function buildWarGrid(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const folders = await fetchWarFolders();
+    const items = (await Promise.all(folders.map(f => fetchWarInfo(f)))).filter(Boolean);
+    items.sort((a, b) => a.displayName.localeCompare(b.displayName));
+    el.innerHTML = `<table class="players-table"><thead><tr><th>Savaş</th><th>Saldıran</th><th>Savunan</th></tr></thead><tbody>
+        ${items.map(w => `<tr><td><a href="war.html?war=${encodeURIComponent(w.folder)}">${w.displayName}</a></td>
+            <td>${w.attackers.join(', ')}</td><td>${w.defenders.join(', ')}</td></tr>`).join('')}
+    </tbody></table>`;
+}
+
+async function getRelatedItemsByClassmans(classmans, excludeFolder) {
+    if (!classmans.length) return [];
+    const all = [];
+    const add = async (folder, type) => {
+        if (folder === excludeFolder) return;
+        const info = await fetchDatInfo(folder, type);
+        if (info && info.classmans.some(c => classmans.includes(c))) {
+            all.push({ type, folder, displayName: info.displayName });
+        }
+    };
+    for (const f of await fetchCountryFolders()) await add(f, 'country');
+    for (const f of await fetchWarFolders()) await add(f, 'war');
+    for (const f of await fetchPlayerFolders()) await add(f, 'player');
+    return all;
+}
+
+function renderRelatedItems(items) {
+    if (!items.length) return '';
+    return `<div class="related-section"><h3>İlgili Makaleler</h3><ul class="related-links">${items.map(i => {
+        const href = i.type === 'country' ? `country.html?country=${encodeURIComponent(i.folder)}` :
+                     i.type === 'war' ? `war.html?war=${encodeURIComponent(i.folder)}` :
+                     `player.html?player=${encodeURIComponent(i.folder)}`;
+        return `<li><a href="${href}">${i.displayName} (${i.type})</a></li>`;
+    }).join('')}</ul></div>`;
+}
+
 function buildQuickAccess() {
     const list = document.getElementById('quickAccessList');
     if (!list) return;
     list.innerHTML = '';
-
     const contentPane = document.querySelector('.content-pane');
     if (!contentPane) return;
-
     const headings = contentPane.querySelectorAll('h1, h2, h3');
     headings.forEach((heading, index) => {
         if (!heading.id) heading.id = `section-${index}`;
@@ -679,33 +886,4 @@ function applyAccentColor() {
         document.documentElement.style.setProperty('--accent-color', color);
         document.documentElement.style.setProperty('--accent-glow', `0 0 4px ${color}`);
     }
-}
-
-/* ===========================================
-   CLASSMAN İLGİLİ MAKALELER
-   =========================================== */
-async function getRelatedItemsByClassmans(classmans, excludeFolder) {
-    if (!classmans.length) return [];
-    const all = [];
-    const add = async (folder, type) => {
-        if (folder === excludeFolder) return;
-        const info = await fetchDatInfo(folder, type);
-        if (info && info.classmans.some(c => classmans.includes(c))) {
-            all.push({ type, folder, displayName: info.displayName });
-        }
-    };
-    for (const f of await fetchCountryFolders()) await add(f, 'country');
-    for (const f of await fetchWarFolders()) await add(f, 'war');
-    for (const f of await fetchPlayerFolders()) await add(f, 'player');
-    return all;
-}
-
-function renderRelatedItems(items) {
-    if (!items.length) return '';
-    return `<div class="related-section"><h3>İlgili Makaleler</h3><ul class="related-links">${items.map(i => {
-        const href = i.type === 'country' ? `country.html?country=${encodeURIComponent(i.folder)}` :
-                     i.type === 'war' ? `war.html?war=${encodeURIComponent(i.folder)}` :
-                     `player.html?player=${encodeURIComponent(i.folder)}`;
-        return `<li><a href="${href}">${i.displayName} (${i.type})</a></li>`;
-    }).join('')}</ul></div>`;
 }

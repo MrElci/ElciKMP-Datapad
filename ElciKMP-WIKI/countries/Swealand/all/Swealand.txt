@@ -4,9 +4,10 @@ Resmî adıyla §l §6 Swealand Kapitalist İmparatorluk Devleti
 (Ülke dilinde adı: §o Kejsardömet Swealand Imperia)
 
 <tablo>
-    img.flag.SKI
-    img.coatofarms.SKI
-    img.map.MCO1.SKI
+    §l §6 Swealand Kapitalist İmparatorluğu
+    §o Kejsardömet Swealand Imperia
+    img.flag.SKI|img.coatofarms.SKI: Bayrak|Arma
+    img.map.MCO1.SKI: Harita
     *Başkenti*              Stockholm
     *Resmî Dili*            İsveççeⁱ (halk arasında Norveççe, Danca ve Fince)
     *Demonim*               Swealandlı
@@ -18,52 +19,121 @@ Resmî adıyla §l §6 Swealand Kapitalist İmparatorluk Devleti
     *Askerî Sıralama*       1-3
     *Çağ Dilimi*            M.Ö. 1. Binyıl – Minecraft Binyılı başı
     *Ömür*                  yaklaşık 1000 yıl
+    *Nüfus*                 1 Milyar 850 milyon⁓
 <tablo /end>
 
 
-<h1>Tarihçe</h1>
+<h1>Tarihçe
 
-<img> img.addon.SKIstartborders | §6
-
+<img> img.addon.SKIstartborders | §o SKI başlangıç sınırları (M.Ö. 1. Binyıl)
+<img> img.addon.Rapidindustrialization | §o Kuruluş politikalarıyla desteklenen girişimcilerin dev sanayi hareketleri
 <h2>1. Kökenler: Swenska Diktası ve Erken Dönem
-    Swealand’ın temelleri, İskandinav yarımadasında kurulan Swenska Diktası’na dayanır. Swenska, ilk çağlarda vahşi bir diktatörlük olarak ortaya çıkmış ve Mr.Elci tarafından dünya haritasına geçen sunucuda reforme edilmiştir. 
+    Swealand’ın temelleri, İskandinav yarımadasında kurulan Swenska Diktası’na dayanır. Swenska, ilk çağlarda vahşi bir diktatörlük olarak ortaya çıkmış ve Mr.Elci tarafından dünya haritasına geçen sunucuda reforme edilmiştir. Diktatörlük, denizcilik ve ticari faaliyetlerde etkinleşebilmek adına hızlı bir şekilde diktatörlükten kapitalist bir imparatorluğa evrilmiştir. Bu süreçte, Swenska’nın denizci geleneği ve acımasız realpolitik anlayışı, Swealand’ın temel karakterini oluşturmuştur. Swealand kuruluş sürecinde özellikle geleceğin en büyük şirketleri olacak olan girişimcileri desteklemiş ve dört bir yana dev bir ticaret ağı yaymıştır. Güneyde baltıklar için ve akdeniz için yaşanan savaşlara karşı tamamen içine kapalı durmuş ve ticari faaliyetlere odaklı bir devlet imajı çizmiştir. Norveç ve Finlandiya gibi oyuncu temelli olmayan devletleri bile ele geçirmemiş, sadece donanma antlaşmaları kurarak filosunu ve deniz gücünü katlamıştır. Bu durum, dönemle ilgili yazışmalarda Swealand'in korkak ve pasif, sadece kendi içine kapanık ve ne istense yapacak bir devlet olarak tanımlanmasına sebep olmuştur. Ancak bu durum, Swealand’ın denizcilik ve ticaret alanında rakipsiz bir güç olmasını engellememiştir.
+    
+    <alıntı karesi>
+        "Bir Swealand askeri gördüğünüzde yüzüne meşale tutun, korkup kaçacaktır." - Efe Erdal BÖNLEND
+    <alıntı karesi /end>  
 
-<h2>2. Feodal Dönem ve Sverige Feodalitesi</h2>
-Swenska’nın diktatörlük rejimi, yerini feodal bir yapıya bıraktığında ülke adını Sverige Feodalitesi olarak değiştirdi. Bu dönem, Lordlar Meclisi’nin güç kazandığı, denizaşırı kolonilerin ilk kez kurulduğu bir evredir. Sverige, Mısır, Hindistan ve Kanada’da ticaret üsleri inşa ederek küresel bir ticaret ağı oluşturdu. Feodal lordlar arasındaki rekabet, devletin sürekli iç çatışmalarla sarsılmasına neden olsa da, dışarıya karşı birlikte hareket etme geleneği korundu. Bu dönemde Alp İmparatorluğu ve Britanya ile rekabet başladı.
+    Swealand yönetimi bu duruma karşı çıkan bir açıklama yapmamıştır. Kuruluş dönemi olmasına rağmen sürekli olarak donanma güçlendirilmiş, diğer göçlere göre elit ve nizami bir ordu kurmuş ve gücünü maskeleyerek güçlenmiştir. 
 
-<h2>3. Kutsal Sandeburg İmparatorluğu (KSI) Dönemi</h2>
-Sverige Feodalitesi’nin en parlak dönemi, Kutsal Sandeburg İmparatorluğu (KSI) olarak yeniden yapılandığı zamandır. KSI, İsveç, Norveç, Finlandiya ve Estonya’yı tek bir çatı altında topladı. Başkent Stockholm, devasa limanlar, ticaret merkezleri ve askerî üslerle donatıldı. KSI, Kanada ve Afrika’da devasa sömürgeler kurdu; WeakFatality-11 salgını sırasında dünyanın en etkili sağlık örgütü KHYÖ’yü kurarak uluslararası itibar kazandı. Ancak iç rekabet ve Ragnarok Lordluğu’nun ayrılması, imparatorluğu zayıflattı. KSI, virüsün ardından yaşanan ekonomik kriz ve diplomatik felaketler zinciriyle çöktü; mirasını Ragnarok ve İsveç Krallığı paylaştı.
+<h2>2. Gelişim Dönemi
+    Swealand hızla yüzlerce şirketi dağıtan bir ekonomik güç haline geldi. Savaşların yarattığı krizlerden etkilenmeyen devlet, temelini sağlam bir ekonomik planlamaya borçluydu. Dışarıda ağır kapitalizm içeride ise liberal ekonomik modeli izleyen Swealand, Nazi Arasistandan sonra çelik çağına geçen ilk devlet oldu. Dev çelik gemilerle baltık gemilerini turlayan Swealand, bu dönemde Xenia-Arasis savaşlarına silah satıcısı şirketlerle girişmiş ve savaşların sürdüğü dönem boyunca devasa miktarlarda altın ve değerli malzemeyi anavatanına taşımıştır. Silah satıcısı olarak iki taraflada dönemin silah piyasasına göre karlı olan anlaşmalar yapan Swealand, her iki lider arasında barış sağlanması içinde Stockholmde düzenli görüşmeler düzenlemiştir. Swealand yine bu dönemde dışarıya yönelik şirketlerin tamamını SUOK adı altında toplamıştır. (detaylar için, şirketler başlığı)
 
-<h2>4. Sömürgecilik ve SUOK</h2>
-Swealand’ın en belirleyici kurumlarından biri, **Swealand Dış Devletler Yönetim Kurumu (SUOK)** idi. SUOK, imparatorluğun sömürge politikalarını yürüten, kukla devletler kuran ve ticaret yollarını kontrol eden gizli bir yönetim organıydı. SUOK aracılığıyla:
-- Atilla Roması, Akdeniz’deki çıkarları korumak için kuruldu ve finanse edildi.
-- Kanada kolonileri, Ragnarok ve Sandeburg ortaklığıyla yönetildi.
-- Afrika’da (Mısır, Sudan, Etiyopya) ve Asya’da (Hindistan, Endonezya) ticaret üsleri inşa edildi.
-- Baltık Denizi, “Swealand Gölü” haline getirildi; Danimarka ve Norveç arasına geçiş savunma hattı örüldü.
+<img> img.addon.SKIpropaganda |  §o O dönemin yazışmalarında bulunmuş, Swealand karikatürü
 
-SUOK, aynı zamanda Swealand’ın finansal imparatorluğunun beyniydi; ticaret yolları, vergi oranları ve sömürge yönetimleri bu kurum tarafından belirlenirdi.
-
-<h2>5. Adriyatik Savaşları ve Akdeniz Hâkimiyeti</h2>
-Adriyatik Savaşları, Swealand’ın Akdeniz’deki en büyük meydan okumasıydı. Devleti Alliye’nin Balkan petrolüne yönelmesi ve Xenia’nın dağılmasıyla bölgede güç boşluğu oluştu. Swealand, bu boşluğu doldurmak için:
-- Atilla Roması’nı destekleyerek İtalya ve Yunanistan’da nüfuz kurdu.
-- Yunan ve Arnavut isyanlarını finanse ederek Devleti Alliye’nin dağılmasını hızlandırdı.
-- Marmara’da gerçekleştirdiği vahşî katliamla, rakiplerine gözdağı verdi.
-
-Bu savaşlar, Swealand’ın Akdeniz’deki hâkimiyetini pekiştirirken, aynı zamanda imparatorluğun “barbar” yüzünü de tüm dünyaya gösterdi.
-
-<h2>6. KSI’nın Çöküşü ve İskandinavya İmparatorluğu</h2>
-KSI’nın çöküşünün ardından Swealand, İskandinavya İmparatorluğu olarak yeniden doğdu. Bu yeni yapı, eski KSI mirasına sahip çıkarak:
-- Ragnarok Krallığı, Finlandiya ve İsveç’i yeniden birleştirdi.
-- Kanada ve Afrika’daki sömürgeleri korudu.
-- İran ve Darkloig arasındaki küresel çatışmada tarafsız kalmayı tercih etti; ancak İran’a karşı açık bir cephe almaktan kaçındı.
-
-İskandinavya İmparatorluğu, dönemin en gelişmiş donanmasına ve ticaret filosuna sahipti; ancak artık süpergüç konumundan çok, bölgesel bir güç olarak varlığını sürdürdü.
-
-<h2>7. Geç Dönem ve Miras</h2>
-Swealand’ın son yüzyılları, iç isyanlar ve sömürgelerin bağımsızlaşma çabalarıyla geçti. Britanya’nın yükselişi, Alp İmparatorluğu’nun genişlemesi ve İran’ın Doğu’daki hâkimiyeti, Swealand’ı giderek dar bir alana sıkıştırdı. Buna rağmen imparatorluk, kültürel ve ekonomik mirasını İskandinavya’da yaşatmaya devam etti. Bugün, Swealand’ın bayrağı ve kurumları, İsveç, Norveç ve Finlandiya’nın ortak tarihinde önemli bir yere sahiptir.
+<h2>3. "Üç Taçlar Çağı" Dönemi 
+    Adriyatik Savaşları ile Sömürge Çağının sonu arası Swealand çağıdır. Bu çağ'ın öne çıkan özellikleri şunlardır:
+    - Swealand Ekonomik gücünü kanıtlamış bir süpergüç haline gelmiştir ve Finlandiya resmen Swealand toprağı olmuştur.
+    - SUOK'a bağlı şirketler anakara dışında yüzlerce farklı başarılı anlaşmaya ulaşarak Swealand'e ait devasa bir sömürü düzeni oturtmuştur.
+    - Adriyatik ve Doğu savaşları yaşanmıştır.
 
 
-<h1>Ayrıca Bakınız</h1>
+    <h3> Ekonomik Patlama ve Sanayinin Demir Yumruğu
+        Swealand, çağın işçi hakları konusunda en kapsamlı örneklerinden biriydi. Sağ liberal yapıya rağmen iç kısımda yaşanan dev atılımlar özel sektörün teşvik politikaları ve askeri/sanayi birlikte ilerleyen şirketlerin kendi orduları ile Finlandiya'nın fethini düzenlemeleri, devletin aslında özel sektörlerin en büyüğü gibi hareket ettiğinin bir göstergesi olarak görülmüştür. Bu dönemde ülke gelirinin %98ini ihracat gelirleri oluştururken devletin temel teşvik politikalarıda bu hacmi arttırmak adına insanlık dışı kararlara imza atmıştır. Öte yandan devasa çelik sanayisi, tanklar ve gemilerle dolan askeri mahzenler, Adriyatik savaşına kadar saklanmıştır. Finlandiyanın işgalinide şirketlerin yürütmüş olması, Finlandiyanın adriyatik savaşlarındaki fiilen işgaline kadar Finlandiya hükümetinin bir alt şirket tarafından yönetilmesine neden olmuştur.
+<img> img.flag.finlandSKI | §o İşgalci şirket tarafından kullanılan resmi bayrak
+    <h3> Sömürü Düzeninin Ayak Sesleri
+        Swealand Dış Devletler Yönetim Kurumu olarak adlandırılan ancak temelinde bir dış şirketler koalisyonu olan SUOK, devletler arası şirketlerin yönetiminden sorumlu tutulmuştu. Mr. Elci tarafından kurulan ve yönetilen kurum, Xenia, Nazi Arasistan, IBFI, Lehistan gibi büyük güçlerin ve Norveç, İzlanda gibi oyuncu tabanlı olmayan devletlerin içerisinde düzenli olarak büyüyen bir hacimle kendisini geliştirmiştir. Lehistan tarafından "İstilacı Tür" olarak adlandırılan kuruluş, hızla denizlerde hakimiyet kurmuş ve Swealand'in ekonomik gücünü arttırmıştır. Kuruluş en önemli başarılarını Sömürgecilik Çağıyla imzalamış, Swealand'e bağlı onlarca devletten oluşan sömürge imparatorluğunda verimini katlamıştır. Özellikle sanayi düzeninin başarısı ve kurulan ticari-lojistik yolların verimi sayesinde SUOK olabilecek en hızlı şekilde yayılımını sürdürdü. 
+
+    <h3> Adriyatik Savaşları Zaferi
+        Balkanlarda başlayan petrol etkinliği sonucunda bölgeden petrol çıkarılmasının mümkün hale gelmesi, petrolün neredeyse hiç olmadığı avrupa ile kısıtlı haritada SUOK ve Swealand hükümeti, bölgeye girmenin yollarını aramaya başladı. SUOK aracılığıyla Xenia ile yapılan anlaşmalar sonucu, Swealand donanması savaştan 2 yıl önce oraya yerleşmeye başladı. Devleti Alliye donanması zayıfladıkça bölgede daha etkin hale geldi. Askeri gücü halen alay konusu olduğundan Swealand elitlere ve deniz birliklerine odaklandı. Güney İtalyadaki limanlara gizli askeri üsler kurdu. Daha ortaçağdan kurtulamamış büyük devlerin yanında çelik sanayisini ordusuna akıtmaya başladı. 
+        Bir yıllık süreç boyunca gizli bir şekilde Adriyatik kıyılarında yoğunlaşan milita, bir yıldır balkan petrolünden tek varil bile çıkaramamış olan D.A.S.C. kıyılarında belirdi. 200 bine yakınlık elit gücünün yıldırım saldırısı ile Adriyatik savaşları başladı. Adriyatik savaşları 5 farklı akından oluşan kapsamlı bir savaş ve seferler bütünü olarak tarihe geçti. Sırası ile bu savaşlar:
+
+<img> img.addon.conquestofadriat | §o Seferlerde ele geçirilen toprakların renklendirilmiş diagramı.
+
+        1- I. Adriyatik Seferi:      Swealand ordusunun Arnavutluğu ele geçirmesi ile sonuçlanmıştır. Ordu şaşırtıcı bir hızla ilerlemiş ve Arnavutluğu geçmiş, ancak daha büyük bir ordu toplama ve bölgede kalıcı olma amacıyla arnavutlukla sınırlı kalmıştır. Swealand D.A.S.C.'in savaşı arnavutluğun el değiştirmesi ile bitiren ve ateşkes süresi içermeyen antlaşmayı imzalamıştır. Antlaşma istanbulda imzalanmıştır. 
+        <alıntı karesi>
+            §o  Swealand tamamen şansı sayesinde başarılı bir iş çıkardı, ancak şans her zaman Swealandi kurtarmak için burda olmayacak - Efe Cenger
+        <alıntı karesi /end>
+
+        2- II. Adriyatik Seferi:     D.A.S.C. ordusunun arnavutluğa girmeye çalışması ile başlamış, Swealand ordusunun Sofya ve Belgradı aleve vermesi ile sonlanmıştır. Oldukça hızlı gerçekleşen savaş sonucu Makedonya ve Kosova ele geçirilmiştir. Barış antlaşması asla imzalanmamış çünkü D.A.S.C. ordusu yenilgiyi kabul etmemiştir. bu savaşla birlikte Swealand'in askeri gücü kendisini kanıtladı. 
+
+        3. I. Balkan Savaşı:     Yunan isyanlarının çıkması ile II. Adriyatik Seferi daha tam bitmemişken başlamış ve Belgrad'ın düşmesi, istanbula Swealand ordusunun dayanması sonucu son bulmuştur. D.A.S.C.'in Swealand diplomatlarının ağır isteklerine boyun eğmesi sonucunda Karadağ, Sırbistan ve Yunanistan Swealand'e katılmıştır. Ordunun büyük bir bölümünün istanbul sınırında volta atması, antlaşmanın imzalanmasında etkili olmuştur. 
+
+        4. III. Adriyatik Seferi:   Swealand ordusunun izmire çıkması ile başlamış; Yunan ordusunun istanbula, Swealand ordusunun ise Bükreşi fethetmesi sonucunda son bulmuştur. Antlaşma yine istanbulda imzalanmış, Swealand komutanlarının Efe Cengerin suratına tükürmesi ile göze çarpmıştır. Bosna Hersek, Antalya ve Antakya Kontluğu bölgesi ve Trakya Swealand toprakları haline gelirken, Çanakkale boğazıda Swealand'e bağlanmıştır.
+
+        5. II. Balkan Savaşı: Savaş Swealand ordusunun bitirici bir güçle İstanbula girmesi ile başlamış ve son bulmuştur. Swealand girdikleri istanbulda türk milliyetçiliği, sosyalist düşünce, özgürlükçü düşünceyi yasaklamış, 3 milyona ulaşan D.A.S.C. ordusunun neredeyse tamamını marmara denizinde kurşuna dizmiş, Üst düzey komutan ve devlet adamlarına olmadık işgenceler etmiş, eski savaş beylerini yakalatıp idam ettirmiş ve istanbula düzelemeyeceği kadar ağır düzeyde zarar vermiştir. D.A.S.C.'ın düşmesi ile birlikte Romanya, Hırvatistan, Slovenya, Bulgaristan, Sudan, Yemen, Umman ve Mısır Swealand'e, oralarda tek bir kurşun bile sıkılmadan bırakılmıştır. (Sağda yer alan haritada yeşil renkler.) 
+
+<randomfunfact>
+    Bu dönem Finlandiyalılar, Swealand şirket propagandaları içerisinde boğuluyorlardı. Finlandiya vilayetimnde sürekli kriz olduğu hissini vermeye çalışan medyaya Finlandiya Valisi "Never forget the golden rule! NOTHING EVER HAPPENS" demiş ve medya abartısına karşı slogan atmıştır. Vali Swealand İstihbarat Kuruluşu tarafından suikastle öldürülsede yinede halk arasında "Never forget the golden rule!" şeklinde yayılan sloganlar durmamıştır.
+<randomfunfact.left /end>
+
+    <h3> Doğu Savaşları zaferi
+        Doğu savaşları, Swealandin Adriyatikte askeri gücünü kanıtlamasının ardından kuzeyde Baltık Denizi ve Kuzey Denizinde tam kontrole sahip olmak için Swealand tarafından düzenlenmiş çeşitli savaşlardır. Estonya ve baltıklar için Lehistan ile savaşılması, IBFIden kıyı şeridi ve kuzey denizi haklarının alınması, Norveçin resmen boyun eğdirilmesi bu savaşların en temelleridir. Lehistan IBFI savaşlarının SUOK ve Swealand tarafından devamlı fonlanmasıda, doğunun istikrarsızlığı için bir silah olarak kullanılmıştır. Bu açıdan yapılan tüm operasyonlar şu şekildedir:
+
+
+<img> img.addon.SKI | §o Swealand hakkında bir countryhuman karikatürü
+
+
+        - Leh ordusuna suikastler
+        - IBFI ekonomisinin planlı çökertilmesi
+        - Nazi Arasistan - Danimarka sınırında yaşanan patlamalar
+        - Lehistan Letonya askeri üssünün inflak etmesi
+        - IBFI kuzey askeri üssünün inflak etmesi
+        - Efe Batur TÜYSÜZ'e suikast düzenlenmesi (başarısız oldu)
+        - Ermeni isyancılarının desteklenmesi
+        - Swealand şirketlerinin devasa yatırımcılarla Leh-IBFI kıta sahasına devasa bir ekonomik ağ kurması
+        - Lehistan-IBFI sınırındaki faili meçhul cinayetler
+        Tüm bunlar, Swealand'ın yükselişini durdurabilecek bir IBFI saldırısını veya Leh baskınını engellemekle kalmamış, balkanlardan kuzeye kadar Swealand hakimiyetini ağır düzeyde kesinleştirmiş, Doğu ve güneyde tartışmasız Swealand ekonomik üstünlüğünün ilanını getirmiş, askeri baskınlarla bağımsız devletleri tehlikeye atmıştır.
+        
+
+
+<h2>4. Sömürge Çağı
+    Swealand'in tartışmasız süpergüç olduğu dönemdir. Nazi Arasistan, Xenia, D.A.S.C. kalıntıları, Lehistan ve diğer oyuncular arasında Swealand korkutucu bir hızla; Amerika, Afrika, Okyanusya, Hindistan (daha sonradan), Güney Amerika ve birçok farklı noktada koloniler kurdu. Koloniler hızla genişleyerek SUOK'un bünyesinde işlemeye başlarken, Swealand hızla sanayisi için gerekli milyonlarca ton kaynağı bir lojistik harikası ile anakaraya taşımaya başladı. Bu hızlı taşıma hattı, o kadar hızlı ve verimliydi ki Swealand ekonomisi kalkınmakla kalmadı, kendi hacmini 4e katladı ve bunu 2 yılda başardı. Swealand komutanları kolonilere askeri güç olarak gitti. Buda birçok yeni yetişmiş elite asker ihtiyacı doğurdu. Swealand bu konuda bazı insanlık dışı çözümler üretti ve bunları uygulamayı eski komutanlara bıraktı. İnsancıl empati beceresinden arınmış askerler meydana oluşturuldu ve komutanlarda bundan nasibini aldı. 
+<img> img.flag.SKIafrica | Afrika Koloniler Topluluğu
+<img> img.flag.SKIamerica | Amerika Koloniler Topluluğu
+<img> img.flag.SKInewzea | Yeni Zelanda Kolonisi
+<img> img.flag.SKIocenia | Okyanusya Koloniler Topluluğu
+    Yetişmiş komutanlar ve yeni askeri birlikler, özellikle koloni olmamak için direnen Hindistan gibi bölgelere atandılar. Bu bölgelerin zorla kolonileştirilmesi kanlı şekilde tarihe kazındı. Afrikada Mısırdan başlayarak batıda fildişi sahili gibi kıyı şeridindeki bölgelere kadar ileryen devasa ordularla Swealand afrikayıda kendi kontrolüne aldı. Bağımsız gözüken avrupa devletlerinin politikacılarını satın alarak alt kolonilerin pis işini diğer avrupa devletlerine, kaynakları gizlice kendisine alan SUOK, Swealand'in güçlenmesini dahada hızlandırdı. Atilla Romasının güçlenmesi dönemindeki bilerek borçlandırma ve vasallaştırma politikasıda aynı mantığa dayanıyordu. Tarihçiler Swealandin bu korkunç yükselişinin toplumsal hafızaya verdiği zararın onarılmasının bin beşyüz yıl sürdüğünü söylüyor.
+<img> img.addon.slaves | §o Hindistandaki insan kamplarına taşınan afrika köylüleri §6 Swealand Madagaskarı §7 fotoğraf çekildikten sonra neredeyse hepsi üstlerine dökülen kızgın metal nedeniyle öldü.
+    <h3> Köleliğin Anotomisi
+        Swealand Köleliği, normal avrupa köleliğinden farklı olarak tüccarlar ve sivil halktan gizli yapılıyordu. Şirketler bazen sadece kap taşımak için kullanılacak taşıma bandının fiyatı nedeniyle bile kölelere insanlık dışı muameleler edebiliyordu. Günde 18 saat çalışma, açlık, susuzluk ve türlü işkenceler nedeniyle köleleştirilmiş köylülerin soykırımdan farksız şekilde katledilmesi, ganj nehrine fırlatılan cesetlerin nehri kızıla boyaması, Mısırda 20 bine yakın kölenin tecavüze bağlı hamile kalmış olması, yüzbinlerce insanın harcanması ve Swealandlı üretme planına harcanan avrupalı köleler, Swealand Kapitalist İmparatorluğunun asla içerdeki siviller tarafından görülmeyen pis yüzünün ne kadar acımasız olabileceğinin bir kanıtıdır.
+
+
+    <h3> Latin Türk Savaşları Zaferi
+        Latin Türk Savaşı sırasında Swealand sürekli kazanan olma durumunu çok ince bir şekilde ayarlamıştır. Ondan nefret eden ve satın alınması zor Nazi Türkiyesinin yenilmesini sağlamış, Atilla Romasının yıpranmasını öncelemiştir. Savaş boyu Atilla Romasının zor durumda kalmasını sağlayacak kararların alınması, yunan sınırının kapatılması, Nazi Türkiyesine silah satılması ve sürekli borca teşvik, Atilla Romasının bağlılık sürecini kesinleştirmiştir. Yunanistan üstünden zorla geçmeye çalışan Atilla romasının;
+        - Lojistik anlamda bitirilmesi
+        - Tüm banka ve işletmelerinin çökecek kadar ağır zararlar etmesi
+        - Resmi bankasının iflas etmesi
+        - Ekecek veya yiyecek tarım ürününden yoksun kalması
+        - Binalarının inflak etmesi
+        tamamen SUOK ve Swealand'in bir cezası olarak uygulanmış ve Atilla Romasına adeta bir köpekmiş gibi tekme atılmıştı. Nazi Türkiyesinin hızla karşı saldırıya geçmesi ihtimaline karşıda Swealand Hindistan, Mısır ve Yunanistan üzerindeki terör örgütlerini Nazi Türkiyesi sınırını taciz etmeye yollamış, ardından Nazi Türkiyesinin müdahalelerini savaş ilanı olarak alıp Mısır üzerine taaruza geçmeye çalışan Nazi Türkiyesi birliklerini adeta haritadan silmiştir. Üstelik Swealand bunu, 8 milyona yakın bir ordu saldırısı ve yıldırım harekatı ile yapmış, savaşın başından itibaren hazır beklemiş elite birlikler, Hindistan ve Mısır üstünden saldırıya geçmişti. Latin Türk savaşı sonrasında Swealand ortadoğunun tamamı üstünde tam hakimiyet kazanmış, Arabistan ve Afganistan sözde özgür hale gelmiş, Atilla Roması vasallık antlaşmasını imzalamıştır.
+
+<vid> Sunucu Tarihinin İlk Harita Animasyonu | img.vid.latinoturkowar
+
+
+<h2>7. Sunucunun Son Yüzyılları
+    Latin Türk savaşının sonuçlarından biride Swealand Kapitalist İmparatorluğunun tekel haline gelmiş olmasıydı. Bu durum sunucunun kalan zamanı boyunca Swealand'in devamlı daha çok üretmek için sömürü oranını katlanarak arttırması olarak noktalanmıştır. Sunucuda başka bir savaş, bir isyan, bir oyuncu faaliyeti yaşanmamıştır.
+
+<h1> Şirketler
+    <h2> Swealand Dış Devletler Yönetim Kurumu
+        Swealand temelde dışa dönük özel şirketlerin tam verimle çalışabilmesi ve politikaların devlet iradesi ile yönlendirilebilmesi için bu kuruluşu kurdu. SUOK'un asıl açılımı olan Swealand Uzak Organizasyonlar Kuruluşu adıda burdan gelmekteydi. Ülke içi ve dışı politikalar arasındaki dev farklar nedeniyle dış şirketlerin silahlaştırılması bir ekonomik politika haline geldi. Bunu sağlamak adına rüşvet ve politik çürümeyi dış devletlerde körükleyen lobiler kurmayı deneyen Swealand bu konuda oldukça başarısız oldu. Lobi deneyimi olmayan Swealand'de lobiler yerine SUOK aracılığıyla
+
+
+
+
+
+
+<h1>Ayrıca Bakınız
 
 <açılır kapanır pencere> Coğrafya ve İklim
 Swealand, İskandinav yarımadasından başlayarak Baltık, Kuzey Denizi ve Atlantik’e yayılmıştır. Sert kışlar, kısa yazlar ve geniş ormanlar (tayga), anakaranın karakteristik özellikleridir. Sömürgeler (Kanada, Afrika, Asya) farklı iklim kuşaklarını içerir; bu da imparatorluğa ticari ürün çeşitliliği sağlamıştır.

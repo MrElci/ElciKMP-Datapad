@@ -20,7 +20,7 @@
         flag.img.flag.germanrepublic Alman Demokrat Cumhuriyeti
         -
         Bağımsızlar:
-        flag.img.flag.SKI Sverige Kapitalist İmparatorluğu (savaşa sonra katıldı)
+        flag.img.flag.SKI Swealand Kapitalist İmparatorluğu (savaşa sonra katıldı)
 
     §l Kuvvetler:
         Türk Kuvvetleri:
@@ -77,7 +77,7 @@
 
 
 
-    Doğu Cephesi (Sverige Katılımı ile):
+    Doğu Cephesi (Swealand Katılımı ile):
         §l Taraflar:
         flag.img.flag.naziturkey 400.000
         -    
@@ -105,7 +105,7 @@
             400.000 asker 
             20 bin teçhizat
         -
-        flag.img.flag.SKI Sverige Kapitalist İmparatorluğu:        
+        flag.img.flag.SKI Swealand Kapitalist İmparatorluğu:        
             15 bin asker
 <tablowar /end>
 
@@ -118,11 +118,11 @@
     
     
     f alarak bölgedeki Latin güçlerini geri çekilmeye zorlamıştır. 
-    Ancak Atilla Roması, Sverige Kapitalist İmparatorluğundan satın alınan askeri erişimle, stratejik bir karşı saldırı planı hazırlamış ve savaşı tamamen başka bir boyuta taşımıştır.
+    Ancak Atilla Roması, Swealand Kapitalist İmparatorluğundan satın alınan askeri erişimle, stratejik bir karşı saldırı planı hazırlamış ve savaşı tamamen başka bir boyuta taşımıştır.
 
 <h2> §l Balkan Cephesi: Türk Ordusunun Çemberde Kalışı
 
-    Atilla Roması ordusu, Sverige'den askeri geçiş izinleri alarak Yunanistan üzerinden Trakya’ya saldırıya geçti. 
+    Atilla Roması ordusu, Swealand'den askeri geçiş izinleri alarak Yunanistan üzerinden Trakya’ya saldırıya geçti. 
     Bu hamle, Türk ordusunu Balkanlar’da sıkışmaya zorladı. Romalılar, Trakya cephesindeki Türk ordusunu iki taraftan kıskaca almayı başardı. 
     Bu stratejik başarı, Nazi Türkiyesi’nin Balkanlarda büyük toprak kayıplarına yol açtı.
 
@@ -132,21 +132,21 @@
 <h2> §l Hindistan Hatası: Türkiye’nin Stratejik Çöküşü
 
     Nazi Türkiyesi’nin savaşta yaptığı en büyük stratejik hata, Hindistan’a yönelik devasa bir saldırı planını uygulamaya koyması oldu. 
-    Hindistan’a giren 200 bin kişilik Türk ordusu, bölgedeki Roma kolonilerinden gelebilecek saldırıları durdurmayı amaçladı. 
+    Hindistan’a giren 200 bin kişilik Türk ordusu, bölgedeki Swealand kolonilerinden gelebilecek Romalı saldırılarını durdurmayı amaçladı. 
     Ancak burada bir sorun vardı: Hindistan’da Romalı hiçbir askeri birlik bulunmuyordu.
-    Bu saldırıyı kendisine tehdit olarak algılayan Sverige, Hindistan’daki 3 milyonu aşan devasa gücünü harekete geçirdi. 
+    Bu saldırıyı kendisine tehdit olarak algılayan Swealand, Hindistan’daki 3 milyonu aşan devasa gücünü harekete geçirdi. 
     Bu ordu, Türk kuvvetlerini önce Afganistan’dan, ardından aynı hızla İran’dan püskürttü. 
     Türkiye’nin kaynaklarını tüketen bu hata, güneyde ve batıda savunma hatlarının çökmesine neden oldu.
 
 <h2> §l Ankara ve Kerkük Kuşatmaları
-    Sverige, İran ve Afganistan’da zafer kazandıktan sonra, iki ana cepheden Nazi Türkiyesi’nin kalan topraklarına ilerledi.
+    Swealand, İran ve Afganistan’da zafer kazandıktan sonra, iki ana cepheden Nazi Türkiyesi’nin kalan topraklarına ilerledi.
 
         Mısır üzerinden: 3 milyonluk kuvvetle doğrudan güneyden saldırıya geçti.
         Yunanistan üzerinden: Aynı büyüklükte bir kuvvetle batı cephesine yoğunlaştı.
 
-    <img> img.addon.SKI | §o Sverige için savaş dönemi hazırlanmış countryhuman maskotu
+    <img> img.addon.SKI | §o Swealand için savaş dönemi hazırlanmış countryhuman maskotu
     Bu saldırılar sonucunda Nazi Türkiyesi, başkentini ve parti yönetimini Kerkük’e taşımak zorunda kaldı. 
-    Ancak bu hareket, Nazi Türkiyesi’nin daha da zayıflamasına neden oldu. Kerkük, kısa bir süre sonra 6 milyonluk Sverige ordusu ve 400 binlik Atilla Roması ordusunun saldırısıyla düştü.
+    Ancak bu hareket, Nazi Türkiyesi’nin daha da zayıflamasına neden oldu. Kerkük, kısa bir süre sonra 6 milyonluk Swealand ordusu ve 400 binlik Atilla Roması ordusunun saldırısıyla düştü.
     Ankara ise Nazi Türkiyesi’nin son savunma noktası olarak direnişini sürdürdü. 
     Başkentte 200 bin Arasis ve Türk askeri, devasa büyüklükteki düşman kuvvetlerine karşı savaşmaya devam etti. 
     Günlerce süren çarpışmalara rağmen, Ankara doğrudan düşmedi, ancak ağır kayıplar nedeniyle teslim olmak zorunda kaldı.
@@ -154,20 +154,24 @@
 <h2> §l Savaşın Sonuçları ve Etkileri
 
     Nazi Türkiyesi’nin Çöküşü:
-    Savaşın ardından Nazi Türkiyesi tamamen yıkıldı. Ülke, siyasi ve askeri olarak tarihten silindi, toprakları Sverige ve Atilla Roması arasında paylaşıldı.
+    Savaşın ardından Nazi Türkiyesi tamamen yıkıldı. Ülke, siyasi ve askeri olarak tarihten silindi, toprakları Swealand ve Atilla Roması arasında paylaşıldı.
     Arasis halkı ve Türkler, bu yenilgiden sonra tarih sahnesinde bağımsız bir güç olarak varlıklarını sürdüremedi.
 
     Atilla Roması’nın Vasallaşması:
-    Her ne kadar savaşı kazanan tarafta yer alsa da, Atilla Roması, Sverige’nin ağır ekonomik ve siyasi etkisi altına girdi. 
-    Sverige, Roma topraklarını tamamen kolonileştirerek İtalyan pazarını ele geçirdi ve ülkenin siyasi yönetimini kontrol etmeye başladı.
+    Her ne kadar savaşı kazanan tarafta yer alsa da, Atilla Roması, Swealand’nin ağır ekonomik ve siyasi etkisi altına girdi. 
+    Swealand, Roma topraklarını tamamen kolonileştirerek İtalyan pazarını ele geçirdi ve ülkenin siyasi yönetimini kontrol etmeye başladı.
 
-    Sverige’nin Egemenliği:
-    Sverige Kapitalist İmparatorluğu, bu savaştan en kârlı çıkan taraf oldu. 
-    Savaş sırasında askeri üstünlüğünü ve diplomatik gücünü pekiştiren Sverige, hem İtalya’yı hem de eski Nazi Türkiyesi topraklarını etkili bir şekilde sömürgeleştirdi.
+    Swealand’nin Egemenliği:
+    Swealand Kapitalist İmparatorluğu, bu savaştan en kârlı çıkan taraf oldu. 
+    Savaş sırasında askeri üstünlüğünü ve diplomatik gücünü pekiştiren Swealand, hem İtalya’yı hem de eski Nazi Türkiyesi topraklarını etkili bir şekilde sömürgeleştirdi.
 
 <h2> §l Tarihi Anlam ve Miras
     Büyük Latin-Türk Savaşı, dünya tarihinin en büyük güç mücadelelerinden biri olarak kabul edilir. 
     Savaş, yalnızca iki büyük taraf arasında bir rekabet olarak kalmamış, aynı zamanda dünya siyasetinde büyük değişimlere yol açmıştır. 
     Nazi Türkiyesi’nin çöküşü ve Atilla Roması’nın vasallaşması, Türkiye ve Roma bölgelerinin uluslararası güç dengesindeki rolünü büyük ölçüde değiştirmiştir.
     Bu savaş, askeri stratejilerin hatalı uygulanmasının ve büyük ittifakların savaşın sonucunu nasıl etkileyebileceğinin çarpıcı bir örneği olarak tarihte yerini almıştır.
+
+<alıntı karesi>
+    "Her büyük güç elbet birgün çökecektir. Biz bir istisna değildik." - Aras Muhammed MORKOÇ | Ankara'nın düşüşü haberinden sonra
+<alıntı karesi /end>
 

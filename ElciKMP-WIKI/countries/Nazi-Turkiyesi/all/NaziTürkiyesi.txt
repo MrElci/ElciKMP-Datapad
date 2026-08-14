@@ -7,7 +7,7 @@ Kuzeyde devasa Kazak Hanlığı, doğuda İran ve Afganistan, güneydoğuda Swea
 Akdeniz, Karadeniz ve Basra Körfezi'ne kıyıları olan devlet, bu denizleri ticaret ve askeri seferlerinde etkin bir şekilde kullanmıştır. Anadolu Yarımadası’nın kalbinde yer alan başkent Ankara, bölgenin siyasi, ekonomik ve askeri merkezi olmuştur.
 
 <tablo>
-    img.flag.naziturkey - img.coatofarms.turkey
+    img.flag.naziturkey|img.coatofarms.turkey
     img.map.MCO1.naziturkey
     *Başkenti*              Ankara (!)
     *Resmi Dil*             Türkçe / Arasis Türkçesiⁱ
