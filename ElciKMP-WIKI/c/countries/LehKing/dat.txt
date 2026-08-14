@@ -1,5 +1,5 @@
 Lehistan Krallığı
 PolishKingdom.txt
-Leh.png
+leh.png
 ancient
 >Erdal.eastwar

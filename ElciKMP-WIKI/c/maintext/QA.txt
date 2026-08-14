@@ -7,16 +7,25 @@
 > Sunucu çapı tarih araştırmaları çok kısıtlı ve çoğu bilgi silinmiş durumda. Bazı devletler ise bizzat yöneticisi tarafından her detayıyla kaydedildiği için sağlam
 <maq/>
 
+<maq> ElciKMP tarihinin tamamı neden burda yer almıyor?
+> Çünkü halen siteyi geliştiriyoruz. Özel taleplerinizi ve Eksiklerimizi bize bildirebilirsiniz.
+<maq/>
+
+<maq> Size nerden ulaşabilirim?
+> ###
+<maq/>
+
+<maq> Sunucuya nerden katılabilirim?
+> Sunucu açık olduğu zaman anasayfada bilgi verilecektir. O kısımdan ulaşabilirsiniz.
+<maq/>
+
+<maq> Sunucu tarihi ile alakalı düzeltmelere veya eklemelere nasıl yardımcı olabilirim?
+> Bize ulaşabilirsiniz.
+<maq/>
+
+
 -- REQUESTS
 
 <REQ> GOD IS DEAD
 > Tekrar hoşgeldiniz admin. Dosyaları görmek ister misiniz?
 <REQ/.admin>
-
-<REQ> deletegayland
-<SYSTEMUPGRADE.100/100.100/100.100/100>
-deleting gayland
-deletes cheats
-bans players
-<SYSTEMUPGRADE /END.fast>
-<REQ/.mami>
