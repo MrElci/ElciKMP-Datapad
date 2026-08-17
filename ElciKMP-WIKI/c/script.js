@@ -732,6 +732,7 @@ async function buildXPList(containerId, type) {
     }
     items.sort((a, b) => a.displayName.localeCompare(b.displayName, 'tr'));
 
+    // Masaüstü ve mobil için ortak ana yapı
     container.innerHTML = `
         <div class="xp-explorer">
             <div class="xp-tree">
@@ -753,10 +754,12 @@ async function buildXPList(containerId, type) {
     const fileList = document.getElementById('xpFileList');
     const previewPane = document.getElementById('xpPreviewPane');
 
+    // Dosya listesini oluştur
     items.forEach((item, index) => {
         const li = document.createElement('li');
         li.className = 'xp-file-item';
         li.dataset.index = index;
+
         let iconHtml = '';
         if (item.previewImage) {
             iconHtml = `<img src="${item.previewImage}" class="xp-file-icon" alt="">`;
@@ -765,6 +768,7 @@ async function buildXPList(containerId, type) {
         } else {
             iconHtml = `<span style="font-size:18px;">⌀</span>`;
         }
+
         li.innerHTML = `${iconHtml} ${item.displayName}`;
         li.addEventListener('click', () => selectItem(index));
         fileList.appendChild(li);
@@ -804,14 +808,30 @@ async function buildXPList(containerId, type) {
             if (type === 'war') previewHTML += `Saldıran: ${item.attackers.join(', ') || '—'}<br>Savunan: ${item.defenders.join(', ') || '—'}`;
             previewHTML += `</div>`;
         }
-
         previewHTML += `<p style="margin-top:12px;"><a href="${detailPageBase}${encodeURIComponent(item.folder)}">Wiki Sayfası</a></p>`;
-        previewPane.innerHTML = previewHTML;
+
+        // Mobil ve masaüstü ayrımı
+        if (window.innerWidth <= 750) {
+            // Mobil: bottom sheet
+            const toggle = '<div class="preview-toggle">⇑⇑</div>';
+            const body = `<div class="preview-body">${previewHTML}</div>`;
+            previewPane.innerHTML = toggle + body;
+
+            const toggleBtn = previewPane.querySelector('.preview-toggle');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    previewPane.classList.toggle('expanded');
+                });
+            }
+            previewPane.classList.remove('expanded');
+        } else {
+            // Masaüstü: doğrudan içerik
+            previewPane.innerHTML = previewHTML;
+        }
     }
 
     if (items.length > 0) selectItem(0);
 }
-
 async function buildCountryGrid(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -1569,3 +1589,58 @@ async function initCmdPage() {
         terminal.scrollTop = terminal.scrollHeight;
     });
 }
+
+/* ===========================================
+   MOBİL GEZİNTİ MENÜ SEKMESİ
+   =========================================== */
+(function() {
+    function setupMobileGezi() {
+        if (window.innerWidth > 750) return;
+
+        const menuBar = document.querySelector('.menu-bar');
+        const sidebar = document.querySelector('.sidebar');
+        if (!menuBar || !sidebar) return;
+
+        // Menü çubuğuna "Gezinti Çubuğu" sekmesi ekle
+        const toggleBtn = document.createElement('span');
+        toggleBtn.className = 'gezinti-toggle';
+        toggleBtn.textContent = 'Gezinti Çubuğu';
+        menuBar.appendChild(toggleBtn);
+
+        // Sidebar'ı konumlandır
+        function positionSidebar() {
+            const menuBottom = menuBar.offsetTop + menuBar.offsetHeight;
+            sidebar.style.top = menuBottom + 'px';
+        }
+        positionSidebar();
+        window.addEventListener('resize', positionSidebar);
+
+        // Tıklayınca aç/kapat
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Dışarı tıklayınca kapat (opsiyonel)
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && e.target !== toggleBtn) {
+                sidebar.classList.remove('open');
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupMobileGezi);
+    } else {
+        setupMobileGezi();
+    }
+})();
+li.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById(heading.id).scrollIntoView({ behavior: 'smooth' });
+    
+    // Mobilde gezinti panelini kapat
+    if (window.innerWidth <= 750) {
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebar) sidebar.classList.remove('open');
+    }
+});

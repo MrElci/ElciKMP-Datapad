@@ -333,16 +333,222 @@ details[open] summary::before { content: '▼ '; }
 .krono-name.krono-bold { font-weight: bold; color: #fff; }
 
 /* MOBİL */
+/* ===== MOBİL UYUM (ANA SİTE) ===== */
 @media (max-width: 750px) {
-  .xp-explorer { flex-direction: column; }
-  .xp-tree { width: 100%; max-height: 100px; border-right: none; border-bottom: 2px solid #555; }
-  .xp-preview-pane { width: 100%; border-left: none; border-top: 2px solid #555; max-height: 200px; }
+  body { font-size: 14px; }
+
+  .app-window { height: 100vh; border-width: 1px; }
+
+  .title-bar { padding: 2px 8px; font-size: 12px; gap: 8px; }
+  .window-buttons span { width: 16px; height: 16px; line-height: 14px; font-size: 10px; }
+
+  .menu-bar { padding: 2px 4px; gap: 1px; }
+  .menu-bar span { padding: 2px 6px; font-size: 11px; }
+
+  .toolbar {
+    padding: 4px 6px;
+    gap: 4px;
+    overflow-x: auto;       /* yatay kaydırma */
+    -webkit-overflow-scrolling: touch;
+  }
+  .toolbar a {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 4px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
   .main-area { flex-direction: column; }
-  .sidebar { width: 100%; border-right: none; border-bottom: 2px solid #555; padding: 6px; max-height: 140px; }
-  .warinfobox, .infobox { float: none; width: 100%; margin: 0 0 14px 0; }
-  .toolbar a { padding: 3px 6px; font-size: 11px; }
+
+  .sidebar {
+    width: 100%;
+    max-height: 140px;
+    border-right: none;
+    border-bottom: 2px solid #555;
+    padding: 4px 6px;
+  }
+  .sidebar-title { font-size: 12px; margin-bottom: 4px; }
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-left: 0;
+  }
+  .sidebar li {
+    padding: 3px 8px;
+    font-size: 12px;
+    border-left: none;
+    border-bottom: 1px solid #222;
+  }
+
+  .content-pane { padding: 10px; }
+
   h1.article-title { font-size: 1.5rem; }
   h2 { font-size: 1.2rem; }
+  h3 { font-size: 1rem; }
+
+  .infobox,
+  .warinfobox,
+  .wiki-thumb,
+  .krono-box,
+  .rff-right,
+  .rff-left {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 14px 0;
+  }
+
+  .infobox-flags { flex-direction: row; }
+  .flag-box img { height: 70px; }
+
+  .players-table th,
+  .players-table td {
+    padding: 4px 6px;
+    font-size: 0.75rem;
+  }
+
+  .lightbox-modal .lightbox-window,
+  .video-modal .video-window {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  .lightbox-content { max-height: 60vh; }
+  .video-content-wrapper video { max-height: 50vh; }
+  .video-controls { gap: 4px; }
+  .video-controls button,
+  .video-controls a {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+
+  .xp-explorer { flex-direction: column; }
+  .xp-tree {
+    width: 100%;
+    max-height: 100px;
+    border-right: none;
+    border-bottom: 2px solid #555;
+  }
+  .xp-preview-pane {
+    width: 100%;
+    border-left: none;
+    border-top: 2px solid #555;
+    max-height: 200px;
+  }
+  .xp-file-item { padding: 3px 8px; font-size: 12px; }
+  .xp-preview-image { width: 120px; height: 80px; }
+  .xp-preview-text { font-size: 11px; }
+
+  .map-container img { max-width: 100%; }
+  .rff-box { padding: 6px 10px; font-size: 13px; }
+  .vid-button { padding: 4px 8px; font-size: 11px; }
+
+  .status-bar { font-size: 10px; padding: 3px 6px; }
+}
+
+/* Daha küçük telefonlar için ek iyileştirme */
+@media (max-width: 480px) {
+  .toolbar a { font-size: 10px; padding: 3px 6px; }
+  .sidebar { max-height: 120px; }
+  .content-pane { padding: 8px; }
+  h1.article-title { font-size: 1.3rem; }
+  .infobox-title { font-size: 1rem; }
+}
+/* ===== MOBİL GEZİNTİ ÇEKMECESİ ===== */
+
+  /* Sidebar'ı soldan açılan panele dönüştür */
+@media (max-width: 750px) {
+  /* Sidebar artık açılır panel olacak */
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 52px;               /* menü çubuğunun hemen altı – JS ile güncellenir */
+    left: 0;
+    width: 100%;
+    max-height: 50vh;
+    overflow-y: auto;
+    background: #181818;
+    border-bottom: 2px solid #555;
+    z-index: 1000;
+    padding: 8px;
+  }
+
+  .sidebar.open {
+    display: block;
+  }
+
+  /* Menü çubuğunda "Gezinti Çubuğu" sekmesi */
+  .menu-bar {
+    position: relative;
+    z-index: 1001;
+  }
+
+  .menu-bar .gezinti-toggle {
+    padding: 3px 10px;
+    background: #C0C0C0;
+    border: 1px outset #FFF;
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: auto;        /* sağa yasla */
+  }
+
+  .menu-bar .gezinti-toggle:hover {
+    background: #000080;
+    color: white;
+  }
+}
+/* Genel: toggle butonu sadece mobilde görünecek */
+.preview-toggle {
+  display: none;
+}
+
+/* Mobil: alt kayar panel */
+@media (max-width: 750px) {
+  .xp-preview-pane {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #181818;
+    border-top: 2px solid #555;
+    border-left: none;
+    max-height: 48px;                /* sadece başlık görünür */
+    transition: max-height 0.3s ease;
+    z-index: 5000;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+  }
+
+  .xp-preview-pane.expanded {
+    max-height: 80vh;                /* açılınca genişler */
+  }
+
+  .preview-toggle {
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    padding: 6px;
+    background: #181818;
+    color: var(--accent-color);
+    cursor: pointer;
+    border-bottom: 1px solid #555;
+    user-select: none;
+  }
+
+  .preview-body {
+    display: none;
+    padding: 12px;
+    overflow-y: auto;
+    max-height: calc(80vh - 40px);
+  }
+
+  .xp-preview-pane.expanded .preview-body {
+    display: block;
+  }
 }
 /* ----- RASTGELE BİLGİ KUTUSU (RANDOM FUN FACT) ----- */
 .rff-box {
