@@ -911,9 +911,8 @@ function buildQuickAccess() {
    RENK SENKRONİZASYONU (Accent + Dinamik Arkaplan)
    =========================================== */
 function applyAccentColor() {
-    // Half-Life teması aktifken accent rengini değiştirme
     if (document.documentElement.getAttribute('data-theme') === 'halflife') return;
-    if (document.body.classList.contains('theme-halflife')) return;
+    // ... gerisi
 
     // ... gerisi aynı    // ← BUNU EKLE
     const h1 = document.querySelector('h1.article-title');
@@ -970,10 +969,7 @@ function applyAccentColor() {
         `hsla(${hue}, 70%, 60%, 0.15)`);
     
 
-     // Fonksiyonun en sonuna ekleyin
-    if (document.documentElement.getAttribute('data-theme') === 'halflife') {
-        document.documentElement.style.setProperty('--accent-color', '#ff9c2e', 'important');
-    }       // ... gerisi ayn
+        // ... gerisi ayn
 }
 /* ===========================================
    CMD TERMİNAL SİSTEMİ (ELCIKMP DATAPAD)
