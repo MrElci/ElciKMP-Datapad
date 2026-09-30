@@ -907,17 +907,62 @@ function buildQuickAccess() {
         list.appendChild(li);
     });
 }
-
+/* ===========================================
+   RENK SENKRONİZASYONU (Accent + Dinamik Arkaplan)
+   =========================================== */
 function applyAccentColor() {
     const h1 = document.querySelector('h1.article-title');
     if (!h1) return;
+
     let color = window.getComputedStyle(h1).color;
     const span = h1.querySelector('span');
     if (span) color = window.getComputedStyle(span).color;
-    if (color) {
-        document.documentElement.style.setProperty('--accent-color', color);
-        document.documentElement.style.setProperty('--accent-glow', `0 0 4px ${color}`);
+
+    if (!color) return;
+
+    // --accent-color ve glow
+    document.documentElement.style.setProperty('--accent-color', color);
+    document.documentElement.style.setProperty('--accent-glow', `0 0 12px ${color}`);
+
+    // RGB'yi çek
+    const rgb = color.match(/\d+/g);
+    if (!rgb || rgb.length < 3) return;
+    let [r, g, b] = rgb.map(Number);
+    r /= 255; g /= 255; b /= 255;
+
+    // HSL dönüşümü
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+    if (max === min) { h = s = 0; }
+    else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+            case g: h = ((b - r) / d + 2) / 6; break;
+            case b: h = ((r - g) / d + 4) / 6; break;
+        }
     }
+    const hue = Math.round(h * 360);
+
+    // GitHub tarzı koyu tonlar – hafif renk tonu, çok koyu zemin
+    const bgS = 22;    // % doygunluk (tonu belli eder ama abartmaz)
+    const bgL = 5;     // % parlaklık (koyu)
+
+    document.documentElement.style.setProperty('--accent-bg',
+        `hsl(${hue}, ${bgS}%, ${bgL}%)`);
+    document.documentElement.style.setProperty('--accent-bg-elevated',
+        `hsl(${hue}, ${bgS}%, ${bgL + 3}%)`);
+    document.documentElement.style.setProperty('--accent-bg-panel',
+        `hsla(${hue}, ${bgS}%, ${bgL + 5}%, 0.6)`);
+    document.documentElement.style.setProperty('--accent-bg-hover',
+        `hsl(${hue}, ${bgS}%, ${bgL + 6}%)`);
+    document.documentElement.style.setProperty('--accent-border',
+        `hsla(${hue}, 30%, 30%, 0.6)`);
+    document.documentElement.style.setProperty('--accent-border-muted',
+        `hsla(${hue}, 25%, 20%, 0.6)`);
+    document.documentElement.style.setProperty('--accent-soft',
+        `hsla(${hue}, 70%, 60%, 0.15)`);
 }
 /* ===========================================
    CMD TERMİNAL SİSTEMİ (ELCIKMP DATAPAD)
