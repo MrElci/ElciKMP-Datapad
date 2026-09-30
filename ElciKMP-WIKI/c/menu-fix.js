@@ -1,8 +1,5 @@
 /* ===========================================
-   MENU-FIX.JS – Menü Sistemi V3
-   - Dosya → Materyal
-   - Görünüm dropdown (Ölçek + Tema)
-   - Tema sistemi (Datapad / Half-Life)
+   MENU-FIX.JS – V4 (Garantili Dropdown + Tema)
    =========================================== */
 (function () {
   'use strict';
@@ -10,15 +7,12 @@
   /* ===== SABİTLER ===== */
   const ZOOM_KEY = 'elcikmp_zoom';
   const THEME_KEY = 'elcikmp_theme';
-  const ZOOM_MIN = 50;
-  const ZOOM_MAX = 200;
-  const ZOOM_STEP = 10;
-  const ZOOM_DEFAULT = 100;
+  const ZOOM_MIN = 50, ZOOM_MAX = 200, ZOOM_STEP = 10, ZOOM_DEFAULT = 100;
   const ZOOM_PRESETS = [75, 90, 100, 110, 125, 150];
 
   const THEMES = [
-    { id: 'datapad',  name: 'Datapad Theme',    desc: 'Varsayılan GitHub Glass' },
-    { id: 'halflife', name: 'Half-Life Theme',  desc: 'Valve HL2 Grim Terminal' }
+    { id: 'datapad',  name: 'Datapad Theme',   desc: 'Varsayılan GitHub Glass' },
+    { id: 'halflife', name: 'Half-Life Theme', desc: 'Valve HL2 Grim Terminal' }
   ];
 
   /* ===== ZOOM ===== */
@@ -26,7 +20,6 @@
     const v = parseInt(localStorage.getItem(ZOOM_KEY), 10);
     return (isNaN(v) || v < ZOOM_MIN || v > ZOOM_MAX) ? ZOOM_DEFAULT : v;
   }
-
   function applyZoom(value) {
     value = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(value)));
     const factor = value / 100;
@@ -39,9 +32,7 @@
       document.body.style.width = (100 / factor) + '%';
     }
     localStorage.setItem(ZOOM_KEY, value);
-    document.querySelectorAll('.zoom-display').forEach(el => {
-      el.textContent = value + '%';
-    });
+    document.querySelectorAll('.zoom-display').forEach(el => el.textContent = value + '%');
     document.querySelectorAll('.zoom-preset').forEach(el => {
       el.classList.toggle('active', parseInt(el.dataset.zoom, 10) === value);
     });
@@ -52,13 +43,13 @@
     const t = localStorage.getItem(THEME_KEY);
     return THEMES.some(x => x.id === t) ? t : 'datapad';
   }
-
   function applyTheme(themeId) {
     if (!THEMES.some(t => t.id === themeId)) themeId = 'datapad';
-    document.body.classList.remove('theme-halflife');
-    if (themeId === 'halflife') {
-      document.body.classList.add('theme-halflife');
-    }
+    // Hem html hem body üzerine yaz – garanti
+    document.documentElement.setAttribute('data-theme', themeId);
+    document.body.classList.remove('theme-halflife', 'theme-datapad');
+    document.body.classList.add('theme-' + themeId);
+
     localStorage.setItem(THEME_KEY, themeId);
 
     document.querySelectorAll('.theme-option').forEach(el => {
@@ -68,9 +59,20 @@
       if (check) check.textContent = isActive ? '▣' : '▢';
     });
 
-    // Datapad temasına dönüldüğünde accent rengi yeniden uygula
-    if (themeId === 'datapad' && typeof window.applyAccentColor === 'function') {
-      window.applyAccentColor();
+    // Datapad'a dönünce accent rengi tekrar uygula
+    if (themeId === 'datapad') {
+      if (typeof window.applyAccentColor === 'function') {
+        window.applyAccentColor();
+      }
+    }
+  }
+
+  /* ===== ACCENT OVERRIDE (Half-Life iken rengi sabitle) ===== */
+  function overrideAccentColorForTheme() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    if (theme === 'halflife') {
+      document.documentElement.style.setProperty('--accent-color', '#ff9c2e', 'important');
+      document.documentElement.style.setProperty('--accent-glow', '0 0 10px rgba(255,156,46,0.55)', 'important');
     }
   }
 
@@ -112,6 +114,11 @@
 
       const wrapper = document.createElement('div');
       wrapper.className = 'menu-dropdown-wrapper';
+      // INLINE POSITION GUARANTEE
+      wrapper.style.position = 'relative';
+      wrapper.style.display = 'inline-block';
+      wrapper.style.zIndex = '90000';
+
       el.parentNode.insertBefore(wrapper, el);
       wrapper.appendChild(el);
       el.classList.add('menu-dropdown-trigger');
@@ -121,8 +128,19 @@
 
       const dropdown = document.createElement('div');
       dropdown.className = 'menu-dropdown-content';
+      // INLINE POSITION GUARANTEE
+      dropdown.style.position = 'absolute';
+      dropdown.style.top = 'calc(100% + 6px)';
+      dropdown.style.left = '0';
+      dropdown.style.minWidth = '250px';
+      dropdown.style.zIndex = '90001';
+      dropdown.style.pointerEvents = 'auto';
+      dropdown.style.visibility = 'hidden';
+      dropdown.style.opacity = '0';
+      dropdown.style.transition = 'opacity 0.15s ease, transform 0.15s ease, visibility 0.15s';
+      dropdown.style.transform = 'translateY(-6px)';
+
       dropdown.innerHTML =
-        // ÖLÇEK
         '<div class="dropdown-section">' +
           '<div class="dropdown-section-title">' +
             '<span class="section-icon">▤</span> Ölçek' +
@@ -134,32 +152,65 @@
               '<button class="zoom-btn zoom-in" title="Büyüt" type="button">+</button>' +
             '</div>' +
             '<div class="zoom-presets">' +
-              ZOOM_PRESETS.map(function (z) {
-                return '<button class="zoom-preset" data-zoom="' + z + '" type="button">' + z + '%</button>';
-              }).join('') +
+              ZOOM_PRESETS.map(z =>
+                '<button class="zoom-preset" data-zoom="' + z + '" type="button">' + z + '%</button>'
+              ).join('') +
             '</div>' +
           '</div>' +
         '</div>' +
-        // TEMA
         '<div class="dropdown-section">' +
           '<div class="dropdown-section-title">' +
             '<span class="section-icon">◈</span> Tema' +
           '</div>' +
           '<div class="dropdown-section-body">' +
             '<div class="theme-list">' +
-              THEMES.map(function (t) {
-                return '<button class="theme-option' + (t.id === currentTheme ? ' active' : '') + '" data-theme="' + t.id + '" type="button">' +
+              THEMES.map(t =>
+                '<button class="theme-option' + (t.id === currentTheme ? ' active' : '') + '" data-theme="' + t.id + '" type="button">' +
                   '<span class="theme-check">' + (t.id === currentTheme ? '▣' : '▢') + '</span>' +
                   '<span class="theme-info">' +
                     '<span class="theme-name">' + t.name + '</span>' +
                     '<span class="theme-desc">' + t.desc + '</span>' +
                   '</span>' +
-                '</button>';
-              }).join('') +
+                '</button>'
+              ).join('') +
             '</div>' +
           '</div>' +
         '</div>';
       wrapper.appendChild(dropdown);
+
+      /* ===== HOVER İLE AÇ/KAPAT ===== */
+      let hideTimer = null;
+      function showDropdown() {
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+        dropdown.style.visibility = 'visible';
+        dropdown.style.opacity = '1';
+        dropdown.style.transform = 'translateY(0)';
+      }
+      function scheduleHide() {
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+          dropdown.style.opacity = '0';
+          dropdown.style.transform = 'translateY(-6px)';
+          setTimeout(() => {
+            if (dropdown.style.opacity === '0') dropdown.style.visibility = 'hidden';
+          }, 200);
+        }, 180);
+      }
+
+      wrapper.addEventListener('mouseenter', showDropdown);
+      wrapper.addEventListener('mouseleave', scheduleHide);
+      // Dropdown'a girince hide timer'ı iptal et
+      dropdown.addEventListener('mouseenter', showDropdown);
+      dropdown.addEventListener('mouseleave', scheduleHide);
+
+      // Mobil: tıklama
+      if (window.matchMedia('(hover: none)').matches) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault(); e.stopPropagation();
+          const isOpen = wrapper.classList.toggle('open');
+          if (isOpen) showDropdown(); else scheduleHide();
+        });
+      }
 
       // Zoom olayları
       dropdown.querySelector('.zoom-out').addEventListener('click', function (e) {
@@ -179,19 +230,9 @@
         btn.addEventListener('click', function (e) {
           e.stopPropagation();
           applyTheme(btn.dataset.theme);
+          overrideAccentColorForTheme();
         });
       });
-
-      // Mobil
-      if (window.matchMedia('(hover: none)').matches) {
-        el.addEventListener('click', function (e) {
-          e.preventDefault(); e.stopPropagation();
-          wrapper.classList.toggle('open');
-        });
-        document.addEventListener('click', function (e) {
-          if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
-        });
-      }
     });
   }
 
@@ -211,11 +252,12 @@
     });
   }
 
-  /* ===== ÇALIŞTIR ===== */
+  /* ===== ANA ÇALIŞTIR ===== */
   function run() {
     fixMenu();
     buildViewDropdown();
     bindZoomShortcuts();
+    overrideAccentColorForTheme();
   }
 
   function init() {
@@ -230,9 +272,12 @@
     init();
   }
 
-  window.addEventListener('load', run);
+  window.addEventListener('load', function () {
+    run();
+    overrideAccentColorForTheme();
+  });
   setTimeout(run, 300);
-  setTimeout(run, 1200);
+  setTimeout(function () { run(); overrideAccentColorForTheme(); }, 1200);
 
   if (typeof MutationObserver !== 'undefined') {
     const observer = new MutationObserver(function () { run(); });
