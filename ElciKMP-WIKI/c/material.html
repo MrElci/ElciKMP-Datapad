@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materyal – ElciKMP-DataPad</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- Materyal Sayfası Stilleri ---- */
+    .material-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px 12px;
+      border-bottom: 1px dashed var(--accent-border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .material-header h1 {
+      font-size: 1.4rem;
+      color: var(--accent-color);
+      letter-spacing: -0.5px;
+      margin: 0;
+      border: none;
+      padding: 0;
+    }
+    .material-header h1::before {
+      content: "> ";
+      color: var(--data-phosphor);
+    }
+    .material-count {
+      font-size: 11px;
+      color: var(--data-amber);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+      padding: 20px 24px 40px;
+      animation: matFade 0.4s ease-out;
+    }
+    @keyframes matFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .material-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-md);
+      background: var(--accent-bg-panel);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: var(--text);
+      overflow: hidden;
+    }
+    .material-item::before {
+      content: "▣";
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      font-size: 10px;
+      color: var(--data-amber);
+      opacity: 0.5;
+      z-index: 1;
+    }
+    .material-item:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px var(--accent-soft);
+    }
+    .material-item img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--accent-border-muted);
+      background: var(--accent-bg-elevated);
+      transition: transform 0.3s ease;
+    }
+    .material-item:hover img {
+      transform: scale(1.03);
+    }
+    .material-item .name {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      word-break: break-all;
+      line-height: 1.3;
+      max-height: 2.6em;
+      overflow: hidden;
+      width: 100%;
+    }
+    .material-item .path {
+      font-size: 9px;
+      color: var(--data-amber);
+      opacity: 0.6;
+      text-align: center;
+      letter-spacing: 0.5px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Yükleniyor */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      grid-column: 1 / -1;
+    }
+    .loading::after {
+      content: "";
+      animation: dots 1.4s infinite;
+    }
+    @keyframes dots {
+      0%, 20% { content: "."; }
+      40% { content: ".."; }
+      60%, 100% { content: "..."; }
+    }
+
+    /* Arama kutusu */
+    .material-search {
+      flex: 1;
+      min-width: 180px;
+      max-width: 320px;
+      margin-left: auto;
+      position: relative;
+    }
+    .material-search input {
+      width: 100%;
+      padding: 8px 14px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .material-search input:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+    .material-search input::placeholder {
+      color: var(--text-subtle);
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 750px) {
+      .material-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+        padding: 14px;
+      }
+      .material-item img { height: 90px; }
+      .material-header { padding: 14px; }
+      .material-header h1 { font-size: 1.15rem; }
+      .material-search { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-window">
+    <div class="title-bar">
+      <div class="window-buttons"><span></span><span></span><span></span></div>
+      <div class="title-bar-text">MATERYAL / ASSET LIBRARY</div>
+    </div>
+
+    <div class="menu-bar">
+      <span data-nav="index.html">Ana Sayfa</span>
+      <span data-nav="players.html">Oyuncular</span>
+      <span data-nav="countries.html">Ülkeler</span>
+      <span data-nav="wars.html">Savaşlar</span>
+      <span data-nav="material.html">Materyal</span>
+    </div>
+
+    <div class="main-area" style="flex-direction: column; overflow-y: auto;">
+      <div class="material-header">
+        <h1>Materyal Kütüphanesi</h1>
+        <span class="material-count" id="matCount">YÜKLENİYOR</span>
+        <div class="material-search">
+          <input type="text" id="searchInput" placeholder="Görsel ara..." autocomplete="off">
+        </div>
+      </div>
+      <div id="materialContainer" class="material-grid">
+        <div class="loading">Görseller GitHub'dan çekiliyor</div>
+      </div>
+    </div>
+
+    <div class="status-bar">
+      <span id="statusText">SYSTEM: READY</span>
+      <span id="clock">--:--:--</span>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    // ===================== AYARLAR =====================
+    const GITHUB_OWNER = 'MrElci';
+    const GITHUB_REPO = 'ElciKMP-DataPad';
+    const BRANCH = 'main'; // veya 'master'
+    // Klasör öneki (img klasörü)
+    const IMG_PREFIX = 'img/';
+    // Desteklenen resim uzantıları
+    const IMG_EXTS = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.bmp'];
+
+    // ===================== DOM =====================
+    const container = document.getElementById('materialContainer');
+    const countEl = document.getElementById('matCount');
+    const statusEl = document.getElementById('statusText');
+    const clockEl = document.getElementById('clock');
+    const searchInput = document.getElementById('searchInput');
+
+    // ===================== SAAT =====================
+    function updateClock() {
+      const now = new Date();
+      clockEl.textContent = now.toLocaleTimeString('tr-TR', { hour12: false });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // ===================== MENÜ NAVİGASYON =====================
+    document.querySelectorAll('.menu-bar span[data-nav]').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => window.location.href = el.dataset.nav);
+    });
+
+    // ===================== GITHUB TREE ÇEK =====================
+    async function fetchRepoTree() {
+      const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/trees/${BRANCH}?recursive=1`;
+      const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
+      if (!res.ok) throw new Error('GitHub API: ' + res.status);
+      const data = await res.json();
+      return data.tree || [];
+    }
+
+    function isImage(path) {
+      const lower = path.toLowerCase();
+      return IMG_EXTS.some(ext => lower.endsWith(ext));
+    }
+
+    // ===================== GÖRSELLERİ YÜKLE =====================
+    let allFiles = [];
+
+    function renderGrid(files) {
+      if (!files.length) {
+        container.innerHTML = '<div class="loading">Sonuç yok</div>';
+        return;
+      }
+      container.innerHTML = '';
+      const frag = document.createDocumentFragment();
+
+      files.forEach(file => {
+        const raw = file.rawUrl;
+        const name = file.name;
+
+        const a = document.createElement('a');
+        a.className = 'material-item';
+        a.href = '#';
+        a.title = file.path;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          openViewer(file);
+        });
+
+        a.innerHTML = `
+          <img src="${raw}" alt="${name}" loading="lazy"
+               onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%22 y=%2255%22 font-size=%2214%22 fill=%22%23666%22 text-anchor=%22middle%22%3E?%3C/text%3E%3C/svg%3E'">
+          <span class="name">${name}</span>
+          <span class="path">${file.folder || '/'}</span>
+        `;
+        frag.appendChild(a);
+      });
+      container.appendChild(frag);
+    }
+
+    (async () => {
+      try {
+        statusEl.textContent = 'GITHUB: BAĞLANIYOR...';
+        const tree = await fetchRepoTree();
+
+        allFiles = tree
+          .filter(node => node.type === 'blob' && node.path.startsWith(IMG_PREFIX) && isImage(node.path))
+          .map(node => {
+            const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${BRANCH}/${node.path}`;
+            const name = node.path.split('/').pop();
+            const folder = node.path.substring(IMG_PREFIX.length).split('/').slice(0, -1).join('/');
+            return { path: node.path, name, folder, rawUrl };
+          })
+          .sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+
+        if (!allFiles.length) {
+          container.innerHTML = '<div class="loading">img klasöründe görsel bulunamadı</div>';
+          countEl.textContent = '0 ÖĞE';
+          statusEl.textContent = 'GITHUB: BOŞ';
+          return;
+        }
+
+        renderGrid(allFiles);
+        countEl.textContent = `${allFiles.length} ÖĞE`;
+        statusEl.textContent = `GITHUB: ${allFiles.length} GÖRSEL`;
+
+        // Arama
+        searchInput.addEventListener('input', (e) => {
+          const q = e.target.value.toLowerCase().trim();
+          if (!q) {
+            renderGrid(allFiles);
+            countEl.textContent = `${allFiles.length} ÖĞE`;
+            return;
+          }
+          const filtered = allFiles.filter(f =>
+            f.name.toLowerCase().includes(q) ||
+            f.path.toLowerCase().includes(q)
+          );
+          renderGrid(filtered);
+          countEl.textContent = `${filtered.length} / ${allFiles.length} ÖĞE`;
+        });
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = `<div class="loading">Hata: ${err.message}</div>`;
+        countEl.textContent = 'HATA';
+        statusEl.textContent = 'GITHUB: HATA';
+      }
+    })();
+
+    // ===================== LIGHTBOX =====================
+    function openViewer(file) {
+      let modal = document.getElementById('lightboxModal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'lightboxModal';
+        modal.className = 'lightbox-modal';
+        modal.innerHTML = `
+          <div class="lightbox-window">
+            <div class="lightbox-title-bar">
+              <span id="lightboxTitle">img</span>
+              <button class="lightbox-close">✕</button>
+            </div>
+            <div class="lightbox-content-wrapper">
+              <img class="lightbox-content" id="lightboxImg" src="" alt="">
+            </div>
+            <a class="lightbox-download" id="lightboxDownload" href="" download>↓ İndir</a>
+          </div>`;
+        document.body.appendChild(modal);
+
+        modal.querySelector('.lightbox-close').onclick = () => modal.classList.remove('active');
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) modal.classList.remove('active');
+        });
+      }
+      document.getElementById('lightboxImg').src = file.rawUrl;
+      document.getElementById('lightboxTitle').textContent = file.path;
+      const dl = document.getElementById('lightboxDownload');
+      dl.href = file.rawUrl;
+      dl.download = file.name;
+      modal.classList.add('active');
+    }
+  })();
+  </script>
+</body>
+</html>

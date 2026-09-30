@@ -1689,3 +1689,26 @@ li.addEventListener('click', (e) => {
         if (sidebar) sidebar.classList.remove('open');
     }
 });
+/* ===========================================
+   "DOSYA" MENÜSÜNÜ "MATERYAL" OLARAK DEĞİŞTİR
+   =========================================== */
+(function () {
+  function upgradeMenuBar() {
+    document.querySelectorAll('.menu-bar span').forEach(span => {
+      const text = span.textContent.trim().toLowerCase();
+      if (text === 'dosya' || text === 'file') {
+        span.textContent = 'Materyal';
+        span.style.cursor = 'pointer';
+        span.addEventListener('click', () => {
+          window.location.href = 'material.html';
+        });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', upgradeMenuBar);
+  } else {
+    upgradeMenuBar();
+  }
+})();
