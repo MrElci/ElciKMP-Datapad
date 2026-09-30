@@ -1,95 +1,249 @@
 /* ===========================================
-   MENU-FIX.JS – "Dosya"yı "Materyal"e Çevirir
-   Bu dosya bağımsız çalışır, script.js'e bağımlı değildir.
+   MENU-FIX.JS – Menü Sistemi V3
+   - Dosya → Materyal
+   - Görünüm dropdown (Ölçek + Tema)
+   - Tema sistemi (Datapad / Half-Life)
    =========================================== */
 (function () {
   'use strict';
 
+  /* ===== SABİTLER ===== */
+  const ZOOM_KEY = 'elcikmp_zoom';
+  const THEME_KEY = 'elcikmp_theme';
+  const ZOOM_MIN = 50;
+  const ZOOM_MAX = 200;
+  const ZOOM_STEP = 10;
+  const ZOOM_DEFAULT = 100;
+  const ZOOM_PRESETS = [75, 90, 100, 110, 125, 150];
+
+  const THEMES = [
+    { id: 'datapad',  name: 'Datapad Theme',    desc: 'Varsayılan GitHub Glass' },
+    { id: 'halflife', name: 'Half-Life Theme',  desc: 'Valve HL2 Grim Terminal' }
+  ];
+
+  /* ===== ZOOM ===== */
+  function getZoom() {
+    const v = parseInt(localStorage.getItem(ZOOM_KEY), 10);
+    return (isNaN(v) || v < ZOOM_MIN || v > ZOOM_MAX) ? ZOOM_DEFAULT : v;
+  }
+
+  function applyZoom(value) {
+    value = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(value)));
+    const factor = value / 100;
+    const root = document.documentElement;
+    if ('zoom' in root.style || CSS.supports('zoom', '1')) {
+      root.style.zoom = factor;
+    } else {
+      document.body.style.transform = 'scale(' + factor + ')';
+      document.body.style.transformOrigin = 'top left';
+      document.body.style.width = (100 / factor) + '%';
+    }
+    localStorage.setItem(ZOOM_KEY, value);
+    document.querySelectorAll('.zoom-display').forEach(el => {
+      el.textContent = value + '%';
+    });
+    document.querySelectorAll('.zoom-preset').forEach(el => {
+      el.classList.toggle('active', parseInt(el.dataset.zoom, 10) === value);
+    });
+  }
+
+  /* ===== TEMA ===== */
+  function getTheme() {
+    const t = localStorage.getItem(THEME_KEY);
+    return THEMES.some(x => x.id === t) ? t : 'datapad';
+  }
+
+  function applyTheme(themeId) {
+    if (!THEMES.some(t => t.id === themeId)) themeId = 'datapad';
+    document.body.classList.remove('theme-halflife');
+    if (themeId === 'halflife') {
+      document.body.classList.add('theme-halflife');
+    }
+    localStorage.setItem(THEME_KEY, themeId);
+
+    document.querySelectorAll('.theme-option').forEach(el => {
+      const isActive = el.dataset.theme === themeId;
+      el.classList.toggle('active', isActive);
+      const check = el.querySelector('.theme-check');
+      if (check) check.textContent = isActive ? '▣' : '▢';
+    });
+
+    // Datapad temasına dönüldüğünde accent rengi yeniden uygula
+    if (themeId === 'datapad' && typeof window.applyAccentColor === 'function') {
+      window.applyAccentColor();
+    }
+  }
+
+  /* ===== DOSYA → MATERYAL ===== */
   function fixMenu() {
-    // Tüm olası seçicileri dene
-    const selectors = [
-      '.menu-bar > *',
-      '.menu-bar span',
-      '.menu-bar a',
-      '.menu-bar li',
-      '.menu-bar div'
-    ];
-
+    const selectors = ['.menu-bar > *', '.menu-bar span', '.menu-bar a', '.menu-bar li', '.menu-bar div'];
     let fixed = false;
-
     selectors.forEach(sel => {
       document.querySelectorAll(sel).forEach(el => {
         if (el.dataset.__fixed === '1') return;
         const text = (el.textContent || '').trim();
-
-        // "Dosya" veya "File" (case-insensitive, Türkçe karakter desteği)
         if (/^(dosya|file)$/i.test(text)) {
           el.dataset.__fixed = '1';
           el.textContent = 'Materyal';
           el.style.cursor = 'pointer';
-          el.style.userSelect = 'none';
-
-          // Hem onclick hem de addEventListener ile bağla
           el.onclick = function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+            e.preventDefault(); e.stopPropagation();
             window.location.href = 'material.html';
-            return false;
           };
           el.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+            e.preventDefault(); e.stopPropagation();
             window.location.href = 'material.html';
           });
-
           fixed = true;
-          console.log('[menu-fix] Dönüştürüldü:', el);
         }
       });
     });
-
     return fixed;
   }
 
-  // Birden fazla zamanda dene
-  function run() {
-    if (!fixMenu()) {
-      // Bulunamadıysa biraz sonra tekrar dene
-      setTimeout(fixMenu, 200);
-      setTimeout(fixMenu, 500);
-      setTimeout(fixMenu, 1000);
-      setTimeout(fixMenu, 2000);
-    }
+  /* ===== GÖRÜNÜM DROPDOWN ===== */
+  function buildViewDropdown() {
+    document.querySelectorAll('.menu-bar > *').forEach(el => {
+      if (el.dataset.__viewFixed === '1') return;
+      const text = (el.textContent || '').trim();
+      if (!/^görünüm$/i.test(text)) return;
+
+      el.dataset.__viewFixed = '1';
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'menu-dropdown-wrapper';
+      el.parentNode.insertBefore(wrapper, el);
+      wrapper.appendChild(el);
+      el.classList.add('menu-dropdown-trigger');
+      el.style.cursor = 'pointer';
+
+      const currentTheme = getTheme();
+
+      const dropdown = document.createElement('div');
+      dropdown.className = 'menu-dropdown-content';
+      dropdown.innerHTML =
+        // ÖLÇEK
+        '<div class="dropdown-section">' +
+          '<div class="dropdown-section-title">' +
+            '<span class="section-icon">▤</span> Ölçek' +
+          '</div>' +
+          '<div class="dropdown-section-body">' +
+            '<div class="zoom-controls">' +
+              '<button class="zoom-btn zoom-out" title="Küçült" type="button">−</button>' +
+              '<div class="zoom-display">' + getZoom() + '%</div>' +
+              '<button class="zoom-btn zoom-in" title="Büyüt" type="button">+</button>' +
+            '</div>' +
+            '<div class="zoom-presets">' +
+              ZOOM_PRESETS.map(function (z) {
+                return '<button class="zoom-preset" data-zoom="' + z + '" type="button">' + z + '%</button>';
+              }).join('') +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        // TEMA
+        '<div class="dropdown-section">' +
+          '<div class="dropdown-section-title">' +
+            '<span class="section-icon">◈</span> Tema' +
+          '</div>' +
+          '<div class="dropdown-section-body">' +
+            '<div class="theme-list">' +
+              THEMES.map(function (t) {
+                return '<button class="theme-option' + (t.id === currentTheme ? ' active' : '') + '" data-theme="' + t.id + '" type="button">' +
+                  '<span class="theme-check">' + (t.id === currentTheme ? '▣' : '▢') + '</span>' +
+                  '<span class="theme-info">' +
+                    '<span class="theme-name">' + t.name + '</span>' +
+                    '<span class="theme-desc">' + t.desc + '</span>' +
+                  '</span>' +
+                '</button>';
+              }).join('') +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      wrapper.appendChild(dropdown);
+
+      // Zoom olayları
+      dropdown.querySelector('.zoom-out').addEventListener('click', function (e) {
+        e.stopPropagation(); applyZoom(getZoom() - ZOOM_STEP);
+      });
+      dropdown.querySelector('.zoom-in').addEventListener('click', function (e) {
+        e.stopPropagation(); applyZoom(getZoom() + ZOOM_STEP);
+      });
+      dropdown.querySelectorAll('.zoom-preset').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation(); applyZoom(parseInt(btn.dataset.zoom, 10));
+        });
+      });
+
+      // Tema olayları
+      dropdown.querySelectorAll('.theme-option').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          applyTheme(btn.dataset.theme);
+        });
+      });
+
+      // Mobil
+      if (window.matchMedia('(hover: none)').matches) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault(); e.stopPropagation();
+          wrapper.classList.toggle('open');
+        });
+        document.addEventListener('click', function (e) {
+          if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
+        });
+      }
+    });
   }
 
-  // DOM hazır olduğunda çalıştır
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', run);
-  } else {
+  /* ===== KLAVYE ===== */
+  function bindZoomShortcuts() {
+    if (window.__zoomShortcutsBound) return;
+    window.__zoomShortcutsBound = true;
+    document.addEventListener('keydown', function (e) {
+      if (!(e.ctrlKey || e.metaKey)) return;
+      if (e.key === '+' || e.key === '=') {
+        e.preventDefault(); applyZoom(getZoom() + ZOOM_STEP);
+      } else if (e.key === '-') {
+        e.preventDefault(); applyZoom(getZoom() - ZOOM_STEP);
+      } else if (e.key === '0') {
+        e.preventDefault(); applyZoom(ZOOM_DEFAULT);
+      }
+    });
+  }
+
+  /* ===== ÇALIŞTIR ===== */
+  function run() {
+    fixMenu();
+    buildViewDropdown();
+    bindZoomShortcuts();
+  }
+
+  function init() {
+    applyZoom(getZoom());
+    applyTheme(getTheme());
     run();
   }
 
-  // window load'da da çalıştır
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
   window.addEventListener('load', run);
+  setTimeout(run, 300);
+  setTimeout(run, 1200);
 
-  // MutationObserver ile DOM değişimlerini yakala
   if (typeof MutationObserver !== 'undefined') {
-    const observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (m) {
-        if (m.addedNodes && m.addedNodes.length) {
-          fixMenu();
-        }
-      });
-    });
-
+    const observer = new MutationObserver(function () { run(); });
     document.addEventListener('DOMContentLoaded', function () {
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
+      observer.observe(document.body, { childList: true, subtree: true });
     });
   }
 
-  // Global olarak da erişilebilir yap
   window.fixMenuDosya = fixMenu;
+  window.applyZoom = applyZoom;
+  window.getZoom = getZoom;
+  window.applyTheme = applyTheme;
+  window.getTheme = getTheme;
 })();

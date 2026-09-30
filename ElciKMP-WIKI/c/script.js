@@ -911,6 +911,7 @@ function buildQuickAccess() {
    RENK SENKRONİZASYONU (Accent + Dinamik Arkaplan)
    =========================================== */
 function applyAccentColor() {
+    if (document.body.classList.contains('theme-halflife')) return;  // ← BUNU EKLE
     const h1 = document.querySelector('h1.article-title');
     if (!h1) return;
 
@@ -963,6 +964,9 @@ function applyAccentColor() {
         `hsla(${hue}, 25%, 20%, 0.6)`);
     document.documentElement.style.setProperty('--accent-soft',
         `hsla(${hue}, 70%, 60%, 0.15)`);
+    
+
+        // ... gerisi ayn
 }
 /* ===========================================
    CMD TERMİNAL SİSTEMİ (ELCIKMP DATAPAD)
