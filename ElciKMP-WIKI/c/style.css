@@ -1957,801 +1957,310 @@ details[open] summary::before {
     display: block;
   }
 /* ===========================================
-   MENU DROPDOWN (Görünüm)
+   HALF-LIFE 2 – TAM YAPISAL TEMA
    =========================================== */
-.menu-dropdown-wrapper {
-  position: relative;
-  display: inline-block;
-}
 
-.menu-dropdown-trigger {
-  position: relative;
-}
-
-.menu-dropdown-trigger::after {
-  content: "▾";
-  margin-left: 6px;
-  font-size: 9px;
-  opacity: 0.6;
-  display: inline-block;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.menu-dropdown-wrapper:hover .menu-dropdown-trigger::after {
-  transform: rotate(180deg);
-  opacity: 1;
-}
-
-/* Dropdown kutusu */
-.menu-dropdown-content {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  min-width: 240px;
-  background: var(--accent-bg-elevated);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid var(--accent-border);
-  border-radius: var(--radius-md);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.55), 0 0 0 1px var(--accent-soft);
-  padding: 8px;
-  z-index: 30000;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
-  pointer-events: none;
-}
-
-/* Hover köprüsü — fare kutuya geçerken kapanmasın */
-.menu-dropdown-content::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: transparent;
-}
-
-/* Hover ile aç */
-.menu-dropdown-wrapper:hover .menu-dropdown-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Dropdown bölümleri */
-.dropdown-section {
-  margin-bottom: 4px;
-}
-.dropdown-section:last-child {
-  margin-bottom: 0;
-}
-
-.dropdown-section-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  color: var(--data-amber);
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  border-bottom: 1px dashed var(--accent-border-muted);
-  margin-bottom: 6px;
-  user-select: none;
-}
-
-.section-icon {
-  color: var(--data-phosphor);
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.dropdown-section-body {
-  padding: 4px 6px 8px;
-}
-
-.dropdown-section-disabled {
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-.dropdown-placeholder {
-  font-size: 11px;
-  color: var(--text-subtle);
-  text-align: center;
-  padding: 8px;
-  font-style: italic;
-  letter-spacing: 0.5px;
-}
-
-/* ---- Zoom Kontrolleri ---- */
-.zoom-controls {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-
-.zoom-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent-bg-panel);
-  border: 1px solid var(--accent-border);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  user-select: none;
-}
-.zoom-btn:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-  transform: translateY(-1px);
-}
-.zoom-btn:active {
-  transform: translateY(0) scale(0.96);
-}
-
-.zoom-display {
-  flex: 1;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent-color);
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid var(--accent-border-muted);
-  border-radius: var(--radius-sm);
-  padding: 6px 8px;
-  letter-spacing: 0.8px;
-  user-select: none;
-}
-
-.zoom-presets {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-}
-
-.zoom-preset {
-  padding: 6px 4px;
-  background: var(--accent-bg-panel);
-  border: 1px solid var(--accent-border-muted);
-  border-radius: var(--radius-sm);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  letter-spacing: 0.3px;
-}
-.zoom-preset:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-  transform: translateY(-1px);
-}
-.zoom-preset.active {
-  background: var(--accent-soft);
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-  font-weight: 700;
-  box-shadow: 0 0 0 1px var(--accent-soft), inset 0 0 10px var(--accent-soft);
-}
-.zoom-preset.active::before {
-  content: "▸ ";
-  font-size: 9px;
-  color: var(--data-phosphor);
-}
-
-/* ---- Mobil (dokunmatik) ---- */
-@media (hover: none) {
-  .menu-dropdown-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
-    min-width: 260px;
-    max-width: 88vw;
-  }
-  .menu-dropdown-content::before { display: none; }
-
-  .menu-dropdown-wrapper.open .menu-dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  /* Hover efektini kapat, tıklama ile aç */
-  .menu-dropdown-wrapper:hover .menu-dropdown-content {
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-  .menu-dropdown-wrapper.open:hover .menu-dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-/* ===========================================
-   GÖRÜNÜM MENÜSÜ (Tıklama ile açılır)
-   =========================================== */
-.view-menu-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.view-menu-trigger {
-  cursor: pointer;
-  user-select: none;
-}
-
-.view-menu-trigger::after {
-  content: "▾";
-  margin-left: 6px;
-  font-size: 10px;
-  opacity: 0.7;
-  transition: transform 0.2s ease;
-  display: inline-block;
-}
-
-.view-menu-trigger.active::after {
-  transform: rotate(180deg);
-}
-
-.view-menu-dropdown {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  min-width: 260px;
-  background: #1a1f26;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(88,166,255,0.1);
-  padding: 8px;
-  z-index: 999999;
-  display: none;
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.view-menu-dropdown.open {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Satırlar */
-.vm-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 10px;
-  gap: 12px;
-}
-
-.vm-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #c9d1d9;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
-
-.vm-divider {
-  height: 1px;
-  background: #21262d;
-  margin: 4px 0;
-}
-
-/* Zoom */
-.vm-zoom-controls {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.vm-zoom-btn {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #21262d;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  color: #c9d1d9;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  line-height: 1;
-  padding: 0;
-}
-.vm-zoom-btn:hover {
-  background: rgba(88, 166, 255, 0.15);
-  border-color: #58a6ff;
-  color: #58a6ff;
-}
-.vm-zoom-btn:active {
-  transform: scale(0.94);
-}
-
-.vm-zoom-controls .zoom-value {
-  min-width: 56px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: #58a6ff;
-  background: rgba(0,0,0,0.4);
-  border: 1px solid #21262d;
-  border-radius: 6px;
-  padding: 5px 8px;
-  letter-spacing: 0.5px;
-}
-
-/* Tema toggle */
-.vm-theme-toggle {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #21262d;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  color: #c9d1d9;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  padding: 0;
-}
-.vm-theme-toggle:hover {
-  background: rgba(88, 166, 255, 0.15);
-  border-color: #58a6ff;
-  color: #58a6ff;
-}
-
-.vm-arrow {
-  font-size: 10px;
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-/* Tema listesi */
-.vm-theme-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 4px 6px 6px;
-  animation: themeListIn 0.2s ease-out;
-}
-@keyframes themeListIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.theme-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  color: #8b949e;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.15s ease;
-  width: 100%;
-}
-.theme-item:hover {
-  background: #21262d;
-  border-color: #30363d;
-  color: #c9d1d9;
-}
-.theme-item.active {
-  background: rgba(88, 166, 255, 0.12);
-  border-color: #58a6ff;
-  color: #58a6ff;
-}
-.theme-dot {
-  font-size: 10px;
-  color: #6e7681;
-  transition: color 0.15s ease;
-}
-.theme-item.active .theme-dot {
-  color: #58a6ff;
-  text-shadow: 0 0 6px #58a6ff;
-}
-.theme-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  flex: 1;
-}
-.theme-name {
-  font-weight: 600;
-  font-size: 12px;
-}
-.theme-desc {
-  font-size: 10px;
-  opacity: 0.7;
-}
-
-/* ===========================================
-   HALF-LIFE 2 THEME – Tam Kapsamlı
-   =========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
-
+/* Font override */
 html[data-theme="halflife"] {
   --accent-color: #ff9c2e !important;
   --accent-glow: 0 0 14px rgba(255,156,46,0.6) !important;
+  --text: #d4d0b4 !important;
+  --text-muted: #8a8672 !important;
   --accent-bg: #0e1108 !important;
   --accent-bg-elevated: #161a10 !important;
-  --accent-bg-panel: rgba(22, 26, 16, 0.95) !important;
+  --accent-bg-panel: #131608 !important;
   --accent-bg-hover: #20261a !important;
   --accent-border: #3a3d2e !important;
   --accent-border-muted: #262a1c !important;
-  --accent-soft: rgba(255, 156, 46, 0.16) !important;
+  --accent-soft: rgba(255,156,46,0.15) !important;
   --data-amber: #ff9c2e !important;
   --data-phosphor: #a8c44c !important;
-  --data-dim: #4a4a3a !important;
-  --text: #d4d0b4 !important;
-  --text-muted: #8a8672 !important;
-  --text-subtle: #5a5848 !important;
   --radius-sm: 0 !important;
   --radius-md: 0 !important;
   --radius-lg: 0 !important;
-  --glass-blur: 0px !important;
+  --glass-blur: 0 !important;
   --glass-border: #3a3d2e !important;
-  --font-mono: 'Rajdhani', 'Segoe UI', Tahoma, sans-serif !important;
+  --glass-shadow: none !important;
+  --glass-shadow-hover: none !important;
 }
 
-/* Zemin */
+/* ==== TÜM ELEMENTLERE FONT BAS ==== */
+html[data-theme="halflife"] *,
+html[data-theme="halflife"] *::before,
+html[data-theme="halflife"] *::after {
+  font-family: 'Rajdhani', 'Segoe UI', Tahoma, sans-serif !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* ==== ZEMİN ==== */
 html[data-theme="halflife"] body {
   background: #0e1108 !important;
   background-image:
-    linear-gradient(rgba(255, 156, 46, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 156, 46, 0.04) 1px, transparent 1px),
-    repeating-linear-gradient(
-      45deg,
-      transparent 0,
-      transparent 2px,
-      rgba(255, 156, 46, 0.012) 2px,
-      rgba(255, 156, 46, 0.012) 3px
-    ) !important;
-  background-size: 40px 40px, 40px 40px, 8px 8px !important;
-  font-family: 'Rajdhani', sans-serif !important;
+    linear-gradient(rgba(255,156,46,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,156,46,0.04) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
   color: #d4d0b4 !important;
   font-size: 15px !important;
-  letter-spacing: 0.3px !important;
 }
-
-/* Scanlines kapat, yerine noise + vignette */
 html[data-theme="halflife"] body::after {
-  background:
-    radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.7) 100%),
-    repeating-linear-gradient(0deg,
-      rgba(0,0,0,0.08) 0px,
-      rgba(0,0,0,0.08) 1px,
-      transparent 1px,
-      transparent 4px) !important;
-  mix-blend-mode: multiply !important;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.85) 100%) !important;
+  mix-blend-mode: normal !important;
   animation: none !important;
-  opacity: 0.85 !important;
 }
 html[data-theme="halflife"] body::before {
-  background: radial-gradient(ellipse at top left, rgba(255,156,46,0.04), transparent 60%) !important;
+  background: radial-gradient(circle at 50% 0%, rgba(255,156,46,0.06), transparent 60%) !important;
   animation: none !important;
 }
 
-/* Ana pencere */
+/* ==== ANA PENCERE - sert çerçeve ==== */
 html[data-theme="halflife"] .app-window {
   background: #131608 !important;
-  border: 1px solid #3a3d2e !important;
-  border-top: 2px solid #ff9c2e !important;
-  box-shadow:
-    0 0 0 1px #000,
-    0 0 40px rgba(255,156,46,0.08),
-    0 0 80px rgba(0,0,0,0.9) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-radius: 0 !important;
+  border: 2px solid #3a3d2e !important;
+  border-top: 4px solid #ff9c2e !important;
+  box-shadow: 0 0 60px rgba(255,156,46,0.1), inset 0 0 120px rgba(0,0,0,0.6) !important;
 }
 
-/* Başlık çubuğu */
+/* ==== BAŞLIK ÇUBUĞU ==== */
 html[data-theme="halflife"] .title-bar {
-  background: linear-gradient(180deg, #1e2214 0%, #131608 100%) !important;
+  background: linear-gradient(180deg, #1e2214 0%, #0a0c06 100%) !important;
   border-bottom: 2px solid #ff9c2e !important;
-  padding: 10px 18px !important;
-  position: relative !important;
+  padding: 14px 20px !important;
 }
-html[data-theme="halflife"] .title-bar::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 2px !important;
-  background: #ff9c2e !important;
-  box-shadow: 0 0 10px #ff9c2e !important;
-}
-html[data-theme="halflife"] .title-bar::after {
-  background: none !important;
-}
+html[data-theme="halflife"] .title-bar::after { display: none !important; }
 html[data-theme="halflife"] .title-bar-text {
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 15px !important;
+  font-size: 17px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 3px !important;
-  text-shadow: 0 0 8px rgba(255,156,46,0.5) !important;
+  letter-spacing: 4px !important;
+  text-shadow: 0 0 12px rgba(255,156,46,0.6) !important;
 }
 html[data-theme="halflife"] .title-bar-text::before {
   content: "λ " !important;
   color: #ff9c2e !important;
-  font-size: 18px !important;
+  font-size: 22px !important;
   font-weight: 900 !important;
-  margin-right: 4px !important;
+  margin-right: 8px !important;
+  display: inline !important;
 }
 html[data-theme="halflife"] .window-buttons span {
-  background: #2e2e22 !important;
-  border: 1px solid #3a3d2e !important;
+  background: #3a3d2e !important;
+  border: 1px solid #ff9c2e !important;
   border-radius: 0 !important;
   box-shadow: none !important;
 }
 
-/* Menü çubuğu */
+/* ==== MENÜ ÇUBUĞU ==== */
 html[data-theme="halflife"] .menu-bar {
-  background: #0a0c06 !important;
-  border-bottom: 1px solid #3a3d2e !important;
-  padding: 0 8px !important;
+  background: #000 !important;
+  border-bottom: 2px solid #3a3d2e !important;
+  padding: 0 12px !important;
   gap: 0 !important;
 }
-html[data-theme="halflife"] .menu-bar span {
+html[data-theme="halflife"] .menu-bar > * {
   color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
   font-size: 13px !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  padding: 10px 18px !important;
+  letter-spacing: 3px !important;
+  padding: 12px 20px !important;
   border-radius: 0 !important;
-  border-bottom: 2px solid transparent !important;
-  transition: all 0.15s ease !important;
+  border-bottom: 3px solid transparent !important;
+  background: transparent !important;
+  position: relative !important;
 }
-html[data-theme="halflife"] .menu-bar span::before {
-  content: "" !important;
-  display: none !important;
-}
-html[data-theme="halflife"] .menu-bar span:hover {
+html[data-theme="halflife"] .menu-bar > *::before { display: none !important; content: none !important; }
+html[data-theme="halflife"] .menu-bar > *:hover,
+html[data-theme="halflife"] .menu-bar > *:focus {
   background: transparent !important;
   color: #ff9c2e !important;
   border-bottom-color: #ff9c2e !important;
   transform: none !important;
 }
-html[data-theme="halflife"] .menu-bar span.active {
-  color: #ff9c2e !important;
-  border-bottom-color: #ff9c2e !important;
-}
 
-/* Toolbar (sekmeler) */
+/* ==== TOOLBAR ==== */
 html[data-theme="halflife"] .toolbar {
-  background: #0e1108 !important;
-  border-bottom: 1px solid #3a3d2e !important;
-  padding: 8px 16px !important;
-  gap: 2px !important;
+  background: #0a0c06 !important;
+  border-bottom: 2px solid #3a3d2e !important;
+  padding: 10px 16px !important;
+  gap: 4px !important;
 }
 html[data-theme="halflife"] .toolbar a {
   background: transparent !important;
   border: none !important;
-  border-bottom: 2px solid transparent !important;
-  border-radius: 0 !important;
+  border-left: 3px solid transparent !important;
   color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-  padding: 8px 14px !important;
-  transition: all 0.15s ease !important;
+  letter-spacing: 2px !important;
+  padding: 6px 16px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
 }
 html[data-theme="halflife"] .toolbar a::before,
-html[data-theme="halflife"] .toolbar a::after {
-  content: "" !important;
-  display: none !important;
-}
+html[data-theme="halflife"] .toolbar a::after { content: none !important; display: none !important; }
 html[data-theme="halflife"] .toolbar a:hover {
   background: rgba(255,156,46,0.08) !important;
   color: #ff9c2e !important;
-  border-bottom-color: #ff9c2e !important;
+  border-left-color: #ff9c2e !important;
   transform: none !important;
   box-shadow: none !important;
 }
 html[data-theme="halflife"] .toolbar a.active {
-  background: rgba(255,156,46,0.12) !important;
+  background: rgba(255,156,46,0.15) !important;
   color: #ff9c2e !important;
-  border-bottom-color: #ff9c2e !important;
+  border-left-color: #ff9c2e !important;
   box-shadow: none !important;
-  font-weight: 700 !important;
 }
 
-/* Sidebar */
+/* ==== SIDEBAR - Tamamen farklı görünüm ==== */
 html[data-theme="halflife"] .sidebar {
-  background: #0a0c06 !important;
-  border-right: 1px solid #3a3d2e !important;
-  backdrop-filter: none !important;
-  padding: 16px 12px !important;
+  background: #000 !important;
+  border-right: 3px solid #3a3d2e !important;
+  padding: 20px 14px !important;
 }
 html[data-theme="halflife"] .sidebar-title {
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 3px !important;
-  border-bottom: 1px solid #3a3d2e !important;
-  padding-bottom: 10px !important;
-  margin-bottom: 12px !important;
-}
-html[data-theme="halflife"] .sidebar-title::before {
-  content: "◆ " !important;
-  color: #ff9c2e !important;
-  animation: pulse 2s infinite !important;
-}
-html[data-theme="halflife"] .sidebar li {
-  color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
   font-size: 14px !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-  padding: 8px 12px !important;
-  border-radius: 0 !important;
-  border-left: 3px solid transparent !important;
-  margin-bottom: 2px !important;
-}
-html[data-theme="halflife"] .sidebar li::before {
-  content: "▸" !important;
-  color: #ff9c2e !important;
-  margin-right: 8px !important;
-  opacity: 0.4 !important;
-  display: inline-block !important;
-}
-html[data-theme="halflife"] .sidebar li:hover {
-  background: rgba(255,156,46,0.06) !important;
-  color: #d4d0b4 !important;
-  border-left-color: #ff9c2e !important;
-  padding-left: 14px !important;
-}
-html[data-theme="halflife"] .sidebar li:hover::before {
-  opacity: 1 !important;
-}
-html[data-theme="halflife"] .sidebar li.active {
-  background: rgba(255,156,46,0.12) !important;
-  color: #ff9c2e !important;
-  border-left-color: #ff9c2e !important;
-  font-weight: 700 !important;
-}
-html[data-theme="halflife"] .sidebar li.active::before {
-  opacity: 1 !important;
-}
-
-/* İçerik */
-html[data-theme="halflife"] .content-pane {
-  background: #0e1108 !important;
-  color: #d4d0b4 !important;
-  padding: 32px 40px !important;
-}
-
-/* H1 */
-html[data-theme="halflife"] h1.article-title {
-  color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 2.1rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
   border-bottom: 2px solid #ff9c2e !important;
-  padding-bottom: 12px !important;
-  text-shadow: 0 0 16px rgba(255,156,46,0.5) !important;
-  position: relative !important;
+  padding: 10px 0 !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+}
+html[data-theme="halflife"] .sidebar-title::before {
+  content: "◤ " !important;
+  color: #ff9c2e !important;
+}
+html[data-theme="halflife"] .sidebar ul { gap: 4px !important; }
+html[data-theme="halflife"] .sidebar li {
+  background: #0a0c06 !important;
+  border: 1px solid #3a3d2e !important;
+  border-left: 4px solid #3a3d2e !important;
+  color: #8a8672 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 10px 14px !important;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  transition: all 0.15s ease !important;
+}
+html[data-theme="halflife"] .sidebar li::before {
+  content: "▸ " !important;
+  color: #ff9c2e !important;
+  opacity: 0.5 !important;
+  margin-right: 4px !important;
+  display: inline !important;
+}
+html[data-theme="halflife"] .sidebar li:hover {
+  background: rgba(255,156,46,0.08) !important;
+  border-color: #ff9c2e !important;
+  border-left-color: #ff9c2e !important;
+  color: #d4d0b4 !important;
+  padding-left: 14px !important;
+}
+html[data-theme="halflife"] .sidebar li:hover::before { opacity: 1 !important; }
+html[data-theme="halflife"] .sidebar li.active {
+  background: rgba(255,156,46,0.18) !important;
+  border-color: #ff9c2e !important;
+  border-left-color: #ff9c2e !important;
+  color: #ff9c2e !important;
+}
+
+/* ==== İÇERİK ==== */
+html[data-theme="halflife"] .content-pane {
+  background: #0e1108 !important;
+  padding: 40px 48px !important;
+}
+
+/* ==== H1 ==== */
+html[data-theme="halflife"] h1.article-title {
+  color: #ff9c2e !important;
+  font-size: 2.4rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 4px !important;
+  border-bottom: 3px double #ff9c2e !important;
+  padding: 0 0 18px 0 !important;
+  margin-bottom: 24px !important;
+  text-shadow: 0 0 20px rgba(255,156,46,0.5) !important;
+  background: linear-gradient(90deg, rgba(255,156,46,0.08) 0%, transparent 100%) !important;
+  padding-left: 20px !important;
 }
 html[data-theme="halflife"] h1.article-title::before {
   content: "λ " !important;
   color: #ff9c2e !important;
+  font-size: 2.6rem !important;
   font-weight: 900 !important;
-  font-size: 2.3rem !important;
-  margin-right: 8px !important;
+  margin-right: 12px !important;
+  text-shadow: 0 0 20px #ff9c2e !important;
 }
 html[data-theme="halflife"] h1.article-title::after {
   content: "▌" !important;
   color: #ff9c2e !important;
-  font-size: 1.4rem !important;
+  font-size: 1.6rem !important;
   margin-left: 8px !important;
   animation: blink 1.1s step-end infinite !important;
   opacity: 1 !important;
 }
 
-/* H2 */
+/* ==== H2 - Bar arka planı ile ==== */
 html[data-theme="halflife"] h2 {
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 1.4rem !important;
+  font-size: 1.5rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-  border-bottom: 1px solid #3a3d2e !important;
-  padding: 8px 0 10px 0 !important;
-  margin: 36px 0 16px !important;
-  background: linear-gradient(90deg, rgba(255,156,46,0.06) 0%, transparent 100%) !important;
-  padding-left: 14px !important;
-  position: relative !important;
+  letter-spacing: 3px !important;
+  padding: 12px 18px !important;
+  margin: 40px 0 20px !important;
+  background: linear-gradient(90deg, #1e2214 0%, transparent 100%) !important;
+  border-left: 5px solid #ff9c2e !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: inset 0 0 20px rgba(255,156,46,0.08) !important;
 }
-html[data-theme="halflife"] h2::before {
-  content: "" !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 8px !important;
-  bottom: 10px !important;
-  width: 4px !important;
-  background: #ff9c2e !important;
-  box-shadow: 0 0 8px #ff9c2e !important;
-}
-html[data-theme="halflife"] h2::after {
-  content: "" !important;
-}
+html[data-theme="halflife"] h2::before { content: none !important; }
 
-/* H3 */
+/* ==== H3 ==== */
 html[data-theme="halflife"] h3 {
   color: #d4d0b4 !important;
-  font-family: 'Rajdhani', sans-serif !important;
   font-size: 1.15rem !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-  border-left: 4px solid #ff9c2e !important;
-  padding-left: 14px !important;
-  margin: 24px 0 10px !important;
+  letter-spacing: 2px !important;
+  border-left: 4px solid #a8c44c !important;
+  padding-left: 16px !important;
+  margin: 28px 0 12px !important;
 }
 
-/* Paragraf */
+/* ==== PARAGRAF & LINK ==== */
 html[data-theme="halflife"] p {
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 15px !important;
-  line-height: 1.7 !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
   color: #c4c0a4 !important;
 }
 html[data-theme="halflife"] a {
   color: #ff9c2e !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed rgba(255,156,46,0.4) !important;
 }
 html[data-theme="halflife"] a:hover {
   color: #ffbb55 !important;
-  text-shadow: 0 0 8px rgba(255,156,46,0.5) !important;
+  text-shadow: 0 0 10px rgba(255,156,46,0.6) !important;
+  border-bottom-style: solid !important;
 }
 
-/* Infobox */
+/* ==== INFOBOX ==== */
 html[data-theme="halflife"] .infobox,
 html[data-theme="halflife"] .warinfobox,
 html[data-theme="halflife"] .krono-box,
@@ -2759,152 +2268,135 @@ html[data-theme="halflife"] .wiki-thumb,
 html[data-theme="halflife"] .rff-box {
   background: #131608 !important;
   border: 1px solid #3a3d2e !important;
-  border-top: 3px solid #ff9c2e !important;
-  border-radius: 0 !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.7) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  color: #d4d0b4 !important;
+  border-top: 5px solid #ff9c2e !important;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.6) !important;
+  padding: 16px !important;
 }
 html[data-theme="halflife"] .infobox::before,
-html[data-theme="halflife"] .infobox::after {
-  display: none !important;
-}
+html[data-theme="halflife"] .infobox::after { content: none !important; display: none !important; }
 html[data-theme="halflife"] .infobox-title {
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 1.2rem !important;
+  font-size: 1.3rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  border-bottom: 1px solid #3a3d2e !important;
-  padding-bottom: 10px !important;
-  margin-bottom: 12px !important;
-  text-shadow: 0 0 10px rgba(255,156,46,0.3) !important;
+  letter-spacing: 3px !important;
+  border-bottom: 2px solid #ff9c2e !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 14px !important;
+  text-shadow: 0 0 12px rgba(255,156,46,0.4) !important;
 }
 html[data-theme="halflife"] .infobox-subtitle {
   color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
   font-style: normal !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 1.5px !important;
   font-size: 12px !important;
+  text-align: center !important;
 }
 html[data-theme="halflife"] .infobox-label {
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 1.2px !important;
   font-size: 11px !important;
 }
 html[data-theme="halflife"] .infobox-value {
   color: #d4d0b4 !important;
-  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 500 !important;
 }
 html[data-theme="halflife"] .infobox-row {
-  border-bottom: 1px solid #262a1c !important;
+  border-bottom: 1px dashed #3a3d2e !important;
+  padding: 8px 0 !important;
 }
 html[data-theme="halflife"] .flag-box {
-  background: #0a0c06 !important;
+  background: #000 !important;
   border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
+  padding: 6px !important;
 }
-html[data-theme="halflife"] .flag-label {
-  color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-}
+html[data-theme="halflife"] .flag-label,
 html[data-theme="halflife"] .map-label {
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-}
-html[data-theme="halflife"] .infobox-map {
-  background: #0a0c06 !important;
-  border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
-}
-
-/* Alıntı */
-html[data-theme="halflife"] blockquote {
-  background: rgba(255,156,46,0.05) !important;
-  border-left: 4px solid #ff9c2e !important;
-  border-top: 1px solid #262a1c !important;
-  border-bottom: 1px solid #262a1c !important;
-  border-radius: 0 !important;
-  color: #d4d0b4 !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-style: normal !important;
-  padding: 14px 22px !important;
-}
-html[data-theme="halflife"] blockquote::before {
-  content: "◄" !important;
-  color: #ff9c2e !important;
-  font-size: 20px !important;
-  top: 4px !important;
-  left: 6px !important;
-  opacity: 1 !important;
-}
-
-/* Details */
-html[data-theme="halflife"] details {
-  background: #131608 !important;
-  border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
-  backdrop-filter: none !important;
-}
-html[data-theme="halflife"] details[open] {
-  border-color: #ff9c2e !important;
-}
-html[data-theme="halflife"] summary {
-  background: linear-gradient(90deg, rgba(255,156,46,0.1) 0%, transparent 100%) !important;
-  color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  border-radius: 0 !important;
-  padding: 12px 16px !important;
 }
-html[data-theme="halflife"] summary:hover {
-  background: linear-gradient(90deg, rgba(255,156,46,0.18) 0%, transparent 100%) !important;
+html[data-theme="halflife"] .infobox-map {
+  background: #000 !important;
+  border: 1px solid #3a3d2e !important;
+  padding: 6px !important;
+}
+
+/* ==== BLOCKQUOTE ==== */
+html[data-theme="halflife"] blockquote {
+  background: #000 !important;
+  border-left: 6px solid #ff9c2e !important;
+  border-top: 1px solid #3a3d2e !important;
+  border-bottom: 1px solid #3a3d2e !important;
+  padding: 18px 24px !important;
+  color: #d4d0b4 !important;
+  font-style: normal !important;
+  font-size: 15px !important;
+}
+html[data-theme="halflife"] blockquote::before {
+  content: "❝" !important;
+  color: #ff9c2e !important;
+  font-size: 26px !important;
+  top: 0 !important;
+  left: 8px !important;
+  opacity: 1 !important;
+}
+
+/* ==== DETAILS ==== */
+html[data-theme="halflife"] details {
+  background: #0a0c06 !important;
+  border: 1px solid #3a3d2e !important;
+  margin: 16px 0 !important;
+}
+html[data-theme="halflife"] details[open] {
+  border-color: #ff9c2e !important;
+  box-shadow: 0 0 20px rgba(255,156,46,0.15) !important;
+}
+html[data-theme="halflife"] summary {
+  background: linear-gradient(90deg, #1e2214 0%, #0a0c06 100%) !important;
+  color: #ff9c2e !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 14px 18px !important;
+  font-size: 13px !important;
 }
 html[data-theme="halflife"] summary::before {
   content: "►" !important;
   color: #ff9c2e !important;
-  transition: transform 0.2s !important;
+  font-size: 11px !important;
+  margin-right: 10px !important;
+  display: inline !important;
 }
 html[data-theme="halflife"] details[open] summary::before {
   content: "▼" !important;
   transform: none !important;
 }
 html[data-theme="halflife"] .details-content {
-  background: #0a0c06 !important;
+  background: #000 !important;
   border-top: 1px solid #3a3d2e !important;
+  padding: 18px 22px !important;
   color: #c4c0a4 !important;
-  font-family: 'Rajdhani', sans-serif !important;
 }
 
-/* Butonlar */
+/* ==== BUTONLAR ==== */
 html[data-theme="halflife"] .vid-button,
 html[data-theme="halflife"] .qa-button,
 html[data-theme="halflife"] .lightbox-download {
-  background: #131608 !important;
-  border: 1px solid #ff9c2e !important;
-  border-radius: 0 !important;
+  background: #0a0c06 !important;
+  border: 2px solid #ff9c2e !important;
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  padding: 10px 20px !important;
-  box-shadow: 0 0 0 1px #000, 4px 4px 0 rgba(255,156,46,0.15) !important;
+  letter-spacing: 2.5px !important;
+  padding: 12px 24px !important;
+  box-shadow: 6px 6px 0 rgba(255,156,46,0.2) !important;
+  filter: none !important;
   transition: all 0.15s ease !important;
 }
 html[data-theme="halflife"] .vid-button:hover,
@@ -2912,7 +2404,7 @@ html[data-theme="halflife"] .qa-button:hover,
 html[data-theme="halflife"] .lightbox-download:hover {
   background: #ff9c2e !important;
   color: #0a0c06 !important;
-  box-shadow: 0 0 0 1px #000, 4px 4px 0 #ff9c2e, 0 0 20px rgba(255,156,46,0.5) !important;
+  box-shadow: 6px 6px 0 #ff9c2e, 0 0 30px rgba(255,156,46,0.6) !important;
   transform: translate(-2px, -2px) !important;
 }
 html[data-theme="halflife"] .vid-button::before {
@@ -2921,220 +2413,114 @@ html[data-theme="halflife"] .vid-button::before {
   animation: none !important;
 }
 
-/* Tablolar */
+/* ==== TABLOLAR ==== */
 html[data-theme="halflife"] .players-table {
-  background: #131608 !important;
-  border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
+  background: #0a0c06 !important;
+  border: 2px solid #3a3d2e !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
 }
 html[data-theme="halflife"] .players-table th {
-  background: linear-gradient(180deg, #1e2214 0%, #131608 100%) !important;
+  background: linear-gradient(180deg, #1e2214 0%, #000 100%) !important;
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  border-bottom: 2px solid #ff9c2e !important;
-  border-radius: 0 !important;
-  padding: 12px 16px !important;
+  letter-spacing: 2.5px !important;
+  border-bottom: 3px solid #ff9c2e !important;
+  padding: 14px 18px !important;
+  font-size: 13px !important;
 }
 html[data-theme="halflife"] .players-table td {
   color: #c4c0a4 !important;
-  font-family: 'Rajdhani', sans-serif !important;
   border-bottom: 1px solid #262a1c !important;
-  padding: 10px 16px !important;
+  padding: 12px 18px !important;
+  font-size: 14px !important;
 }
 html[data-theme="halflife"] .players-table tr:hover td {
-  background: rgba(255,156,46,0.06) !important;
+  background: rgba(255,156,46,0.08) !important;
 }
 
-/* Status bar */
+/* ==== STATUS BAR ==== */
 html[data-theme="halflife"] .status-bar {
-  background: #0a0c06 !important;
-  border-top: 2px solid #ff9c2e !important;
-  color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 600 !important;
+  background: #000 !important;
+  border-top: 3px solid #ff9c2e !important;
+  color: #ff9c2e !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  font-size: 11px !important;
+  letter-spacing: 2.5px !important;
+  font-size: 12px !important;
+  padding: 10px 18px !important;
 }
-html[data-theme="halflife"] .status-bar::before {
-  background: #ff9c2e !important;
-  height: 2px !important;
-  opacity: 0.6 !important;
-}
+html[data-theme="halflife"] .status-bar::before { display: none !important; }
 html[data-theme="halflife"] .status-bar span:first-child::before {
   content: "● " !important;
-  color: #ff9c2e !important;
+  color: #a8c44c !important;
   animation: pulse 2s infinite !important;
 }
 
-/* Dropdown (Half-Life stili) */
-html[data-theme="halflife"] .view-menu-dropdown {
-  background: #131608 !important;
-  border: 1px solid #ff9c2e !important;
-  border-radius: 0 !important;
-  box-shadow: 0 0 0 1px #000, 8px 8px 0 rgba(0,0,0,0.7), 0 0 40px rgba(255,156,46,0.15) !important;
-}
-html[data-theme="halflife"] .vm-label {
-  color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 700 !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-}
-html[data-theme="halflife"] .vm-divider {
-  background: #3a3d2e !important;
-}
-html[data-theme="halflife"] .vm-zoom-btn,
-html[data-theme="halflife"] .vm-theme-toggle {
-  background: #0a0c06 !important;
-  border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
-  color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 700 !important;
-}
-html[data-theme="halflife"] .vm-zoom-btn:hover,
-html[data-theme="halflife"] .vm-theme-toggle:hover {
-  background: #ff9c2e !important;
-  color: #0a0c06 !important;
-  border-color: #ff9c2e !important;
-}
-html[data-theme="halflife"] .vm-zoom-controls .zoom-value {
-  background: #0a0c06 !important;
-  border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
-  color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  font-weight: 700 !important;
-}
-html[data-theme="halflife"] .theme-item {
-  background: #0a0c06 !important;
-  border: 1px solid #262a1c !important;
-  border-radius: 0 !important;
-  color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-}
-html[data-theme="halflife"] .theme-item:hover {
-  background: #20261a !important;
-  border-color: #ff9c2e !important;
-  color: #d4d0b4 !important;
-}
-html[data-theme="halflife"] .theme-item.active {
-  background: rgba(255,156,46,0.15) !important;
-  border-color: #ff9c2e !important;
-  color: #ff9c2e !important;
-}
-html[data-theme="halflife"] .theme-dot {
-  color: #4a4a3a !important;
-}
-html[data-theme="halflife"] .theme-item.active .theme-dot {
-  color: #ff9c2e !important;
-  text-shadow: 0 0 8px #ff9c2e !important;
-}
-
-/* Half-Life: XP-style listeler (files panel vb) da tam dönüşsün */
-html[data-theme="halflife"] .xp-explorer,
-html[data-theme="halflife"] .xp-tree,
-html[data-theme="halflife"] .xp-preview-pane {
-  background: #0a0c06 !important;
-  border-color: #3a3d2e !important;
-  backdrop-filter: none !important;
-}
-html[data-theme="halflife"] .xp-tree-title,
-html[data-theme="halflife"] .xp-file-header {
-  color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  border-color: #3a3d2e !important;
-}
-html[data-theme="halflife"] .xp-file-item,
-html[data-theme="halflife"] .xp-tree-item {
-  color: #8a8672 !important;
-  border-radius: 0 !important;
-  border-color: #262a1c !important;
-  font-family: 'Rajdhani', sans-serif !important;
-}
-html[data-theme="halflife"] .xp-file-item:hover,
-html[data-theme="halflife"] .xp-tree-item:hover {
-  background: rgba(255,156,46,0.06) !important;
-  color: #d4d0b4 !important;
-}
-html[data-theme="halflife"] .xp-file-item.selected,
-html[data-theme="halflife"] .xp-tree-item.active {
-  background: rgba(255,156,46,0.15) !important;
-  color: #ff9c2e !important;
-}
-html[data-theme="halflife"] .xp-preview-text {
-  background: #0a0c06 !important;
-  border-color: #3a3d2e !important;
-  color: #c4c0a4 !important;
-  font-family: 'Rajdhani', sans-serif !important;
-}
-
-/* Modal (lightbox & video) */
+/* ==== MODAL (Lightbox & Video) ==== */
 html[data-theme="halflife"] .lightbox-window,
 html[data-theme="halflife"] .video-window {
   background: #131608 !important;
-  border: 1px solid #ff9c2e !important;
-  border-radius: 0 !important;
-  box-shadow: 0 0 0 1px #000, 0 0 60px rgba(255,156,46,0.2) !important;
+  border: 3px solid #ff9c2e !important;
+  box-shadow: 0 0 80px rgba(255,156,46,0.3) !important;
 }
 html[data-theme="halflife"] .lightbox-title-bar,
 html[data-theme="halflife"] .video-title-bar {
-  background: #0a0c06 !important;
+  background: #000 !important;
   color: #ff9c2e !important;
-  font-family: 'Rajdhani', sans-serif !important;
+  border-bottom: 2px solid #ff9c2e !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  border-bottom: 1px solid #3a3d2e !important;
+  letter-spacing: 2.5px !important;
+  padding: 12px 18px !important;
 }
 html[data-theme="halflife"] .lightbox-close,
 html[data-theme="halflife"] .video-close {
   background: transparent !important;
-  border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
-  color: #8a8672 !important;
+  border: 2px solid #ff9c2e !important;
+  color: #ff9c2e !important;
 }
 html[data-theme="halflife"] .lightbox-close:hover,
 html[data-theme="halflife"] .video-close:hover {
   background: #ff9c2e !important;
-  color: #0a0c06 !important;
-  border-color: #ff9c2e !important;
+  color: #000 !important;
 }
 html[data-theme="halflife"] .video-controls {
-  background: #0a0c06 !important;
+  background: #000 !important;
   border-top: 1px solid #3a3d2e !important;
+  padding: 14px !important;
 }
 html[data-theme="halflife"] .video-controls button {
-  background: #131608 !important;
-  border: 1px solid #3a3d2e !important;
-  border-radius: 0 !important;
-  color: #8a8672 !important;
-  font-family: 'Rajdhani', sans-serif !important;
+  background: #0a0c06 !important;
+  border: 1px solid #ff9c2e !important;
+  color: #ff9c2e !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 14px !important;
 }
 html[data-theme="halflife"] .video-controls button:hover {
   background: #ff9c2e !important;
-  color: #0a0c06 !important;
-  border-color: #ff9c2e !important;
+  color: #000 !important;
+}
+html[data-theme="halflife"] .video-controls a {
+  background: #ff9c2e !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 14px !important;
 }
 
-/* Scrollbar */
+/* ==== SCROLLBAR ==== */
+html[data-theme="halflife"] ::-webkit-scrollbar { width: 12px !important; }
+html[data-theme="halflife"] ::-webkit-scrollbar-track { background: #000 !important; }
 html[data-theme="halflife"] ::-webkit-scrollbar-thumb {
   background: #3a3d2e !important;
-  border-radius: 0 !important;
+  border: 2px solid #000 !important;
 }
 html[data-theme="halflife"] ::-webkit-scrollbar-thumb:hover {
   background: #ff9c2e !important;
-}
-html[data-theme="halflife"] ::-webkit-scrollbar-track {
-  background: #0a0c06 !important;
 }
 }

@@ -1,5 +1,5 @@
 /* ===========================================
-   MENU-FIX.JS – V5 (Click Menu + Full Theme)
+   MENU-FIX.JS – V6 (Garantili Görünüm Menüsü)
    =========================================== */
 (function () {
   'use strict';
@@ -10,7 +10,7 @@
 
   const THEMES = [
     { id: 'datapad',  name: 'Datapad Theme',   desc: 'GitHub Glass' },
-    { id: 'halflife', name: 'Half-Life Theme', desc: 'Valve HL2 Terminal' }
+    { id: 'halflife', name: 'Half-Life Theme', desc: 'Valve HL2' }
   ];
 
   /* ===== ZOOM ===== */
@@ -20,14 +20,7 @@
   }
   function applyZoom(value) {
     value = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(value)));
-    const factor = value / 100;
-    if ('zoom' in document.documentElement.style || CSS.supports('zoom', '1')) {
-      document.documentElement.style.zoom = factor;
-    } else {
-      document.body.style.transform = 'scale(' + factor + ')';
-      document.body.style.transformOrigin = 'top left';
-      document.body.style.width = (100 / factor) + '%';
-    }
+    document.documentElement.style.zoom = (value / 100);
     localStorage.setItem(ZOOM_KEY, value);
     document.querySelectorAll('.zoom-value').forEach(el => el.textContent = value + '%');
   }
@@ -44,35 +37,30 @@
     document.body.classList.add('theme-' + themeId);
     localStorage.setItem(THEME_KEY, themeId);
 
-    // Dropdown'daki aktif işaretleri güncelle
     document.querySelectorAll('.theme-item').forEach(el => {
       el.classList.toggle('active', el.dataset.theme === themeId);
     });
 
-    if (themeId === 'datapad') {
-      // Datapad'a dönünce renk yeniden uygulanmalı
+    if (themeId === 'halflife') {
+      document.documentElement.style.setProperty('--accent-color', '#ff9c2e', 'important');
+      document.documentElement.style.setProperty('--accent-glow', '0 0 14px rgba(255,156,46,0.6)', 'important');
+    } else {
       document.documentElement.style.removeProperty('--accent-color');
       document.documentElement.style.removeProperty('--accent-glow');
-      if (typeof window.applyAccentColor === 'function') {
-        window.applyAccentColor();
-      }
-    } else {
-      // Half-Life: accent rengini sabitle
-      document.documentElement.style.setProperty('--accent-color', '#ff9c2e', 'important');
-      document.documentElement.style.setProperty('--accent-glow', '0 0 12px rgba(255,156,46,0.6)', 'important');
+      if (typeof window.applyAccentColor === 'function') window.applyAccentColor();
     }
   }
 
-  /* ===== DOSYA → MATERYAL ===== */
-  function fixMenu() {
+  /* ===== MATERYAL ===== */
+  function fixMaterial() {
     document.querySelectorAll('.menu-bar > *').forEach(el => {
-      if (el.dataset.__fixed === '1') return;
-      const text = (el.textContent || '').trim();
-      if (/^(dosya|file)$/i.test(text)) {
-        el.dataset.__fixed = '1';
+      if (el.dataset.__matFixed === '1') return;
+      const t = (el.textContent || '').trim();
+      if (/^(dosya|file)$/i.test(t)) {
+        el.dataset.__matFixed = '1';
         el.textContent = 'Materyal';
         el.style.cursor = 'pointer';
-        el.addEventListener('click', function (e) {
+        el.addEventListener('click', e => {
           e.preventDefault(); e.stopPropagation();
           window.location.href = 'material.html';
         });
@@ -84,71 +72,95 @@
   function buildViewMenu() {
     document.querySelectorAll('.menu-bar > *').forEach(el => {
       if (el.dataset.__viewFixed === '1') return;
-      const text = (el.textContent || '').trim();
-      if (!/^görünüm$/i.test(text)) return;
+      const t = (el.textContent || '').trim();
+      if (!/^görünüm$/i.test(t)) return;
       el.dataset.__viewFixed = '1';
 
-      // Wrapper
       const wrapper = document.createElement('div');
-      wrapper.className = 'view-menu-wrapper';
+      wrapper.style.position = 'relative';
+      wrapper.style.display = 'inline-block';
       el.parentNode.insertBefore(wrapper, el);
       wrapper.appendChild(el);
-      el.classList.add('view-menu-trigger');
+      el.classList.add('view-trigger');
+      el.style.cursor = 'pointer';
 
-      // Dropdown
       const dd = document.createElement('div');
-      dd.className = 'view-menu-dropdown';
+      dd.className = 'view-dropdown';
+      // KRİTİK: Inline style ile başlangıçta GİZLİ
+      dd.style.position = 'absolute';
+      dd.style.top = 'calc(100% + 4px)';
+      dd.style.left = '0';
+      dd.style.minWidth = '270px';
+      dd.style.background = '#161b22';
+      dd.style.border = '1px solid #30363d';
+      dd.style.borderRadius = '8px';
+      dd.style.boxShadow = '0 20px 50px rgba(0,0,0,0.85), 0 0 0 1px rgba(88,166,255,0.1)';
+      dd.style.padding = '8px';
+      dd.style.zIndex = '999999';
+      dd.style.display = 'none';        // ← KAPALI
+      dd.style.opacity = '0';
+      dd.style.transition = 'opacity 0.15s ease';
+      dd.style.fontFamily = "'JetBrains Mono', monospace";
+
       dd.innerHTML = `
-        <div class="vm-row vm-zoom-row">
-          <span class="vm-label">Ölçek</span>
-          <div class="vm-zoom-controls">
-            <button class="vm-zoom-btn" data-action="minus" type="button">−</button>
-            <span class="zoom-value">${getZoom()}%</span>
-            <button class="vm-zoom-btn" data-action="plus" type="button">+</button>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;gap:12px;">
+          <span style="font-size:12px;font-weight:600;color:#c9d1d9;text-transform:uppercase;letter-spacing:1px;">Ölçek</span>
+          <div style="display:flex;align-items:center;gap:4px;">
+            <button data-action="minus" style="width:26px;height:26px;background:#21262d;border:1px solid #30363d;border-radius:5px;color:#c9d1d9;cursor:pointer;font-size:15px;font-weight:700;line-height:1;padding:0;">−</button>
+            <span class="zoom-value" style="min-width:50px;text-align:center;font-size:12px;font-weight:600;color:#58a6ff;background:rgba(0,0,0,0.4);border:1px solid #21262d;border-radius:5px;padding:4px 6px;">${getZoom()}%</span>
+            <button data-action="plus" style="width:26px;height:26px;background:#21262d;border:1px solid #30363d;border-radius:5px;color:#c9d1d9;cursor:pointer;font-size:15px;font-weight:700;line-height:1;padding:0;">+</button>
           </div>
         </div>
-        <div class="vm-divider"></div>
-        <div class="vm-row vm-theme-row">
-          <span class="vm-label">Temalar</span>
-          <button class="vm-theme-toggle" type="button" aria-label="Temaları aç/kapat">
-            <span class="vm-arrow">▶</span>
-          </button>
-        </div>
-        <div class="vm-theme-list" hidden>
-          ${THEMES.map(t => `
-            <button class="theme-item${t.id === getTheme() ? ' active' : ''}" data-theme="${t.id}" type="button">
-              <span class="theme-dot">●</span>
-              <span class="theme-text">
-                <span class="theme-name">${t.name}</span>
-                <span class="theme-desc">${t.desc}</span>
-              </span>
-            </button>
-          `).join('')}
+        <div style="height:1px;background:#21262d;margin:4px 0;"></div>
+        <div style="padding:6px 10px;">
+          <div style="font-size:12px;font-weight:600;color:#c9d1d9;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Temalar</div>
+          <div class="theme-list-inner" style="display:flex;flex-direction:column;gap:4px;">
+            ${THEMES.map(t => `
+              <button class="theme-item${t.id === getTheme() ? ' active' : ''}" data-theme="${t.id}"
+                style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:transparent;border:1px solid transparent;border-radius:6px;color:#8b949e;cursor:pointer;text-align:left;width:100%;font-family:inherit;font-size:12px;transition:all 0.15s ease;">
+                <span style="font-size:10px;color:#6e7681;">●</span>
+                <span style="display:flex;flex-direction:column;gap:1px;flex:1;">
+                  <span style="font-weight:600;font-size:12px;">${t.name}</span>
+                  <span style="font-size:10px;opacity:0.7;">${t.desc}</span>
+                </span>
+              </button>
+            `).join('')}
+          </div>
         </div>
       `;
       wrapper.appendChild(dd);
 
-      const trigger = el;
-      const themeToggle = dd.querySelector('.vm-theme-toggle');
-      const themeList = dd.querySelector('.vm-theme-list');
+      // Aç/Kapat
+      let isOpen = false;
+      function toggleMenu(show) {
+        isOpen = show !== undefined ? show : !isOpen;
+        if (isOpen) {
+          dd.style.display = 'block';
+          requestAnimationFrame(() => { dd.style.opacity = '1'; });
+          el.style.color = '#58a6ff';
+        } else {
+          dd.style.opacity = '0';
+          setTimeout(() => { if (!isOpen) dd.style.display = 'none'; }, 150);
+          el.style.color = '';
+        }
+      }
 
-      // Aç/Kapat (tıklama)
-      trigger.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = dd.classList.toggle('open');
-        trigger.classList.toggle('active', isOpen);
+      el.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        toggleMenu();
       });
 
       // Dışarı tıklama
-      document.addEventListener('click', function (e) {
-        if (!wrapper.contains(e.target)) {
-          dd.classList.remove('open');
-          trigger.classList.remove('active');
-        }
+      document.addEventListener('click', e => {
+        if (!wrapper.contains(e.target)) toggleMenu(false);
       });
 
-      // Zoom buttons
+      // ESC
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') toggleMenu(false);
+      });
+
+      // Zoom butonları
       dd.querySelector('[data-action="minus"]').addEventListener('click', e => {
         e.stopPropagation(); applyZoom(getZoom() - ZOOM_STEP);
       });
@@ -156,36 +168,58 @@
         e.stopPropagation(); applyZoom(getZoom() + ZOOM_STEP);
       });
 
-      // Tema listesi toggle
-      themeToggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = themeList.hasAttribute('hidden');
-        if (isOpen) {
-          themeList.removeAttribute('hidden');
-          themeToggle.querySelector('.vm-arrow').textContent = '▼';
-        } else {
-          themeList.setAttribute('hidden', '');
-          themeToggle.querySelector('.vm-arrow').textContent = '▶';
-        }
-      });
-
       // Tema seçimi
-      themeList.querySelectorAll('.theme-item').forEach(btn => {
-        btn.addEventListener('click', function (e) {
+      dd.querySelectorAll('.theme-item').forEach(btn => {
+        // Hover stili inline
+        btn.addEventListener('mouseenter', () => {
+          if (!btn.classList.contains('active')) {
+            btn.style.background = '#21262d';
+            btn.style.borderColor = '#30363d';
+            btn.style.color = '#c9d1d9';
+          }
+        });
+        btn.addEventListener('mouseleave', () => {
+          if (!btn.classList.contains('active')) {
+            btn.style.background = 'transparent';
+            btn.style.borderColor = 'transparent';
+            btn.style.color = '#8b949e';
+          }
+        });
+        btn.addEventListener('click', e => {
           e.stopPropagation();
           applyTheme(btn.dataset.theme);
-          // Kapat
-          dd.classList.remove('open');
-          trigger.classList.remove('active');
+          // Aktif olanları güncelle
+          dd.querySelectorAll('.theme-item').forEach(b => {
+            if (b === btn) {
+              b.classList.add('active');
+              b.style.background = 'rgba(88,166,255,0.12)';
+              b.style.borderColor = '#58a6ff';
+              b.style.color = '#58a6ff';
+              b.querySelector('span:first-child').style.color = '#58a6ff';
+            } else {
+              b.classList.remove('active');
+              b.style.background = 'transparent';
+              b.style.borderColor = 'transparent';
+              b.style.color = '#8b949e';
+              b.querySelector('span:first-child').style.color = '#6e7681';
+            }
+          });
+          toggleMenu(false);
         });
+      });
+
+      // Aktif tema başlangıç stili
+      dd.querySelectorAll('.theme-item.active').forEach(b => {
+        b.style.background = 'rgba(88,166,255,0.12)';
+        b.style.borderColor = '#58a6ff';
+        b.style.color = '#58a6ff';
+        b.querySelector('span:first-child').style.color = '#58a6ff';
       });
     });
   }
 
-  /* ===== ÇALIŞTIR ===== */
   function run() {
-    fixMenu();
+    fixMaterial();
     buildViewMenu();
   }
 
