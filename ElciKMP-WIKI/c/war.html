@@ -7,25 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="layout.js"></script>
+    <div class="app-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Savaş Detayı</div>
+            <div class="window-buttons"><span> </span><span> </span><span> </span></div>
+        </div>
+        <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+        <div class="toolbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="players.html">Oyuncular</a>
+            <a href="countries.html">Ülkeler</a>
+            <a href="wars.html">Savaşlar</a>
+            <a href="#">Olaylar</a>
+            <a href="#">Kronoloji</a>
+        </div>
+        <div class="main-area">
+            <div class="sidebar">
+                <div class="sidebar-title">Gezinti</div>
+                <ul id="quickAccessList"></ul>
+            </div>
+            <div class="content-pane" id="mainContent">Yükleniyor...</div>
+        </div>
+        <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
+    </div>
     <script src="script.js"></script>
     <script>
         (async () => {
-            const layout = renderLayout({
-                title: 'Savaş Detayı',
-                activeTab: 'wars',
-                layoutType: 'detail'
-            });
-            const main = layout.mainContent;
-
+            const main = document.getElementById('mainContent');
             const params = new URLSearchParams(window.location.search);
             const folder = params.get('war');
             if (!folder) { main.innerHTML = '<p>Savaş belirtilmedi.</p>'; return; }
-
             try {
                 const info = await fetchWarInfo(folder);
                 if (!info) throw new Error('Bilgi yok');
-
                 let html = await loadWarPageContent(folder);
                 main.innerHTML = html;
 
@@ -37,9 +51,7 @@
                 enableImageLightbox(main);
                 applyAccentColor();
                 buildQuickAccess();
-            } catch (e) {
-                main.innerHTML = '<p>Hata: ' + e.message + '</p>';
-            }
+            } catch(e) { main.innerHTML = '<p>Hata: ' + e.message + '</p>'; }
         })();
     </script>
 </body>

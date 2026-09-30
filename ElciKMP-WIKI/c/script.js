@@ -1688,9 +1688,4 @@ li.addEventListener('click', (e) => {
         const sidebar = document.querySelector('.sidebar');
         if (sidebar) sidebar.classList.remove('open');
     }
-<<<<<<< Updated upstream
 });
-=======
-});
-
->>>>>>> Stashed changes

@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="layout.js"></script>
+    <div class="app-window">
+        <div class="title-bar"><span>ElciKMP-DataPad – Savaşlar</span><div class="window-buttons"><span> </span><span> </span><span> </span></div></div>
+        <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
+        <div class="toolbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="players.html">Oyuncular</a>
+            <a href="countries.html">Ülkeler</a>
+            <a href="wars.html" class="active">Savaşlar</a>
+            <a href="#">Olaylar</a>
+            <a href="#">Kronoloji</a>
+        </div>
+        <div class="main-area" id="xpContainer"></div>
+        <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
+    </div>
     <script src="script.js"></script>
     <script>
-        renderLayout({
-            title: 'ElciKMP-DataPad – Savaşlar',
-            activeTab: 'wars',
-            layoutType: 'list'
-        });
         buildXPList('xpContainer', 'war');
     </script>
 </body>
