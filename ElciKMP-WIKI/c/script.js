@@ -1690,25 +1690,31 @@ li.addEventListener('click', (e) => {
     }
 });
 /* ===========================================
-   "DOSYA" MENÜSÜNÜ "MATERYAL" OLARAK DEĞİŞTİR
+   "DOSYA" MENÜSÜNÜ "MATERYAL" OLARAK DEĞİŞTİR (V2)
    =========================================== */
 (function () {
   function upgradeMenuBar() {
-    document.querySelectorAll('.menu-bar span').forEach(span => {
-      const text = span.textContent.trim().toLowerCase();
+    const items = document.querySelectorAll('.menu-bar > *');
+    items.forEach(el => {
+      // Zaten dönüştürülmüşse atla
+      if (el.dataset.materyal === '1') return;
+
+      const text = (el.textContent || '').trim().toLowerCase();
       if (text === 'dosya' || text === 'file') {
-        span.textContent = 'Materyal';
-        span.style.cursor = 'pointer';
-        span.addEventListener('click', () => {
+        el.textContent = 'Materyal';
+        el.dataset.materyal = '1';
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => {
           window.location.href = 'material.html';
         });
       }
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', upgradeMenuBar);
-  } else {
-    upgradeMenuBar();
-  }
+  // Her aşamada dene
+  upgradeMenuBar();
+  document.addEventListener('DOMContentLoaded', upgradeMenuBar);
+  window.addEventListener('load', upgradeMenuBar);
+  setTimeout(upgradeMenuBar, 300);
+  setTimeout(upgradeMenuBar, 1200);
 })();

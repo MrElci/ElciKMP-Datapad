@@ -6,7 +6,6 @@
   <title>Materyal – ElciKMP-DataPad</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ---- Materyal Sayfası Stilleri ---- */
     .material-header {
       display: flex;
       align-items: center;
@@ -40,13 +39,7 @@
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 16px;
       padding: 20px 24px 40px;
-      animation: matFade 0.4s ease-out;
     }
-    @keyframes matFade {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .material-item {
       position: relative;
       display: flex;
@@ -87,10 +80,6 @@
       border-radius: var(--radius-sm);
       border: 1px solid var(--accent-border-muted);
       background: var(--accent-bg-elevated);
-      transition: transform 0.3s ease;
-    }
-    .material-item:hover img {
-      transform: scale(1.03);
     }
     .material-item .name {
       font-size: 11px;
@@ -98,8 +87,6 @@
       text-align: center;
       word-break: break-all;
       line-height: 1.3;
-      max-height: 2.6em;
-      overflow: hidden;
       width: 100%;
     }
     .material-item .path {
@@ -114,7 +101,6 @@
       text-overflow: ellipsis;
     }
 
-    /* Yükleniyor */
     .loading {
       text-align: center;
       padding: 60px 20px;
@@ -134,13 +120,11 @@
       60%, 100% { content: "..."; }
     }
 
-    /* Arama kutusu */
     .material-search {
       flex: 1;
       min-width: 180px;
       max-width: 320px;
       margin-left: auto;
-      position: relative;
     }
     .material-search input {
       width: 100%;
@@ -152,7 +136,6 @@
       font-family: var(--font-mono);
       font-size: 12px;
       outline: none;
-      transition: border-color 0.2s ease;
     }
     .material-search input:focus {
       border-color: var(--accent-color);
@@ -162,6 +145,21 @@
       color: var(--text-subtle);
       letter-spacing: 0.5px;
     }
+
+    /* Debug bilgi kutusu */
+    .mat-debug {
+      grid-column: 1 / -1;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--accent-border-muted);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    .mat-debug b { color: var(--data-amber); }
 
     @media (max-width: 750px) {
       .material-grid {
@@ -213,11 +211,16 @@
   <script>
   (function () {
     // ===================== AYARLAR =====================
+    // ⚠️ BURAYI KENDİ BİLGİLERİNİZLE DEĞİŞTİRİN
     const GITHUB_OWNER = 'MrElci';
     const GITHUB_REPO = 'ElciKMP-DataPad';
-    const BRANCH = 'main'; // veya 'master'
-    // Klasör öneki (img klasörü)
-    const IMG_PREFIX = 'img/';
+
+    // Branch otomatik algılanacak (main → master fallback)
+    let BRANCH = 'main';
+
+    // img klasörü eşleşmesi: yol içinde herhangi bir yerde "img/" geçiyorsa
+    const IMG_PATH_REGEX = /(^|\/)img\//i;
+
     // Desteklenen resim uzantıları
     const IMG_EXTS = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.bmp'];
 
@@ -230,33 +233,31 @@
 
     // ===================== SAAT =====================
     function updateClock() {
-      const now = new Date();
-      clockEl.textContent = now.toLocaleTimeString('tr-TR', { hour12: false });
+      clockEl.textContent = new Date().toLocaleTimeString('tr-TR', { hour12: false });
     }
     setInterval(updateClock, 1000);
     updateClock();
 
-    // ===================== MENÜ NAVİGASYON =====================
+    // ===================== MENÜ NAV =====================
     document.querySelectorAll('.menu-bar span[data-nav]').forEach(el => {
       el.style.cursor = 'pointer';
       el.addEventListener('click', () => window.location.href = el.dataset.nav);
     });
 
-    // ===================== GITHUB TREE ÇEK =====================
-    async function fetchRepoTree() {
-      const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/trees/${BRANCH}?recursive=1`;
-      const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
-      if (!res.ok) throw new Error('GitHub API: ' + res.status);
-      const data = await res.json();
-      return data.tree || [];
-    }
-
+    // ===================== YARDIMCILAR =====================
     function isImage(path) {
       const lower = path.toLowerCase();
       return IMG_EXTS.some(ext => lower.endsWith(ext));
     }
 
-    // ===================== GÖRSELLERİ YÜKLE =====================
+    async function fetchTree(branch) {
+      const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/trees/${branch}?recursive=1`;
+      const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return await res.json();
+    }
+
+    // ===================== ANA =====================
     let allFiles = [];
 
     function renderGrid(files) {
@@ -268,9 +269,6 @@
       const frag = document.createDocumentFragment();
 
       files.forEach(file => {
-        const raw = file.rawUrl;
-        const name = file.name;
-
         const a = document.createElement('a');
         a.className = 'material-item';
         a.href = '#';
@@ -281,9 +279,9 @@
         });
 
         a.innerHTML = `
-          <img src="${raw}" alt="${name}" loading="lazy"
+          <img src="${file.rawUrl}" alt="${file.name}" loading="lazy"
                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%22 y=%2255%22 font-size=%2214%22 fill=%22%23666%22 text-anchor=%22middle%22%3E?%3C/text%3E%3C/svg%3E'">
-          <span class="name">${name}</span>
+          <span class="name">${file.name}</span>
           <span class="path">${file.folder || '/'}</span>
         `;
         frag.appendChild(a);
@@ -291,23 +289,60 @@
       container.appendChild(frag);
     }
 
-    (async () => {
+    async function loadImages() {
       try {
         statusEl.textContent = 'GITHUB: BAĞLANIYOR...';
-        const tree = await fetchRepoTree();
+        let data;
+        try {
+          data = await fetchTree('main');
+        } catch (e) {
+          if (String(e).includes('404')) {
+            BRANCH = 'master';
+            data = await fetchTree('master');
+          } else throw e;
+        }
 
-        allFiles = tree
-          .filter(node => node.type === 'blob' && node.path.startsWith(IMG_PREFIX) && isImage(node.path))
-          .map(node => {
-            const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${BRANCH}/${node.path}`;
-            const name = node.path.split('/').pop();
-            const folder = node.path.substring(IMG_PREFIX.length).split('/').slice(0, -1).join('/');
-            return { path: node.path, name, folder, rawUrl };
-          })
-          .sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+        const tree = data.tree || [];
+
+        // Debug: kaç öğe geldi
+        console.log('[MATERYAL] GitHub tree öğe sayısı:', tree.length);
+        console.log('[MATERYAL] İlk 10 yol:', tree.slice(0, 10).map(t => t.path));
+
+        // img/ içeren tüm resim dosyaları
+        const imgNodes = tree.filter(node =>
+          node.type === 'blob' &&
+          IMG_PATH_REGEX.test(node.path) &&
+          isImage(node.path)
+        );
+
+        console.log('[MATERYAL] Bulunan görsel sayısı:', imgNodes.length);
+
+        allFiles = imgNodes.map(node => {
+          const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${BRANCH}/${node.path}`;
+          const parts = node.path.split('/');
+          const name = parts.pop();
+          // img'den sonraki klasör(ler)
+          const imgIndex = parts.findIndex(p => p.toLowerCase() === 'img');
+          const folder = imgIndex >= 0 ? parts.slice(imgIndex + 1).join('/') : '';
+          return { path: node.path, name, folder, rawUrl };
+        }).sort((a, b) => a.name.localeCompare(b.name, 'tr'));
 
         if (!allFiles.length) {
-          container.innerHTML = '<div class="loading">img klasöründe görsel bulunamadı</div>';
+          container.innerHTML = `
+            <div class="mat-debug">
+              <b>⚠️ HİÇ GÖRSEL BULUNAMADI</b>
+
+              GitHub API yanıt verdi ancak <b>img/</b> klasörü içinde
+              desteklenen bir resim dosyası algılanamadı.
+
+              • Repo: <b>${GITHUB_OWNER}/${GITHUB_REPO}</b>
+              • Branch: <b>${BRANCH}</b>
+              • Toplam dosya: <b>${tree.length}</b>
+              • Resim regex: <b>/(^|\\/)img\\//i</b>
+
+              İlk 20 dosya yolu:
+              ${tree.slice(0, 20).map(t => '  ' + t.path).join('\n')}
+            </div>`;
           countEl.textContent = '0 ÖĞE';
           statusEl.textContent = 'GITHUB: BOŞ';
           return;
@@ -315,7 +350,7 @@
 
         renderGrid(allFiles);
         countEl.textContent = `${allFiles.length} ÖĞE`;
-        statusEl.textContent = `GITHUB: ${allFiles.length} GÖRSEL`;
+        statusEl.textContent = `GITHUB: ${allFiles.length} GÖRSEL (${BRANCH})`;
 
         // Arama
         searchInput.addEventListener('input', (e) => {
@@ -334,11 +369,23 @@
         });
       } catch (err) {
         console.error(err);
-        container.innerHTML = `<div class="loading">Hata: ${err.message}</div>`;
+        container.innerHTML = `
+          <div class="mat-debug">
+            <b>❌ HATA</b>
+            ${err.message}
+
+            Kontrol edin:
+            • GITHUB_OWNER = <b>${GITHUB_OWNER}</b>
+            • GITHUB_REPO = <b>${GITHUB_REPO}</b>
+            • Repo public mi?
+            • Branch main veya master mı?
+          </div>`;
         countEl.textContent = 'HATA';
         statusEl.textContent = 'GITHUB: HATA';
       }
-    })();
+    }
+
+    loadImages();
 
     // ===================== LIGHTBOX =====================
     function openViewer(file) {
