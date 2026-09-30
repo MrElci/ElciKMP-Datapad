@@ -1956,4 +1956,62 @@ details[open] summary::before {
   .xp-preview-pane.expanded .preview-body {
     display: block;
   }
+  /* =============================================
+   SAYFA GEÇİŞ EFEKTİ + TERMINAL METİN YÜKLEME
+   ============================================= */
+
+/* Siyah perde – her sayfa siyah başlar, JS ile kaldırılır */
+html::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99999;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+html.loaded::before {
+  opacity: 0;
+}
+
+/* Yüklenene kadar uygulama gizli */
+html:not(.loaded) .app-window {
+  opacity: 0;
+}
+html.loaded .app-window {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.05s;
+}
+
+/* Terminal tipi satır satır metin reveal */
+.content-pane > * {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+}
+.content-pane > *.shown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- H1 İMLECİ SADECE ANASAYFADA --- */
+/* Önce tüm sayfalarda imleci kapat */
+h1.article-title::after {
+  content: none !important;
+  animation: none !important;
+}
+/* Yalnızca anasayfada tekrar aç */
+body.homepage h1.article-title::after {
+  content: "▊" !important;
+  color: var(--accent-color) !important;
+  font-size: 1.2rem !important;
+  margin-left: 6px !important;
+  animation: blink 1.2s step-end infinite !important;
+  opacity: 0.8 !important;
+}
+@keyframes blink {
+  0%, 50% { opacity: 0.8; }
+  51%, 100% { opacity: 0; }
+}
 }

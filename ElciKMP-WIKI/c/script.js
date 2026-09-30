@@ -1689,3 +1689,111 @@ li.addEventListener('click', (e) => {
         if (sidebar) sidebar.classList.remove('open');
     }
 });
+
+/* ===========================================
+   SAYFA GEÇİŞ EFEKTİ + TERMINAL METİN YÜKLEME
+   =========================================== */
+(function () {
+  // --- Homepage tespiti ---
+  const path = window.location.pathname;
+  const isHome = path === '/' ||
+                 path.endsWith('/') ||
+                 path.endsWith('/index.html') ||
+                 path.endsWith('/index');
+  if (isHome) document.body.classList.add('homepage');
+
+  // --- İçerik satır satır reveal ---
+  function staggerReveal(container) {
+    if (!container) return;
+    const children = Array.from(container.children);
+    if (children.length === 0) return;
+
+    // Sıfırla
+    children.forEach(child => {
+      child.classList.remove('shown');
+      child.style.transitionDelay = '';
+    });
+
+    // Sırayla göster (yukarıdan aşağı terminal hissi)
+    requestAnimationFrame(() => {
+      children.forEach((child, i) => {
+        child.style.transitionDelay = `${i * 25}ms`;
+        child.classList.add('shown');
+      });
+    });
+  }
+
+  // --- İçerik gözlemcisi ---
+  function setupContentObserver() {
+    const contentPane = document.querySelector('.content-pane') ||
+                        document.querySelector('#mainContent');
+    if (!contentPane) return;
+
+    // İlk reveal
+    staggerReveal(contentPane);
+
+    // Dinamik olarak gelen içeriği de yakala
+    const observer = new MutationObserver(() => {
+      staggerReveal(contentPane);
+    });
+    observer.observe(contentPane, { childList: true });
+  }
+
+  // --- Sayfa hazır olduğunda ---
+  function onReady() {
+    // Siyah perdeyi kaldır
+    document.documentElement.classList.add('loaded');
+
+    // İçerik reveal başlat (küçük gecikme ile perdenin kalkmasını bekle)
+    setTimeout(() => {
+      setupContentObserver();
+    }, 80);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
+  }
+
+  // --- Link tıklamalarında siyah perde + geçiş ---
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+    if (href.startsWith('#') || href.startsWith('javascript:')) return;
+    if (href.startsWith('http') && !href.startsWith(location.origin)) return;
+    if (link.target === '_blank') return;
+    if (link.hasAttribute('download')) return;
+
+    // Aynı sayfaya gidiyorsa dokunma
+    const current = location.pathname.split('/').pop() || 'index.html';
+    const target = href.split('?')[0].split('/').pop();
+    if (current === target) return;
+
+    e.preventDefault();
+
+    // Siyah perdeyi indir
+    document.documentElement.classList.remove('loaded');
+
+    // Perde tamamen kapanınca git
+    setTimeout(() => {
+      window.location.href = href;
+    }, 250);
+  });
+
+  // --- Tarayıcı geri/ileri (BFCache) ---
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      document.documentElement.classList.add('loaded');
+      // İçeriği tekrar reveal et
+      setTimeout(() => {
+        const contentPane = document.querySelector('.content-pane') ||
+                            document.querySelector('#mainContent');
+        staggerReveal(contentPane);
+      }, 80);
+    }
+  });
+})();
