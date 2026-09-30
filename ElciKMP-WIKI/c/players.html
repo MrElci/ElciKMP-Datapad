@@ -7,22 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-window">
-        <div class="title-bar"><span>ElciKMP-DataPad – Oyuncular</span><div class="window-buttons"><span>  </span><span> </span><span> </span></div></div>
-        <div class="menu-bar"><span>Dosya</span><span>Düzen</span><span>Görünüm</span><span>Yardım</span></div>
-        <div class="toolbar">
-            <a href="index.html">Ana Sayfa</a>
-            <a href="players.html" class="active">Oyuncular</a>
-            <a href="countries.html">Ülkeler</a>
-            <a href="wars.html">Savaşlar</a>
-            <a href="#">Olaylar</a>
-            <a href="#">Kronoloji</a>
-        </div>
-        <div id="xpContainer" style="flex:1; display:flex; overflow:hidden;"></div>
-        <div class="status-bar"><span>&copy; Elcirashod</span><span>Arşiv v1.0</span></div>
-    </div>
+    <script src="layout.js"></script>
     <script src="script.js"></script>
     <script>
+        renderLayout({
+            title: 'ElciKMP-DataPad – Oyuncular',
+            activeTab: 'players',
+            layoutType: 'list'
+        });
         buildXPList('xpContainer', 'player');
     </script>
 </body>
