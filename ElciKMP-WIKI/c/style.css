@@ -2550,4 +2550,36 @@ body.theme-halflife ::-webkit-scrollbar-thumb:hover {
 .content-pane {
   min-height: 0;
 }
+/* ===========================================
+   INFОBOX DEĞER KIRPILMASI ÖNLEYİCİ
+   =========================================== */
+
+/* Değerlerin kesilmesini engelle */
+.infobox-value,
+.warinfobox td.war-row-value,
+.infobox-label,
+.warinfobox td.war-row-label {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  min-width: 0 !important;
+}
+
+/* Infobox sabit kalmasın, içeriğe göre genişlesin */
+.infobox,
+.warinfobox {
+  max-width: 100% !important;
+}
+
+/* Infobox değeri çok uzunsa satır atlasın */
+.infobox-row {
+  flex-wrap: wrap !important;
+}
+
+/* Parent'ı taşımasın */
+.content-pane {
+  overflow-wrap: break-word !important;
+}
 }
