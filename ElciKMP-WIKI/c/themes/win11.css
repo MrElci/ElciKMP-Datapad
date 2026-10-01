@@ -1,0 +1,929 @@
+/* ===========================================
+   WINDOWS 11 DARK THEME – Fluent Design / Mica
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap');
+
+/* ========== KÖK DEĞİŞKENLER ========== */
+body.theme-win11 {
+  --accent-color: #60cdff;
+  --accent-glow: 0 0 8px rgba(96, 205, 255, 0.4);
+
+  /* Windows 11 Dark Renk Paleti */
+  --w11-accent: #60cdff;
+  --w11-accent-2: #4cc2ff;
+  --w11-accent-dark: #0078d4;
+  --w11-accent-hover: #52b8e8;
+  --w11-accent-soft: rgba(96, 205, 255, 0.12);
+
+  --w11-bg-base: #202020;
+  --w11-bg-mica: #1f1f1f;
+  --w11-bg-card: #2b2b2b;
+  --w11-bg-card-hover: #323232;
+  --w11-bg-card-active: #3a3a3a;
+  --w11-bg-elevated: #292929;
+  --w11-bg-flyout: #2c2c2c;
+  --w11-bg-input: #2d2d2d;
+  --w11-bg-input-focus: #1a1a1a;
+
+  --w11-border: #3a3a3a;
+  --w11-border-subtle: #2a2a2a;
+  --w11-border-strong: #4a4a4a;
+  --w11-border-accent: #60cdff;
+
+  --w11-text: #ffffff;
+  --w11-text-secondary: #c5c5c5;
+  --w11-text-tertiary: #9a9a9a;
+  --w11-text-disabled: #6b6b6b;
+  --w11-text-accent: #60cdff;
+
+  --w11-success: #6ccb5f;
+  --w11-warning: #fce100;
+  --w11-danger: #ff99a4;
+
+  background-color: #202020 !important;
+  background-image:
+    radial-gradient(ellipse at 30% 0%, rgba(96, 205, 255, 0.06), transparent 50%),
+    radial-gradient(ellipse at 70% 100%, rgba(150, 80, 220, 0.04), transparent 50%) !important;
+  background-attachment: fixed !important;
+  color: #ffffff !important;
+  font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  font-size: 14px !important;
+}
+
+/* ========== GENEL OVERRIDE ========== */
+body.theme-win11 *,
+body.theme-win11 *::before,
+body.theme-win11 *::after {
+  font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  box-sizing: border-box !important;
+}
+
+body.theme-win11::after,
+body.theme-win11::before {
+  display: none !important;
+}
+
+/* ========== ANA PENCERE ========== */
+body.theme-win11 .app-window {
+  background: rgba(32, 32, 32, 0.85) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+  border: 1px solid #3a3a3a !important;
+  border-radius: 8px !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 20px 60px rgba(0, 0, 0, 0.4) !important;
+  margin: 8px !important;
+  overflow: hidden !important;
+}
+
+/* ========== BAŞLIK ÇUBUĞU ========== */
+body.theme-win11 .title-bar {
+  background: rgba(32, 32, 32, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 8px 12px 8px 16px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+body.theme-win11 .title-bar::after {
+  display: none !important;
+}
+body.theme-win11 .title-bar-text {
+  color: #c5c5c5 !important;
+  font-family: 'Segoe UI Variable', 'Segoe UI', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  text-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+body.theme-win11 .title-bar-text::before {
+  content: "⊞" !important;
+  color: #60cdff !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin-right: 2px !important;
+  display: inline !important;
+  animation: none !important;
+}
+
+/* Win11 kapat/küçült/büyüt butonları (sağda) */
+body.theme-win11 .window-buttons {
+  order: 1 !important;
+  display: flex !important;
+  gap: 0 !important;
+  margin-left: auto !important;
+  height: 32px !important;
+}
+body.theme-win11 .window-buttons span {
+  width: 46px !important;
+  height: 32px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+  cursor: default !important;
+  transition: background 0.15s ease !important;
+}
+body.theme-win11 .window-buttons span:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+body.theme-win11 .window-buttons span:nth-child(3):hover {
+  background: #c42b1c !important;
+}
+body.theme-win11 .window-buttons span::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #c5c5c5 !important;
+}
+body.theme-win11 .window-buttons span:nth-child(1)::after {
+  width: 10px !important;
+  height: 1px !important;
+}
+body.theme-win11 .window-buttons span:nth-child(2)::after {
+  width: 10px !important;
+  height: 10px !important;
+  background: transparent !important;
+  border: 1px solid #c5c5c5 !important;
+  border-radius: 2px !important;
+}
+body.theme-win11 .window-buttons span:nth-child(3)::after {
+  width: 10px !important;
+  height: 10px !important;
+  background:
+    linear-gradient(45deg, transparent 42%, #c5c5c5 42%, #c5c5c5 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #c5c5c5 42%, #c5c5c5 58%, transparent 58%) !important;
+}
+body.theme-win11 .window-buttons span:nth-child(3):hover::after {
+  background:
+    linear-gradient(45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%) !important;
+}
+
+/* ========== MENÜ ÇUBUĞU ========== */
+body.theme-win11 .menu-bar {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 4px 12px !important;
+  gap: 2px !important;
+}
+body.theme-win11 .menu-bar > * {
+  color: #c5c5c5 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 6px 12px !important;
+  border: none !important;
+  background: transparent !important;
+  border-radius: 4px !important;
+  transition: background 0.15s ease !important;
+  cursor: default !important;
+}
+body.theme-win11 .menu-bar > *::before {
+  display: none !important;
+  content: none !important;
+}
+body.theme-win11 .menu-bar > *:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+  transform: none !important;
+}
+body.theme-win11 .menu-bar > *.active {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+body.theme-win11 .menu-bar > *:active {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #9a9a9a !important;
+}
+
+/* ========== TOOLBAR (Sekmeler) ========== */
+body.theme-win11 .toolbar {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 8px 12px !important;
+  gap: 4px !important;
+}
+body.theme-win11 .toolbar a {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: #c5c5c5 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 6px 14px !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+body.theme-win11 .toolbar a::before,
+body.theme-win11 .toolbar a::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-win11 .toolbar a:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.09) !important;
+  color: #ffffff !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .toolbar a.active {
+  background: rgba(96, 205, 255, 0.15) !important;
+  border-color: rgba(96, 205, 255, 0.3) !important;
+  color: #60cdff !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+/* ========== SIDEBAR ========== */
+body.theme-win11 .sidebar {
+  background: rgba(31, 31, 31, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 12px 8px !important;
+}
+body.theme-win11 .sidebar::after {
+  display: none !important;
+}
+body.theme-win11 .sidebar-title {
+  background: transparent !important;
+  color: #9a9a9a !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 6px 10px !important;
+  margin: 0 0 4px !important;
+  border-bottom: none !important;
+  text-align: left !important;
+  text-shadow: none !important;
+  border-radius: 0 !important;
+}
+body.theme-win11 .sidebar-title::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-win11 .sidebar-title::after {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-win11 .sidebar ul {
+  gap: 2px !important;
+  margin-left: 0 !important;
+}
+body.theme-win11 .sidebar li {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-left: none !important;
+  color: #c5c5c5 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 8px 12px !important;
+  margin-bottom: 0 !important;
+  border-radius: 4px !important;
+  position: relative !important;
+  transition: background 0.1s ease !important;
+  cursor: default !important;
+}
+body.theme-win11 .sidebar li::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 3px !important;
+  height: 16px !important;
+  background: transparent !important;
+  border-radius: 0 2px 2px 0 !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+}
+body.theme-win11 .sidebar li:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  padding-left: 12px !important;
+}
+body.theme-win11 .sidebar li.active {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+body.theme-win11 .sidebar li.active::before {
+  background: #60cdff !important;
+  opacity: 1 !important;
+}
+
+/* ========== İÇERİK ========== */
+body.theme-win11 .content-pane {
+  background: transparent !important;
+  padding: 28px 36px !important;
+  color: #ffffff !important;
+}
+
+/* ========== H1 ========== */
+body.theme-win11 h1.article-title {
+  color: #ffffff !important;
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: -0.3px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 0 0 14px 0 !important;
+  margin-bottom: 20px !important;
+  text-shadow: none !important;
+  background: none !important;
+  font-family: 'Segoe UI Variable Display', 'Segoe UI', sans-serif !important;
+}
+body.theme-win11 h1.article-title::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-win11 h1.article-title::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== H2 ========== */
+body.theme-win11 h2 {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: -0.2px !important;
+  padding: 0 0 10px 0 !important;
+  margin: 32px 0 14px !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+}
+body.theme-win11 h2::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 4px !important;
+  height: 20px !important;
+  background: #60cdff !important;
+  margin-right: 12px !important;
+  border-radius: 2px !important;
+  vertical-align: middle !important;
+}
+body.theme-win11 h2::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== H3 ========== */
+body.theme-win11 h3 {
+  color: #c5c5c5 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border-left: none !important;
+  padding: 0 !important;
+  margin: 22px 0 10px !important;
+  text-shadow: none !important;
+}
+body.theme-win11 h3::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== PARAGRAF & LINK ========== */
+body.theme-win11 p {
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  color: #c5c5c5 !important;
+  text-shadow: none !important;
+}
+body.theme-win11 a {
+  color: #60cdff !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  transition: color 0.1s ease !important;
+}
+body.theme-win11 a:hover {
+  color: #99ddff !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-shadow: none !important;
+  border-bottom: none !important;
+}
+
+/* ========== INFOBOX ========== */
+body.theme-win11 .infobox,
+body.theme-win11 .warinfobox,
+body.theme-win11 .krono-box,
+body.theme-win11 .wiki-thumb,
+body.theme-win11 .rff-box {
+  background: rgba(43, 43, 43, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.25) !important;
+}
+body.theme-win11 .infobox::before,
+body.theme-win11 .infobox::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-win11 .infobox-title {
+  color: #ffffff !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: -0.2px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 0 0 10px 0 !important;
+  margin: 0 0 12px 0 !important;
+  text-shadow: none !important;
+  text-align: left !important;
+}
+body.theme-win11 .infobox-subtitle {
+  color: #9a9a9a !important;
+  font-style: normal !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 12px !important;
+  text-align: left !important;
+}
+body.theme-win11 .infobox-label {
+  color: #9a9a9a !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 12px !important;
+  text-shadow: none !important;
+}
+body.theme-win11 .infobox-value {
+  color: #ffffff !important;
+  font-weight: 400 !important;
+}
+body.theme-win11 .infobox-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  padding: 6px 0 !important;
+}
+body.theme-win11 .flag-box {
+  background: rgba(20, 20, 20, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px !important;
+  padding: 8px !important;
+}
+body.theme-win11 .flag-box::after {
+  display: none !important;
+}
+body.theme-win11 .flag-label,
+body.theme-win11 .map-label {
+  color: #9a9a9a !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 11px !important;
+  text-shadow: none !important;
+}
+body.theme-win11 .infobox-map {
+  background: rgba(20, 20, 20, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px !important;
+  padding: 6px !important;
+}
+
+/* ========== BLOCKQUOTE ========== */
+body.theme-win11 blockquote {
+  background: rgba(96, 205, 255, 0.06) !important;
+  border: 1px solid rgba(96, 205, 255, 0.15) !important;
+  border-left: 3px solid #60cdff !important;
+  border-radius: 6px !important;
+  padding: 14px 18px !important;
+  color: #c5c5c5 !important;
+  font-style: normal !important;
+  font-size: 13px !important;
+  box-shadow: none !important;
+}
+body.theme-win11 blockquote::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== DETAILS ========== */
+body.theme-win11 details {
+  background: rgba(43, 43, 43, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px !important;
+  margin: 10px 0 !important;
+  overflow: hidden !important;
+  transition: background 0.15s ease !important;
+}
+body.theme-win11 details:hover {
+  background: rgba(50, 50, 50, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+body.theme-win11 details[open] {
+  background: rgba(43, 43, 43, 0.8) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+body.theme-win11 summary {
+  background: transparent !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid transparent !important;
+  text-shadow: none !important;
+  transition: background 0.1s ease !important;
+}
+body.theme-win11 summary:hover {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+body.theme-win11 details[open] summary {
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+body.theme-win11 summary::before {
+  content: "▸ " !important;
+  color: #60cdff !important;
+  font-size: 11px !important;
+  display: inline !important;
+  transition: transform 0.2s ease !important;
+  animation: none !important;
+}
+body.theme-win11 details[open] summary::before {
+  content: "▾ " !important;
+  transform: none !important;
+}
+body.theme-win11 .details-content {
+  background: transparent !important;
+  border-top: none !important;
+  padding: 12px 18px 16px !important;
+  color: #c5c5c5 !important;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+/* ========== BUTONLAR ========== */
+body.theme-win11 .vid-button,
+body.theme-win11 .qa-button,
+body.theme-win11 .lightbox-download {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 8px 18px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transition: background 0.1s ease, border-color 0.1s ease !important;
+  cursor: pointer !important;
+}
+body.theme-win11 .vid-button:hover,
+body.theme-win11 .qa-button:hover,
+body.theme-win11 .lightbox-download:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  transform: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+body.theme-win11 .vid-button:active,
+body.theme-win11 .qa-button:active {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+body.theme-win11 .vid-button::before {
+  content: "▶ " !important;
+  color: #60cdff !important;
+  animation: none !important;
+}
+
+/* ========== TABLOLAR ========== */
+body.theme-win11 .players-table {
+  background: rgba(43, 43, 43, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+body.theme-win11 .players-table th {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #9a9a9a !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-right: none !important;
+  padding: 10px 16px !important;
+  font-size: 12px !important;
+  text-shadow: none !important;
+}
+body.theme-win11 .players-table td {
+  color: #c5c5c5 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  border-right: none !important;
+  padding: 10px 16px !important;
+  font-size: 13px !important;
+}
+body.theme-win11 .players-table tr:last-child td {
+  border-bottom: none !important;
+}
+body.theme-win11 .players-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ========== STATUS BAR ========== */
+body.theme-win11 .status-bar {
+  background: rgba(32, 32, 32, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: #9a9a9a !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 12px !important;
+  padding: 8px 16px !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .status-bar::before {
+  display: none !important;
+}
+body.theme-win11 .status-bar span:first-child::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-win11 .status-bar > span {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ========== MODAL ========== */
+body.theme-win11 .lightbox-window,
+body.theme-win11 .video-window {
+  background: rgba(43, 43, 43, 0.9) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 40px 100px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden !important;
+}
+body.theme-win11 .lightbox-title-bar,
+body.theme-win11 .video-title-bar {
+  background: transparent !important;
+  color: #c5c5c5 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 10px 14px 10px 16px !important;
+  font-size: 12px !important;
+  text-shadow: none !important;
+}
+body.theme-win11 .lightbox-close,
+body.theme-win11 .video-close {
+  background: transparent !important;
+  border: none !important;
+  color: #c5c5c5 !important;
+  border-radius: 4px !important;
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+  transition: background 0.1s ease !important;
+}
+body.theme-win11 .lightbox-close:hover,
+body.theme-win11 .video-close:hover {
+  background: #c42b1c !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .video-controls {
+  background: rgba(32, 32, 32, 0.6) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 10px !important;
+  gap: 6px !important;
+}
+body.theme-win11 .video-controls button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #c5c5c5 !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+body.theme-win11 .video-controls button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .video-controls a {
+  background: #60cdff !important;
+  color: #000000 !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 6px 14px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .video-controls a:hover {
+  background: #4cc2ff !important;
+  color: #000000 !important;
+}
+
+/* ========== XP EXPLORER ========== */
+body.theme-win11 .xp-explorer,
+body.theme-win11 .xp-tree,
+body.theme-win11 .xp-preview-pane {
+  background: rgba(31, 31, 31, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+body.theme-win11 .xp-tree-title,
+body.theme-win11 .xp-file-header {
+  background: transparent !important;
+  color: #9a9a9a !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  padding: 10px 14px !important;
+  text-shadow: none !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+}
+body.theme-win11 .xp-file-item,
+body.theme-win11 .xp-tree-item {
+  color: #c5c5c5 !important;
+  border-color: transparent !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  transition: background 0.1s ease !important;
+}
+body.theme-win11 .xp-file-item:hover,
+body.theme-win11 .xp-tree-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .xp-file-item.selected,
+body.theme-win11 .xp-tree-item.active {
+  background: rgba(96, 205, 255, 0.15) !important;
+  color: #60cdff !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .xp-preview-text {
+  background: rgba(20, 20, 20, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px !important;
+  color: #c5c5c5 !important;
+  padding: 12px !important;
+  box-shadow: none !important;
+}
+
+/* ========== DROPDOWN (Görünüm menüsü Win11 stili) ========== */
+body.theme-win11 ~ .view-dropdown-fixed,
+body.theme-win11 .view-dropdown-fixed {
+  background: rgba(44, 44, 44, 0.95) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    0 32px 80px rgba(0, 0, 0, 0.4) !important;
+  padding: 8px !important;
+}
+body.theme-win11 .view-dropdown-fixed * {
+  font-family: 'Segoe UI Variable', 'Segoe UI', sans-serif !important;
+}
+body.theme-win11 .view-dropdown-fixed span {
+  color: #c5c5c5 !important;
+  font-size: 12px !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}
+body.theme-win11 .view-dropdown-fixed [data-z],
+body.theme-win11 .view-dropdown-fixed .zoom-value {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #c5c5c5 !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+body.theme-win11 .view-dropdown-fixed [data-z]:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+body.theme-win11 .view-dropdown-fixed .theme-item {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: #c5c5c5 !important;
+  border-radius: 4px !important;
+  padding: 10px 12px !important;
+  transition: background 0.1s ease !important;
+}
+body.theme-win11 .view-dropdown-fixed .theme-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+}
+body.theme-win11 .view-dropdown-fixed .theme-item.active {
+  background: rgba(96, 205, 255, 0.15) !important;
+  border-color: rgba(96, 205, 255, 0.3) !important;
+  color: #60cdff !important;
+}
+body.theme-win11 .view-dropdown-fixed .theme-item span {
+  color: inherit !important;
+}
+
+/* ========== SCROLLBAR (Win11 stili) ========== */
+body.theme-win11 ::-webkit-scrollbar {
+  width: 12px !important;
+  height: 12px !important;
+}
+body.theme-win11 ::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+body.theme-win11 ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 4px solid transparent !important;
+  background-clip: padding-box !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+body.theme-win11 ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  background-clip: padding-box !important;
+  border: 4px solid transparent !important;
+}
+body.theme-win11 ::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+/* ========== SELECTION ========== */
+body.theme-win11 ::selection {
+  background: rgba(96, 205, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+/* ========== EKSTRA: Focus Ring (Win11 erişilebilirlik) ========== */
+body.theme-win11 a:focus-visible,
+body.theme-win11 button:focus-visible,
+body.theme-win11 .toolbar a:focus-visible {
+  outline: 2px solid #60cdff !important;
+  outline-offset: 2px !important;
+}

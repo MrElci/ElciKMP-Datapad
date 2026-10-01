@@ -45,6 +45,12 @@
       desc: 'Eski Tip Win Teması',
       file: 'themes/winxp.css'
 
+    },
+    {
+      id: 'win11',
+      name: 'Windows 11 Teması',
+      desc: 'Windows 11 Karanlık Tema Seçeneği',
+      file: 'themes/win11.css'
     }
     // { id: 'matrix', name: 'Matrix Theme', desc: 'Digital Rain', file: 'themes/matrix.css' },
     // { id: 'pipboy', name: 'Pip-Boy Theme', desc: 'Fallout Terminal', file: 'themes/pipboy.css' },
