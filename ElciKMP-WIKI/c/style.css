@@ -2498,4 +2498,56 @@ body.theme-halflife ::-webkit-scrollbar-thumb:hover {
 .menu-bar > * {
   position: relative !important;
 }
+/* ===========================================
+   FLOAT OVERLAP ÖNLEYİCİ
+   =========================================== */
+
+/* content-pane float'ları düzgün sarsın */
+.content-pane {
+  display: flow-root !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Aynı yönde float eden elementler birbirini ezmesin */
+.wiki-thumb + .wiki-thumb,
+.wiki-thumb + .infobox,
+.wiki-thumb + .warinfobox,
+.wiki-thumb + .krono-box,
+.wiki-thumb + .rff-right,
+.infobox + .wiki-thumb,
+.infobox + .infobox,
+.krono-box + .wiki-thumb,
+.krono-box + .infobox,
+.rff-right + .wiki-thumb,
+.rff-right + .infobox {
+  clear: right;
+}
+
+.rff-left + .rff-left,
+.rff-left + .wiki-thumb.left {
+  clear: left;
+}
+
+/* Metin float'ı sarmaladığında minimum boşluk */
+.content-pane > p,
+.content-pane > h2,
+.content-pane > h3 {
+  overflow: hidden;
+}
+
+/* Infobox kesilmesin */
+.infobox,
+.warinfobox,
+.krono-box,
+.wiki-thumb {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Parent'lar içeriği kessin (float'ı içerir) */
+.app-window,
+.main-area,
+.content-pane {
+  min-height: 0;
+}
 }
