@@ -32,7 +32,13 @@
       name: 'Half-Life Theme',
       desc: 'Valve HL2 Terminal',
       file: 'themes/halflife.css'
-    }
+    },
+    {
+      id: 'matrix',
+      name: 'Matrix Theme',
+      desc: 'Digital Rain',
+      file: 'themes/matrix.css'
+    },
     // { id: 'matrix', name: 'Matrix Theme', desc: 'Digital Rain', file: 'themes/matrix.css' },
     // { id: 'pipboy', name: 'Pip-Boy Theme', desc: 'Fallout Terminal', file: 'themes/pipboy.css' },
   ];
