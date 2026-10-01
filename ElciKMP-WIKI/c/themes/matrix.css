@@ -1,38 +1,31 @@
 /* ===========================================
-   MATRIX THEME – Digital Rain / Green Terminal
+   MATRIX THEME – Digital Rain (Accent-Driven)
    =========================================== */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 /* ========== KÖK DEĞİŞKENLER ========== */
 body.theme-matrix {
-  --accent-color: #00ff41;
-  --accent-glow: 0 0 12px rgba(0, 255, 65, 0.7);
-  --mx-green: #00ff41;
-  --mx-green-bright: #7fff9f;
-  --mx-green-dim: #008f28;
-  --mx-green-dark: #003a10;
-  --mx-bg: #000000;
-  --mx-bg-2: #020a03;
-  --mx-bg-3: #051005;
-  --mx-border: #0d3a1a;
-  --mx-border-bright: #00ff41;
-  --mx-text: #b4ffc8;
-  --mx-text-muted: #4a8a5c;
-  --mx-text-dim: #1e5a2f;
+  --mx: var(--accent-color, #00ff41);
+  --mx-bright: color-mix(in srgb, var(--mx) 60%, #ffffff);
+  --mx-dim: color-mix(in srgb, var(--mx) 65%, #000000);
+  --mx-dark: color-mix(in srgb, var(--mx) 25%, #000000);
+  --mx-darker: color-mix(in srgb, var(--mx) 10%, #000000);
+  --mx-glow: 0 0 12px color-mix(in srgb, var(--mx) 60%, transparent);
+  --mx-glow-strong: 0 0 20px var(--mx), 0 0 40px color-mix(in srgb, var(--mx) 40%, transparent);
 
   background-color: #000 !important;
   background-image:
-    radial-gradient(ellipse at center, rgba(0, 255, 65, 0.03) 0%, transparent 70%),
+    radial-gradient(ellipse at center, color-mix(in srgb, var(--mx) 4%, transparent) 0%, transparent 70%),
     repeating-linear-gradient(
       0deg,
-      rgba(0, 255, 65, 0.03) 0px,
-      rgba(0, 255, 65, 0.03) 1px,
+      color-mix(in srgb, var(--mx) 3%, transparent) 0px,
+      color-mix(in srgb, var(--mx) 3%, transparent) 1px,
       transparent 1px,
       transparent 3px
     ) !important;
-  color: #b4ffc8 !important;
+  color: var(--mx-bright) !important;
   font-family: 'Share Tech Mono', 'JetBrains Mono', monospace !important;
-  text-shadow: 0 0 3px rgba(0, 255, 65, 0.3);
+  text-shadow: 0 0 3px color-mix(in srgb, var(--mx) 30%, transparent);
 }
 
 /* ========== GENEL OVERRIDE ========== */
@@ -45,7 +38,6 @@ body.theme-matrix *::after {
   -webkit-backdrop-filter: none !important;
 }
 
-/* Green phosphor glow efekti */
 body.theme-matrix::after {
   background:
     repeating-linear-gradient(
@@ -67,7 +59,7 @@ body.theme-matrix::after {
 
 body.theme-matrix::before {
   content: "";
-  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.04), transparent 60%) !important;
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--mx) 4%, transparent), transparent 60%) !important;
   animation: matrixPulse 4s ease-in-out infinite !important;
 }
 @keyframes matrixPulse {
@@ -77,22 +69,22 @@ body.theme-matrix::before {
 
 /* ========== ANA PENCERE ========== */
 body.theme-matrix .app-window {
-  background: #020a03 !important;
-  border: 2px solid #0d3a1a !important;
+  background: #000 !important;
+  border: 2px solid var(--mx-dark) !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 40px rgba(0, 255, 65, 0.15),
-    0 0 100px rgba(0, 255, 65, 0.05),
+    0 0 40px color-mix(in srgb, var(--mx) 15%, transparent),
+    0 0 100px color-mix(in srgb, var(--mx) 5%, transparent),
     inset 0 0 100px rgba(0, 0, 0, 0.8) !important;
 }
 
 /* ========== BAŞLIK ÇUBUĞU ========== */
 body.theme-matrix .title-bar {
   background: #000 !important;
-  border-bottom: 2px solid #00ff41 !important;
+  border-bottom: 2px solid var(--mx) !important;
   padding: 14px 20px !important;
   position: relative !important;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3) !important;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--mx) 30%, transparent) !important;
 }
 body.theme-matrix .title-bar::after {
   content: "" !important;
@@ -101,21 +93,21 @@ body.theme-matrix .title-bar::after {
   left: 0 !important;
   right: 0 !important;
   height: 2px !important;
-  background: linear-gradient(90deg, transparent, #00ff41 50%, transparent) !important;
+  background: linear-gradient(90deg, transparent, var(--mx) 50%, transparent) !important;
   animation: matrixPulse 3s ease-in-out infinite !important;
   display: block !important;
 }
 body.theme-matrix .title-bar-text {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-size: 16px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
-  text-shadow: 0 0 12px rgba(0, 255, 65, 0.9), 0 0 24px rgba(0, 255, 65, 0.5) !important;
+  text-shadow: var(--mx-glow-strong) !important;
 }
 body.theme-matrix .title-bar-text::before {
   content: "> " !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-weight: 900 !important;
   margin-right: 4px !important;
   display: inline !important;
@@ -126,18 +118,18 @@ body.theme-matrix .title-bar-text::before {
 }
 body.theme-matrix .window-buttons span {
   background: #000 !important;
-  border: 1px solid #00ff41 !important;
-  box-shadow: 0 0 6px rgba(0, 255, 65, 0.5) !important;
+  border: 1px solid var(--mx) !important;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--mx) 50%, transparent) !important;
 }
 
 /* ========== MENÜ ÇUBUĞU ========== */
 body.theme-matrix .menu-bar {
   background: #000 !important;
-  border-bottom: 2px solid #0d3a1a !important;
+  border-bottom: 2px solid var(--mx-dark) !important;
   padding: 0 12px !important;
 }
 body.theme-matrix .menu-bar > * {
-  color: #4a8a5c !important;
+  color: var(--mx-dim) !important;
   font-size: 13px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -152,29 +144,29 @@ body.theme-matrix .menu-bar > *::before {
   content: none !important;
 }
 body.theme-matrix .menu-bar > *:hover {
-  background: rgba(0, 255, 65, 0.06) !important;
-  color: #00ff41 !important;
-  border-bottom-color: #00ff41 !important;
+  background: color-mix(in srgb, var(--mx) 6%, transparent) !important;
+  color: var(--mx) !important;
+  border-bottom-color: var(--mx) !important;
   transform: none !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--mx) 80%, transparent) !important;
 }
 body.theme-matrix .menu-bar > *.active {
-  color: #00ff41 !important;
-  border-bottom-color: #00ff41 !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8) !important;
+  color: var(--mx) !important;
+  border-bottom-color: var(--mx) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--mx) 80%, transparent) !important;
 }
 
 /* ========== TOOLBAR ========== */
 body.theme-matrix .toolbar {
   background: #000 !important;
-  border-bottom: 2px solid #0d3a1a !important;
+  border-bottom: 2px solid var(--mx-dark) !important;
   padding: 10px 16px !important;
   gap: 4px !important;
 }
 body.theme-matrix .toolbar a {
   background: transparent !important;
-  border: 1px solid #0d3a1a !important;
-  color: #4a8a5c !important;
+  border: 1px solid var(--mx-dark) !important;
+  color: var(--mx-dim) !important;
   font-size: 13px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -188,24 +180,24 @@ body.theme-matrix .toolbar a::after {
   display: none !important;
 }
 body.theme-matrix .toolbar a:hover {
-  background: rgba(0, 255, 65, 0.08) !important;
-  border-color: #00ff41 !important;
-  color: #00ff41 !important;
+  background: color-mix(in srgb, var(--mx) 8%, transparent) !important;
+  border-color: var(--mx) !important;
+  color: var(--mx) !important;
   transform: none !important;
-  box-shadow: 0 0 12px rgba(0, 255, 65, 0.3) !important;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--mx) 30%, transparent) !important;
 }
 body.theme-matrix .toolbar a.active {
-  background: rgba(0, 255, 65, 0.15) !important;
-  border-color: #00ff41 !important;
-  color: #00ff41 !important;
-  box-shadow: 0 0 16px rgba(0, 255, 65, 0.4), inset 0 0 12px rgba(0, 255, 65, 0.15) !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.9) !important;
+  background: color-mix(in srgb, var(--mx) 15%, transparent) !important;
+  border-color: var(--mx) !important;
+  color: var(--mx) !important;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--mx) 40%, transparent), inset 0 0 12px color-mix(in srgb, var(--mx) 15%, transparent) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--mx) 90%, transparent) !important;
 }
 
 /* ========== SIDEBAR ========== */
 body.theme-matrix .sidebar {
   background: #000 !important;
-  border-right: 2px solid #0d3a1a !important;
+  border-right: 2px solid var(--mx-dark) !important;
   padding: 20px 14px !important;
   position: relative !important;
 }
@@ -218,9 +210,9 @@ body.theme-matrix .sidebar::after {
   width: 2px !important;
   background: linear-gradient(180deg,
     transparent 0%,
-    rgba(0, 255, 65, 0.4) 20%,
-    rgba(0, 255, 65, 0.8) 50%,
-    rgba(0, 255, 65, 0.4) 80%,
+    color-mix(in srgb, var(--mx) 40%, transparent) 20%,
+    color-mix(in srgb, var(--mx) 80%, transparent) 50%,
+    color-mix(in srgb, var(--mx) 40%, transparent) 80%,
     transparent 100%) !important;
   animation: matrixSidebarGlow 3s ease-in-out infinite !important;
 }
@@ -229,25 +221,25 @@ body.theme-matrix .sidebar::after {
   50% { opacity: 1; }
 }
 body.theme-matrix .sidebar-title {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-size: 13px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
-  border-bottom: 1px solid #0d3a1a !important;
+  border-bottom: 1px solid var(--mx-dark) !important;
   padding: 10px 0 !important;
   margin-bottom: 16px !important;
   text-align: center !important;
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.7) !important;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--mx) 70%, transparent) !important;
 }
 body.theme-matrix .sidebar-title::before {
   content: "[ " !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   animation: matrixBlink 1.5s step-end infinite !important;
 }
 body.theme-matrix .sidebar-title::after {
   content: " ]" !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   animation: matrixBlink 1.5s step-end infinite !important;
 }
 body.theme-matrix .sidebar ul {
@@ -257,7 +249,7 @@ body.theme-matrix .sidebar li {
   background: transparent !important;
   border: none !important;
   border-left: 2px solid transparent !important;
-  color: #4a8a5c !important;
+  color: var(--mx-dim) !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
@@ -267,27 +259,27 @@ body.theme-matrix .sidebar li {
 }
 body.theme-matrix .sidebar li::before {
   content: "▸ " !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   opacity: 0.4 !important;
   margin-right: 4px !important;
   display: inline !important;
   transition: opacity 0.2s ease !important;
 }
 body.theme-matrix .sidebar li:hover {
-  background: rgba(0, 255, 65, 0.05) !important;
-  border-left-color: #00ff41 !important;
-  color: #00ff41 !important;
+  background: color-mix(in srgb, var(--mx) 5%, transparent) !important;
+  border-left-color: var(--mx) !important;
+  color: var(--mx) !important;
   padding-left: 14px !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.6) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 60%, transparent) !important;
 }
 body.theme-matrix .sidebar li:hover::before {
   opacity: 1 !important;
 }
 body.theme-matrix .sidebar li.active {
-  background: rgba(0, 255, 65, 0.1) !important;
-  border-left-color: #00ff41 !important;
-  color: #00ff41 !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.9) !important;
+  background: color-mix(in srgb, var(--mx) 10%, transparent) !important;
+  border-left-color: var(--mx) !important;
+  color: var(--mx) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--mx) 90%, transparent) !important;
 }
 body.theme-matrix .sidebar li.active::before {
   opacity: 1 !important;
@@ -298,32 +290,30 @@ body.theme-matrix .sidebar li.active::before {
 body.theme-matrix .content-pane {
   background: #000 !important;
   padding: 40px 48px !important;
-  position: relative !important;
 }
 
 /* ========== H1 ========== */
 body.theme-matrix h1.article-title {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-size: 2rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
-  border-bottom: 2px solid #0d3a1a !important;
+  border-bottom: 2px solid var(--mx-dark) !important;
   padding: 0 0 14px 0 !important;
   margin-bottom: 24px !important;
-  text-shadow: 0 0 12px rgba(0, 255, 65, 0.9), 0 0 30px rgba(0, 255, 65, 0.4) !important;
-  position: relative !important;
+  text-shadow: var(--mx-glow-strong) !important;
 }
 body.theme-matrix h1.article-title::before {
   content: "> " !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-weight: 900 !important;
   margin-right: 6px !important;
   animation: matrixBlink 1s step-end infinite !important;
 }
 body.theme-matrix h1.article-title::after {
   content: "█" !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-size: 1.2rem !important;
   margin-left: 8px !important;
   animation: matrixBlink 0.8s step-end infinite !important;
@@ -332,21 +322,21 @@ body.theme-matrix h1.article-title::after {
 
 /* ========== H2 ========== */
 body.theme-matrix h2 {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-size: 1.35rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
   padding: 10px 0 10px 16px !important;
   margin: 36px 0 18px !important;
-  border-left: 3px solid #00ff41 !important;
-  background: linear-gradient(90deg, rgba(0, 255, 65, 0.08) 0%, transparent 100%) !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6) !important;
+  border-left: 3px solid var(--mx) !important;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--mx) 8%, transparent) 0%, transparent 100%) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--mx) 60%, transparent) !important;
   position: relative !important;
 }
 body.theme-matrix h2::before {
   content: "## " !important;
-  color: #008f28 !important;
+  color: var(--mx-dim) !important;
   font-weight: 400 !important;
   margin-right: 4px !important;
   font-size: 1.1rem !important;
@@ -358,25 +348,25 @@ body.theme-matrix h2::after {
   bottom: 0 !important;
   width: 100% !important;
   height: 1px !important;
-  background: linear-gradient(90deg, #00ff41 0%, transparent 60%) !important;
+  background: linear-gradient(90deg, var(--mx) 0%, transparent 60%) !important;
   opacity: 0.4 !important;
 }
 
 /* ========== H3 ========== */
 body.theme-matrix h3 {
-  color: #7fff9f !important;
+  color: var(--mx-bright) !important;
   font-size: 1.1rem !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  border-left: 3px solid #008f28 !important;
+  border-left: 3px solid var(--mx-dim) !important;
   padding-left: 14px !important;
   margin: 24px 0 10px !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.5) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 50%, transparent) !important;
 }
 body.theme-matrix h3::before {
   content: ">>> " !important;
-  color: #008f28 !important;
+  color: var(--mx-dim) !important;
   font-size: 0.85rem !important;
   margin-right: 2px !important;
   opacity: 0.7 !important;
@@ -386,24 +376,21 @@ body.theme-matrix h3::before {
 body.theme-matrix p {
   font-size: 15px !important;
   line-height: 1.8 !important;
-  color: #b4ffc8 !important;
-  text-shadow: 0 0 2px rgba(0, 255, 65, 0.2) !important;
+  color: var(--mx-bright) !important;
+  text-shadow: 0 0 2px color-mix(in srgb, var(--mx) 20%, transparent) !important;
 }
 body.theme-matrix a {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-weight: 500 !important;
   text-decoration: none !important;
-  border-bottom: 1px dashed rgba(0, 255, 65, 0.4) !important;
+  border-bottom: 1px dashed color-mix(in srgb, var(--mx) 40%, transparent) !important;
   transition: all 0.2s ease !important;
 }
 body.theme-matrix a:hover {
-  color: #7fff9f !important;
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.9) !important;
+  color: var(--mx-bright) !important;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--mx) 90%, transparent) !important;
   border-bottom-style: solid !important;
-  border-bottom-color: #00ff41 !important;
-}
-body.theme-matrix a::before {
-  content: "" !important;
+  border-bottom-color: var(--mx) !important;
 }
 
 /* ========== INFOBOX ========== */
@@ -412,15 +399,14 @@ body.theme-matrix .warinfobox,
 body.theme-matrix .krono-box,
 body.theme-matrix .wiki-thumb,
 body.theme-matrix .rff-box {
-  background: #020a03 !important;
-  border: 1px solid #0d3a1a !important;
-  border-top: 3px solid #00ff41 !important;
+  background: #000 !important;
+  border: 1px solid var(--mx-dark) !important;
+  border-top: 3px solid var(--mx) !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 20px rgba(0, 255, 65, 0.15),
+    0 0 20px color-mix(in srgb, var(--mx) 15%, transparent),
     inset 0 0 30px rgba(0, 0, 0, 0.8) !important;
   padding: 16px !important;
-  position: relative !important;
 }
 body.theme-matrix .infobox::before,
 body.theme-matrix .infobox::after {
@@ -428,19 +414,19 @@ body.theme-matrix .infobox::after {
   display: none !important;
 }
 body.theme-matrix .infobox-title {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-size: 1.15rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  border-bottom: 1px solid #0d3a1a !important;
+  border-bottom: 1px solid var(--mx-dark) !important;
   padding-bottom: 10px !important;
   margin-bottom: 12px !important;
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.7) !important;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--mx) 70%, transparent) !important;
   text-align: center !important;
 }
 body.theme-matrix .infobox-subtitle {
-  color: #4a8a5c !important;
+  color: var(--mx-dim) !important;
   font-style: normal !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
@@ -448,26 +434,25 @@ body.theme-matrix .infobox-subtitle {
   text-align: center !important;
 }
 body.theme-matrix .infobox-label {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 1.2px !important;
   font-size: 11px !important;
-  text-shadow: 0 0 4px rgba(0, 255, 65, 0.5) !important;
+  text-shadow: 0 0 4px color-mix(in srgb, var(--mx) 50%, transparent) !important;
 }
 body.theme-matrix .infobox-value {
-  color: #b4ffc8 !important;
+  color: var(--mx-bright) !important;
   font-weight: 400 !important;
 }
 body.theme-matrix .infobox-row {
-  border-bottom: 1px dashed #0d3a1a !important;
+  border-bottom: 1px dashed var(--mx-dark) !important;
   padding: 8px 0 !important;
 }
 body.theme-matrix .flag-box {
   background: #000 !important;
-  border: 1px solid #0d3a1a !important;
+  border: 1px solid var(--mx-dark) !important;
   padding: 6px !important;
-  position: relative !important;
 }
 body.theme-matrix .flag-box::after {
   content: "" !important;
@@ -476,40 +461,39 @@ body.theme-matrix .flag-box::after {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 65, 0.05) 100%) !important;
+  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--mx) 5%, transparent) 100%) !important;
   pointer-events: none !important;
 }
 body.theme-matrix .flag-label,
 body.theme-matrix .map-label {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
   font-size: 10px !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.6) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 60%, transparent) !important;
 }
 body.theme-matrix .infobox-map {
   background: #000 !important;
-  border: 1px solid #0d3a1a !important;
+  border: 1px solid var(--mx-dark) !important;
   padding: 6px !important;
 }
 
 /* ========== BLOCKQUOTE ========== */
 body.theme-matrix blockquote {
   background: #000 !important;
-  border-left: 4px solid #00ff41 !important;
-  border-top: 1px solid #0d3a1a !important;
-  border-bottom: 1px solid #0d3a1a !important;
+  border-left: 4px solid var(--mx) !important;
+  border-top: 1px solid var(--mx-dark) !important;
+  border-bottom: 1px solid var(--mx-dark) !important;
   padding: 16px 22px !important;
-  color: #b4ffc8 !important;
+  color: var(--mx-bright) !important;
   font-style: normal !important;
   font-size: 14px !important;
-  position: relative !important;
-  box-shadow: inset 4px 0 20px rgba(0, 255, 65, 0.08) !important;
+  box-shadow: inset 4px 0 20px color-mix(in srgb, var(--mx) 8%, transparent) !important;
 }
 body.theme-matrix blockquote::before {
   content: "> " !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-size: 18px !important;
   font-weight: 900 !important;
   top: 12px !important;
@@ -521,28 +505,27 @@ body.theme-matrix blockquote::before {
 /* ========== DETAILS ========== */
 body.theme-matrix details {
   background: #000 !important;
-  border: 1px solid #0d3a1a !important;
+  border: 1px solid var(--mx-dark) !important;
   margin: 14px 0 !important;
-  transition: all 0.2s ease !important;
 }
 body.theme-matrix details[open] {
-  border-color: #00ff41 !important;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2) !important;
+  border-color: var(--mx) !important;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--mx) 20%, transparent) !important;
 }
 body.theme-matrix summary {
   background: #000 !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
   padding: 12px 18px !important;
   font-size: 12px !important;
-  border-bottom: 1px solid #0d3a1a !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.6) !important;
+  border-bottom: 1px solid var(--mx-dark) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 60%, transparent) !important;
 }
 body.theme-matrix summary::before {
   content: "> " !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   animation: matrixBlink 1.2s step-end infinite !important;
 }
 body.theme-matrix details[open] summary::before {
@@ -554,7 +537,7 @@ body.theme-matrix .details-content {
   background: #000 !important;
   border-top: none !important;
   padding: 16px 20px !important;
-  color: #b4ffc8 !important;
+  color: var(--mx-bright) !important;
 }
 
 /* ========== BUTONLAR ========== */
@@ -562,24 +545,22 @@ body.theme-matrix .vid-button,
 body.theme-matrix .qa-button,
 body.theme-matrix .lightbox-download {
   background: #000 !important;
-  border: 1px solid #00ff41 !important;
-  color: #00ff41 !important;
+  border: 1px solid var(--mx) !important;
+  color: var(--mx) !important;
   font-size: 13px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
   padding: 10px 22px !important;
-  box-shadow: 0 0 0 1px #000, 4px 4px 0 rgba(0, 255, 65, 0.2) !important;
-  filter: none !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.7) !important;
-  transition: all 0.2s ease !important;
+  box-shadow: 0 0 0 1px #000, 4px 4px 0 color-mix(in srgb, var(--mx) 20%, transparent) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 70%, transparent) !important;
 }
 body.theme-matrix .vid-button:hover,
 body.theme-matrix .qa-button:hover,
 body.theme-matrix .lightbox-download:hover {
-  background: #00ff41 !important;
+  background: var(--mx) !important;
   color: #000 !important;
-  box-shadow: 0 0 0 1px #000, 4px 4px 0 #00ff41, 0 0 30px rgba(0, 255, 65, 0.7) !important;
+  box-shadow: 0 0 0 1px #000, 4px 4px 0 var(--mx), 0 0 30px color-mix(in srgb, var(--mx) 70%, transparent) !important;
   transform: translate(-2px, -2px) !important;
   text-shadow: none !important;
 }
@@ -592,199 +573,194 @@ body.theme-matrix .vid-button::before {
 /* ========== TABLOLAR ========== */
 body.theme-matrix .players-table {
   background: #000 !important;
-  border: 1px solid #0d3a1a !important;
+  border: 1px solid var(--mx-dark) !important;
 }
 body.theme-matrix .players-table th {
   background: #000 !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  border-bottom: 2px solid #00ff41 !important;
+  border-bottom: 2px solid var(--mx) !important;
   padding: 14px 18px !important;
   font-size: 12px !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--mx) 60%, transparent) !important;
 }
 body.theme-matrix .players-table td {
-  color: #b4ffc8 !important;
-  border-bottom: 1px solid #0d3a1a !important;
+  color: var(--mx-bright) !important;
+  border-bottom: 1px solid var(--mx-dark) !important;
   padding: 12px 18px !important;
   font-size: 13px !important;
 }
 body.theme-matrix .players-table tr:hover td {
-  background: rgba(0, 255, 65, 0.06) !important;
+  background: color-mix(in srgb, var(--mx) 6%, transparent) !important;
 }
 
 /* ========== STATUS BAR ========== */
 body.theme-matrix .status-bar {
   background: #000 !important;
-  border-top: 2px solid #00ff41 !important;
-  color: #00ff41 !important;
+  border-top: 2px solid var(--mx) !important;
+  color: var(--mx) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
   font-size: 11px !important;
   padding: 10px 18px !important;
-  box-shadow: 0 -2px 12px rgba(0, 255, 65, 0.15) !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.6) !important;
+  box-shadow: 0 -2px 12px color-mix(in srgb, var(--mx) 15%, transparent) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 60%, transparent) !important;
 }
 body.theme-matrix .status-bar::before {
   display: none !important;
 }
 body.theme-matrix .status-bar span:first-child::before {
   content: "● " !important;
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   animation: matrixBlink 1.5s step-end infinite !important;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.9) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--mx) 90%, transparent) !important;
 }
 
 /* ========== MODAL ========== */
 body.theme-matrix .lightbox-window,
 body.theme-matrix .video-window {
-  background: #020a03 !important;
-  border: 2px solid #00ff41 !important;
+  background: #000 !important;
+  border: 2px solid var(--mx) !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 80px rgba(0, 255, 65, 0.4),
+    0 0 80px color-mix(in srgb, var(--mx) 40%, transparent),
     inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
 }
 body.theme-matrix .lightbox-title-bar,
 body.theme-matrix .video-title-bar {
   background: #000 !important;
-  color: #00ff41 !important;
-  border-bottom: 2px solid #00ff41 !important;
+  color: var(--mx) !important;
+  border-bottom: 2px solid var(--mx) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.7) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 70%, transparent) !important;
 }
 body.theme-matrix .lightbox-close,
 body.theme-matrix .video-close {
   background: transparent !important;
-  border: 1px solid #00ff41 !important;
-  color: #00ff41 !important;
+  border: 1px solid var(--mx) !important;
+  color: var(--mx) !important;
 }
 body.theme-matrix .lightbox-close:hover,
 body.theme-matrix .video-close:hover {
-  background: #00ff41 !important;
+  background: var(--mx) !important;
   color: #000 !important;
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.7) !important;
+  box-shadow: 0 0 15px color-mix(in srgb, var(--mx) 70%, transparent) !important;
 }
 body.theme-matrix .video-controls {
   background: #000 !important;
-  border-top: 1px solid #0d3a1a !important;
+  border-top: 1px solid var(--mx-dark) !important;
 }
 body.theme-matrix .video-controls button {
   background: #000 !important;
-  border: 1px solid #00ff41 !important;
-  color: #00ff41 !important;
+  border: 1px solid var(--mx) !important;
+  color: var(--mx) !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
-  text-shadow: 0 0 4px rgba(0, 255, 65, 0.5) !important;
+  text-shadow: 0 0 4px color-mix(in srgb, var(--mx) 50%, transparent) !important;
 }
 body.theme-matrix .video-controls button:hover {
-  background: #00ff41 !important;
+  background: var(--mx) !important;
   color: #000 !important;
-  box-shadow: 0 0 12px rgba(0, 255, 65, 0.6) !important;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--mx) 60%, transparent) !important;
   text-shadow: none !important;
 }
 body.theme-matrix .video-controls a {
-  background: #00ff41 !important;
+  background: var(--mx) !important;
   color: #000 !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
 }
 
-/* ========== XP EXPLORER (Liste sayfaları) ========== */
+/* ========== XP EXPLORER ========== */
 body.theme-matrix .xp-explorer,
 body.theme-matrix .xp-tree,
 body.theme-matrix .xp-preview-pane {
   background: #000 !important;
-  border-color: #0d3a1a !important;
+  border-color: var(--mx-dark) !important;
 }
 body.theme-matrix .xp-tree-title,
 body.theme-matrix .xp-file-header {
-  color: #00ff41 !important;
+  color: var(--mx) !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  border-color: #0d3a1a !important;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.5) !important;
+  border-color: var(--mx-dark) !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mx) 50%, transparent) !important;
 }
 body.theme-matrix .xp-file-item,
 body.theme-matrix .xp-tree-item {
-  color: #4a8a5c !important;
-  border-color: #0d3a1a !important;
-  transition: all 0.15s ease !important;
+  color: var(--mx-dim) !important;
+  border-color: var(--mx-dark) !important;
 }
 body.theme-matrix .xp-file-item:hover,
 body.theme-matrix .xp-tree-item:hover {
-  background: rgba(0, 255, 65, 0.06) !important;
-  color: #00ff41 !important;
+  background: color-mix(in srgb, var(--mx) 6%, transparent) !important;
+  color: var(--mx) !important;
 }
 body.theme-matrix .xp-file-item.selected,
 body.theme-matrix .xp-tree-item.active {
-  background: rgba(0, 255, 65, 0.12) !important;
-  color: #00ff41 !important;
-  box-shadow: inset 3px 0 0 #00ff41 !important;
+  background: color-mix(in srgb, var(--mx) 12%, transparent) !important;
+  color: var(--mx) !important;
+  box-shadow: inset 3px 0 0 var(--mx) !important;
 }
 body.theme-matrix .xp-preview-text {
   background: #000 !important;
-  border-color: #0d3a1a !important;
-  color: #b4ffc8 !important;
+  border-color: var(--mx-dark) !important;
+  color: var(--mx-bright) !important;
 }
 
-/* ========== DROPDOWN (Görünüm menüsü Matrix stili) ========== */
+/* ========== DROPDOWN (Görünüm menüsü) ========== */
 body.theme-matrix ~ .view-dropdown-fixed,
 body.theme-matrix .view-dropdown-fixed {
   background: #000 !important;
-  border: 1px solid #00ff41 !important;
+  border: 1px solid var(--mx) !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 40px rgba(0, 255, 65, 0.3),
+    0 0 40px color-mix(in srgb, var(--mx) 30%, transparent),
     inset 0 0 30px rgba(0, 0, 0, 0.8) !important;
 }
 body.theme-matrix .view-dropdown-fixed span {
-  color: #b4ffc8 !important;
+  color: var(--mx-bright) !important;
 }
 body.theme-matrix .view-dropdown-fixed .theme-item {
-  color: #4a8a5c !important;
+  color: var(--mx-dim) !important;
 }
 body.theme-matrix .view-dropdown-fixed .theme-item:hover {
-  background: rgba(0, 255, 65, 0.08) !important;
-  color: #00ff41 !important;
+  background: color-mix(in srgb, var(--mx) 8%, transparent) !important;
+  color: var(--mx) !important;
 }
 body.theme-matrix .view-dropdown-fixed .theme-item.active {
-  background: rgba(0, 255, 65, 0.15) !important;
-  border-color: #00ff41 !important;
-  color: #00ff41 !important;
+  background: color-mix(in srgb, var(--mx) 15%, transparent) !important;
+  border-color: var(--mx) !important;
+  color: var(--mx) !important;
 }
 
 /* ========== SCROLLBAR ========== */
-body.theme-matrix ::-webkit-scrollbar {
-  width: 10px !important;
-}
-body.theme-matrix ::-webkit-scrollbar-track {
-  background: #000 !important;
-}
+body.theme-matrix ::-webkit-scrollbar { width: 10px !important; }
+body.theme-matrix ::-webkit-scrollbar-track { background: #000 !important; }
 body.theme-matrix ::-webkit-scrollbar-thumb {
-  background: #0d3a1a !important;
-  border: 1px solid #00ff41 !important;
+  background: var(--mx-dark) !important;
+  border: 1px solid var(--mx) !important;
 }
 body.theme-matrix ::-webkit-scrollbar-thumb:hover {
-  background: #00ff41 !important;
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.7) !important;
+  background: var(--mx) !important;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--mx) 70%, transparent) !important;
 }
 
-/* ========== EKSTRA: Seçim / Selection ========== */
+/* ========== SELECTION ========== */
 body.theme-matrix ::selection {
-  background: #00ff41 !important;
+  background: var(--mx) !important;
   color: #000 !important;
   text-shadow: none !important;
 }
 
-/* ========== EKSTRA: Kayan yeşil data satırı ========== */
+/* ========== DATA STREAM ========== */
 body.theme-matrix .app-window::before {
   content: "" !important;
   position: absolute !important;
@@ -792,7 +768,7 @@ body.theme-matrix .app-window::before {
   left: 0 !important;
   right: 0 !important;
   height: 2px !important;
-  background: linear-gradient(90deg, transparent, #00ff41, transparent) !important;
+  background: linear-gradient(90deg, transparent, var(--mx), transparent) !important;
   opacity: 0.5 !important;
   animation: matrixDataStream 4s linear infinite !important;
   pointer-events: none !important;

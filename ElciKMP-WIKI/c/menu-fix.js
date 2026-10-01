@@ -51,6 +51,12 @@
       name: 'Windows 11 Teması',
       desc: 'Windows 11 Karanlık Tema Seçeneği',
       file: 'themes/win11.css'
+    },
+    {
+      id: 'github-dark',
+      name: 'GitHub Dark Teması',
+      desc: 'Karanlık GitHub Teması',
+      file: 'themes/github-dark.css'
     }
     // { id: 'matrix', name: 'Matrix Theme', desc: 'Digital Rain', file: 'themes/matrix.css' },
     // { id: 'pipboy', name: 'Pip-Boy Theme', desc: 'Fallout Terminal', file: 'themes/pipboy.css' },
@@ -90,56 +96,29 @@
   }
 
   function applyTheme(themeId) {
-    if (!THEMES.some(t => t.id === themeId)) themeId = 'datapad';
+// Her temanın kendi varsayılan rengi
+const themeDefaults = {
+  datapad:  null,          // :root'tan gelir
+  halflife: '#ff9c2e',     // sabit turuncu
+  matrix:   '#00ff41',     // varsayılan yeşil
+  winxp:    '#0054e3',     // XP mavisi
+  win11:    '#60cdff'      // Win11 cyan
+};
 
-    // Attribute + class
-    document.documentElement.setAttribute('data-theme', themeId);
-    document.body.classList.remove('theme-halflife', 'theme-datapad');
-    document.body.classList.add('theme-' + themeId);
-    localStorage.setItem(THEME_KEY, themeId);
+const defColor = themeDefaults[themeId];
 
-    // Harici CSS'i yükle
-    const theme = THEMES.find(t => t.id === themeId);
-    loadThemeFile(theme ? theme.file : null);
+if (defColor) {
+  document.documentElement.style.setProperty('--accent-color', defColor, 'important');
+  document.documentElement.style.setProperty('--accent-glow', `0 0 12px ${defColor}`, 'important');
+} else {
+  document.documentElement.style.removeProperty('--accent-color');
+  document.documentElement.style.removeProperty('--accent-glow');
+}
 
-    // Accent rengi
-    if (themeId === 'datapad') {
-      document.documentElement.style.removeProperty('--accent-color');
-      document.documentElement.style.removeProperty('--accent-glow');
-      if (typeof window.applyAccentColor === 'function') {
-        window.applyAccentColor();
-      }
-    } else {
-      // Diğer temalar kendi accent renklerini CSS'te tanımlar
-      document.documentElement.style.setProperty('--accent-color', 'inherit', 'important');
-      document.documentElement.style.removeProperty('--accent-glow');
-    }
-
-    // UI güncellemesi
-    document.querySelectorAll('.theme-item').forEach(el => {
-      el.classList.toggle('active', el.dataset.theme === themeId);
-    });
-
-    console.log('[theme]', themeId, '| file:', theme ? theme.file : 'default');
-  }
-
-  /* ===========================================
-     DOSYA → MATERYAL
-     =========================================== */
-  function fixMaterial() {
-    document.querySelectorAll('.menu-bar > *').forEach(el => {
-      if (el.dataset.__matFixed === '1') return;
-      const t = (el.textContent || '').trim();
-      if (/^(dosya|file)$/i.test(t)) {
-        el.dataset.__matFixed = '1';
-        el.textContent = 'Materyal';
-        el.style.cursor = 'pointer';
-        el.addEventListener('click', e => {
-          e.preventDefault(); e.stopPropagation();
-          window.location.href = 'material.html';
-        });
-      }
-    });
+// Başlıktaki rengi (varsa) üstüne uygula
+if (typeof window.applyAccentColor === 'function') {
+  window.applyAccentColor();
+}
   }
 
   /* ===========================================
