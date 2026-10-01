@@ -2499,87 +2499,45 @@ body.theme-halflife ::-webkit-scrollbar-thumb:hover {
   position: relative !important;
 }
 /* ===========================================
-   FLOAT OVERLAP ÖNLEYİCİ
+   KATMAN DÜZELTMESİ (tüm temalar için)
+   - h1 ve blockquote alt katmanda
+   - resim, tablo, infobox üst katmanda
    =========================================== */
 
-/* content-pane float'ları düzgün sarsın */
-.content-pane {
-  display: flow-root !important;
-  overflow-wrap: break-word !important;
+/* Alt katman: başlıklar ve alıntılar */
+h1.article-title,
+.article-subtitle,
+blockquote {
+  position: relative;
+  z-index: 1 !important;
 }
 
-/* Aynı yönde float eden elementler birbirini ezmesin */
-.wiki-thumb + .wiki-thumb,
-.wiki-thumb + .infobox,
-.wiki-thumb + .warinfobox,
-.wiki-thumb + .krono-box,
-.wiki-thumb + .rff-right,
-.infobox + .wiki-thumb,
-.infobox + .infobox,
-.krono-box + .wiki-thumb,
-.krono-box + .infobox,
-.rff-right + .wiki-thumb,
-.rff-right + .infobox {
-  clear: right;
-}
-
-.rff-left + .rff-left,
-.rff-left + .wiki-thumb.left {
-  clear: left;
-}
-
-/* Metin float'ı sarmaladığında minimum boşluk */
-.content-pane > p,
-.content-pane > h2,
-.content-pane > h3 {
-  overflow: hidden;
-}
-
-/* Infobox kesilmesin */
+/* Üst katman: görseller, tablolar, infobox'lar */
+.wiki-thumb,
 .infobox,
 .warinfobox,
 .krono-box,
-.wiki-thumb {
-  max-height: none !important;
-  overflow: visible !important;
+.rff-box,
+.map-container,
+.players-table,
+.infobox-map,
+.flag-box,
+.infobox-flags,
+.xp-explorer,
+.xp-tree,
+.xp-file-panel,
+.xp-preview-pane,
+.vid-button,
+.qa-button {
+  position: relative;
+  z-index: 10 !important;
 }
 
-/* Parent'lar içeriği kessin (float'ı içerir) */
-.app-window,
-.main-area,
-.content-pane {
-  min-height: 0;
-}
-/* ===========================================
-   INFОBOX DEĞER KIRPILMASI ÖNLEYİCİ
-   =========================================== */
-
-/* Değerlerin kesilmesini engelle */
-.infobox-value,
-.warinfobox td.war-row-value,
-.infobox-label,
-.warinfobox td.war-row-label {
-  overflow: visible !important;
-  text-overflow: clip !important;
-  white-space: normal !important;
-  word-break: break-word !important;
-  overflow-wrap: anywhere !important;
-  min-width: 0 !important;
-}
-
-/* Infobox sabit kalmasın, içeriğe göre genişlesin */
-.infobox,
-.warinfobox {
-  max-width: 100% !important;
-}
-
-/* Infobox değeri çok uzunsa satır atlasın */
-.infobox-row {
-  flex-wrap: wrap !important;
-}
-
-/* Parent'ı taşımasın */
-.content-pane {
-  overflow-wrap: break-word !important;
+/* Pseudoların (::before / ::after) arka planda kalması */
+h1.article-title::before,
+h1.article-title::after,
+blockquote::before,
+blockquote::after {
+  z-index: 0 !important;
 }
 }
