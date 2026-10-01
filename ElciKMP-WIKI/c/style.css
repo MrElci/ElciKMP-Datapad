@@ -2540,4 +2540,60 @@ blockquote::before,
 blockquote::after {
   z-index: 0 !important;
 }
+/* ===========================================
+   H1 VE BLOCKQUOTE ÇAKIŞMA ÇÖZÜMÜ
+   =========================================== */
+
+/* Ana içerik alanı bir stacking context oluştursun */
+.content-pane {
+  isolation: isolate !important;
+  position: relative !important;
+}
+
+/* H1, alt başlık ve blockquote → BFC olurlar, float'ların altına girmezler */
+h1.article-title,
+.article-subtitle,
+blockquote {
+  display: flow-root !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Eski tarayıcılar için fallback (Firefox < 53, Safari < 15.4) */
+@supports not (display: flow-root) {
+  h1.article-title,
+  .article-subtitle,
+  blockquote {
+    overflow: hidden !important;
+  }
+}
+
+/* Float'lı kutular her zaman h1 ve blockquote'un ÜSTÜNDE kalsın */
+.infobox,
+.warinfobox,
+.krono-box,
+.wiki-thumb,
+.rff-box,
+.map-container,
+.players-table,
+.xp-explorer,
+.infobox-map,
+.flag-box,
+.infobox-flags {
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+/* H1'in süsleri (>, λ, █, ##) metinle aynı hizada kalsın */
+h1.article-title::before,
+h1.article-title::after {
+  position: static !important;
+  z-index: auto !important;
+}
+
+/* Blockquote'un köşe süsü metnin arkasında kalsın */
+blockquote::before,
+blockquote::after {
+  z-index: 0 !important;
+}
 }
