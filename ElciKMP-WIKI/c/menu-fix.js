@@ -17,21 +17,25 @@
 
   /* ===== TEMA KAYIT DEFTERİ ===== */
   const THEMES = [
-    { id: 'datapad',  name: 'Datapad Teması',    desc: 'GitHub Glass',             file: null },
-    { id: 'halflife', name: 'Half-Life Teması',  desc: 'Valve HL2 Terminal',       file: 'themes/halflife.css' },
-    { id: 'matrix',   name: 'Matrix Teması',     desc: 'Digital Rain',             file: 'themes/matrix.css' },
-    { id: 'winxp',    name: 'Windows XP Teması', desc: 'Eski Tip Win Teması',      file: 'themes/winxp.css' },
-    { id: 'win11',    name: 'Windows 11 Teması', desc: 'Windows 11 Karanlık Tema', file: 'themes/win11.css' },
-    { id: 'github',   name: 'GitHub Teması',     desc: 'Karanlık GitHub Teması',   file: 'themes/github.css' }
+    { id: 'datapad',    name: 'Datapad Teması',      desc: 'GitHub Glass',        file: null },
+    { id: 'halflife',   name: 'Half-Life Teması',    desc: 'Valve HL2 Terminal',  file: 'themes/halflife.css' },
+    { id: 'matrix',     name: 'Matrix Teması',       desc: 'Digital Rain',        file: 'themes/matrix.css' },
+    { id: 'winxp',      name: 'Windows XP Teması',   desc: 'Luna Blue Classic',   file: 'themes/winxp.css' },
+    { id: 'win11',      name: 'Windows 11 Teması',   desc: 'Fluent Dark / Mica',  file: 'themes/win11.css' },
+    { id: 'github',     name: 'GitHub Teması',       desc: 'Official GitHub Dark', file: 'themes/github.css' },
+    { id: 'synthwave',  name: 'Synthwave Teması',    desc: 'Retro Neon 80s',      file: 'themes/synthwave.css' },
+    { id: 'minecraft',  name: 'Minecraft Theme',    desc: 'Authentic Blocky UI',  file: 'themes/minecraft.css' }
   ];
-  /* ===== TEMA VARSAYILAN RENKLERİ ===== */
-  const THEME_DEFAULTS = {
-    datapad:     null,
-    halflife:    '#ff9c2e',
-    matrix:      '#00ff41',
-    winxp:       '#0054e3',
-    win11:       '#60cdff',
-    github: '#58a6ff'
+
+  const themeDefaults = {
+    datapad:   null,
+    halflife:  '#ff9c2e',
+    matrix:    '#00ff41',
+    winxp:     '#0054e3',
+    win11:     '#60cdff',
+    github:    '#58a6ff',
+    synthwave: '#ff2e97',
+    minecraft: '#7cfc00'
   };
 
   /* ===========================================

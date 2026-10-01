@@ -1,0 +1,999 @@
+/* ===========================================
+   SYNTHWAVE / RETROWAVE THEME – Neon 80s
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ========== KÖK DEĞİŞKENLER ========== */
+body.theme-synthwave {
+  --accent-color: #ff2e97;
+  --accent-glow: 0 0 12px rgba(255, 46, 151, 0.7);
+
+  /* Synthwave Paleti */
+  --sw-pink: #ff2e97;
+  --sw-pink-bright: #ff5eb0;
+  --sw-pink-dim: #b81f6a;
+  --sw-magenta: #e91e63;
+
+  --sw-purple: #9d4edd;
+  --sw-purple-bright: #b57edc;
+  --sw-purple-dim: #5a189a;
+  --sw-purple-dark: #3c096c;
+
+  --sw-cyan: #00f5ff;
+  --sw-cyan-bright: #7fffff;
+  --sw-cyan-dim: #0088aa;
+
+  --sw-orange: #ff6b35;
+  --sw-yellow: #ffd166;
+
+  --sw-bg: #0d0221;
+  --sw-bg-2: #1a0b2e;
+  --sw-bg-3: #240b36;
+  --sw-bg-card: #1e0a3c;
+  --sw-bg-elevated: #2d0f4a;
+
+  --sw-border: #4a1e6e;
+  --sw-border-bright: #7b2cbf;
+  --sw-border-dim: #2d1052;
+
+  --sw-text: #f0e6ff;
+  --sw-text-muted: #b8a4d4;
+  --sw-text-dim: #6e5a8f;
+
+  background-color: #0d0221 !important;
+  background-image:
+    /* Yıldızlar */
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 40% 90%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 10% 60%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 90% 50%, rgba(255,255,255,0.5), transparent),
+    /* Güneş/glow */
+    radial-gradient(ellipse at 50% 100%, rgba(255, 46, 151, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(157, 78, 221, 0.2) 0%, transparent 70%),
+    /* Ana gradient */
+    linear-gradient(180deg, #0d0221 0%, #1a0b2e 50%, #2a0a3f 100%) !important;
+  background-attachment: fixed !important;
+  color: #f0e6ff !important;
+  font-family: 'Rajdhani', 'Segoe UI', sans-serif !important;
+  font-size: 15px !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* ========== GENEL OVERRIDE ========== */
+body.theme-synthwave *,
+body.theme-synthwave *::before,
+body.theme-synthwave *::after {
+  font-family: 'Rajdhani', 'Segoe UI', sans-serif !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* VHS katmanlarını kapat, kendi efekti aşağıda */
+body.theme-synthwave::after {
+  background:
+    /* Grid perspektifi */
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 39px,
+      rgba(255, 46, 151, 0.08) 39px,
+      rgba(255, 46, 151, 0.08) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 39px,
+      rgba(0, 245, 255, 0.06) 39px,
+      rgba(0, 245, 255, 0.06) 40px
+    ) !important;
+  background-size: 40px 40px, 40px 40px !important;
+  mix-blend-mode: screen !important;
+  animation: swGridScroll 20s linear infinite !important;
+  opacity: 0.4 !important;
+  pointer-events: none !important;
+}
+@keyframes swGridScroll {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 40px, 0 40px; }
+}
+
+body.theme-synthwave::before {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(157, 78, 221, 0.15), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(255, 46, 151, 0.12), transparent 70%) !important;
+  animation: swAmbientPulse 6s ease-in-out infinite !important;
+}
+@keyframes swAmbientPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ========== ANA PENCERE ========== */
+body.theme-synthwave .app-window {
+  background: rgba(13, 2, 33, 0.9) !important;
+  border: 1px solid #7b2cbf !important;
+  border-radius: 4px !important;
+  box-shadow:
+    0 0 0 1px #0d0221,
+    0 0 40px rgba(157, 78, 221, 0.4),
+    0 0 80px rgba(255, 46, 151, 0.15),
+    inset 0 0 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ========== BAŞLIK ÇUBUĞU ========== */
+body.theme-synthwave .title-bar {
+  background: linear-gradient(180deg, #240b36 0%, #1a0b2e 100%) !important;
+  border-bottom: 2px solid #ff2e97 !important;
+  padding: 14px 20px !important;
+  position: relative !important;
+  box-shadow:
+    0 0 20px rgba(255, 46, 151, 0.5),
+    inset 0 -1px 0 rgba(0, 245, 255, 0.3) !important;
+}
+body.theme-synthwave .title-bar::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #ff2e97, #00f5ff, #ff2e97, transparent) !important;
+  display: block !important;
+  animation: swTitleGlow 3s ease-in-out infinite !important;
+}
+@keyframes swTitleGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+body.theme-synthwave .title-bar-text {
+  color: #f0e6ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 4px !important;
+  text-shadow:
+    0 0 8px rgba(255, 46, 151, 0.9),
+    0 0 20px rgba(255, 46, 151, 0.5),
+    0 0 40px rgba(157, 78, 221, 0.4) !important;
+}
+body.theme-synthwave .title-bar-text::before {
+  content: "▲ " !important;
+  color: #00f5ff !important;
+  font-weight: 700 !important;
+  margin-right: 6px !important;
+  display: inline !important;
+  text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff !important;
+  animation: none !important;
+}
+body.theme-synthwave .window-buttons span {
+  background: linear-gradient(180deg, #ff2e97, #9d4edd) !important;
+  border: 1px solid #00f5ff !important;
+  border-radius: 2px !important;
+  box-shadow:
+    0 0 8px rgba(255, 46, 151, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ========== MENÜ ÇUBUĞU ========== */
+body.theme-synthwave .menu-bar {
+  background: rgba(26, 11, 46, 0.85) !important;
+  border-bottom: 1px solid #4a1e6e !important;
+  padding: 0 12px !important;
+  position: relative !important;
+}
+body.theme-synthwave .menu-bar::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #00f5ff 20%, #ff2e97 80%, transparent) !important;
+  opacity: 0.6 !important;
+}
+body.theme-synthwave .menu-bar > * {
+  color: #b8a4d4 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 12px 18px !important;
+  border-bottom: 3px solid transparent !important;
+  background: transparent !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+body.theme-synthwave .menu-bar > *::before {
+  display: none !important;
+  content: none !important;
+}
+body.theme-synthwave .menu-bar > *:hover {
+  background: rgba(255, 46, 151, 0.08) !important;
+  color: #ff2e97 !important;
+  border-bottom-color: #ff2e97 !important;
+  transform: none !important;
+  text-shadow: 0 0 10px rgba(255, 46, 151, 0.9) !important;
+}
+body.theme-synthwave .menu-bar > *.active {
+  color: #00f5ff !important;
+  border-bottom-color: #00f5ff !important;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.9) !important;
+}
+
+/* ========== TOOLBAR (Sekmeler) ========== */
+body.theme-synthwave .toolbar {
+  background: rgba(13, 2, 33, 0.6) !important;
+  border-bottom: 1px solid #4a1e6e !important;
+  padding: 10px 16px !important;
+  gap: 6px !important;
+}
+body.theme-synthwave .toolbar a {
+  background: transparent !important;
+  border: 1px solid #4a1e6e !important;
+  color: #b8a4d4 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 7px 14px !important;
+  border-radius: 2px !important;
+  position: relative !important;
+  transition: all 0.25s ease !important;
+  box-shadow: inset 0 0 10px rgba(255, 46, 151, 0.05) !important;
+}
+body.theme-synthwave .toolbar a::before,
+body.theme-synthwave .toolbar a::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-synthwave .toolbar a:hover {
+  background: rgba(255, 46, 151, 0.1) !important;
+  border-color: #ff2e97 !important;
+  color: #ff2e97 !important;
+  transform: none !important;
+  box-shadow:
+    inset 0 0 15px rgba(255, 46, 151, 0.2),
+    0 0 12px rgba(255, 46, 151, 0.5) !important;
+  text-shadow: 0 0 8px rgba(255, 46, 151, 0.9) !important;
+}
+body.theme-synthwave .toolbar a.active {
+  background: linear-gradient(180deg, rgba(255, 46, 151, 0.2), rgba(157, 78, 221, 0.2)) !important;
+  border-color: #00f5ff !important;
+  color: #00f5ff !important;
+  box-shadow:
+    inset 0 0 20px rgba(0, 245, 255, 0.15),
+    0 0 20px rgba(0, 245, 255, 0.5),
+    0 0 40px rgba(255, 46, 151, 0.3) !important;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.9) !important;
+}
+
+/* ========== SIDEBAR ========== */
+body.theme-synthwave .sidebar {
+  background: rgba(26, 11, 46, 0.6) !important;
+  border-right: 1px solid #4a1e6e !important;
+  padding: 20px 14px !important;
+  position: relative !important;
+}
+body.theme-synthwave .sidebar::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: -1px !important;
+  bottom: 0 !important;
+  width: 1px !important;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    #ff2e97 20%,
+    #00f5ff 50%,
+    #9d4edd 80%,
+    transparent 100%) !important;
+  animation: swSidebarGlow 4s ease-in-out infinite !important;
+  box-shadow: 0 0 12px rgba(255, 46, 151, 0.6) !important;
+}
+@keyframes swSidebarGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+body.theme-synthwave .sidebar-title {
+  color: #00f5ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  border-bottom: 1px solid #4a1e6e !important;
+  padding: 10px 0 !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+  text-shadow:
+    0 0 8px rgba(0, 245, 255, 0.8),
+    0 0 20px rgba(0, 245, 255, 0.4) !important;
+}
+body.theme-synthwave .sidebar-title::before {
+  content: "▬ " !important;
+  color: #ff2e97 !important;
+  animation: none !important;
+}
+body.theme-synthwave .sidebar-title::after {
+  content: " ▬" !important;
+  color: #ff2e97 !important;
+  animation: none !important;
+}
+body.theme-synthwave .sidebar ul {
+  gap: 4px !important;
+}
+body.theme-synthwave .sidebar li {
+  background: transparent !important;
+  border: none !important;
+  border-left: 2px solid transparent !important;
+  color: #b8a4d4 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 12px !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+body.theme-synthwave .sidebar li::before {
+  content: "▸ " !important;
+  color: #ff2e97 !important;
+  opacity: 0.5 !important;
+  margin-right: 4px !important;
+  display: inline !important;
+  transition: opacity 0.25s ease !important;
+}
+body.theme-synthwave .sidebar li:hover {
+  background: linear-gradient(90deg, rgba(255, 46, 151, 0.12) 0%, transparent 100%) !important;
+  border-left-color: #ff2e97 !important;
+  color: #f0e6ff !important;
+  padding-left: 16px !important;
+  text-shadow: 0 0 8px rgba(255, 46, 151, 0.7) !important;
+}
+body.theme-synthwave .sidebar li:hover::before {
+  opacity: 1 !important;
+}
+body.theme-synthwave .sidebar li.active {
+  background: linear-gradient(90deg, rgba(0, 245, 255, 0.15) 0%, transparent 100%) !important;
+  border-left-color: #00f5ff !important;
+  color: #00f5ff !important;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.9) !important;
+}
+body.theme-synthwave .sidebar li.active::before {
+  opacity: 1 !important;
+  content: "▶ " !important;
+  color: #00f5ff !important;
+}
+
+/* ========== İÇERİK ========== */
+body.theme-synthwave .content-pane {
+  background: transparent !important;
+  padding: 40px 48px !important;
+}
+
+/* ========== H1 ========== */
+body.theme-synthwave h1.article-title {
+  color: #f0e6ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 4px !important;
+  border-bottom: 2px solid #ff2e97 !important;
+  padding: 0 0 16px 0 !important;
+  margin-bottom: 24px !important;
+  text-shadow:
+    0 0 10px rgba(255, 46, 151, 0.9),
+    0 0 30px rgba(255, 46, 151, 0.6),
+    0 0 60px rgba(157, 78, 221, 0.4) !important;
+  background: linear-gradient(180deg, #f0e6ff 0%, #ff2e97 50%, #9d4edd 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  position: relative !important;
+}
+body.theme-synthwave h1.article-title::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-synthwave h1.article-title::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== H2 ========== */
+body.theme-synthwave h2 {
+  color: #00f5ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  padding: 10px 0 10px 18px !important;
+  margin: 38px 0 18px !important;
+  border-left: 4px solid #ff2e97 !important;
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.15) 0%, transparent 100%) !important;
+  text-shadow:
+    0 0 8px rgba(0, 245, 255, 0.8),
+    0 0 20px rgba(0, 245, 255, 0.4) !important;
+  position: relative !important;
+}
+body.theme-synthwave h2::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-synthwave h2::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, #00f5ff 0%, transparent 60%) !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 8px rgba(0, 245, 255, 0.5) !important;
+}
+
+/* ========== H3 ========== */
+body.theme-synthwave h3 {
+  color: #ff5eb0 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-left: 3px solid #9d4edd !important;
+  padding-left: 14px !important;
+  margin: 26px 0 10px !important;
+  text-shadow:
+    0 0 6px rgba(255, 94, 176, 0.7),
+    0 0 15px rgba(157, 78, 221, 0.4) !important;
+}
+body.theme-synthwave h3::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== PARAGRAF & LINK ========== */
+body.theme-synthwave p {
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+  color: #e0d0f5 !important;
+  font-weight: 400 !important;
+}
+body.theme-synthwave a {
+  color: #00f5ff !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed rgba(0, 245, 255, 0.5) !important;
+  transition: all 0.25s ease !important;
+}
+body.theme-synthwave a:hover {
+  color: #ff2e97 !important;
+  text-shadow:
+    0 0 10px rgba(255, 46, 151, 0.9),
+    0 0 20px rgba(255, 46, 151, 0.5) !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #ff2e97 !important;
+}
+
+/* ========== INFOBOX ========== */
+body.theme-synthwave .infobox,
+body.theme-synthwave .warinfobox,
+body.theme-synthwave .krono-box,
+body.theme-synthwave .wiki-thumb,
+body.theme-synthwave .rff-box {
+  background: rgba(30, 10, 60, 0.7) !important;
+  border: 1px solid #7b2cbf !important;
+  border-radius: 4px !important;
+  padding: 16px !important;
+  box-shadow:
+    0 0 0 1px #0d0221,
+    0 0 20px rgba(255, 46, 151, 0.25),
+    0 0 40px rgba(157, 78, 221, 0.15),
+    inset 0 0 30px rgba(0, 0, 0, 0.4) !important;
+}
+body.theme-synthwave .infobox::before,
+body.theme-synthwave .infobox::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-synthwave .infobox-title {
+  color: #00f5ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-bottom: 1px solid #ff2e97 !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 12px !important;
+  text-align: center !important;
+  text-shadow:
+    0 0 8px rgba(0, 245, 255, 0.9),
+    0 0 20px rgba(0, 245, 255, 0.5) !important;
+}
+body.theme-synthwave .infobox-subtitle {
+  color: #b8a4d4 !important;
+  font-style: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  font-size: 11px !important;
+  text-align: center !important;
+  font-family: 'Rajdhani', sans-serif !important;
+}
+body.theme-synthwave .infobox-label {
+  color: #ff5eb0 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 12px !important;
+  text-shadow: 0 0 4px rgba(255, 94, 176, 0.6) !important;
+}
+body.theme-synthwave .infobox-value {
+  color: #f0e6ff !important;
+  font-weight: 500 !important;
+}
+body.theme-synthwave .infobox-row {
+  border-bottom: 1px dashed rgba(123, 44, 191, 0.5) !important;
+  padding: 8px 0 !important;
+}
+body.theme-synthwave .flag-box {
+  background: rgba(13, 2, 33, 0.7) !important;
+  border: 1px solid #4a1e6e !important;
+  border-radius: 2px !important;
+  padding: 8px !important;
+  transition: all 0.25s ease !important;
+}
+body.theme-synthwave .flag-box:hover {
+  border-color: #ff2e97 !important;
+  box-shadow: 0 0 15px rgba(255, 46, 151, 0.5) !important;
+}
+body.theme-synthwave .flag-box::after {
+  display: none !important;
+}
+body.theme-synthwave .flag-label,
+body.theme-synthwave .map-label {
+  color: #00f5ff !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  font-size: 10px !important;
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.7) !important;
+}
+body.theme-synthwave .infobox-map {
+  background: rgba(13, 2, 33, 0.7) !important;
+  border: 1px solid #4a1e6e !important;
+  border-radius: 2px !important;
+  padding: 6px !important;
+}
+
+/* ========== BLOCKQUOTE ========== */
+body.theme-synthwave blockquote {
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.12) 0%, transparent 100%) !important;
+  border-left: 4px solid #ff2e97 !important;
+  border-top: 1px solid rgba(0, 245, 255, 0.2) !important;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2) !important;
+  border-radius: 0 !important;
+  padding: 18px 24px !important;
+  color: #f0e6ff !important;
+  font-style: italic !important;
+  font-size: 15px !important;
+  box-shadow:
+    inset 6px 0 20px rgba(255, 46, 151, 0.1),
+    0 0 20px rgba(157, 78, 221, 0.15) !important;
+}
+body.theme-synthwave blockquote::before {
+  content: "❝" !important;
+  color: #00f5ff !important;
+  font-size: 28px !important;
+  top: -2px !important;
+  left: 8px !important;
+  opacity: 0.7 !important;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.9) !important;
+}
+
+/* ========== DETAILS ========== */
+body.theme-synthwave details {
+  background: rgba(30, 10, 60, 0.5) !important;
+  border: 1px solid #4a1e6e !important;
+  border-radius: 4px !important;
+  margin: 14px 0 !important;
+  overflow: hidden !important;
+  transition: all 0.25s ease !important;
+}
+body.theme-synthwave details:hover {
+  border-color: #7b2cbf !important;
+}
+body.theme-synthwave details[open] {
+  border-color: #ff2e97 !important;
+  box-shadow:
+    0 0 20px rgba(255, 46, 151, 0.3),
+    inset 0 0 30px rgba(157, 78, 221, 0.1) !important;
+}
+body.theme-synthwave summary {
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.2) 0%, rgba(30, 10, 60, 0.4) 100%) !important;
+  color: #00f5ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 14px 18px !important;
+  font-size: 12px !important;
+  border-bottom: 1px solid transparent !important;
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.7) !important;
+  transition: all 0.25s ease !important;
+}
+body.theme-synthwave details[open] summary {
+  border-bottom-color: #4a1e6e !important;
+}
+body.theme-synthwave summary:hover {
+  background: linear-gradient(90deg, rgba(255, 46, 151, 0.15) 0%, rgba(30, 10, 60, 0.4) 100%) !important;
+  color: #ff5eb0 !important;
+}
+body.theme-synthwave summary::before {
+  content: "► " !important;
+  color: #ff2e97 !important;
+  text-shadow: 0 0 6px rgba(255, 46, 151, 0.8) !important;
+  animation: none !important;
+}
+body.theme-synthwave details[open] summary::before {
+  content: "▼ " !important;
+  transform: none !important;
+}
+body.theme-synthwave .details-content {
+  background: rgba(13, 2, 33, 0.6) !important;
+  border-top: none !important;
+  padding: 16px 20px !important;
+  color: #e0d0f5 !important;
+}
+
+/* ========== BUTONLAR ========== */
+body.theme-synthwave .vid-button,
+body.theme-synthwave .qa-button,
+body.theme-synthwave .lightbox-download {
+  background: linear-gradient(180deg, rgba(255, 46, 151, 0.15) 0%, rgba(157, 78, 221, 0.15) 100%) !important;
+  border: 1px solid #ff2e97 !important;
+  color: #ff5eb0 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 10px 22px !important;
+  border-radius: 2px !important;
+  box-shadow:
+    0 0 0 1px #0d0221,
+    4px 4px 0 rgba(255, 46, 151, 0.25),
+    0 0 20px rgba(255, 46, 151, 0.2) !important;
+  text-shadow: 0 0 6px rgba(255, 94, 176, 0.8) !important;
+  transition: all 0.2s ease !important;
+  filter: none !important;
+  cursor: pointer !important;
+}
+body.theme-synthwave .vid-button:hover,
+body.theme-synthwave .qa-button:hover,
+body.theme-synthwave .lightbox-download:hover {
+  background: linear-gradient(180deg, #ff2e97 0%, #9d4edd 100%) !important;
+  color: #0d0221 !important;
+  border-color: #00f5ff !important;
+  box-shadow:
+    0 0 0 1px #0d0221,
+    4px 4px 0 #00f5ff,
+    0 0 30px rgba(0, 245, 255, 0.6),
+    0 0 50px rgba(255, 46, 151, 0.5) !important;
+  transform: translate(-2px, -2px) !important;
+  text-shadow: none !important;
+}
+body.theme-synthwave .vid-button::before {
+  content: "▶ " !important;
+  color: inherit !important;
+  animation: none !important;
+}
+
+/* ========== TABLOLAR ========== */
+body.theme-synthwave .players-table {
+  background: rgba(13, 2, 33, 0.6) !important;
+  border: 1px solid #7b2cbf !important;
+  border-radius: 4px !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+}
+body.theme-synthwave .players-table th {
+  background: linear-gradient(180deg, rgba(157, 78, 221, 0.3) 0%, rgba(30, 10, 60, 0.6) 100%) !important;
+  color: #00f5ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-bottom: 1px solid #ff2e97 !important;
+  padding: 14px 18px !important;
+  font-size: 11px !important;
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.7) !important;
+  text-align: left !important;
+}
+body.theme-synthwave .players-table td {
+  color: #e0d0f5 !important;
+  border-bottom: 1px solid rgba(74, 30, 110, 0.5) !important;
+  padding: 12px 18px !important;
+  font-size: 14px !important;
+}
+body.theme-synthwave .players-table tr:hover td {
+  background: rgba(255, 46, 151, 0.06) !important;
+}
+body.theme-synthwave .players-table tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* ========== STATUS BAR ========== */
+body.theme-synthwave .status-bar {
+  background: linear-gradient(90deg, rgba(30, 10, 60, 0.9) 0%, rgba(13, 2, 33, 0.9) 100%) !important;
+  border-top: 2px solid #ff2e97 !important;
+  color: #ff5eb0 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
+  padding: 10px 18px !important;
+  box-shadow:
+    0 -2px 20px rgba(255, 46, 151, 0.3),
+    inset 0 1px 0 rgba(0, 245, 255, 0.2) !important;
+  text-shadow: 0 0 6px rgba(255, 94, 176, 0.6) !important;
+}
+body.theme-synthwave .status-bar::before {
+  display: none !important;
+}
+body.theme-synthwave .status-bar span:first-child::before {
+  content: "◆ " !important;
+  color: #00f5ff !important;
+  animation: swStatusBlink 2s ease-in-out infinite !important;
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.9) !important;
+}
+@keyframes swStatusBlink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ========== MODAL ========== */
+body.theme-synthwave .lightbox-window,
+body.theme-synthwave .video-window {
+  background: linear-gradient(180deg, #1a0b2e 0%, #0d0221 100%) !important;
+  border: 2px solid #ff2e97 !important;
+  border-radius: 4px !important;
+  box-shadow:
+    0 0 0 1px #0d0221,
+    0 0 60px rgba(255, 46, 151, 0.5),
+    0 0 120px rgba(157, 78, 221, 0.3),
+    inset 0 0 40px rgba(0, 0, 0, 0.6) !important;
+}
+body.theme-synthwave .lightbox-title-bar,
+body.theme-synthwave .video-title-bar {
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.4) 0%, rgba(255, 46, 151, 0.3) 100%) !important;
+  color: #f0e6ff !important;
+  border-bottom: 2px solid #ff2e97 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  text-shadow: 0 0 8px rgba(255, 46, 151, 0.9) !important;
+}
+body.theme-synthwave .lightbox-close,
+body.theme-synthwave .video-close {
+  background: transparent !important;
+  border: 1px solid #ff2e97 !important;
+  color: #ff2e97 !important;
+  border-radius: 2px !important;
+}
+body.theme-synthwave .lightbox-close:hover,
+body.theme-synthwave .video-close:hover {
+  background: #ff2e97 !important;
+  color: #0d0221 !important;
+  box-shadow: 0 0 15px rgba(255, 46, 151, 0.9) !important;
+}
+body.theme-synthwave .video-controls {
+  background: rgba(13, 2, 33, 0.8) !important;
+  border-top: 1px solid #4a1e6e !important;
+}
+body.theme-synthwave .video-controls button {
+  background: rgba(30, 10, 60, 0.6) !important;
+  border: 1px solid #ff2e97 !important;
+  color: #ff5eb0 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  font-size: 10px !important;
+  border-radius: 2px !important;
+  text-shadow: 0 0 4px rgba(255, 94, 176, 0.6) !important;
+}
+body.theme-synthwave .video-controls button:hover {
+  background: #ff2e97 !important;
+  color: #0d0221 !important;
+  box-shadow: 0 0 15px rgba(255, 46, 151, 0.7) !important;
+  text-shadow: none !important;
+}
+body.theme-synthwave .video-controls a {
+  background: linear-gradient(90deg, #00f5ff, #9d4edd) !important;
+  color: #0d0221 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.5) !important;
+}
+
+/* ========== XP EXPLORER ========== */
+body.theme-synthwave .xp-explorer,
+body.theme-synthwave .xp-tree,
+body.theme-synthwave .xp-preview-pane {
+  background: rgba(13, 2, 33, 0.6) !important;
+  border-color: #4a1e6e !important;
+}
+body.theme-synthwave .xp-tree-title,
+body.theme-synthwave .xp-file-header {
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.2), rgba(30, 10, 60, 0.4)) !important;
+  color: #00f5ff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-color: #4a1e6e !important;
+  font-size: 11px !important;
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.6) !important;
+}
+body.theme-synthwave .xp-file-item,
+body.theme-synthwave .xp-tree-item {
+  color: #b8a4d4 !important;
+  border-color: rgba(74, 30, 110, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-synthwave .xp-file-item:hover,
+body.theme-synthwave .xp-tree-item:hover {
+  background: rgba(255, 46, 151, 0.08) !important;
+  color: #ff5eb0 !important;
+}
+body.theme-synthwave .xp-file-item.selected,
+body.theme-synthwave .xp-tree-item.active {
+  background: rgba(0, 245, 255, 0.1) !important;
+  color: #00f5ff !important;
+  box-shadow: inset 3px 0 0 #00f5ff !important;
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.7) !important;
+}
+body.theme-synthwave .xp-preview-text {
+  background: rgba(13, 2, 33, 0.7) !important;
+  border-color: #4a1e6e !important;
+  color: #e0d0f5 !important;
+}
+
+/* ========== DROPDOWN ========== */
+body.theme-synthwave ~ .view-dropdown-fixed,
+body.theme-synthwave .view-dropdown-fixed {
+  background: linear-gradient(180deg, #1a0b2e 0%, #0d0221 100%) !important;
+  border: 2px solid #ff2e97 !important;
+  border-radius: 4px !important;
+  box-shadow:
+    0 0 0 1px #0d0221,
+    0 0 30px rgba(255, 46, 151, 0.4),
+    0 0 60px rgba(157, 78, 221, 0.3) !important;
+}
+body.theme-synthwave .view-dropdown-fixed * {
+  font-family: 'Rajdhani', sans-serif !important;
+}
+body.theme-synthwave .view-dropdown-fixed span {
+  color: #b8a4d4 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  font-weight: 600 !important;
+}
+body.theme-synthwave .view-dropdown-fixed [data-z],
+body.theme-synthwave .view-dropdown-fixed .zoom-value {
+  background: rgba(30, 10, 60, 0.7) !important;
+  border: 1px solid #ff2e97 !important;
+  color: #ff5eb0 !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 500 !important;
+}
+body.theme-synthwave .view-dropdown-fixed [data-z]:hover {
+  background: #ff2e97 !important;
+  color: #0d0221 !important;
+  box-shadow: 0 0 15px rgba(255, 46, 151, 0.7) !important;
+}
+body.theme-synthwave .view-dropdown-fixed .theme-item {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: #b8a4d4 !important;
+  border-radius: 2px !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-synthwave .view-dropdown-fixed .theme-item:hover {
+  background: rgba(255, 46, 151, 0.1) !important;
+  border-color: rgba(255, 46, 151, 0.4) !important;
+  color: #ff5eb0 !important;
+}
+body.theme-synthwave .view-dropdown-fixed .theme-item.active {
+  background: linear-gradient(90deg, rgba(0, 245, 255, 0.2), rgba(255, 46, 151, 0.2)) !important;
+  border-color: #00f5ff !important;
+  color: #00f5ff !important;
+  text-shadow: 0 0 6px rgba(0, 245, 255, 0.8) !important;
+}
+body.theme-synthwave .view-dropdown-fixed .theme-item span {
+  color: inherit !important;
+}
+
+/* ========== SCROLLBAR ========== */
+body.theme-synthwave ::-webkit-scrollbar {
+  width: 12px !important;
+  height: 12px !important;
+}
+body.theme-synthwave ::-webkit-scrollbar-track {
+  background: #0d0221 !important;
+}
+body.theme-synthwave ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff2e97, #9d4edd) !important;
+  border: 2px solid #0d0221 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 8px rgba(255, 46, 151, 0.6) !important;
+}
+body.theme-synthwave ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff5eb0, #b57edc) !important;
+  box-shadow: 0 0 15px rgba(255, 46, 151, 0.9) !important;
+}
+body.theme-synthwave ::-webkit-scrollbar-corner {
+  background: #0d0221 !important;
+}
+
+/* ========== SELECTION ========== */
+body.theme-synthwave ::selection {
+  background: rgba(255, 46, 151, 0.5) !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 46, 151, 0.9) !important;
+}
+
+/* ========== EKSTRA: Neon data stream ========== */
+body.theme-synthwave .app-window::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #ff2e97, #00f5ff, #9d4edd, transparent) !important;
+  opacity: 0.8 !important;
+  animation: swDataStream 5s linear infinite !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  box-shadow: 0 0 12px rgba(255, 46, 151, 0.8) !important;
+}
+@keyframes swDataStream {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* ========== EKSTRA: H1 Chrome efekti ========== */
+body.theme-synthwave h1.article-title {
+  background: linear-gradient(180deg,
+    #f0e6ff 0%,
+    #ff5eb0 25%,
+    #ff2e97 45%,
+    #9d4edd 65%,
+    #5a189a 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter:
+    drop-shadow(0 0 8px rgba(255, 46, 151, 0.8))
+    drop-shadow(0 0 20px rgba(157, 78, 221, 0.5)) !important;
+}
