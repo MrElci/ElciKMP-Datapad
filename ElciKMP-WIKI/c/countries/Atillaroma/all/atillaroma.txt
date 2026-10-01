@@ -4,7 +4,7 @@ Resmî adıyla §l §4 Atilla İmparatorluk Devleti
 (Latince: §o Imperium Atillanum Romanum)
 
 <tablo>
-    img.flag.Atillaroma|img.coatofarms.atilroma
+    img.flag.atillaroma|img.coatofarms.atilroma
     img.map.MCO1.atilroma
     *Başkenti*              Floransa
     *Resmî Dili*            Latinceⁱ (halk arasında İtalyanca ve Yunanca)
