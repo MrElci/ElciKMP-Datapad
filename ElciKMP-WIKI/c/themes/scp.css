@@ -1,66 +1,81 @@
 /* ===========================================
    SCP FOUNDATION THEME – Secure. Contain. Protect.
    =========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=VT323&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=VT323&family=Rubik+Mono+One&display=swap');
 
 /* ========== KÖK DEĞİŞKENLER ========== */
 body.theme-scp {
-  --accent-color: #d10000;
-  --accent-glow: 0 0 10px rgba(209, 0, 0, 0.6);
+  --accent-color: #b71c1c;
+  --accent-glow: 0 0 12px rgba(183, 28, 28, 0.6);
 
-  /* SCP Foundation Paleti */
-  --scp-red: #d10000;
-  --scp-red-bright: #ff2a2a;
-  --scp-red-dim: #8b0000;
-  --scp-red-dark: #4a0000;
+  /* SCP Paleti */
+  --scp-red: #b71c1c;
+  --scp-red-bright: #e53935;
+  --scp-red-dim: #7f1010;
+  --scp-red-dark: #3a0606;
+  --scp-blood: #5c0a0a;
+  --scp-blood-dried: #2d0505;
 
-  --scp-black: #0a0a0a;
-  --scp-black-2: #121212;
-  --scp-black-3: #1a1a1a;
-  --scp-panel: #0f0f0f;
-  --scp-panel-light: #1e1e1e;
+  --scp-warn-yellow: #f5c400;
+  --scp-warn-black: #0a0a0a;
 
   --scp-paper: #e8e0d0;
-  --scp-paper-aged: #d4c8b0;
-  --scp-paper-dark: #a89880;
-  --scp-paper-ink: #1a1a1a;
+  --scp-paper-dark: #c8bfaa;
+  --scp-ink: #1a1a1a;
+  --scp-ink-faded: #3a3a3a;
 
-  --scp-yellow: #ffcc00;
-  --scp-orange: #ff8800;
-  --scp-green: #4caf50;
+  --scp-bg: #0d0b0a;
+  --scp-bg-2: #131010;
+  --scp-bg-3: #1a1616;
+  --scp-bg-panel: #181313;
+  --scp-bg-card: #1e1919;
 
-  --scp-text: #c8c0b0;
-  --scp-text-bright: #f0e8d8;
-  --scp-text-dim: #7a7060;
-  --scp-text-muted: #4a4538;
+  --scp-border: #2a2020;
+  --scp-border-dim: #1a1313;
 
-  background-color: #0a0a0a !important;
+  --scp-text: #c8b8b0;
+  --scp-text-bright: #ede4dc;
+  --scp-text-dim: #7a6a62;
+  --scp-text-muted: #4a3f3a;
+
+  --scp-class-safe: #4caf50;
+  --scp-class-euclid: #ff9800;
+  --scp-class-keter: #e53935;
+  --scp-class-thaumiel: #03a9f4;
+  --scp-class-apollyon: #9c27b0;
+
+  background-color: #0d0b0a !important;
   background-image:
-    /* Kan lekeleri */
-    radial-gradient(circle at 15% 25%, rgba(139, 0, 0, 0.08) 0%, transparent 25%),
-    radial-gradient(circle at 85% 75%, rgba(139, 0, 0, 0.06) 0%, transparent 20%),
-    radial-gradient(circle at 45% 85%, rgba(100, 0, 0, 0.05) 0%, transparent 15%),
-    /* Piksel gürültü */
-    radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
-    /* Base gradient */
-    linear-gradient(180deg, #0a0a0a 0%, #121212 50%, #0a0a0a 100%) !important;
-  background-size: auto, auto, auto, 6px 6px, 8px 8px, 5px 5px, auto !important;
+    /* Kağıt dokusu (piksel) */
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.06) 0px,
+      rgba(0, 0, 0, 0.06) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    /* Kan lekesi (radial) */
+    radial-gradient(circle at 8% 15%, rgba(92, 10, 10, 0.15), transparent 25%),
+    radial-gradient(circle at 92% 88%, rgba(92, 10, 10, 0.12), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(92, 10, 10, 0.05), transparent 40%),
+    /* Ambient kırmızı glow */
+    radial-gradient(ellipse at 50% 0%, rgba(183, 28, 28, 0.08), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(183, 28, 28, 0.05), transparent 60%),
+    /* Ana zemin */
+    linear-gradient(180deg, #0d0b0a 0%, #131010 50%, #0d0b0a 100%) !important;
   background-attachment: fixed !important;
-  color: #c8c0b0 !important;
-  font-family: 'JetBrains Mono', 'Share Tech Mono', 'Courier New', monospace !important;
-  font-size: 13px !important;
-  line-height: 1.65 !important;
+  color: #c8b8b0 !important;
+  font-family: 'Share Tech Mono', 'Special Elite', monospace !important;
+  font-size: 14px !important;
   letter-spacing: 0.3px !important;
-  text-shadow: none !important;
+  text-shadow: 0 0 2px rgba(200, 184, 176, 0.1) !important;
 }
 
 /* ========== GENEL OVERRIDE ========== */
 body.theme-scp *,
 body.theme-scp *::before,
 body.theme-scp *::after {
-  font-family: 'JetBrains Mono', 'Share Tech Mono', 'Courier New', monospace !important;
+  font-family: 'Share Tech Mono', 'Special Elite', 'Courier New', monospace !important;
   border-radius: 0 !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -73,81 +88,96 @@ body.theme-scp::before {
   display: none !important;
 }
 
-/* ========== ANA PENCERE (Foundation Terminal) ========== */
+/* ========== YÜKLEME ANİMASYONU (CLASSIFIED STAMP) ========== */
+@keyframes scpStampDrop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(4) rotate(-15deg);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.9) rotate(-8deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05) rotate(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-8deg);
+  }
+}
+
+@keyframes scpFadeOut {
+  0%, 70% { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+/* ========== ANA PENCERE ========== */
 body.theme-scp .app-window {
-  background: #0f0f0f !important;
-  border: 2px solid #4a0000 !important;
+  background: #0d0b0a !important;
+  border: 2px solid #2a2020 !important;
+  border-top: 4px solid #b71c1c !important;
   border-radius: 0 !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 40px rgba(139, 0, 0, 0.35),
-    0 0 80px rgba(139, 0, 0, 0.15),
-    inset 0 0 60px rgba(0, 0, 0, 0.9) !important;
+    0 0 30px rgba(183, 28, 28, 0.2),
+    0 0 60px rgba(183, 28, 28, 0.08),
+    inset 0 0 60px rgba(0, 0, 0, 0.6) !important;
   margin: 0 !important;
   overflow: hidden !important;
   position: relative !important;
 }
-
-/* Kan sıçraması süsü (üst sol köşe) */
 body.theme-scp .app-window::before {
-  content: "" !important;
+  content: "CONFIDENTIAL // SCP FOUNDATION" !important;
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 200px !important;
-  height: 150px !important;
-  background:
-    radial-gradient(ellipse at 20% 30%, rgba(139, 0, 0, 0.25) 0%, transparent 40%),
-    radial-gradient(ellipse at 45% 55%, rgba(100, 0, 0, 0.2) 0%, transparent 35%),
-    radial-gradient(ellipse at 70% 20%, rgba(139, 0, 0, 0.15) 0%, transparent 30%),
-    radial-gradient(circle at 30% 70%, rgba(139, 0, 0, 0.3) 0%, transparent 15%),
-    radial-gradient(circle at 15% 15%, rgba(139, 0, 0, 0.2) 0%, transparent 8%) !important;
+  top: 8px !important;
+  right: 12px !important;
+  color: #b71c1c !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 9px !important;
+  letter-spacing: 2px !important;
+  opacity: 0.5 !important;
+  z-index: 100 !important;
   pointer-events: none !important;
-  z-index: 5 !important;
-  opacity: 0.9 !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.5) !important;
 }
 
-/* Kan sıçraması süsü (alt sağ köşe) */
-body.theme-scp .app-window::after {
+
+body.theme-scp::after {
   content: "" !important;
-  position: absolute !important;
+  display: block !important;
+  position: fixed !important;
   bottom: 0 !important;
-  right: 0 !important;
-  width: 180px !important;
-  height: 130px !important;
-  background:
-    radial-gradient(ellipse at 80% 70%, rgba(139, 0, 0, 0.22) 0%, transparent 40%),
-    radial-gradient(ellipse at 55% 45%, rgba(100, 0, 0, 0.18) 0%, transparent 35%),
-    radial-gradient(circle at 70% 30%, rgba(139, 0, 0, 0.25) 0%, transparent 10%),
-    radial-gradient(circle at 85% 85%, rgba(139, 0, 0, 0.15) 0%, transparent 8%) !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 6px !important;
+  background: repeating-linear-gradient(
+    45deg,
+    #b71c1c 0px,
+    #b71c1c 12px,
+    #0a0a0a 12px,
+    #0a0a0a 24px
+  ) !important;
+  z-index: 99999 !important;
   pointer-events: none !important;
-  z-index: 5 !important;
   opacity: 0.85 !important;
 }
 
 /* ========== BAŞLIK ÇUBUĞU ========== */
 body.theme-scp .title-bar {
-  background: #000000 !important;
-  border-bottom: 2px solid #d10000 !important;
+  background: #131010 !important;
+  border-bottom: 2px solid #b71c1c !important;
   padding: 14px 22px !important;
   height: auto !important;
-  min-height: 56px !important;
+  min-height: 54px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   position: relative !important;
   box-shadow:
-    0 0 20px rgba(209, 0, 0, 0.4),
-    inset 0 -1px 0 rgba(209, 0, 0, 0.5) !important;
-  /* Uyarı bandı efekti */
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(209, 0, 0, 0.05) 0px,
-      rgba(209, 0, 0, 0.05) 10px,
-      transparent 10px,
-      transparent 20px
-    ) !important;
+    0 2px 20px rgba(183, 28, 28, 0.25),
+    inset 0 -1px 0 rgba(183, 28, 28, 0.4) !important;
 }
 body.theme-scp .title-bar::before {
   content: "" !important;
@@ -156,47 +186,43 @@ body.theme-scp .title-bar::before {
   left: 0 !important;
   right: 0 !important;
   height: 2px !important;
-  background: linear-gradient(90deg, #4a0000, #d10000, #ff2a2a, #d10000, #4a0000) !important;
+  background: linear-gradient(90deg, transparent, #b71c1c, transparent) !important;
   display: block !important;
-  animation: scpAlertPulse 3s ease-in-out infinite !important;
+  animation: scpTitlePulse 4s ease-in-out infinite !important;
 }
-@keyframes scpAlertPulse {
-  0%, 100% { opacity: 0.6; }
+@keyframes scpTitlePulse {
+  0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
 }
 body.theme-scp .title-bar::after {
   display: none !important;
 }
 body.theme-scp .title-bar-text {
-  color: #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
-  font-size: 15px !important;
+  color: #ede4dc !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 13px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
   font-style: normal !important;
   text-shadow:
-    0 0 8px rgba(209, 0, 0, 0.9),
-    0 0 20px rgba(209, 0, 0, 0.5) !important;
+    0 0 6px rgba(183, 28, 28, 0.7),
+    0 0 15px rgba(183, 28, 28, 0.3) !important;
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 10px !important;
   line-height: 1.4 !important;
 }
-
-/* SCP logosu (3 ok) */
 body.theme-scp .title-bar-text::before {
-  content: "⊙" !important;
-  color: #d10000 !important;
-  font-size: 20px !important;
-  font-weight: 400 !important;
-  text-shadow: 0 0 12px rgba(209, 0, 0, 1) !important;
+  content: "⏺" !important;
+  color: #b71c1c !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 10px rgba(183, 28, 28, 1) !important;
   display: inline !important;
-  animation: scpLogoRotate 8s linear infinite !important;
+  animation: scpRecBlink 1.5s step-end infinite !important;
 }
-@keyframes scpLogoRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes scpRecBlink {
+  50% { opacity: 0.2; }
 }
 
 /* Sağdaki butonlar */
@@ -207,24 +233,19 @@ body.theme-scp .window-buttons {
   margin-left: auto !important;
 }
 body.theme-scp .window-buttons span {
-  width: 24px !important;
-  height: 24px !important;
-  background: #0a0a0a !important;
-  border: 1px solid #8b0000 !important;
+  width: 22px !important;
+  height: 22px !important;
+  background: #1a1313 !important;
+  border: 1px solid #b71c1c !important;
   border-radius: 0 !important;
-  box-shadow:
-    0 0 6px rgba(139, 0, 0, 0.4),
-    inset 0 0 4px rgba(139, 0, 0, 0.2) !important;
+  box-shadow: 0 0 6px rgba(183, 28, 28, 0.4) !important;
   cursor: pointer !important;
   position: relative !important;
-  transition: all 0.15s ease !important;
+  transition: all 0.2s ease !important;
 }
 body.theme-scp .window-buttons span:hover {
-  background: #8b0000 !important;
-  border-color: #ff2a2a !important;
-  box-shadow:
-    0 0 15px rgba(255, 42, 42, 0.8),
-    inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+  background: #b71c1c !important;
+  box-shadow: 0 0 15px rgba(183, 28, 28, 0.9) !important;
 }
 body.theme-scp .window-buttons span::after {
   content: "" !important;
@@ -232,36 +253,36 @@ body.theme-scp .window-buttons span::after {
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
-  background: #d10000 !important;
+  background: #b71c1c !important;
 }
 body.theme-scp .window-buttons span:hover::after {
-  background: #ffffff !important;
+  background: #0d0b0a !important;
 }
 body.theme-scp .window-buttons span:nth-child(1)::after {
   width: 10px !important;
-  height: 2px !important;
+  height: 1px !important;
 }
 body.theme-scp .window-buttons span:nth-child(2)::after {
-  width: 10px !important;
-  height: 10px !important;
+  width: 9px !important;
+  height: 9px !important;
   background: transparent !important;
-  border: 2px solid #d10000 !important;
+  border: 1px solid #b71c1c !important;
 }
 body.theme-scp .window-buttons span:nth-child(2):hover::after {
-  border-color: #ffffff !important;
+  border-color: #0d0b0a !important;
 }
 body.theme-scp .window-buttons span:nth-child(3)::after {
   width: 10px !important;
   height: 10px !important;
   background:
-    linear-gradient(45deg, transparent 42%, #d10000 42%, #d10000 58%, transparent 58%),
-    linear-gradient(-45deg, transparent 42%, #d10000 42%, #d10000 58%, transparent 58%) !important;
+    linear-gradient(45deg, transparent 42%, #b71c1c 42%, #b71c1c 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #b71c1c 42%, #b71c1c 58%, transparent 58%) !important;
 }
 
 /* ========== MENÜ ÇUBUĞU ========== */
 body.theme-scp .menu-bar {
-  background: #000000 !important;
-  border-bottom: 1px solid #2a0000 !important;
+  background: #0a0808 !important;
+  border-bottom: 1px solid #2a2020 !important;
   padding: 0 12px !important;
   gap: 2px !important;
   display: flex !important;
@@ -275,20 +296,20 @@ body.theme-scp .menu-bar::after {
   left: 0 !important;
   right: 0 !important;
   height: 1px !important;
-  background: linear-gradient(90deg, transparent, #d10000 20%, transparent 80%, #d10000, transparent) !important;
+  background: linear-gradient(90deg, transparent, #b71c1c 30%, #b71c1c 70%, transparent) !important;
   opacity: 0.4 !important;
 }
 body.theme-scp .menu-bar > * {
-  color: #7a7060 !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  font-size: 12px !important;
+  color: #7a6a62 !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 10px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
+  letter-spacing: 2px !important;
   padding: 14px 20px !important;
   border: none !important;
   background: transparent !important;
-  border-bottom: 2px solid transparent !important;
+  border-bottom: 3px solid transparent !important;
   transition: all 0.2s ease !important;
   cursor: pointer !important;
   position: relative !important;
@@ -298,43 +319,41 @@ body.theme-scp .menu-bar > *::before {
   content: none !important;
 }
 body.theme-scp .menu-bar > *:hover {
-  background: transparent !important;
-  color: #d10000 !important;
-  border-bottom-color: #d10000 !important;
-  text-shadow:
-    0 0 8px rgba(209, 0, 0, 0.9),
-    0 0 15px rgba(209, 0, 0, 0.5) !important;
+  background: rgba(183, 28, 28, 0.06) !important;
+  color: #ede4dc !important;
+  border-bottom-color: #b71c1c !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.7) !important;
   transform: none !important;
 }
 body.theme-scp .menu-bar > *.active {
-  color: #ff2a2a !important;
-  border-bottom-color: #ff2a2a !important;
+  color: #ede4dc !important;
+  border-bottom-color: #b71c1c !important;
   text-shadow:
-    0 0 10px rgba(255, 42, 42, 1),
-    0 0 20px rgba(255, 42, 42, 0.6) !important;
-  font-weight: 700 !important;
+    0 0 8px rgba(183, 28, 28, 0.9),
+    0 0 15px rgba(183, 28, 28, 0.4) !important;
 }
 
-/* ========== TOOLBAR ========== */
+/* ========== TOOLBAR (Sekmeler) ========== */
 body.theme-scp .toolbar {
-  background: #000000 !important;
-  border-bottom: 1px solid #2a0000 !important;
-  padding: 10px 16px !important;
+  background: #0a0808 !important;
+  border-bottom: 1px solid #2a2020 !important;
+  padding: 12px 16px !important;
   gap: 4px !important;
   display: flex !important;
   flex-wrap: wrap !important;
 }
 body.theme-scp .toolbar a {
   background: transparent !important;
-  border: 1px solid #2a0000 !important;
-  color: #7a7060 !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  font-size: 11px !important;
+  border: 1px solid #2a2020 !important;
+  color: #7a6a62 !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 9px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  padding: 7px 14px !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 16px !important;
   transition: all 0.2s ease !important;
+  filter: none !important;
   cursor: pointer !important;
   position: relative !important;
 }
@@ -344,29 +363,31 @@ body.theme-scp .toolbar a::after {
   display: none !important;
 }
 body.theme-scp .toolbar a:hover {
-  background: rgba(209, 0, 0, 0.08) !important;
-  border-color: #8b0000 !important;
-  color: #d10000 !important;
-  box-shadow: 0 0 12px rgba(139, 0, 0, 0.4) !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.9) !important;
+  background: rgba(183, 28, 28, 0.08) !important;
+  border-color: #b71c1c !important;
+  color: #ede4dc !important;
+  box-shadow:
+    0 0 12px rgba(183, 28, 28, 0.4),
+    inset 0 0 8px rgba(183, 28, 28, 0.1) !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.8) !important;
   transform: none !important;
 }
 body.theme-scp .toolbar a.active {
-  background: rgba(139, 0, 0, 0.2) !important;
-  border-color: #d10000 !important;
-  color: #ff2a2a !important;
+  background: rgba(183, 28, 28, 0.15) !important;
+  border-color: #b71c1c !important;
+  color: #ede4dc !important;
   box-shadow:
-    0 0 15px rgba(209, 0, 0, 0.6),
-    inset 0 0 10px rgba(139, 0, 0, 0.2) !important;
+    0 0 18px rgba(183, 28, 28, 0.6),
+    inset 0 0 12px rgba(183, 28, 28, 0.2) !important;
   text-shadow:
-    0 0 8px rgba(255, 42, 42, 1),
-    0 0 15px rgba(255, 42, 42, 0.5) !important;
+    0 0 8px rgba(183, 28, 28, 1),
+    0 0 15px rgba(183, 28, 28, 0.5) !important;
 }
 
 /* ========== SIDEBAR ========== */
 body.theme-scp .sidebar {
-  background: #0a0a0a !important;
-  border-right: 1px solid #2a0000 !important;
+  background: #0a0808 !important;
+  border-right: 2px solid #2a2020 !important;
   padding: 20px 14px !important;
   position: relative !important;
 }
@@ -374,50 +395,49 @@ body.theme-scp .sidebar::after {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
-  right: -1px !important;
+  right: -2px !important;
   bottom: 0 !important;
-  width: 1px !important;
+  width: 2px !important;
   background: linear-gradient(180deg,
     transparent 0%,
-    #8b0000 20%,
-    #d10000 50%,
-    #8b0000 80%,
+    #b71c1c 30%,
+    #b71c1c 70%,
     transparent 100%) !important;
+  opacity: 0.6 !important;
   animation: scpSidebarGlow 4s ease-in-out infinite !important;
-  box-shadow: 0 0 8px rgba(209, 0, 0, 0.6) !important;
 }
 @keyframes scpSidebarGlow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.9; }
 }
 body.theme-scp .sidebar-title {
   background: transparent !important;
-  color: #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
-  font-size: 12px !important;
+  color: #ede4dc !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 10px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
-  border-bottom: 1px solid #4a0000 !important;
+  border-bottom: 1px solid #b71c1c !important;
   padding: 10px 0 !important;
   margin-bottom: 16px !important;
   text-align: center !important;
   text-shadow:
-    0 0 8px rgba(209, 0, 0, 0.9),
-    0 0 15px rgba(209, 0, 0, 0.4) !important;
+    0 0 8px rgba(183, 28, 28, 0.9),
+    0 0 15px rgba(183, 28, 28, 0.5) !important;
   position: relative !important;
 }
 body.theme-scp .sidebar-title::before {
-  content: "◤ " !important;
-  color: #d10000 !important;
+  content: "⛨ " !important;
+  color: #b71c1c !important;
   display: inline !important;
-  animation: scpAlertPulse 2s ease-in-out infinite !important;
+  animation: scpTitlePulse 3s ease-in-out infinite !important;
 }
 body.theme-scp .sidebar-title::after {
-  content: " ◥" !important;
-  color: #d10000 !important;
+  content: " ⛨" !important;
+  color: #b71c1c !important;
   display: inline !important;
-  animation: scpAlertPulse 2s ease-in-out infinite !important;
+  animation: scpTitlePulse 3s ease-in-out infinite !important;
 }
 body.theme-scp .sidebar ul {
   gap: 3px !important;
@@ -425,14 +445,14 @@ body.theme-scp .sidebar ul {
 }
 body.theme-scp .sidebar li {
   background: transparent !important;
-  border: 1px solid transparent !important;
+  border: none !important;
   border-left: 2px solid transparent !important;
-  color: #7a7060 !important;
-  font-family: 'JetBrains Mono', monospace !important;
+  color: #7a6a62 !important;
+  font-family: 'Share Tech Mono', monospace !important;
   font-size: 13px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 1.5px !important;
   padding: 9px 14px !important;
   transition: all 0.2s ease !important;
   cursor: pointer !important;
@@ -440,151 +460,108 @@ body.theme-scp .sidebar li {
 }
 body.theme-scp .sidebar li::before {
   content: "▸ " !important;
-  color: #d10000 !important;
+  color: #b71c1c !important;
   margin-right: 6px !important;
   display: inline !important;
-  opacity: 0.4 !important;
+  opacity: 0.3 !important;
   transition: opacity 0.2s ease !important;
 }
 body.theme-scp .sidebar li:hover {
-  background: rgba(139, 0, 0, 0.1) !important;
-  border-left-color: #d10000 !important;
-  color: #d10000 !important;
+  background: rgba(183, 28, 28, 0.05) !important;
+  border-left-color: #b71c1c !important;
+  color: #ede4dc !important;
   padding-left: 18px !important;
-  text-shadow:
-    0 0 6px rgba(209, 0, 0, 0.9),
-    0 0 12px rgba(209, 0, 0, 0.5) !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.7) !important;
 }
 body.theme-scp .sidebar li:hover::before {
   opacity: 1 !important;
 }
 body.theme-scp .sidebar li.active {
-  background: rgba(139, 0, 0, 0.2) !important;
-  border-left-color: #ff2a2a !important;
-  color: #ff2a2a !important;
+  background: rgba(183, 28, 28, 0.12) !important;
+  border-left-color: #b71c1c !important;
+  color: #ede4dc !important;
   text-shadow:
-    0 0 8px rgba(255, 42, 42, 1),
-    0 0 15px rgba(255, 42, 42, 0.5) !important;
-  box-shadow: inset 0 0 15px rgba(139, 0, 0, 0.3) !important;
+    0 0 8px rgba(183, 28, 28, 1),
+    0 0 15px rgba(183, 28, 28, 0.5) !important;
 }
 body.theme-scp .sidebar li.active::before {
   opacity: 1 !important;
-  content: "▸" !important;
-  color: #ff2a2a !important;
+  content: "■ " !important;
+  color: #b71c1c !important;
 }
 
-/* ========== İÇERİK (Belge + Terminal karışımı) ========== */
+/* ========== İÇERİK ========== */
 body.theme-scp .content-pane {
-  background: #0f0f0f !important;
-  padding: 36px 44px !important;
-  color: #c8c0b0 !important;
+  background: transparent !important;
+  padding: 32px 40px !important;
+  color: #c8b8b0 !important;
   position: relative !important;
-}
-
-/* Belge yükleme animasyonu */
-body.theme-scp .content-pane::before {
-  content: "▶ DECRYPTING FILE..." !important;
-  position: absolute !important;
-  top: 12px !important;
-  left: 20px !important;
-  color: #d10000 !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  font-size: 10px !important;
-  letter-spacing: 2.5px !important;
-  text-transform: uppercase !important;
-  opacity: 0 !important;
-  animation: scpDecrypt 3s ease-out forwards !important;
-  pointer-events: none !important;
-  z-index: 100 !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
-}
-@keyframes scpDecrypt {
-  0% { opacity: 1; content: "▶ DECRYPTING FILE..."; }
-  25% { opacity: 1; content: "▶ DECRYPTING FILE........"; }
-  50% { opacity: 1; content: "▶ DECRYPTION: 47%..."; }
-  75% { opacity: 1; content: "▶ DECRYPTION: 89%..."; }
-  90% { opacity: 1; content: "▶ ACCESS GRANTED."; }
-  100% { opacity: 0.4; content: "▶ CLASSIFIED // LEVEL 4"; }
-}
-
-/* Radyasyon/kontaminasyon işareti (sağ üst köşe) */
-body.theme-scp .content-pane::after {
-  content: "☣" !important;
-  position: absolute !important;
-  top: 16px !important;
-  right: 24px !important;
-  color: #d10000 !important;
-  font-size: 22px !important;
-  opacity: 0.5 !important;
-  text-shadow: 0 0 10px rgba(209, 0, 0, 0.8) !important;
-  pointer-events: none !important;
-  z-index: 5 !important;
-  animation: scpAlertPulse 3s ease-in-out infinite !important;
 }
 
 /* ========== H1 ========== */
 body.theme-scp h1.article-title {
-  color: #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
+  color: #ede4dc !important;
+  font-family: 'Special Elite', serif !important;
   font-size: 1.9rem !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
-  border-bottom: 2px solid #d10000 !important;
+  border-bottom: 2px solid #b71c1c !important;
   padding: 0 0 14px 0 !important;
   margin-bottom: 22px !important;
   text-shadow:
-    0 0 8px rgba(209, 0, 0, 0.9),
-    0 0 20px rgba(209, 0, 0, 0.4) !important;
+    0 0 8px rgba(183, 28, 28, 0.7),
+    0 0 20px rgba(183, 28, 28, 0.3) !important;
   background: none !important;
-  -webkit-text-fill-color: #d10000 !important;
+  -webkit-text-fill-color: #ede4dc !important;
   line-height: 1.3 !important;
   position: relative !important;
 }
 body.theme-scp h1.article-title::before {
-  content: "SCP // " !important;
-  color: #7a7060 !important;
+  content: "⏺ " !important;
+  color: #b71c1c !important;
   display: inline !important;
-  font-size: 0.7em !important;
-  letter-spacing: 4px !important;
-  margin-right: 6px !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  vertical-align: middle !important;
+  animation: scpRecBlink 1.5s step-end infinite !important;
+  margin-right: 4px !important;
+  text-shadow: 0 0 10px rgba(183, 28, 28, 1) !important;
 }
 body.theme-scp h1.article-title::after {
-  content: " ◉" !important;
-  color: #d10000 !important;
+  content: " [CLASSIFIED]" !important;
+  color: #b71c1c !important;
   display: inline !important;
-  margin-left: 8px !important;
-  font-size: 1.1rem !important;
-  animation: scpAlertPulse 1.5s ease-in-out infinite !important;
-  text-shadow: 0 0 10px rgba(209, 0, 0, 1) !important;
+  margin-left: 10px !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px rgba(183, 28, 28, 0.9) !important;
+  vertical-align: middle !important;
+  opacity: 0.7 !important;
 }
 
 /* ========== H2 ========== */
 body.theme-scp h2 {
-  color: #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
-  font-size: 1.3rem !important;
+  color: #ede4dc !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 1.35rem !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  padding: 10px 0 10px 18px !important;
-  margin: 32px 0 16px !important;
-  border-left: 4px solid #d10000 !important;
-  background: linear-gradient(90deg, rgba(139, 0, 0, 0.15) 0%, transparent 100%) !important;
+  padding: 10px 0 10px 20px !important;
+  margin: 34px 0 16px !important;
+  border-left: 4px solid #b71c1c !important;
+  background: linear-gradient(90deg, rgba(183, 28, 28, 0.1) 0%, transparent 100%) !important;
   text-shadow:
-    0 0 8px rgba(209, 0, 0, 0.9),
-    0 0 15px rgba(209, 0, 0, 0.5) !important;
+    0 0 6px rgba(183, 28, 28, 0.6),
+    0 0 15px rgba(183, 28, 28, 0.3) !important;
   position: relative !important;
 }
 body.theme-scp h2::before {
-  content: "◤ " !important;
-  color: #ff2a2a !important;
+  content: "// " !important;
+  color: #b71c1c !important;
   display: inline !important;
-  margin-right: 6px !important;
-  font-size: 0.9rem !important;
-  text-shadow: 0 0 8px rgba(255, 42, 42, 0.8) !important;
+  margin-right: 4px !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 8px rgba(183, 28, 28, 0.8) !important;
 }
 body.theme-scp h2::after {
   content: "" !important;
@@ -593,393 +570,380 @@ body.theme-scp h2::after {
   bottom: 0 !important;
   width: 100% !important;
   height: 1px !important;
-  background: linear-gradient(90deg, #d10000 0%, transparent 60%) !important;
+  background: linear-gradient(90deg, #b71c1c 0%, transparent 60%) !important;
   opacity: 0.5 !important;
 }
 
 /* ========== H3 ========== */
 body.theme-scp h3 {
-  color: #c8c0b0 !important;
+  color: #d8c8b8 !important;
   font-family: 'Share Tech Mono', monospace !important;
-  font-size: 1.05rem !important;
-  font-weight: 400 !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  border-left: 3px solid #4a0000 !important;
+  border-left: 3px solid #7f1010 !important;
   padding-left: 14px !important;
-  margin: 22px 0 10px !important;
-  text-shadow: 0 0 5px rgba(200, 192, 176, 0.3) !important;
+  margin: 24px 0 10px !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.5) !important;
 }
 body.theme-scp h3::before {
-  content: "▸ " !important;
-  color: #d10000 !important;
+  content: "» " !important;
+  color: #b71c1c !important;
   display: inline !important;
   margin-right: 4px !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
 }
 
 /* ========== PARAGRAF & LINK ========== */
 body.theme-scp p {
-  font-size: 13px !important;
+  font-size: 14px !important;
   line-height: 1.8 !important;
-  color: #c8c0b0 !important;
-  font-family: 'JetBrains Mono', monospace !important;
+  color: #c8b8b0 !important;
+  font-family: 'Share Tech Mono', monospace !important;
   font-weight: 400 !important;
   margin-bottom: 1em !important;
+  text-shadow: 0 0 2px rgba(200, 184, 176, 0.1) !important;
 }
 body.theme-scp a {
-  color: #d10000 !important;
+  color: #e53935 !important;
   font-weight: 500 !important;
   text-decoration: none !important;
-  border-bottom: 1px dashed rgba(209, 0, 0, 0.5) !important;
+  border-bottom: 1px dashed rgba(229, 57, 53, 0.5) !important;
   transition: all 0.2s ease !important;
+  text-shadow: 0 0 4px rgba(229, 57, 53, 0.3) !important;
 }
 body.theme-scp a:hover {
-  color: #ff2a2a !important;
+  color: #ff5252 !important;
   border-bottom-style: solid !important;
-  border-bottom-color: #ff2a2a !important;
+  border-bottom-color: #e53935 !important;
   text-shadow:
-    0 0 8px rgba(255, 42, 42, 0.9),
-    0 0 15px rgba(255, 42, 42, 0.5) !important;
+    0 0 8px rgba(229, 57, 53, 0.9),
+    0 0 15px rgba(229, 57, 53, 0.5) !important;
 }
 
-/* ========== INFOBOX (Klasör belge + damga) ========== */
+/* ========== INFOBOX (SCP Belgesi) ========== */
 body.theme-scp .infobox,
 body.theme-scp .warinfobox,
 body.theme-scp .krono-box,
 body.theme-scp .wiki-thumb,
 body.theme-scp .rff-box {
-  background: #0f0f0f !important;
-  border: 1px solid #4a0000 !important;
+  background: #131010 !important;
+  border: 1px solid #2a2020 !important;
+  border-top: 4px solid #b71c1c !important;
   border-radius: 0 !important;
   padding: 16px !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 20px rgba(139, 0, 0, 0.3),
-    inset 0 0 20px rgba(0, 0, 0, 0.6) !important;
-  color: #c8c0b0 !important;
+    0 0 20px rgba(183, 28, 28, 0.2),
+    inset 0 0 30px rgba(0, 0, 0, 0.5) !important;
+  color: #c8b8b0 !important;
   position: relative !important;
 }
-
-/* CLASSIFIED damgası */
 body.theme-scp .infobox::before,
 body.theme-scp .warinfobox::before {
-  content: "CLASSIFIED" !important;
+  content: "FOUNDATION" !important;
   position: absolute !important;
-  top: 12px !important;
-  right: -20px !important;
-  background: rgba(209, 0, 0, 0.15) !important;
-  color: #d10000 !important;
-  font-family: 'Special Elite', monospace !important;
-  font-size: 10px !important;
-  font-weight: 400 !important;
-  letter-spacing: 3px !important;
-  padding: 3px 28px !important;
-  border-top: 2px solid #d10000 !important;
-  border-bottom: 2px solid #d10000 !important;
-  transform: rotate(8deg) !important;
-  transform-origin: center !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
+  top: -12px !important;
+  left: 12px !important;
+  color: #0d0b0a !important;
+  background: #b71c1c !important;
+  padding: 2px 10px !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 9px !important;
+  letter-spacing: 2px !important;
+  box-shadow: 0 0 10px rgba(183, 28, 28, 0.7) !important;
   z-index: 10 !important;
   display: block !important;
-  opacity: 0.8 !important;
+  text-shadow: none !important;
 }
-
-/* Köşe kan lekesi */
 body.theme-scp .infobox::after,
 body.theme-scp .warinfobox::after {
-  content: "" !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  width: 60px !important;
-  height: 50px !important;
-  background:
-    radial-gradient(circle at 30% 70%, rgba(139, 0, 0, 0.35) 0%, transparent 50%),
-    radial-gradient(circle at 10% 40%, rgba(100, 0, 0, 0.25) 0%, transparent 30%) !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
+  content: none !important;
+  display: none !important;
 }
-
 body.theme-scp .infobox-title {
   background: transparent !important;
-  color: #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
-  font-size: 1.05rem !important;
+  color: #ede4dc !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 1.15rem !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  border-bottom: 1px solid #4a0000 !important;
+  border-bottom: 1px solid #b71c1c !important;
   padding: 0 0 10px 0 !important;
   margin: 0 0 12px 0 !important;
   text-align: center !important;
   text-shadow:
-    0 0 8px rgba(209, 0, 0, 0.9),
-    0 0 15px rgba(209, 0, 0, 0.4) !important;
+    0 0 8px rgba(183, 28, 28, 0.7),
+    0 0 15px rgba(183, 28, 28, 0.3) !important;
 }
 body.theme-scp .infobox-title::before {
-  content: "▮ " !important;
-  color: #d10000 !important;
+  content: "▌" !important;
+  color: #b71c1c !important;
   display: inline !important;
-  text-shadow: 0 0 8px rgba(209, 0, 0, 0.8) !important;
+  margin-right: 6px !important;
+  text-shadow: 0 0 8px rgba(183, 28, 28, 0.8) !important;
 }
 body.theme-scp .infobox-subtitle {
-  color: #7a7060 !important;
+  color: #7a6a62 !important;
   font-family: 'Share Tech Mono', monospace !important;
-  font-style: normal !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-  font-size: 11px !important;
+  font-style: italic !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  font-size: 12px !important;
   text-align: center !important;
 }
 body.theme-scp .infobox-label {
-  color: #d10000 !important;
+  color: #b71c1c !important;
   font-family: 'Share Tech Mono', monospace !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 1.5px !important;
   font-size: 11px !important;
-  text-shadow: 0 0 5px rgba(209, 0, 0, 0.6) !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.6) !important;
 }
 body.theme-scp .infobox-value {
-  color: #c8c0b0 !important;
-  font-family: 'JetBrains Mono', monospace !important;
+  color: #c8b8b0 !important;
+  font-family: 'Share Tech Mono', monospace !important;
   font-size: 12px !important;
   font-weight: 400 !important;
 }
 body.theme-scp .infobox-row {
-  border-bottom: 1px dashed #2a0000 !important;
+  border-bottom: 1px dashed #2a2020 !important;
   padding: 6px 0 !important;
 }
 body.theme-scp .infobox-row:last-child {
   border-bottom: none !important;
 }
 body.theme-scp .flag-box {
-  background: #000000 !important;
-  border: 1px solid #4a0000 !important;
+  background: #0a0808 !important;
+  border: 1px solid #2a2020 !important;
   padding: 8px !important;
   transition: all 0.2s ease !important;
 }
 body.theme-scp .flag-box:hover {
-  border-color: #d10000 !important;
-  box-shadow: 0 0 15px rgba(209, 0, 0, 0.6) !important;
+  border-color: #b71c1c !important;
+  box-shadow: 0 0 15px rgba(183, 28, 28, 0.5) !important;
+}
+body.theme-scp .flag-box::after {
+  display: none !important;
 }
 body.theme-scp .flag-label,
 body.theme-scp .map-label {
-  color: #d10000 !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  font-weight: 500 !important;
+  color: #b71c1c !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  font-size: 10px !important;
-  text-shadow: 0 0 5px rgba(209, 0, 0, 0.6) !important;
+  font-size: 9px !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.7) !important;
 }
 body.theme-scp .infobox-map {
-  background: #000000 !important;
-  border: 1px solid #4a0000 !important;
+  background: #0a0808 !important;
+  border: 1px solid #2a2020 !important;
   padding: 6px !important;
 }
 
-/* ========== BLOCKQUOTE ========== */
+/* ========== BLOCKQUOTE (KANIT/ALINTI) ========== */
 body.theme-scp blockquote {
-  background: rgba(139, 0, 0, 0.06) !important;
-  border-left: 3px solid #d10000 !important;
-  border-top: 1px solid rgba(74, 0, 0, 0.5) !important;
-  border-bottom: 1px solid rgba(74, 0, 0, 0.5) !important;
+  background: rgba(183, 28, 28, 0.04) !important;
+  border-left: 4px solid #b71c1c !important;
+  border-top: 1px solid rgba(183, 28, 28, 0.15) !important;
+  border-bottom: 1px solid rgba(183, 28, 28, 0.15) !important;
   border-radius: 0 !important;
   padding: 16px 22px !important;
-  color: #c8c0b0 !important;
-  font-family: 'Special Elite', monospace !important;
+  color: #b8a8a0 !important;
+  font-family: 'Special Elite', serif !important;
   font-style: italic !important;
-  font-size: 13px !important;
-  box-shadow: inset 6px 0 20px rgba(139, 0, 0, 0.1) !important;
+  font-size: 15px !important;
+  box-shadow: inset 6px 0 20px rgba(183, 28, 28, 0.08) !important;
   margin: 16px 0 !important;
   position: relative !important;
 }
 body.theme-scp blockquote::before {
-  content: "\"" !important;
-  color: #d10000 !important;
-  font-family: serif !important;
-  font-size: 32px !important;
+  content: "❝" !important;
+  color: #b71c1c !important;
+  font-size: 24px !important;
   position: absolute !important;
-  top: -6px !important;
+  top: 2px !important;
   left: 8px !important;
-  opacity: 0.5 !important;
-  text-shadow: 0 0 10px rgba(209, 0, 0, 0.7) !important;
+  opacity: 0.8 !important;
+  text-shadow: 0 0 10px rgba(183, 28, 28, 0.8) !important;
   animation: none !important;
   display: block !important;
 }
 
 /* ========== DETAILS ========== */
 body.theme-scp details {
-  background: #0f0f0f !important;
-  border: 1px solid #2a0000 !important;
+  background: #0f0c0c !important;
+  border: 1px solid #2a2020 !important;
   border-radius: 0 !important;
   margin: 14px 0 !important;
   overflow: hidden !important;
   transition: all 0.2s ease !important;
 }
 body.theme-scp details:hover {
-  border-color: #4a0000 !important;
+  border-color: #b71c1c !important;
 }
 body.theme-scp details[open] {
-  border-color: #d10000 !important;
-  box-shadow: 0 0 20px rgba(209, 0, 0, 0.3) !important;
+  border-color: #b71c1c !important;
+  box-shadow: 0 0 20px rgba(183, 28, 28, 0.3) !important;
 }
 body.theme-scp summary {
-  background: linear-gradient(90deg, rgba(139, 0, 0, 0.12) 0%, transparent 100%) !important;
-  color: #d10000 !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  font-weight: 500 !important;
+  background: linear-gradient(90deg, rgba(183, 28, 28, 0.12) 0%, transparent 100%) !important;
+  color: #ede4dc !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
   padding: 12px 18px !important;
-  font-size: 12px !important;
+  font-size: 10px !important;
   border-bottom: 1px solid transparent !important;
-  text-shadow: 0 0 5px rgba(209, 0, 0, 0.7) !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.7) !important;
   transition: all 0.2s ease !important;
 }
 body.theme-scp details[open] summary {
-  border-bottom-color: #2a0000 !important;
+  border-bottom-color: #2a2020 !important;
 }
 body.theme-scp summary:hover {
-  background: linear-gradient(90deg, rgba(209, 0, 0, 0.2) 0%, transparent 100%) !important;
-  color: #ff2a2a !important;
+  background: linear-gradient(90deg, rgba(183, 28, 28, 0.2) 0%, transparent 100%) !important;
+  color: #ffffff !important;
   text-shadow:
-    0 0 8px rgba(255, 42, 42, 0.9),
-    0 0 15px rgba(255, 42, 42, 0.5) !important;
+    0 0 8px rgba(183, 28, 28, 0.9),
+    0 0 15px rgba(183, 28, 28, 0.5) !important;
 }
 body.theme-scp summary::before {
-  content: "▸ " !important;
-  color: #d10000 !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.9) !important;
+  content: "▶ " !important;
+  color: #b71c1c !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.9) !important;
   animation: none !important;
   margin-right: 4px !important;
 }
 body.theme-scp details[open] summary::before {
-  content: "▾ " !important;
-  color: #ff2a2a !important;
+  content: "▼ " !important;
+  color: #e53935 !important;
   transform: none !important;
 }
 body.theme-scp .details-content {
-  background: #0a0a0a !important;
+  background: #0a0808 !important;
   border-top: none !important;
   padding: 16px 20px !important;
-  color: #a89880 !important;
-  font-size: 12px !important;
-  border-left: 2px solid #2a0000 !important;
+  color: #c8b8b0 !important;
+  font-size: 13px !important;
+  border-left: 3px solid #3a0606 !important;
 }
 
 /* ========== BUTONLAR ========== */
 body.theme-scp .vid-button,
 body.theme-scp .qa-button,
 body.theme-scp .lightbox-download {
-  background: transparent !important;
-  border: 2px solid #d10000 !important;
+  background: #0a0808 !important;
+  border: 2px solid #b71c1c !important;
   border-radius: 0 !important;
-  color: #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
-  font-size: 12px !important;
+  color: #ede4dc !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 10px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-  padding: 11px 24px !important;
+  letter-spacing: 2px !important;
+  padding: 12px 24px !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 15px rgba(209, 0, 0, 0.3),
-    inset 0 0 15px rgba(209, 0, 0, 0.05) !important;
-  text-shadow: 0 0 5px rgba(209, 0, 0, 0.7) !important;
+    0 0 15px rgba(183, 28, 28, 0.4),
+    inset 0 0 15px rgba(183, 28, 28, 0.08) !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.7) !important;
   transition: all 0.2s ease !important;
+  filter: none !important;
   cursor: pointer !important;
   position: relative !important;
 }
 body.theme-scp .vid-button:hover,
 body.theme-scp .qa-button:hover,
 body.theme-scp .lightbox-download:hover {
-  background: #8b0000 !important;
-  color: #ffffff !important;
-  border-color: #ff2a2a !important;
+  background: #b71c1c !important;
+  color: #0d0b0a !important;
+  border-color: #b71c1c !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 25px rgba(255, 42, 42, 0.7),
-    0 0 50px rgba(255, 42, 42, 0.3) !important;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9) !important;
+    0 0 30px rgba(183, 28, 28, 0.9),
+    0 0 60px rgba(183, 28, 28, 0.4) !important;
+  text-shadow: none !important;
   transform: none !important;
 }
 body.theme-scp .vid-button::before {
-  content: "▶ " !important;
+  content: "▸ " !important;
   color: inherit !important;
   animation: none !important;
 }
 
 /* ========== TABLOLAR ========== */
 body.theme-scp .players-table {
-  background: #0f0f0f !important;
-  border: 1px solid #4a0000 !important;
+  background: #0f0c0c !important;
+  border: 1px solid #2a2020 !important;
+  border-top: 3px solid #b71c1c !important;
   border-radius: 0 !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
   overflow: hidden !important;
   box-shadow:
     0 0 0 1px #000,
-    0 0 20px rgba(139, 0, 0, 0.3) !important;
+    0 0 20px rgba(183, 28, 28, 0.2) !important;
 }
 body.theme-scp .players-table th {
-  background: linear-gradient(180deg, rgba(139, 0, 0, 0.3) 0%, rgba(74, 0, 0, 0.2) 100%) !important;
-  color: #d10000 !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  font-weight: 500 !important;
+  background: linear-gradient(180deg, rgba(183, 28, 28, 0.2) 0%, rgba(183, 28, 28, 0.05) 100%) !important;
+  color: #ede4dc !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-  border-bottom: 2px solid #d10000 !important;
+  letter-spacing: 2px !important;
+  border-bottom: 1px solid #b71c1c !important;
   padding: 14px 18px !important;
-  font-size: 11px !important;
+  font-size: 10px !important;
   text-shadow:
-    0 0 6px rgba(209, 0, 0, 0.9),
-    0 0 12px rgba(209, 0, 0, 0.5) !important;
+    0 0 6px rgba(183, 28, 28, 0.9),
+    0 0 12px rgba(183, 28, 28, 0.4) !important;
   text-align: left !important;
 }
 body.theme-scp .players-table th::before {
-  content: "▮ " !important;
-  color: #d10000 !important;
+  content: "▌ " !important;
+  color: #b71c1c !important;
   display: inline !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
-  font-size: 10px !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.8) !important;
 }
 body.theme-scp .players-table td {
-  color: #c8c0b0 !important;
-  border-bottom: 1px dashed #2a0000 !important;
+  color: #c8b8b0 !important;
+  border-bottom: 1px dashed #2a2020 !important;
   padding: 12px 18px !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: 12px !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 13px !important;
 }
 body.theme-scp .players-table tr:last-child td {
   border-bottom: none !important;
 }
 body.theme-scp .players-table tr:hover td {
-  background: rgba(139, 0, 0, 0.08) !important;
-  color: #d10000 !important;
+  background: rgba(183, 28, 28, 0.08) !important;
+  color: #ede4dc !important;
 }
 body.theme-scp .players-table a {
-  color: #d10000 !important;
-  border-bottom: 1px dashed rgba(209, 0, 0, 0.5) !important;
+  color: #e53935 !important;
+  border-bottom: 1px dashed rgba(229, 57, 53, 0.5) !important;
 }
 
-/* ========== STATUS BAR (SCP motto) ========== */
+/* ========== STATUS BAR ========== */
 body.theme-scp .status-bar {
-  background: #000000 !important;
-  border-top: 2px solid #d10000 !important;
-  color: #d10000 !important;
-  font-family: 'Share Tech Mono', monospace !important;
+  background: #0a0808 !important;
+  border-top: 2px solid #b71c1c !important;
+  color: #b71c1c !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 3px !important;
+  letter-spacing: 2px !important;
   font-size: 10px !important;
   padding: 10px 18px !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.7) !important;
   box-shadow:
-    0 -2px 15px rgba(139, 0, 0, 0.3),
-    inset 0 1px 0 rgba(209, 0, 0, 0.4) !important;
+    0 -2px 15px rgba(183, 28, 28, 0.2),
+    inset 0 1px 0 rgba(183, 28, 28, 0.3) !important;
   position: relative !important;
 }
 body.theme-scp .status-bar::before {
@@ -989,180 +953,161 @@ body.theme-scp .status-bar::before {
   left: 0 !important;
   right: 0 !important;
   height: 2px !important;
-  background: linear-gradient(90deg, transparent, #d10000, #ff2a2a, #d10000, transparent) !important;
+  background: repeating-linear-gradient(
+    90deg,
+    #f5c400 0px,
+    #f5c400 6px,
+    #0a0a0a 6px,
+    #0a0a0a 12px
+  ) !important;
   display: block !important;
-  animation: scpAlertPulse 3s ease-in-out infinite !important;
+  opacity: 0.7 !important;
 }
 body.theme-scp .status-bar span:first-child::before {
-  content: "SECURE. CONTAIN. PROTECT. " !important;
-  color: #d10000 !important;
-  text-shadow: 0 0 8px rgba(209, 0, 0, 1) !important;
+  content: "⛨ " !important;
+  color: #b71c1c !important;
+  text-shadow: 0 0 8px rgba(183, 28, 28, 1) !important;
+  animation: scpRecBlink 2s step-end infinite !important;
   display: inline !important;
-  font-weight: 500 !important;
-  animation: scpAlertPulse 2s ease-in-out infinite !important;
 }
 
 /* ========== MODAL ========== */
 body.theme-scp .lightbox-window,
 body.theme-scp .video-window {
-  background: #0f0f0f !important;
-  border: 2px solid #d10000 !important;
+  background: #0d0b0a !important;
+  border: 2px solid #b71c1c !important;
   border-radius: 0 !important;
   box-shadow:
     0 0 0 2px #000,
-    0 0 40px rgba(209, 0, 0, 0.5),
-    0 0 80px rgba(139, 0, 0, 0.2),
-    inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
+    0 0 40px rgba(183, 28, 28, 0.5),
+    0 0 80px rgba(183, 28, 28, 0.2) !important;
   overflow: hidden !important;
-  position: relative !important;
-}
-body.theme-scp .lightbox-window::before,
-body.theme-scp .video-window::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 24px !important;
-  background: repeating-linear-gradient(
-    45deg,
-    #ffcc00 0px,
-    #ffcc00 12px,
-    #000000 12px,
-    #000000 24px
-  ) !important;
-  opacity: 0.9 !important;
-  z-index: 999 !important;
-  pointer-events: none !important;
 }
 body.theme-scp .lightbox-title-bar,
 body.theme-scp .video-title-bar {
-  background: #000000 !important;
-  color: #d10000 !important;
-  border-bottom: 1px solid #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
+  background: #0a0808 !important;
+  color: #ede4dc !important;
+  border-bottom: 2px solid #b71c1c !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
-  letter-spacing: 3px !important;
-  padding: 16px 20px 14px !important;
-  font-size: 11px !important;
+  letter-spacing: 2.5px !important;
+  padding: 14px 20px !important;
+  font-size: 10px !important;
   text-shadow:
-    0 0 6px rgba(209, 0, 0, 0.9),
-    0 0 12px rgba(209, 0, 0, 0.5) !important;
-  margin-top: 24px !important;
+    0 0 6px rgba(183, 28, 28, 0.9),
+    0 0 12px rgba(183, 28, 28, 0.5) !important;
 }
 body.theme-scp .lightbox-title-bar::before,
 body.theme-scp .video-title-bar::before {
-  content: "◤ " !important;
-  color: #d10000 !important;
+  content: "▌ " !important;
+  color: #b71c1c !important;
   display: inline !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.8) !important;
 }
 body.theme-scp .lightbox-close,
 body.theme-scp .video-close {
   background: transparent !important;
-  border: 2px solid #d10000 !important;
-  color: #d10000 !important;
+  border: 2px solid #b71c1c !important;
+  color: #ede4dc !important;
   border-radius: 0 !important;
   width: 28px !important;
   height: 28px !important;
   font-size: 14px !important;
-  text-shadow: 0 0 5px rgba(209, 0, 0, 0.7) !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.7) !important;
   transition: all 0.2s ease !important;
 }
 body.theme-scp .lightbox-close:hover,
 body.theme-scp .video-close:hover {
-  background: #d10000 !important;
-  border-color: #ff2a2a !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 20px rgba(209, 0, 0, 0.9) !important;
+  background: #b71c1c !important;
+  color: #0d0b0a !important;
+  box-shadow: 0 0 20px rgba(183, 28, 28, 0.9) !important;
   text-shadow: none !important;
 }
 body.theme-scp .video-controls {
-  background: #000000 !important;
-  border-top: 1px solid #2a0000 !important;
+  background: #0a0808 !important;
+  border-top: 1px solid #2a2020 !important;
   padding: 14px !important;
   gap: 6px !important;
 }
 body.theme-scp .video-controls button {
   background: transparent !important;
-  border: 1px solid #d10000 !important;
-  color: #d10000 !important;
-  font-family: 'Share Tech Mono', monospace !important;
+  border: 1px solid #b71c1c !important;
+  color: #ede4dc !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
   padding: 8px 16px !important;
-  font-size: 10px !important;
+  font-size: 9px !important;
   border-radius: 0 !important;
-  text-shadow: 0 0 4px rgba(209, 0, 0, 0.7) !important;
+  text-shadow: 0 0 4px rgba(183, 28, 28, 0.7) !important;
   transition: all 0.2s ease !important;
 }
 body.theme-scp .video-controls button:hover {
-  background: #8b0000 !important;
-  color: #ffffff !important;
-  border-color: #ff2a2a !important;
-  box-shadow: 0 0 20px rgba(209, 0, 0, 0.8) !important;
+  background: #b71c1c !important;
+  color: #0d0b0a !important;
+  box-shadow: 0 0 20px rgba(183, 28, 28, 0.8) !important;
   text-shadow: none !important;
 }
 body.theme-scp .video-controls a {
-  background: #d10000 !important;
-  color: #ffffff !important;
-  font-family: 'Share Tech Mono', monospace !important;
-  font-weight: 500 !important;
+  background: #b71c1c !important;
+  color: #0d0b0a !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
   padding: 8px 18px !important;
-  border: 1px solid #d10000 !important;
+  border: 1px solid #b71c1c !important;
   border-radius: 0 !important;
-  box-shadow: 0 0 20px rgba(209, 0, 0, 0.6) !important;
+  box-shadow: 0 0 20px rgba(183, 28, 28, 0.6) !important;
   text-shadow: none !important;
-  font-size: 10px !important;
+  font-size: 9px !important;
 }
 body.theme-scp .video-controls a:hover {
-  background: #ff2a2a !important;
-  box-shadow: 0 0 30px rgba(255, 42, 42, 0.9) !important;
+  background: #e53935 !important;
+  box-shadow: 0 0 30px rgba(229, 57, 53, 0.9) !important;
 }
 
 /* ========== XP EXPLORER ========== */
 body.theme-scp .xp-explorer,
 body.theme-scp .xp-tree,
 body.theme-scp .xp-preview-pane {
-  background: #0a0a0a !important;
-  border-color: #2a0000 !important;
+  background: #0a0808 !important;
+  border-color: #2a2020 !important;
 }
 body.theme-scp .xp-tree-title,
 body.theme-scp .xp-file-header {
-  background: linear-gradient(90deg, rgba(139, 0, 0, 0.2) 0%, transparent 100%) !important;
-  color: #d10000 !important;
-  font-family: 'Special Elite', 'Share Tech Mono', monospace !important;
+  background: linear-gradient(90deg, rgba(183, 28, 28, 0.15) 0%, transparent 100%) !important;
+  color: #ede4dc !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-  border-color: #4a0000 !important;
+  letter-spacing: 2px !important;
+  border-color: #b71c1c !important;
   padding: 12px 16px !important;
   text-shadow:
-    0 0 6px rgba(209, 0, 0, 0.8),
-    0 0 12px rgba(209, 0, 0, 0.4) !important;
-  font-size: 11px !important;
+    0 0 6px rgba(183, 28, 28, 0.8),
+    0 0 12px rgba(183, 28, 28, 0.4) !important;
+  font-size: 9px !important;
   font-weight: 400 !important;
 }
 body.theme-scp .xp-tree-title::before,
 body.theme-scp .xp-file-header::before {
-  content: "▮ " !important;
-  color: #d10000 !important;
+  content: "▌ " !important;
+  color: #b71c1c !important;
   display: inline !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.8) !important;
 }
 body.theme-scp .xp-file-item,
 body.theme-scp .xp-tree-item {
-  color: #7a7060 !important;
+  color: #7a6a62 !important;
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
   padding: 8px 12px 8px 24px !important;
   margin: 1px 0 !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: 12px !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 13px !important;
   transition: all 0.2s ease !important;
   cursor: pointer !important;
   position: relative !important;
@@ -1174,16 +1119,16 @@ body.theme-scp .xp-tree-item::before {
   left: 8px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  color: #d10000 !important;
+  color: #b71c1c !important;
   opacity: 0 !important;
   transition: opacity 0.2s ease !important;
 }
 body.theme-scp .xp-file-item:hover,
 body.theme-scp .xp-tree-item:hover {
-  background: rgba(139, 0, 0, 0.08) !important;
-  color: #d10000 !important;
+  background: rgba(183, 28, 28, 0.06) !important;
+  color: #ede4dc !important;
   box-shadow: none !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.7) !important;
 }
 body.theme-scp .xp-file-item:hover::before,
 body.theme-scp .xp-tree-item:hover::before {
@@ -1191,82 +1136,81 @@ body.theme-scp .xp-tree-item:hover::before {
 }
 body.theme-scp .xp-file-item.selected,
 body.theme-scp .xp-tree-item.active {
-  background: rgba(139, 0, 0, 0.15) !important;
-  color: #ff2a2a !important;
-  box-shadow: inset 3px 0 0 #d10000 !important;
+  background: rgba(183, 28, 28, 0.12) !important;
+  color: #ede4dc !important;
+  box-shadow: inset 3px 0 0 #b71c1c !important;
   text-shadow:
-    0 0 8px rgba(255, 42, 42, 1),
-    0 0 15px rgba(255, 42, 42, 0.5) !important;
+    0 0 8px rgba(183, 28, 28, 1),
+    0 0 15px rgba(183, 28, 28, 0.5) !important;
 }
 body.theme-scp .xp-file-item.selected::before,
 body.theme-scp .xp-tree-item.active::before {
   opacity: 1 !important;
-  content: "▶" !important;
-  color: #ff2a2a !important;
+  content: "■" !important;
 }
 body.theme-scp .xp-preview-text {
-  background: #0a0a0a !important;
-  border: 1px solid #2a0000 !important;
+  background: #0a0808 !important;
+  border: 1px solid #2a2020 !important;
   border-radius: 0 !important;
-  color: #c8c0b0 !important;
+  color: #c8b8b0 !important;
   padding: 14px !important;
-  box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.1) !important;
-  font-size: 12px !important;
+  box-shadow: inset 0 0 20px rgba(183, 28, 28, 0.05) !important;
+  font-size: 13px !important;
   line-height: 1.75 !important;
+  font-family: 'Share Tech Mono', monospace !important;
 }
 
 /* ========== DROPDOWN ========== */
 body.theme-scp ~ .view-dropdown-fixed,
 body.theme-scp .view-dropdown-fixed {
-  background: #0a0a0a !important;
-  border: 2px solid #d10000 !important;
+  background: #0d0b0a !important;
+  border: 2px solid #b71c1c !important;
   border-radius: 0 !important;
   box-shadow:
     0 0 0 2px #000,
-    0 0 40px rgba(209, 0, 0, 0.5),
-    inset 0 0 30px rgba(139, 0, 0, 0.1) !important;
+    0 0 40px rgba(183, 28, 28, 0.5),
+    inset 0 0 30px rgba(183, 28, 28, 0.05) !important;
   padding: 10px !important;
 }
 body.theme-scp .view-dropdown-fixed * {
-  font-family: 'JetBrains Mono', monospace !important;
+  font-family: 'Share Tech Mono', monospace !important;
 }
 body.theme-scp .view-dropdown-fixed span {
-  color: #d10000 !important;
-  font-size: 11px !important;
+  color: #ede4dc !important;
+  font-size: 10px !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-  font-weight: 500 !important;
-  text-shadow: 0 0 5px rgba(209, 0, 0, 0.7) !important;
-  font-family: 'Share Tech Mono', monospace !important;
+  letter-spacing: 2px !important;
+  font-weight: 400 !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.7) !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
 }
 body.theme-scp .view-dropdown-fixed [data-z],
 body.theme-scp .view-dropdown-fixed .zoom-value {
   background: transparent !important;
-  border: 1px solid #d10000 !important;
-  color: #d10000 !important;
+  border: 1px solid #b71c1c !important;
+  color: #ede4dc !important;
   border-radius: 0 !important;
   box-shadow:
-    inset 0 0 8px rgba(139, 0, 0, 0.15),
-    0 0 8px rgba(209, 0, 0, 0.2) !important;
-  font-weight: 500 !important;
-  text-shadow: 0 0 5px rgba(209, 0, 0, 0.6) !important;
-  font-size: 12px !important;
+    inset 0 0 8px rgba(183, 28, 28, 0.15),
+    0 0 8px rgba(183, 28, 28, 0.2) !important;
+  font-weight: 400 !important;
+  text-shadow: 0 0 5px rgba(183, 28, 28, 0.6) !important;
+  font-size: 11px !important;
 }
 body.theme-scp .view-dropdown-fixed [data-z]:hover {
-  background: #8b0000 !important;
-  color: #ffffff !important;
-  border-color: #ff2a2a !important;
-  box-shadow: 0 0 20px rgba(209, 0, 0, 0.9) !important;
+  background: #b71c1c !important;
+  color: #0d0b0a !important;
+  box-shadow: 0 0 20px rgba(183, 28, 28, 0.9) !important;
   text-shadow: none !important;
 }
 body.theme-scp .view-dropdown-fixed .theme-item {
   background: transparent !important;
   border: 1px solid transparent !important;
-  color: #7a7060 !important;
+  color: #7a6a62 !important;
   border-radius: 0 !important;
   padding: 10px 14px 10px 28px !important;
   transition: all 0.2s ease !important;
-  font-family: 'JetBrains Mono', monospace !important;
+  font-family: 'Share Tech Mono', monospace !important;
   position: relative !important;
   font-size: 12px !important;
   font-weight: 400 !important;
@@ -1279,32 +1223,31 @@ body.theme-scp .view-dropdown-fixed .theme-item::before {
   left: 10px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  color: #d10000 !important;
+  color: #b71c1c !important;
   opacity: 0 !important;
   transition: opacity 0.2s ease !important;
 }
 body.theme-scp .view-dropdown-fixed .theme-item:hover {
-  background: rgba(139, 0, 0, 0.1) !important;
-  border-color: #4a0000 !important;
-  color: #d10000 !important;
-  text-shadow: 0 0 6px rgba(209, 0, 0, 0.8) !important;
+  background: rgba(183, 28, 28, 0.08) !important;
+  border-color: #b71c1c !important;
+  color: #ede4dc !important;
+  text-shadow: 0 0 6px rgba(183, 28, 28, 0.8) !important;
 }
 body.theme-scp .view-dropdown-fixed .theme-item:hover::before {
   opacity: 1 !important;
 }
 body.theme-scp .view-dropdown-fixed .theme-item.active {
-  background: rgba(139, 0, 0, 0.2) !important;
-  border-color: #d10000 !important;
-  color: #ff2a2a !important;
-  box-shadow: 0 0 15px rgba(209, 0, 0, 0.5) !important;
+  background: rgba(183, 28, 28, 0.15) !important;
+  border-color: #b71c1c !important;
+  color: #ede4dc !important;
+  box-shadow: 0 0 15px rgba(183, 28, 28, 0.5) !important;
   text-shadow:
-    0 0 8px rgba(255, 42, 42, 1),
-    0 0 15px rgba(255, 42, 42, 0.5) !important;
+    0 0 8px rgba(183, 28, 28, 1),
+    0 0 15px rgba(183, 28, 28, 0.5) !important;
 }
 body.theme-scp .view-dropdown-fixed .theme-item.active::before {
   opacity: 1 !important;
-  content: "▶" !important;
-  color: #ff2a2a !important;
+  content: "■" !important;
 }
 body.theme-scp .view-dropdown-fixed .theme-item span {
   color: inherit !important;
@@ -1317,66 +1260,113 @@ body.theme-scp ::-webkit-scrollbar {
   height: 12px !important;
 }
 body.theme-scp ::-webkit-scrollbar-track {
-  background: #0a0a0a !important;
-  border: 1px solid #2a0000 !important;
+  background: #0a0808 !important;
+  border: 1px solid #2a2020 !important;
 }
 body.theme-scp ::-webkit-scrollbar-thumb {
-  background: #4a0000 !important;
-  border: 1px solid #d10000 !important;
+  background: #3a0606 !important;
+  border: 1px solid #b71c1c !important;
   border-radius: 0 !important;
   box-shadow:
-    inset 0 0 6px rgba(139, 0, 0, 0.4),
-    0 0 6px rgba(209, 0, 0, 0.3) !important;
+    inset 0 0 6px rgba(183, 28, 28, 0.3),
+    0 0 6px rgba(183, 28, 28, 0.4) !important;
 }
 body.theme-scp ::-webkit-scrollbar-thumb:hover {
-  background: #d10000 !important;
-  box-shadow: 0 0 15px rgba(209, 0, 0, 0.9) !important;
+  background: #b71c1c !important;
+  box-shadow: 0 0 15px rgba(183, 28, 28, 0.9) !important;
 }
 body.theme-scp ::-webkit-scrollbar-corner {
-  background: #0a0a0a !important;
+  background: #0a0808 !important;
 }
 
 /* ========== SELECTION ========== */
 body.theme-scp ::selection {
-  background: #d10000 !important;
-  color: #ffffff !important;
+  background: #b71c1c !important;
+  color: #0d0b0a !important;
   text-shadow: none !important;
 }
 
-/* ========== EKSTRA: İçerik köşelerinde kan damlası ========== */
-body.theme-scp .content-pane > *:first-child {
-  position: relative !important;
-}
-
-/* ========== EKSTRA: Piksel kontaminasyon alanı ========== */
-body.theme-scp h2 {
-  position: relative !important;
-}
-body.theme-scp h2::after {
+/* ========== KAN LEKESİ KÖŞE ========== */
+body.theme-scp .content-pane::before {
   content: "" !important;
   position: absolute !important;
-  left: 0 !important;
-  bottom: 0 !important;
-  width: 100% !important;
-  height: 1px !important;
-  background: linear-gradient(90deg, #d10000 0%, transparent 60%) !important;
-  opacity: 0.5 !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 180px !important;
+  height: 180px !important;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(92, 10, 10, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 90% 40%, rgba(92, 10, 10, 0.2) 0%, transparent 25%),
+    radial-gradient(circle at 70% 10%, rgba(92, 10, 10, 0.15) 0%, transparent 30%) !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+  opacity: 0.9 !important;
 }
 
-/* ========== EKSTRA: Kamera gözetim efekti (content üzerinde) ========== */
-body.theme-scp .content-pane {
+/* ========== PİKSEL ALAN (SAĞ ALT) ========== */
+body.theme-scp .content-pane::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 120px !important;
+  height: 120px !important;
   background-image:
-    /* Hafif scanline */
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.15) 0px,
-      rgba(0, 0, 0, 0.15) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    /* Piksel noise */
-    radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
-  background-size: auto, 6px 6px, 7px 7px, 8px 8px !important;
+    linear-gradient(45deg, rgba(183, 28, 28, 0.15) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(183, 28, 28, 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(183, 28, 28, 0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(183, 28, 28, 0.15) 75%) !important;
+  background-size: 12px 12px !important;
+  background-position: 0 0, 0 6px, 6px -6px, -6px 0 !important;
+  pointer-events: none !important;
+  z-index: 4 !important;
+  opacity: 0.7 !important;
+}
+
+/* ========== EKSTRA: SCP Wiki üst bilgi ========== */
+body.theme-scp .status-bar span:nth-child(2)::before {
+  content: "// SECURE · CONTAIN · PROTECT // " !important;
+  color: #b71c1c !important;
+  font-family: 'Rubik Mono One', sans-serif !important;
+  font-size: 8px !important;
+  letter-spacing: 2px !important;
+  opacity: 0.7 !important;
+  display: inline !important;
+}
+
+/* ========== EKSTRA: H1 üstünde uyarı etiketi ========== */
+body.theme-scp .content-pane > h1::before {
+  content: "⚠ WARNING: LEVEL 4 CLEARANCE REQUIRED ⚠" !important;
+  display: block !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 10px !important;
+  color: #f5c400 !important;
+  letter-spacing: 3px !important;
+  margin-bottom: 8px !important;
+  padding: 4px 10px !important;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(245, 196, 0, 0.15) 0px,
+    rgba(245, 196, 0, 0.15) 6px,
+    transparent 6px,
+    transparent 12px
+  ) !important;
+  text-align: center !important;
+  font-weight: 400 !important;
+  text-shadow: 0 0 5px rgba(245, 196, 0, 0.7) !important;
+  border: 1px solid rgba(245, 196, 0, 0.3) !important;
+}
+
+/* ========== DETAILS açıldığında kan efekti ========== */
+body.theme-scp details[open]::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -10px !important;
+  right: 10px !important;
+  width: 60px !important;
+  height: 30px !important;
+  background: radial-gradient(ellipse at center, rgba(92, 10, 10, 0.3), transparent 70%) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  opacity: 0.8 !important;
 }

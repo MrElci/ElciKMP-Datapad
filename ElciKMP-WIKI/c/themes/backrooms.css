@@ -1,0 +1,1137 @@
+/* ===========================================
+   BACKROOMS THEME – 8 Random Levels
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=VT323&display=swap');
+
+/* ===========================================
+   ORTAK STİLLER (Tüm odalar için)
+   =========================================== */
+body.theme-backrooms {
+  background-color: var(--br-bg);
+  background-image: var(--br-doku);
+  background-size: var(--br-doku-size, auto);
+  background-attachment: fixed;
+  color: var(--br-text);
+  font-family: 'Share Tech Mono', 'VT323', 'Courier New', monospace !important;
+  font-size: 15px !important;
+  letter-spacing: 0.5px !important;
+  text-shadow: none !important;
+  overflow-x: hidden !important;
+}
+
+body.theme-backrooms *,
+body.theme-backrooms *::before,
+body.theme-backrooms *::after {
+  font-family: 'Share Tech Mono', 'VT323', 'Courier New', monospace !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-sizing: border-box !important;
+}
+
+/* ==== FİLM GRAINI + TİTREME ==== */
+body.theme-backrooms::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>") !important;
+  background-size: 200px 200px !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+  opacity: 0.6 !important;
+  animation: brGrain 0.4s steps(2) infinite !important;
+  display: block !important;
+}
+@keyframes brGrain {
+  0% { background-position: 0 0; }
+  25% { background-position: -20px -10px; }
+  50% { background-position: 10px 15px; }
+  75% { background-position: -15px 5px; }
+  100% { background-position: 5px -15px; }
+}
+
+/* ==== VİGNET + HAFİF FİLİCKER ==== */
+body.theme-backrooms::after {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background: radial-gradient(ellipse at center, transparent 25%, rgba(0, 0, 0, 0.75) 100%) !important;
+  pointer-events: none !important;
+  z-index: 99998 !important;
+  animation: brFlicker 0.12s infinite alternate !important;
+  display: block !important;
+}
+@keyframes brFlicker {
+  0% { opacity: 0.85; }
+  100% { opacity: 1; }
+}
+
+/* ==== ANA PENCERE ==== */
+body.theme-backrooms .app-window {
+  background: var(--br-panel) !important;
+  border: 2px solid var(--br-border) !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 60px rgba(0, 0, 0, 0.3) !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* ==== BAŞLIK ÇUBUĞU ==== */
+body.theme-backrooms .title-bar {
+  background: var(--br-panel) !important;
+  border-bottom: 1px solid var(--br-border) !important;
+  padding: 14px 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+}
+body.theme-backrooms .title-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: 4px !important;
+  right: 4px !important;
+  bottom: 4px !important;
+  border: 1px dashed var(--br-border) !important;
+  pointer-events: none !important;
+  opacity: 0.4 !important;
+}
+body.theme-backrooms .title-bar-text {
+  color: var(--br-text) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  font-style: normal !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  line-height: 1.4 !important;
+}
+body.theme-backrooms .title-bar-text::before {
+  content: "▌" !important;
+  color: var(--br-accent) !important;
+  font-size: 14px !important;
+  display: inline !important;
+  animation: brRec 1.4s step-end infinite !important;
+}
+@keyframes brRec {
+  50% { opacity: 0.2; }
+}
+
+/* Sağdaki butonlar */
+body.theme-backrooms .window-buttons {
+  order: 1 !important;
+  display: flex !important;
+  gap: 4px !important;
+  margin-left: auto !important;
+}
+body.theme-backrooms .window-buttons span {
+  width: 20px !important;
+  height: 20px !important;
+  background: transparent !important;
+  border: 1px solid var(--br-border) !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-backrooms .window-buttons span:hover {
+  background: var(--br-accent) !important;
+  border-color: var(--br-accent) !important;
+}
+body.theme-backrooms .window-buttons span::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: var(--br-text-dim) !important;
+}
+body.theme-backrooms .window-buttons span:hover::after {
+  background: var(--br-bg) !important;
+}
+body.theme-backrooms .window-buttons span:nth-child(1)::after {
+  width: 10px !important;
+  height: 1px !important;
+}
+body.theme-backrooms .window-buttons span:nth-child(2)::after {
+  width: 8px !important;
+  height: 8px !important;
+  background: transparent !important;
+  border: 1px solid var(--br-text-dim) !important;
+}
+body.theme-backrooms .window-buttons span:nth-child(2):hover::after {
+  border-color: var(--br-bg) !important;
+}
+body.theme-backrooms .window-buttons span:nth-child(3)::after {
+  width: 9px !important;
+  height: 9px !important;
+  background:
+    linear-gradient(45deg, transparent 42%, var(--br-text-dim) 42%, var(--br-text-dim) 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, var(--br-text-dim) 42%, var(--br-text-dim) 58%, transparent 58%) !important;
+}
+
+/* ==== MENÜ ÇUBUĞU ==== */
+body.theme-backrooms .menu-bar {
+  background: var(--br-bg-2) !important;
+  border-bottom: 1px solid var(--br-border) !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+body.theme-backrooms .menu-bar > * {
+  color: var(--br-text-dim) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 14px 20px !important;
+  border: none !important;
+  background: transparent !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+body.theme-backrooms .menu-bar > *::before {
+  display: none !important;
+  content: none !important;
+}
+body.theme-backrooms .menu-bar > *:hover {
+  background: transparent !important;
+  color: var(--br-text) !important;
+  border-bottom-color: var(--br-accent) !important;
+  transform: none !important;
+}
+body.theme-backrooms .menu-bar > *.active {
+  color: var(--br-text) !important;
+  border-bottom-color: var(--br-accent) !important;
+}
+
+/* ==== TOOLBAR ==== */
+body.theme-backrooms .toolbar {
+  background: var(--br-bg-2) !important;
+  border-bottom: 1px solid var(--br-border) !important;
+  padding: 12px 16px !important;
+  gap: 4px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+body.theme-backrooms .toolbar a {
+  background: transparent !important;
+  border: 1px solid var(--br-border) !important;
+  color: var(--br-text-dim) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 8px 14px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+body.theme-backrooms .toolbar a::before,
+body.theme-backrooms .toolbar a::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-backrooms .toolbar a:hover {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: var(--br-accent) !important;
+  color: var(--br-text) !important;
+  transform: none !important;
+}
+body.theme-backrooms .toolbar a.active {
+  background: var(--br-accent) !important;
+  border-color: var(--br-accent) !important;
+  color: var(--br-bg) !important;
+  font-weight: 700 !important;
+}
+
+/* ==== SIDEBAR ==== */
+body.theme-backrooms .sidebar {
+  background: var(--br-bg-2) !important;
+  border-right: 1px solid var(--br-border) !important;
+  padding: 20px 14px !important;
+}
+body.theme-backrooms .sidebar::after {
+  display: none !important;
+}
+body.theme-backrooms .sidebar-title {
+  background: transparent !important;
+  color: var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  border-bottom: 1px dashed var(--br-border) !important;
+  padding: 10px 0 !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+}
+body.theme-backrooms .sidebar-title::before {
+  content: "▸ " !important;
+  color: var(--br-accent) !important;
+  display: inline !important;
+}
+body.theme-backrooms .sidebar-title::after {
+  content: " ◂" !important;
+  color: var(--br-accent) !important;
+  display: inline !important;
+}
+body.theme-backrooms .sidebar ul {
+  gap: 2px !important;
+}
+body.theme-backrooms .sidebar li {
+  background: transparent !important;
+  border: none !important;
+  border-left: 2px solid transparent !important;
+  color: var(--br-text-dim) !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 14px !important;
+  padding: 8px 12px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-backrooms .sidebar li::before {
+  content: "▸ " !important;
+  color: var(--br-accent) !important;
+  margin-right: 6px !important;
+  opacity: 0.4 !important;
+  display: inline !important;
+  transition: opacity 0.2s ease !important;
+}
+body.theme-backrooms .sidebar li:hover {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-left-color: var(--br-accent) !important;
+  color: var(--br-text) !important;
+  padding-left: 16px !important;
+}
+body.theme-backrooms .sidebar li:hover::before {
+  opacity: 1 !important;
+}
+body.theme-backrooms .sidebar li.active {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-left-color: var(--br-accent) !important;
+  color: var(--br-text) !important;
+}
+body.theme-backrooms .sidebar li.active::before {
+  opacity: 1 !important;
+}
+
+/* ==== İÇERİK ==== */
+body.theme-backrooms .content-pane {
+  background: transparent !important;
+  padding: 32px 40px !important;
+  color: var(--br-text) !important;
+  position: relative !important;
+}
+
+/* ==== H1 ==== */
+body.theme-backrooms h1.article-title {
+  color: var(--br-text) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 1.9rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  border-bottom: 2px dashed var(--br-border) !important;
+  padding: 0 0 14px 0 !important;
+  margin-bottom: 22px !important;
+  line-height: 1.3 !important;
+  position: relative !important;
+}
+body.theme-backrooms h1.article-title::before {
+  content: "▌ " !important;
+  color: var(--br-accent) !important;
+  display: inline !important;
+}
+body.theme-backrooms h1.article-title::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ==== H2 ==== */
+body.theme-backrooms h2 {
+  color: var(--br-text) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 10px 0 10px 18px !important;
+  margin: 32px 0 16px !important;
+  border-left: 3px solid var(--br-accent) !important;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.15) 0%, transparent 100%) !important;
+  position: relative !important;
+}
+body.theme-backrooms h2::before {
+  content: "// " !important;
+  color: var(--br-accent) !important;
+  display: inline !important;
+  margin-right: 4px !important;
+}
+
+/* ==== H3 ==== */
+body.theme-backrooms h3 {
+  color: var(--br-text) !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-left: 2px solid var(--br-accent) !important;
+  padding-left: 14px !important;
+  margin: 24px 0 10px !important;
+}
+
+/* ==== PARAGRAF & LINK ==== */
+body.theme-backrooms p {
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  color: var(--br-text) !important;
+  margin-bottom: 1em !important;
+}
+body.theme-backrooms a {
+  color: var(--br-accent) !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed var(--br-accent) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-backrooms a:hover {
+  color: var(--br-text) !important;
+  border-bottom-style: solid !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ==== INFOBOX ==== */
+body.theme-backrooms .infobox,
+body.theme-backrooms .warinfobox,
+body.theme-backrooms .krono-box,
+body.theme-backrooms .wiki-thumb,
+body.theme-backrooms .rff-box {
+  background: var(--br-bg-2) !important;
+  border: 1px solid var(--br-border) !important;
+  padding: 16px !important;
+  color: var(--br-text) !important;
+  position: relative !important;
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(0, 0, 0, 0.3) !important;
+}
+body.theme-backrooms .infobox::before,
+body.theme-backrooms .warinfobox::before {
+  content: "◆ BACKROOMS" !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 12px !important;
+  background: var(--br-bg) !important;
+  color: var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 10px !important;
+  letter-spacing: 2px !important;
+  padding: 1px 8px !important;
+  display: block !important;
+}
+body.theme-backrooms .infobox::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-backrooms .infobox-title {
+  background: transparent !important;
+  color: var(--br-text) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 1.15rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-bottom: 1px dashed var(--br-border) !important;
+  padding: 0 0 10px 0 !important;
+  margin: 0 0 12px 0 !important;
+  text-align: center !important;
+}
+body.theme-backrooms .infobox-subtitle {
+  color: var(--br-text-dim) !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-style: italic !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+body.theme-backrooms .infobox-label {
+  color: var(--br-accent) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 11px !important;
+}
+body.theme-backrooms .infobox-value {
+  color: var(--br-text) !important;
+  font-size: 13px !important;
+}
+body.theme-backrooms .infobox-row {
+  border-bottom: 1px dashed var(--br-border) !important;
+  padding: 6px 0 !important;
+}
+body.theme-backrooms .infobox-row:last-child {
+  border-bottom: none !important;
+}
+body.theme-backrooms .flag-box {
+  background: var(--br-bg) !important;
+  border: 1px solid var(--br-border) !important;
+  padding: 8px !important;
+}
+body.theme-backrooms .flag-box::after {
+  display: none !important;
+}
+body.theme-backrooms .flag-label,
+body.theme-backrooms .map-label {
+  color: var(--br-accent) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
+}
+body.theme-backrooms .infobox-map {
+  background: var(--br-bg) !important;
+  border: 1px solid var(--br-border) !important;
+  padding: 6px !important;
+}
+
+/* ==== BLOCKQUOTE ==== */
+body.theme-backrooms blockquote {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-left: 3px solid var(--br-accent) !important;
+  border-top: 1px dashed var(--br-border) !important;
+  border-bottom: 1px dashed var(--br-border) !important;
+  padding: 16px 22px !important;
+  color: var(--br-text) !important;
+  font-family: 'Special Elite', serif !important;
+  font-style: italic !important;
+  font-size: 15px !important;
+  margin: 16px 0 !important;
+  position: relative !important;
+}
+body.theme-backrooms blockquote::before {
+  content: "❝" !important;
+  color: var(--br-accent) !important;
+  font-size: 22px !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 8px !important;
+  opacity: 0.7 !important;
+  display: block !important;
+}
+
+/* ==== DETAILS ==== */
+body.theme-backrooms details {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid var(--br-border) !important;
+  margin: 14px 0 !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-backrooms details:hover {
+  border-color: var(--br-accent) !important;
+}
+body.theme-backrooms details[open] {
+  border-color: var(--br-accent) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+body.theme-backrooms summary {
+  background: rgba(0, 0, 0, 0.15) !important;
+  color: var(--br-text) !important;
+  font-family: 'Special Elite', serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 12px 18px !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-backrooms summary:hover {
+  background: rgba(0, 0, 0, 0.25) !important;
+  color: var(--br-accent) !important;
+}
+body.theme-backrooms summary::before {
+  content: "▸ " !important;
+  color: var(--br-accent) !important;
+  display: inline !important;
+  margin-right: 4px !important;
+}
+body.theme-backrooms details[open] summary::before {
+  content: "▾ " !important;
+  transform: none !important;
+}
+body.theme-backrooms .details-content {
+  background: rgba(0, 0, 0, 0.15) !important;
+  padding: 16px 20px !important;
+  color: var(--br-text) !important;
+  font-size: 14px !important;
+}
+
+/* ==== BUTONLAR ==== */
+body.theme-backrooms .vid-button,
+body.theme-backrooms .qa-button,
+body.theme-backrooms .lightbox-download {
+  background: transparent !important;
+  border: 1px solid var(--br-accent) !important;
+  color: var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 12px 24px !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  position: relative !important;
+}
+body.theme-backrooms .vid-button:hover,
+body.theme-backrooms .qa-button:hover,
+body.theme-backrooms .lightbox-download:hover {
+  background: var(--br-accent) !important;
+  color: var(--br-bg) !important;
+  box-shadow:
+    0 0 20px var(--br-accent),
+    inset 0 0 10px rgba(0, 0, 0, 0.3) !important;
+  transform: none !important;
+}
+body.theme-backrooms .vid-button::before {
+  content: "▸ " !important;
+  color: inherit !important;
+  animation: none !important;
+}
+
+/* ==== TABLOLAR ==== */
+body.theme-backrooms .players-table {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid var(--br-border) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+}
+body.theme-backrooms .players-table th {
+  background: rgba(0, 0, 0, 0.25) !important;
+  color: var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-bottom: 1px solid var(--br-accent) !important;
+  padding: 12px 16px !important;
+  font-size: 12px !important;
+  text-align: left !important;
+}
+body.theme-backrooms .players-table td {
+  color: var(--br-text) !important;
+  border-bottom: 1px dashed var(--br-border) !important;
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+}
+body.theme-backrooms .players-table tr:hover td {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ==== STATUS BAR ==== */
+body.theme-backrooms .status-bar {
+  background: var(--br-bg-2) !important;
+  border-top: 1px solid var(--br-border) !important;
+  color: var(--br-text-dim) !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
+  padding: 10px 18px !important;
+  position: relative !important;
+}
+body.theme-backrooms .status-bar::before {
+  display: none !important;
+}
+body.theme-backrooms .status-bar span:first-child::before {
+  content: "● " !important;
+  color: var(--br-accent) !important;
+  animation: brRec 1.5s step-end infinite !important;
+  display: inline !important;
+}
+
+/* ==== MODAL ==== */
+body.theme-backrooms .lightbox-window,
+body.theme-backrooms .video-window {
+  background: var(--br-bg-2) !important;
+  border: 2px solid var(--br-accent) !important;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 60px rgba(0, 0, 0, 0.8) !important;
+  overflow: hidden !important;
+}
+body.theme-backrooms .lightbox-title-bar,
+body.theme-backrooms .video-title-bar {
+  background: rgba(0, 0, 0, 0.3) !important;
+  color: var(--br-accent) !important;
+  border-bottom: 1px solid var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 12px 18px !important;
+  font-size: 12px !important;
+}
+body.theme-backrooms .lightbox-close,
+body.theme-backrooms .video-close {
+  background: transparent !important;
+  border: 1px solid var(--br-accent) !important;
+  color: var(--br-accent) !important;
+  width: 26px !important;
+  height: 26px !important;
+}
+body.theme-backrooms .lightbox-close:hover,
+body.theme-backrooms .video-close:hover {
+  background: var(--br-accent) !important;
+  color: var(--br-bg) !important;
+}
+body.theme-backrooms .video-controls {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-top: 1px solid var(--br-border) !important;
+}
+body.theme-backrooms .video-controls button {
+  background: transparent !important;
+  border: 1px solid var(--br-accent) !important;
+  color: var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 7px 14px !important;
+  font-size: 11px !important;
+}
+body.theme-backrooms .video-controls button:hover {
+  background: var(--br-accent) !important;
+  color: var(--br-bg) !important;
+}
+body.theme-backrooms .video-controls a {
+  background: var(--br-accent) !important;
+  color: var(--br-bg) !important;
+  font-family: 'Special Elite', serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 7px 16px !important;
+  border: 1px solid var(--br-accent) !important;
+}
+
+/* ==== XP EXPLORER ==== */
+body.theme-backrooms .xp-explorer,
+body.theme-backrooms .xp-tree,
+body.theme-backrooms .xp-preview-pane {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: var(--br-border) !important;
+}
+body.theme-backrooms .xp-tree-title,
+body.theme-backrooms .xp-file-header {
+  background: rgba(0, 0, 0, 0.25) !important;
+  color: var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-color: var(--br-accent) !important;
+  padding: 12px 16px !important;
+  font-size: 12px !important;
+}
+body.theme-backrooms .xp-file-item,
+body.theme-backrooms .xp-tree-item {
+  color: var(--br-text-dim) !important;
+  padding: 8px 12px 8px 24px !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+body.theme-backrooms .xp-file-item::before,
+body.theme-backrooms .xp-tree-item::before {
+  content: "▸" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: var(--br-accent) !important;
+  opacity: 0 !important;
+}
+body.theme-backrooms .xp-file-item:hover,
+body.theme-backrooms .xp-tree-item:hover {
+  background: rgba(0, 0, 0, 0.15) !important;
+  color: var(--br-text) !important;
+}
+body.theme-backrooms .xp-file-item:hover::before,
+body.theme-backrooms .xp-tree-item:hover::before {
+  opacity: 1 !important;
+}
+body.theme-backrooms .xp-file-item.selected,
+body.theme-backrooms .xp-tree-item.active {
+  background: rgba(0, 0, 0, 0.25) !important;
+  color: var(--br-text) !important;
+  box-shadow: inset 3px 0 0 var(--br-accent) !important;
+}
+body.theme-backrooms .xp-file-item.selected::before,
+body.theme-backrooms .xp-tree-item.active::before {
+  opacity: 1 !important;
+}
+body.theme-backrooms .xp-preview-text {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid var(--br-border) !important;
+  color: var(--br-text) !important;
+  padding: 14px !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+/* ==== DROPDOWN ==== */
+body.theme-backrooms ~ .view-dropdown-fixed,
+body.theme-backrooms .view-dropdown-fixed {
+  background: var(--br-bg-2) !important;
+  border: 1px solid var(--br-accent) !important;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(0, 0, 0, 0.8) !important;
+  padding: 10px !important;
+}
+body.theme-backrooms .view-dropdown-fixed * {
+  font-family: 'Share Tech Mono', monospace !important;
+}
+body.theme-backrooms .view-dropdown-fixed span {
+  color: var(--br-accent) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+}
+body.theme-backrooms .view-dropdown-fixed [data-z],
+body.theme-backrooms .view-dropdown-fixed .zoom-value {
+  background: transparent !important;
+  border: 1px solid var(--br-accent) !important;
+  color: var(--br-accent) !important;
+  font-size: 12px !important;
+  padding: 4px 8px !important;
+}
+body.theme-backrooms .view-dropdown-fixed [data-z]:hover {
+  background: var(--br-accent) !important;
+  color: var(--br-bg) !important;
+}
+body.theme-backrooms .view-dropdown-fixed .theme-item {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: var(--br-text-dim) !important;
+  padding: 10px 14px 10px 28px !important;
+  position: relative !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+body.theme-backrooms .view-dropdown-fixed .theme-item::before {
+  content: "▸" !important;
+  position: absolute !important;
+  left: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: var(--br-accent) !important;
+  opacity: 0 !important;
+}
+body.theme-backrooms .view-dropdown-fixed .theme-item:hover {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-color: var(--br-accent) !important;
+  color: var(--br-text) !important;
+}
+body.theme-backrooms .view-dropdown-fixed .theme-item:hover::before {
+  opacity: 1 !important;
+}
+body.theme-backrooms .view-dropdown-fixed .theme-item.active {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-color: var(--br-accent) !important;
+  color: var(--br-text) !important;
+}
+body.theme-backrooms .view-dropdown-fixed .theme-item.active::before {
+  opacity: 1 !important;
+}
+body.theme-backrooms .view-dropdown-fixed .theme-item span {
+  color: inherit !important;
+  font-size: 13px !important;
+}
+
+/* ==== SCROLLBAR ==== */
+body.theme-backrooms ::-webkit-scrollbar {
+  width: 12px !important;
+}
+body.theme-backrooms ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid var(--br-border) !important;
+}
+body.theme-backrooms ::-webkit-scrollbar-thumb {
+  background: var(--br-border) !important;
+  border: 1px solid var(--br-accent) !important;
+}
+body.theme-backrooms ::-webkit-scrollbar-thumb:hover {
+  background: var(--br-accent) !important;
+}
+
+/* ==== SELECTION ==== */
+body.theme-backrooms ::selection {
+  background: var(--br-accent) !important;
+  color: var(--br-bg) !important;
+}
+
+/* ===========================================
+   LEVEL 0 – SARI DUVAR KAĞIDI
+   =========================================== */
+body.theme-backrooms.level-0 {
+  --br-bg: #c9b458;
+  --br-bg-2: #b8a347;
+  --br-panel: rgba(212, 192, 106, 0.55);
+  --br-accent: #ffe66d;
+  --br-text: #1a1408;
+  --br-text-dim: #5a4a20;
+  --br-border: #8a7a30;
+  --br-doku:
+    /* Klasik sarı halı dokusu */
+    repeating-linear-gradient(90deg, transparent 0px, transparent 3px, rgba(0, 0, 0, 0.03) 3px, rgba(0, 0, 0, 0.03) 4px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(0, 0, 0, 0.03) 3px, rgba(0, 0, 0, 0.03) 4px),
+    radial-gradient(circle at 30% 20%, rgba(255, 230, 109, 0.15), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.1), transparent 40%),
+    linear-gradient(180deg, #c9b458 0%, #b8a347 100%);
+  --br-doku-size: 4px 4px, 4px 4px, auto, auto, auto;
+}
+body.theme-backrooms.level-0 .content-pane::before {
+  content: "LEVEL 0" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(26, 20, 8, 0.5) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================
+   LEVEL 1 – BETON DEPO
+   =========================================== */
+body.theme-backrooms.level-1 {
+  --br-bg: #3a3a3a;
+  --br-bg-2: #2a2a2a;
+  --br-panel: rgba(60, 60, 60, 0.55);
+  --br-accent: #c8c8c8;
+  --br-text: #e0e0e0;
+  --br-text-dim: #808080;
+  --br-border: #505050;
+  --br-doku:
+    radial-gradient(circle at 15% 25%, rgba(0, 0, 0, 0.4) 1px, transparent 1px),
+    radial-gradient(circle at 45% 65%, rgba(0, 0, 0, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 75% 35%, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 85% 85%, rgba(0, 0, 0, 0.4) 1px, transparent 1px),
+    linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+  --br-doku-size: 8px 8px, 12px 12px, 10px 10px, 14px 14px, auto;
+}
+body.theme-backrooms.level-1 .content-pane::before {
+  content: "LEVEL 1" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(200, 200, 200, 0.4) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================
+   LEVEL 2 – BORU TÜNELLERİ
+   =========================================== */
+body.theme-backrooms.level-2 {
+  --br-bg: #2a1a0a;
+  --br-bg-2: #1a0f05;
+  --br-panel: rgba(58, 42, 26, 0.55);
+  --br-accent: #c9a86a;
+  --br-text: #d8c8a8;
+  --br-text-dim: #8a7a5a;
+  --br-border: #5a4a2a;
+  --br-doku:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 60px, rgba(0, 0, 0, 0.4) 60px, rgba(0, 0, 0, 0.4) 62px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 20px, rgba(201, 168, 106, 0.06) 20px, rgba(201, 168, 106, 0.06) 21px),
+    radial-gradient(circle at 50% 50%, rgba(201, 168, 106, 0.1), transparent 60%),
+    linear-gradient(180deg, #2a1a0a 0%, #1a0f05 100%);
+  --br-doku-size: auto, auto, auto, auto;
+}
+body.theme-backrooms.level-2 .content-pane::before {
+  content: "LEVEL 2" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(201, 168, 106, 0.4) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================
+   LEVEL 3 – ELEKTRİK İSTASYONU
+   =========================================== */
+body.theme-backrooms.level-3 {
+  --br-bg: #1a0a0a;
+  --br-bg-2: #0a0404;
+  --br-panel: rgba(42, 26, 26, 0.55);
+  --br-accent: #e06666;
+  --br-text: #e0c0c0;
+  --br-text-dim: #806060;
+  --br-border: #4a2020;
+  --br-doku:
+    repeating-linear-gradient(45deg, transparent 0px, transparent 8px, rgba(224, 102, 102, 0.04) 8px, rgba(224, 102, 102, 0.04) 9px),
+    repeating-linear-gradient(-45deg, transparent 0px, transparent 8px, rgba(224, 102, 102, 0.04) 8px, rgba(224, 102, 102, 0.04) 9px),
+    radial-gradient(ellipse at 50% 50%, rgba(224, 102, 102, 0.08), transparent 60%),
+    linear-gradient(180deg, #1a0a0a 0%, #0a0404 100%);
+  --br-doku-size: auto, auto, auto, auto;
+}
+body.theme-backrooms.level-3::after {
+  background: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.8) 100%) !important;
+  animation: brFlicker 0.08s infinite alternate, brElecFlash 6s infinite !important;
+}
+@keyframes brElecFlash {
+  0%, 95%, 100% { opacity: 0.9; }
+  96% { opacity: 0.4; }
+  97% { opacity: 1; }
+  98% { opacity: 0.5; }
+}
+body.theme-backrooms.level-3 .content-pane::before {
+  content: "LEVEL 3" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(224, 102, 102, 0.4) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================
+   LEVEL 4 – TERK EDİLMİŞ OFİS
+   =========================================== */
+body.theme-backrooms.level-4 {
+  --br-bg: #d4c9a8;
+  --br-bg-2: #c0b090;
+  --br-panel: rgba(224, 213, 184, 0.55);
+  --br-accent: #b8a060;
+  --br-text: #2a2015;
+  --br-text-dim: #5a4a30;
+  --br-border: #9a8a60;
+  --br-doku:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 40px, rgba(0, 0, 0, 0.04) 40px, rgba(0, 0, 0, 0.04) 41px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 40px, rgba(0, 0, 0, 0.04) 40px, rgba(0, 0, 0, 0.04) 41px),
+    radial-gradient(circle at 20% 30%, rgba(255, 240, 200, 0.15), transparent 40%),
+    linear-gradient(180deg, #d4c9a8 0%, #c0b090 100%);
+  --br-doku-size: auto, auto, auto, auto;
+}
+body.theme-backrooms.level-4 .content-pane::before {
+  content: "LEVEL 4" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(42, 32, 21, 0.5) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================
+   LEVEL 5 – OTEL KORİDORU
+   =========================================== */
+body.theme-backrooms.level-5 {
+  --br-bg: #3a0a0a;
+  --br-bg-2: #1a0404;
+  --br-panel: rgba(90, 26, 26, 0.55);
+  --br-accent: #e0b040;
+  --br-text: #f0e0c0;
+  --br-text-dim: #a08060;
+  --br-border: #6a2020;
+  --br-doku:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 20px, rgba(224, 176, 64, 0.05) 20px, rgba(224, 176, 64, 0.05) 21px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 20px, rgba(224, 176, 64, 0.05) 20px, rgba(224, 176, 64, 0.05) 21px),
+    radial-gradient(circle at 50% 50%, rgba(224, 176, 64, 0.06), transparent 40%),
+    linear-gradient(180deg, #3a0a0a 0%, #1a0404 100%);
+  --br-doku-size: auto, auto, auto, auto;
+}
+body.theme-backrooms.level-5 .content-pane::before {
+  content: "LEVEL 5" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(224, 176, 64, 0.4) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================
+   LEVEL 6 – KARANLIK BOŞLUK
+   =========================================== */
+body.theme-backrooms.level-6 {
+  --br-bg: #050505;
+  --br-bg-2: #000000;
+  --br-panel: rgba(16, 16, 16, 0.7);
+  --br-accent: #404040;
+  --br-text: #909090;
+  --br-text-dim: #505050;
+  --br-border: #1a1a1a;
+  --br-doku:
+    radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.015), transparent 30%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.01), transparent 30%),
+    linear-gradient(180deg, #050505 0%, #000000 100%);
+  --br-doku-size: auto, auto, auto;
+}
+body.theme-backrooms.level-6::after {
+  background: radial-gradient(ellipse at center, transparent 10%, rgba(0, 0, 0, 0.95) 100%) !important;
+}
+body.theme-backrooms.level-6 .content-pane::before {
+  content: "LEVEL 6" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(144, 144, 144, 0.3) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================
+   LEVEL 7 – HAVUZ ODALARI (POOLROOMS)
+   =========================================== */
+body.theme-backrooms.level-7 {
+  --br-bg: #1a3a4a;
+  --br-bg-2: #0a1a2a;
+  --br-panel: rgba(42, 90, 106, 0.55);
+  --br-accent: #7ee0ff;
+  --br-text: #d0e8f0;
+  --br-text-dim: #5a8a9a;
+  --br-border: #3a6a7a;
+  --br-doku:
+    /* Su dalgası deseni */
+    repeating-linear-gradient(0deg, transparent 0px, transparent 40px, rgba(126, 224, 255, 0.05) 40px, rgba(126, 224, 255, 0.05) 42px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 40px, rgba(126, 224, 255, 0.03) 40px, rgba(126, 224, 255, 0.03) 42px),
+    radial-gradient(circle at 50% 60%, rgba(126, 224, 255, 0.12), transparent 60%),
+    linear-gradient(180deg, #1a3a4a 0%, #0a1a2a 100%);
+  --br-doku-size: auto, auto, auto, auto;
+}
+body.theme-backrooms.level-7 .content-pane::before {
+  content: "LEVEL 7" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  color: rgba(126, 224, 255, 0.4) !important;
+  font-family: 'Special Elite', serif !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  pointer-events: none !important;
+}

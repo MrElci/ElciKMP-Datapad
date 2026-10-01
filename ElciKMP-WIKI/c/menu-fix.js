@@ -29,7 +29,8 @@
     { id: 'pipboy',     name: 'Pip-Boy Theme',      desc: 'Vault-Tec RobCo',      file: 'themes/pipboy.css' },
     { id: 'cyberpunk',  name: 'Cyberpunk 2077',     desc: 'Night City Breach',    file: 'themes/cyberpunk.css' },
     { id: 'tron',       name: 'Tron Theme',         desc: 'The Grid / Encom OS',  file: 'themes/tron.css' },
-    { id: 'scp',        name: 'SCP Foundation',     desc: 'Secure. Contain. Protect.', file: 'themes/scp.css' }
+    { id: 'scp',        name: 'SCP Foundation',     desc: 'Secure. Contain. Protect.', file: 'themes/scp.css' },
+    { id: 'backrooms', name: 'Backrooms Theme', desc: 'Random Level', file: 'themes/backrooms.css' }
   ];
 
   const themeDefaults = {
@@ -45,7 +46,8 @@
     pipboy:    '#14fe17',
     cyberpunk: '#fcee0a',
     tron:      '#00ffff',
-    scp:       '#d10000'
+    scp:       '#d10000',
+    backrooms: '#c9b458',
   };
 
   /* ===========================================
@@ -116,8 +118,21 @@
     document.querySelectorAll('.theme-item').forEach(el => {
       el.classList.toggle('active', el.dataset.theme === themeId);
     });
+      // Backrooms için rastgele level class'ı
+  document.body.className = document.body.className
+    .split(' ')
+    .filter(c => !/^level-\d+$/.test(c))
+    .join(' ')
+    .trim();
+
+  if (themeId === 'backrooms') {
+    const randomLevel = Math.floor(Math.random() * 8); // 0-7
+    document.body.classList.add('level-' + randomLevel);
+    console.log('[backrooms] Level', randomLevel, 'seçildi.');
+  }
 
     console.log('[theme]', themeId, '| file:', theme ? theme.file : 'default');
+    
   }
 
   /* ===========================================
