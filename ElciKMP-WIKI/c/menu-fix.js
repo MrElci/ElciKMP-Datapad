@@ -30,7 +30,8 @@
     { id: 'cyberpunk',  name: 'Cyberpunk 2077',     desc: 'Night City Breach',    file: 'themes/cyberpunk.css' },
     { id: 'tron',       name: 'Tron Theme',         desc: 'The Grid / Encom OS',  file: 'themes/tron.css' },
     { id: 'scp',        name: 'SCP Foundation',     desc: 'Secure. Contain. Protect.', file: 'themes/scp.css' },
-    { id: 'backrooms', name: 'Backrooms Theme', desc: 'Random Level', file: 'themes/backrooms.css' }
+    { id: 'backrooms', name: 'Backrooms Theme', desc: 'Random Level', file: 'themes/backrooms.css' },
+    { id: 'atla', name: 'ATLA Theme', desc: 'Avatar: 4 Elements', file: 'themes/atla.css' }
   ];
 
   const themeDefaults = {
@@ -48,6 +49,7 @@
     tron:      '#00ffff',
     scp:       '#d10000',
     backrooms: '#c9b458',
+    atla: '#d4af37'
   };
 
   /* ===========================================
@@ -84,6 +86,18 @@
   }
 
   function applyTheme(themeId) {
+        // ATLA elementi uygula (tema atla ise)
+    if (themeId === 'atla') {
+      // Bir sonraki frame'de çağır ki H1 render olsun
+      setTimeout(applyAtlaElement, 50);
+    } else {
+      // Diğer temalardan çıkarken ATLA class'larını temizle
+      document.body.className = document.body.className
+        .split(' ')
+        .filter(c => !/^atla-(avatar|earth|water|air|fire)$/.test(c))
+        .join(' ')
+        .trim();
+    }
     if (themeId === 'backrooms') {
       const randomLevel = Math.floor(Math.random() * 8); // 0-7
       document.body.classList.add('level-' + randomLevel);
@@ -118,6 +132,7 @@
     // 5) Başlıktaki özel renk kodu varsa üstüne uygula
     if (typeof window.applyAccentColor === 'function') {
       window.applyAccentColor();
+      if (typeof window.applyAtlaElement === 'function') window.applyAtlaElement();
     }
 
     // 6) UI güncelle
@@ -291,6 +306,83 @@
       window.addEventListener('resize', () => { if (isOpen) openMenu(); });
     });
   }
+  /* ===========================================
+   ATLA – Element Algılayıcı
+   =========================================== */
+function detectAtlaElement() {
+  // Önce sayfa tipi kontrolü
+  const h1 = document.querySelector('h1.article-title');
+  const isListOrHome = !h1 || 
+    window.location.pathname.endsWith('index.html') ||
+    window.location.pathname.endsWith('players.html') ||
+    window.location.pathname.endsWith('countries.html') ||
+    window.location.pathname.endsWith('wars.html') ||
+    window.location.pathname.endsWith('material.html');
+
+  if (isListOrHome) return 'avatar';
+
+  // Renk al
+  let color = window.getComputedStyle(h1).color;
+  const span = h1.querySelector('span');
+  if (span) color = window.getComputedStyle(span).color;
+
+  const rgb = color.match(/\d+/g);
+  if (!rgb || rgb.length < 3) return 'avatar';
+
+  let [r, g, b] = rgb.map(Number);
+  r /= 255; g /= 255; b /= 255;
+
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  const d = max - min;
+  let h = 0, s = 0;
+
+  if (d !== 0) {
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+      case g: h = ((b - r) / d + 2) / 6; break;
+      case b: h = ((r - g) / d + 4) / 6; break;
+    }
+  }
+  const hue = Math.round(h * 360);
+  const sat = Math.round(s * 100);
+  const light = Math.round(l * 100);
+
+  // Düşük doygunluk → Hava (gri/siyah/beyaz)
+  if (sat < 15) return 'air';
+
+  // Hue bazlı tespit
+  if (hue >= 180 && hue < 280) return 'water';       // mavi, turkuaz, mor
+  if (hue >= 60 && hue < 180) return 'earth';         // yeşil
+  if (hue >= 40 && hue < 60) return 'earth';          // sarı
+  if (hue >= 20 && hue < 40) {
+    // Turuncu: çok doygun ve parlak → ateş, aksi halde toprak
+    if (sat > 55 && light > 40) return 'fire';
+    return 'earth';
+  }
+  if (hue < 20 || hue >= 280) return 'fire';          // kırmızı, magenta
+  return 'avatar';
+}
+
+/* ===========================================
+   ATLA – Element class'larını uygula
+   =========================================== */
+function applyAtlaElement() {
+  const body = document.body;
+  // Eski element class'larını temizle
+  body.className = body.className
+    .split(' ')
+    .filter(c => !/^atla-(avatar|earth|water|air|fire)$/.test(c))
+    .join(' ')
+    .trim();
+
+  if (!body.classList.contains('theme-atla')) return;
+
+  const element = detectAtlaElement();
+  body.classList.add('atla-' + element);
+  console.log('[atla] Element:', element);
+}
 
   /* ===========================================
      ÇALIŞTIR
@@ -311,7 +403,8 @@
     init();
   }
   window.addEventListener('load', run);
-
+  window.applyAtlaElement = applyAtlaElement;
+  window.detectAtlaElement = detectAtlaElement;
   window.applyZoom = applyZoom;
   window.applyTheme = applyTheme;
   window.getTheme = getTheme;
