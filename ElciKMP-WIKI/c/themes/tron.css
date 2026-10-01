@@ -1,0 +1,1320 @@
+/* ===========================================
+   TRON THEME – The Grid / Encom OS
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+/* ========== KÖK DEĞİŞKENLER ========== */
+body.theme-tron {
+  --accent-color: #00ffff;
+  --accent-glow: 0 0 12px rgba(0, 255, 255, 0.8);
+
+  /* Tron Paleti */
+  --tron-cyan: #00ffff;
+  --tron-cyan-bright: #7fffff;
+  --tron-cyan-dim: #008f8f;
+  --tron-cyan-dark: #003a3a;
+  --tron-cyan-deep: #001a1a;
+
+  --tron-orange: #ff8800;
+  --tron-orange-bright: #ffaa33;
+  --tron-orange-dim: #8f4a00;
+  --tron-orange-dark: #3a1e00;
+
+  --tron-white: #ffffff;
+  --tron-white-dim: #b0d8d8;
+
+  --tron-bg: #000000;
+  --tron-bg-2: #050f0f;
+  --tron-bg-panel: #0a1a1a;
+  --tron-bg-elevated: #0d2222;
+
+  --tron-border: #0d3a3a;
+  --tron-border-bright: #00ffff;
+  --tron-border-dim: #062222;
+
+  --tron-text: #c8f0f0;
+  --tron-text-bright: #ffffff;
+  --tron-text-dim: #5a8a8a;
+  --tron-text-muted: #3a5a5a;
+
+  background-color: #000000 !important;
+  background-image:
+    /* Grid perspektifi */
+    linear-gradient(rgba(0, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.06) 1px, transparent 1px),
+    /* Daha büyük grid */
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    /* Glow spots */
+    radial-gradient(ellipse at 50% 100%, rgba(0, 255, 255, 0.08), transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(0, 255, 255, 0.04), transparent 50%) !important;
+  background-size:
+    40px 40px,
+    40px 40px,
+    200px 200px,
+    200px 200px,
+    auto,
+    auto !important;
+  background-attachment: fixed !important;
+  color: #c8f0f0 !important;
+  font-family: 'JetBrains Mono', 'Share Tech Mono', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  letter-spacing: 0.5px !important;
+  text-shadow: 0 0 3px rgba(0, 255, 255, 0.3) !important;
+}
+
+/* ========== GENEL OVERRIDE ========== */
+body.theme-tron *,
+body.theme-tron *::before,
+body.theme-tron *::after {
+  font-family: 'JetBrains Mono', 'Share Tech Mono', 'Courier New', monospace !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-sizing: border-box !important;
+}
+
+/* VHS/scanline katmanlarını kapat */
+body.theme-tron::after,
+body.theme-tron::before {
+  display: none !important;
+}
+
+/* ========== ANA PENCERE ========== */
+body.theme-tron .app-window {
+  background: rgba(0, 0, 0, 0.85) !important;
+  border: 2px solid #00ffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.2),
+    inset 0 0 40px rgba(0, 255, 255, 0.08) !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Üst kenarda ışık çizgisi */
+body.theme-tron .app-window::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #00ffff, #ffffff, #00ffff, transparent) !important;
+  opacity: 0.9 !important;
+  animation: tronDataStream 6s linear infinite !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.9) !important;
+  display: block !important;
+}
+@keyframes tronDataStream {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Alt kenarda ışık çizgisi */
+body.theme-tron .app-window::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #ff8800, #ffffff, #ff8800, transparent) !important;
+  opacity: 0.6 !important;
+  animation: tronDataStream 6s linear infinite reverse !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  box-shadow: 0 0 12px rgba(255, 136, 0, 0.7) !important;
+  display: block !important;
+}
+
+/* ========== BAŞLIK ÇUBUĞU ========== */
+body.theme-tron .title-bar {
+  background: #000000 !important;
+  border-bottom: 1px solid #00ffff !important;
+  padding: 14px 22px !important;
+  height: auto !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron .title-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: #00ffff !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.9) !important;
+  display: block !important;
+}
+body.theme-tron .title-bar::after {
+  display: none !important;
+}
+body.theme-tron .title-bar-text {
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 4px !important;
+  font-style: normal !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.9),
+    0 0 20px rgba(0, 255, 255, 0.5) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  line-height: 1.4 !important;
+}
+body.theme-tron .title-bar-text::before {
+  content: "◈" !important;
+  color: #00ffff !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 1) !important;
+  display: inline !important;
+  animation: tronPulse 2s ease-in-out infinite !important;
+}
+@keyframes tronPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Sağdaki butonlar */
+body.theme-tron .window-buttons {
+  order: 1 !important;
+  display: flex !important;
+  gap: 6px !important;
+  margin-left: auto !important;
+}
+body.theme-tron .window-buttons span {
+  width: 20px !important;
+  height: 20px !important;
+  background: transparent !important;
+  border: 1px solid #00ffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 6px rgba(0, 255, 255, 0.5),
+    inset 0 0 4px rgba(0, 255, 255, 0.2) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-tron .window-buttons span:hover {
+  background: #00ffff !important;
+  border-color: #00ffff !important;
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.9),
+    0 0 25px rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron .window-buttons span::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #00ffff !important;
+  box-shadow: 0 0 4px rgba(0, 255, 255, 0.8) !important;
+}
+body.theme-tron .window-buttons span:hover::after {
+  background: #000000 !important;
+  box-shadow: none !important;
+}
+body.theme-tron .window-buttons span:nth-child(1)::after {
+  width: 10px !important;
+  height: 1px !important;
+}
+body.theme-tron .window-buttons span:nth-child(2)::after {
+  width: 8px !important;
+  height: 8px !important;
+  background: transparent !important;
+  border: 1px solid #00ffff !important;
+}
+body.theme-tron .window-buttons span:nth-child(2):hover::after {
+  border-color: #000000 !important;
+}
+body.theme-tron .window-buttons span:nth-child(3)::after {
+  width: 9px !important;
+  height: 9px !important;
+  background:
+    linear-gradient(45deg, transparent 42%, #00ffff 42%, #00ffff 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #00ffff 42%, #00ffff 58%, transparent 58%) !important;
+}
+
+/* ========== MENÜ ÇUBUĞU ========== */
+body.theme-tron .menu-bar {
+  background: #000000 !important;
+  border-bottom: 1px solid #0d3a3a !important;
+  padding: 0 12px !important;
+  gap: 2px !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+}
+body.theme-tron .menu-bar::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #00ffff 20%, transparent 80%, #00ffff, transparent) !important;
+  opacity: 0.5 !important;
+}
+body.theme-tron .menu-bar > * {
+  color: #5a8a8a !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 14px 20px !important;
+  border: none !important;
+  background: transparent !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-tron .menu-bar > *::before {
+  display: none !important;
+  content: none !important;
+}
+body.theme-tron .menu-bar > *:hover {
+  background: transparent !important;
+  color: #00ffff !important;
+  border-bottom-color: #00ffff !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.9),
+    0 0 15px rgba(0, 255, 255, 0.5) !important;
+  transform: none !important;
+}
+body.theme-tron .menu-bar > *.active {
+  color: #ffffff !important;
+  border-bottom-color: #00ffff !important;
+  text-shadow:
+    0 0 10px rgba(0, 255, 255, 1),
+    0 0 20px rgba(0, 255, 255, 0.6) !important;
+  font-weight: 700 !important;
+}
+
+/* ========== TOOLBAR (Sekmeler) ========== */
+body.theme-tron .toolbar {
+  background: #000000 !important;
+  border-bottom: 1px solid #0d3a3a !important;
+  padding: 12px 16px !important;
+  gap: 4px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+body.theme-tron .toolbar a {
+  background: transparent !important;
+  border: 1px solid #0d3a3a !important;
+  color: #5a8a8a !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+  filter: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-tron .toolbar a::before,
+body.theme-tron .toolbar a::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-tron .toolbar a:hover {
+  background: rgba(0, 255, 255, 0.05) !important;
+  border-color: #00ffff !important;
+  color: #00ffff !important;
+  box-shadow:
+    0 0 12px rgba(0, 255, 255, 0.5),
+    inset 0 0 10px rgba(0, 255, 255, 0.1) !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.9) !important;
+  transform: none !important;
+}
+body.theme-tron .toolbar a.active {
+  background: rgba(0, 255, 255, 0.12) !important;
+  border-color: #00ffff !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.6),
+    inset 0 0 15px rgba(0, 255, 255, 0.2) !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 1),
+    0 0 15px rgba(0, 255, 255, 0.6) !important;
+  font-weight: 700 !important;
+}
+
+/* ========== SIDEBAR ========== */
+body.theme-tron .sidebar {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border-right: 1px solid #00ffff !important;
+  padding: 20px 14px !important;
+  position: relative !important;
+  box-shadow: 2px 0 15px rgba(0, 255, 255, 0.15) !important;
+}
+body.theme-tron .sidebar::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 1px !important;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    #00ffff 20%,
+    #ffffff 50%,
+    #00ffff 80%,
+    transparent 100%) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8) !important;
+  animation: tronSidebarGlow 4s ease-in-out infinite !important;
+}
+@keyframes tronSidebarGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+body.theme-tron .sidebar-title {
+  background: transparent !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  border-bottom: 1px solid #00ffff !important;
+  padding: 10px 0 !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.9),
+    0 0 15px rgba(0, 255, 255, 0.5) !important;
+  position: relative !important;
+}
+body.theme-tron .sidebar-title::before {
+  content: "◇ " !important;
+  color: #00ffff !important;
+  display: inline !important;
+  animation: tronPulse 2s ease-in-out infinite !important;
+}
+body.theme-tron .sidebar-title::after {
+  content: " ◇" !important;
+  color: #00ffff !important;
+  display: inline !important;
+  animation: tronPulse 2s ease-in-out infinite !important;
+}
+body.theme-tron .sidebar ul {
+  gap: 3px !important;
+  margin-left: 0 !important;
+}
+body.theme-tron .sidebar li {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  color: #5a8a8a !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 9px 14px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-tron .sidebar li::before {
+  content: "▸ " !important;
+  color: #00ffff !important;
+  margin-right: 6px !important;
+  display: inline !important;
+  opacity: 0.3 !important;
+  transition: opacity 0.2s ease !important;
+}
+body.theme-tron .sidebar li:hover {
+  background: rgba(0, 255, 255, 0.05) !important;
+  border-left-color: #00ffff !important;
+  color: #00ffff !important;
+  padding-left: 18px !important;
+  text-shadow:
+    0 0 6px rgba(0, 255, 255, 0.9),
+    0 0 12px rgba(0, 255, 255, 0.5) !important;
+  box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.05) !important;
+}
+body.theme-tron .sidebar li:hover::before {
+  opacity: 1 !important;
+}
+body.theme-tron .sidebar li.active {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border-left-color: #00ffff !important;
+  color: #ffffff !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 1),
+    0 0 15px rgba(0, 255, 255, 0.6) !important;
+  box-shadow:
+    inset 0 0 20px rgba(0, 255, 255, 0.15),
+    0 0 10px rgba(0, 255, 255, 0.3) !important;
+}
+body.theme-tron .sidebar li.active::before {
+  opacity: 1 !important;
+  content: "◈ " !important;
+  color: #ffffff !important;
+}
+
+/* ========== İÇERİK ========== */
+body.theme-tron .content-pane {
+  background: transparent !important;
+  padding: 36px 44px !important;
+  color: #c8f0f0 !important;
+  position: relative !important;
+}
+
+/* ========== H1 ========== */
+body.theme-tron h1.article-title {
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.9rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 4px !important;
+  border-bottom: 2px solid #00ffff !important;
+  padding: 0 0 14px 0 !important;
+  margin-bottom: 22px !important;
+  text-shadow:
+    0 0 10px rgba(0, 255, 255, 0.9),
+    0 0 25px rgba(0, 255, 255, 0.5),
+    0 0 50px rgba(0, 255, 255, 0.2) !important;
+  background: none !important;
+  -webkit-text-fill-color: #00ffff !important;
+  line-height: 1.3 !important;
+  position: relative !important;
+}
+body.theme-tron h1.article-title::before {
+  content: "▮ " !important;
+  color: #00ffff !important;
+  display: inline !important;
+  animation: tronPulse 1s ease-in-out infinite !important;
+  margin-right: 4px !important;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 1) !important;
+}
+body.theme-tron h1.article-title::after {
+  content: " ▮" !important;
+  color: #00ffff !important;
+  display: inline !important;
+  animation: tronPulse 1s ease-in-out infinite 0.5s !important;
+  margin-left: 8px !important;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 1) !important;
+}
+
+/* ========== H2 ========== */
+body.theme-tron h2 {
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  padding: 10px 0 10px 20px !important;
+  margin: 34px 0 16px !important;
+  border-left: 3px solid #00ffff !important;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.1) 0%, transparent 100%) !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.9),
+    0 0 15px rgba(0, 255, 255, 0.5) !important;
+  position: relative !important;
+  box-shadow: inset 3px 0 15px rgba(0, 255, 255, 0.15) !important;
+}
+body.theme-tron h2::before {
+  content: "// " !important;
+  color: #ff8800 !important;
+  display: inline !important;
+  margin-right: 4px !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 8px rgba(255, 136, 0, 0.8) !important;
+}
+body.theme-tron h2::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, #00ffff 0%, transparent 60%) !important;
+  opacity: 0.5 !important;
+}
+
+/* ========== H3 ========== */
+body.theme-tron h3 {
+  color: #7fffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-left: 2px solid #00ffff !important;
+  padding-left: 14px !important;
+  margin: 24px 0 10px !important;
+  text-shadow:
+    0 0 6px rgba(0, 255, 255, 0.8),
+    0 0 12px rgba(0, 255, 255, 0.4) !important;
+}
+body.theme-tron h3::before {
+  content: "▹ " !important;
+  color: #00ffff !important;
+  display: inline !important;
+  margin-right: 4px !important;
+}
+
+/* ========== PARAGRAF & LINK ========== */
+body.theme-tron p {
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+  color: #b8d8d8 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 400 !important;
+  margin-bottom: 1em !important;
+  text-shadow: 0 0 3px rgba(0, 255, 255, 0.15) !important;
+}
+body.theme-tron a {
+  color: #00ffff !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed rgba(0, 255, 255, 0.4) !important;
+  transition: all 0.2s ease !important;
+  text-shadow: 0 0 4px rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron a:hover {
+  color: #ffffff !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #00ffff !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 1),
+    0 0 15px rgba(0, 255, 255, 0.6) !important;
+}
+
+/* ========== INFOBOX ========== */
+body.theme-tron .infobox,
+body.theme-tron .warinfobox,
+body.theme-tron .krono-box,
+body.theme-tron .wiki-thumb,
+body.theme-tron .rff-box {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid #00ffff !important;
+  border-radius: 0 !important;
+  padding: 16px !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 20px rgba(0, 255, 255, 0.4),
+    inset 0 0 30px rgba(0, 255, 255, 0.05) !important;
+  color: #c8f0f0 !important;
+  position: relative !important;
+}
+/* Köşe aksanları */
+body.theme-tron .infobox::before,
+body.theme-tron .warinfobox::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -1px !important;
+  left: -1px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-top: 3px solid #00ffff !important;
+  border-left: 3px solid #00ffff !important;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.8) !important;
+  display: block !important;
+}
+body.theme-tron .infobox::after,
+body.theme-tron .warinfobox::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  right: -1px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-bottom: 3px solid #ff8800 !important;
+  border-right: 3px solid #ff8800 !important;
+  box-shadow: 0 0 8px rgba(255, 136, 0, 0.8) !important;
+  display: block !important;
+}
+body.theme-tron .infobox-title {
+  background: transparent !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-bottom: 1px solid #00ffff !important;
+  padding: 0 0 10px 0 !important;
+  margin: 0 0 12px 0 !important;
+  text-align: center !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.9),
+    0 0 15px rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron .infobox-title::before {
+  content: "◆ " !important;
+  color: #00ffff !important;
+  display: inline !important;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8) !important;
+}
+body.theme-tron .infobox-subtitle {
+  color: #5a8a8a !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-style: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
+  text-align: center !important;
+}
+body.theme-tron .infobox-label {
+  color: #00ffff !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 11px !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.6) !important;
+}
+body.theme-tron .infobox-value {
+  color: #b8d8d8 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+body.theme-tron .infobox-row {
+  border-bottom: 1px solid #0d3a3a !important;
+  padding: 6px 0 !important;
+}
+body.theme-tron .infobox-row:last-child {
+  border-bottom: none !important;
+}
+body.theme-tron .flag-box {
+  background: #000000 !important;
+  border: 1px solid #0d3a3a !important;
+  padding: 8px !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-tron .flag-box:hover {
+  border-color: #00ffff !important;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6) !important;
+}
+body.theme-tron .flag-box::after {
+  display: none !important;
+}
+body.theme-tron .flag-label,
+body.theme-tron .map-label {
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 10px !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7) !important;
+}
+body.theme-tron .infobox-map {
+  background: #000000 !important;
+  border: 1px solid #0d3a3a !important;
+  padding: 6px !important;
+}
+
+/* ========== BLOCKQUOTE ========== */
+body.theme-tron blockquote {
+  background: rgba(0, 255, 255, 0.04) !important;
+  border-left: 3px solid #00ffff !important;
+  border-top: 1px solid rgba(0, 255, 255, 0.2) !important;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2) !important;
+  border-radius: 0 !important;
+  padding: 16px 22px !important;
+  color: #b0e0e0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-style: italic !important;
+  font-size: 14px !important;
+  box-shadow:
+    inset 6px 0 20px rgba(0, 255, 255, 0.1),
+    0 0 20px rgba(0, 255, 255, 0.15) !important;
+  margin: 16px 0 !important;
+  position: relative !important;
+}
+body.theme-tron blockquote::before {
+  content: "▹" !important;
+  color: #00ffff !important;
+  font-size: 18px !important;
+  position: absolute !important;
+  top: 12px !important;
+  left: 8px !important;
+  opacity: 0.8 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.9) !important;
+  animation: none !important;
+  display: block !important;
+}
+
+/* ========== DETAILS ========== */
+body.theme-tron details {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid #0d3a3a !important;
+  border-radius: 0 !important;
+  margin: 14px 0 !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-tron details:hover {
+  border-color: #00ffff !important;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2) !important;
+}
+body.theme-tron details[open] {
+  border-color: #00ffff !important;
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.4),
+    inset 0 0 25px rgba(0, 255, 255, 0.05) !important;
+}
+body.theme-tron summary {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.1) 0%, transparent 100%) !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 12px 18px !important;
+  font-size: 11px !important;
+  border-bottom: 1px solid transparent !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-tron details[open] summary {
+  border-bottom-color: #0d3a3a !important;
+}
+body.theme-tron summary:hover {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.18) 0%, transparent 100%) !important;
+  color: #ffffff !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.9),
+    0 0 15px rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron summary::before {
+  content: "▸ " !important;
+  color: #00ffff !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.9) !important;
+  animation: none !important;
+  margin-right: 4px !important;
+}
+body.theme-tron details[open] summary::before {
+  content: "▾ " !important;
+  color: #ff8800 !important;
+  transform: none !important;
+  text-shadow: 0 0 6px rgba(255, 136, 0, 0.9) !important;
+}
+body.theme-tron .details-content {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-top: none !important;
+  padding: 16px 20px !important;
+  color: #b8d8d8 !important;
+  font-size: 13px !important;
+  border-left: 2px solid #0d3a3a !important;
+}
+
+/* ========== BUTONLAR ========== */
+body.theme-tron .vid-button,
+body.theme-tron .qa-button,
+body.theme-tron .lightbox-download {
+  background: transparent !important;
+  border: 1px solid #00ffff !important;
+  border-radius: 0 !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 12px 26px !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 15px rgba(0, 255, 255, 0.4),
+    inset 0 0 15px rgba(0, 255, 255, 0.08) !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7) !important;
+  transition: all 0.25s ease !important;
+  filter: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-tron .vid-button:hover,
+body.theme-tron .qa-button:hover,
+body.theme-tron .lightbox-download:hover {
+  background: #00ffff !important;
+  color: #000000 !important;
+  border-color: #00ffff !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 30px rgba(0, 255, 255, 0.9),
+    0 0 60px rgba(0, 255, 255, 0.4),
+    inset 0 0 20px rgba(0, 0, 0, 0.2) !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+body.theme-tron .vid-button::before {
+  content: "▸ " !important;
+  color: inherit !important;
+  animation: none !important;
+}
+
+/* ========== TABLOLAR ========== */
+body.theme-tron .players-table {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid #00ffff !important;
+  border-radius: 0 !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 20px rgba(0, 255, 255, 0.35) !important;
+}
+body.theme-tron .players-table th {
+  background: linear-gradient(180deg, rgba(0, 255, 255, 0.2) 0%, rgba(0, 255, 255, 0.05) 100%) !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-bottom: 1px solid #00ffff !important;
+  padding: 14px 18px !important;
+  font-size: 11px !important;
+  text-shadow:
+    0 0 6px rgba(0, 255, 255, 0.9),
+    0 0 12px rgba(0, 255, 255, 0.5) !important;
+  text-align: left !important;
+}
+body.theme-tron .players-table th::before {
+  content: "◆ " !important;
+  color: #00ffff !important;
+  display: inline !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8) !important;
+  font-size: 9px !important;
+}
+body.theme-tron .players-table td {
+  color: #b8d8d8 !important;
+  border-bottom: 1px solid #0d3a3a !important;
+  padding: 12px 18px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+}
+body.theme-tron .players-table tr:last-child td {
+  border-bottom: none !important;
+}
+body.theme-tron .players-table tr:hover td {
+  background: rgba(0, 255, 255, 0.06) !important;
+  color: #00ffff !important;
+}
+body.theme-tron .players-table a {
+  color: #00ffff !important;
+  border-bottom: 1px dashed rgba(0, 255, 255, 0.5) !important;
+}
+
+/* ========== STATUS BAR ========== */
+body.theme-tron .status-bar {
+  background: #000000 !important;
+  border-top: 1px solid #00ffff !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  font-size: 10px !important;
+  padding: 10px 18px !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7) !important;
+  box-shadow:
+    0 -2px 15px rgba(0, 255, 255, 0.3),
+    inset 0 1px 0 rgba(0, 255, 255, 0.4) !important;
+  position: relative !important;
+}
+body.theme-tron .status-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -1px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #00ffff, #ffffff, #00ffff, transparent) !important;
+  display: block !important;
+  animation: tronPulse 3s ease-in-out infinite !important;
+}
+body.theme-tron .status-bar span:first-child::before {
+  content: "◈ " !important;
+  color: #00ffff !important;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 1) !important;
+  animation: tronPulse 2s ease-in-out infinite !important;
+  display: inline !important;
+}
+
+/* ========== MODAL ========== */
+body.theme-tron .lightbox-window,
+body.theme-tron .video-window {
+  background: rgba(0, 0, 0, 0.95) !important;
+  border: 2px solid #00ffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(0, 255, 255, 0.6),
+    0 0 80px rgba(0, 255, 255, 0.25),
+    inset 0 0 40px rgba(0, 255, 255, 0.08) !important;
+  overflow: hidden !important;
+}
+body.theme-tron .lightbox-title-bar,
+body.theme-tron .video-title-bar {
+  background: #000000 !important;
+  color: #00ffff !important;
+  border-bottom: 1px solid #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  padding: 14px 20px !important;
+  font-size: 11px !important;
+  text-shadow:
+    0 0 6px rgba(0, 255, 255, 0.9),
+    0 0 12px rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron .lightbox-title-bar::before,
+body.theme-tron .video-title-bar::before {
+  content: "◆ " !important;
+  color: #00ffff !important;
+  display: inline !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8) !important;
+}
+body.theme-tron .lightbox-close,
+body.theme-tron .video-close {
+  background: transparent !important;
+  border: 1px solid #00ffff !important;
+  color: #00ffff !important;
+  border-radius: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-tron .lightbox-close:hover,
+body.theme-tron .video-close:hover {
+  background: #ff8800 !important;
+  border-color: #ff8800 !important;
+  color: #000000 !important;
+  box-shadow: 0 0 20px rgba(255, 136, 0, 0.9) !important;
+  text-shadow: none !important;
+}
+body.theme-tron .video-controls {
+  background: #000000 !important;
+  border-top: 1px solid #0d3a3a !important;
+  padding: 14px !important;
+  gap: 6px !important;
+}
+body.theme-tron .video-controls button {
+  background: transparent !important;
+  border: 1px solid #00ffff !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 16px !important;
+  font-size: 10px !important;
+  border-radius: 0 !important;
+  text-shadow: 0 0 4px rgba(0, 255, 255, 0.7) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-tron .video-controls button:hover {
+  background: #00ffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8) !important;
+  text-shadow: none !important;
+}
+body.theme-tron .video-controls a {
+  background: #00ffff !important;
+  color: #000000 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 18px !important;
+  border: 1px solid #00ffff !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6) !important;
+  text-shadow: none !important;
+  font-size: 10px !important;
+}
+body.theme-tron .video-controls a:hover {
+  background: #7fffff !important;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.9) !important;
+}
+
+/* ========== XP EXPLORER ========== */
+body.theme-tron .xp-explorer,
+body.theme-tron .xp-tree,
+body.theme-tron .xp-preview-pane {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-color: #0d3a3a !important;
+}
+body.theme-tron .xp-tree-title,
+body.theme-tron .xp-file-header {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.15) 0%, transparent 100%) !important;
+  color: #00ffff !important;
+  font-family: 'Orbitron', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-color: #00ffff !important;
+  padding: 12px 16px !important;
+  text-shadow:
+    0 0 6px rgba(0, 255, 255, 0.8),
+    0 0 12px rgba(0, 255, 255, 0.4) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+body.theme-tron .xp-tree-title::before,
+body.theme-tron .xp-file-header::before {
+  content: "◆ " !important;
+  color: #00ffff !important;
+  display: inline !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8) !important;
+}
+body.theme-tron .xp-file-item,
+body.theme-tron .xp-tree-item {
+  color: #5a8a8a !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 8px 12px 8px 24px !important;
+  margin: 1px 0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-tron .xp-file-item::before,
+body.theme-tron .xp-tree-item::before {
+  content: "▸" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #00ffff !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8) !important;
+}
+body.theme-tron .xp-file-item:hover,
+body.theme-tron .xp-tree-item:hover {
+  background: rgba(0, 255, 255, 0.06) !important;
+  color: #00ffff !important;
+  box-shadow: none !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8) !important;
+}
+body.theme-tron .xp-file-item:hover::before,
+body.theme-tron .xp-tree-item:hover::before {
+  opacity: 1 !important;
+}
+body.theme-tron .xp-file-item.selected,
+body.theme-tron .xp-tree-item.active {
+  background: rgba(0, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  box-shadow: inset 3px 0 0 #00ffff !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 1),
+    0 0 15px rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron .xp-file-item.selected::before,
+body.theme-tron .xp-tree-item.active::before {
+  opacity: 1 !important;
+  content: "◆" !important;
+  color: #ffffff !important;
+}
+body.theme-tron .xp-preview-text {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid #0d3a3a !important;
+  border-radius: 0 !important;
+  color: #b8d8d8 !important;
+  padding: 14px !important;
+  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.05) !important;
+  font-size: 13px !important;
+  line-height: 1.75 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ========== DROPDOWN ========== */
+body.theme-tron ~ .view-dropdown-fixed,
+body.theme-tron .view-dropdown-fixed {
+  background: rgba(0, 0, 0, 0.95) !important;
+  border: 1px solid #00ffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(0, 255, 255, 0.5),
+    inset 0 0 30px rgba(0, 255, 255, 0.05) !important;
+  padding: 10px !important;
+}
+body.theme-tron .view-dropdown-fixed * {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+body.theme-tron .view-dropdown-fixed span {
+  color: #00ffff !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  font-weight: 500 !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7) !important;
+  font-family: 'Orbitron', sans-serif !important;
+}
+body.theme-tron .view-dropdown-fixed [data-z],
+body.theme-tron .view-dropdown-fixed .zoom-value {
+  background: transparent !important;
+  border: 1px solid #00ffff !important;
+  color: #00ffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    inset 0 0 8px rgba(0, 255, 255, 0.15),
+    0 0 8px rgba(0, 255, 255, 0.2) !important;
+  font-weight: 500 !important;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.6) !important;
+  font-size: 12px !important;
+}
+body.theme-tron .view-dropdown-fixed [data-z]:hover {
+  background: #00ffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.9) !important;
+  text-shadow: none !important;
+}
+body.theme-tron .view-dropdown-fixed .theme-item {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: #5a8a8a !important;
+  border-radius: 0 !important;
+  padding: 10px 14px 10px 28px !important;
+  transition: all 0.2s ease !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  position: relative !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+body.theme-tron .view-dropdown-fixed .theme-item::before {
+  content: "▸" !important;
+  position: absolute !important;
+  left: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #00ffff !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+}
+body.theme-tron .view-dropdown-fixed .theme-item:hover {
+  background: rgba(0, 255, 255, 0.08) !important;
+  border-color: #00ffff !important;
+  color: #00ffff !important;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8) !important;
+}
+body.theme-tron .view-dropdown-fixed .theme-item:hover::before {
+  opacity: 1 !important;
+}
+body.theme-tron .view-dropdown-fixed .theme-item.active {
+  background: rgba(0, 255, 255, 0.15) !important;
+  border-color: #00ffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 1),
+    0 0 15px rgba(0, 255, 255, 0.5) !important;
+}
+body.theme-tron .view-dropdown-fixed .theme-item.active::before {
+  opacity: 1 !important;
+  content: "◆" !important;
+  color: #ffffff !important;
+}
+body.theme-tron .view-dropdown-fixed .theme-item span {
+  color: inherit !important;
+  font-size: 12px !important;
+}
+
+/* ========== SCROLLBAR ========== */
+body.theme-tron ::-webkit-scrollbar {
+  width: 12px !important;
+  height: 12px !important;
+}
+body.theme-tron ::-webkit-scrollbar-track {
+  background: #000000 !important;
+  border: 1px solid #0d3a3a !important;
+}
+body.theme-tron ::-webkit-scrollbar-thumb {
+  background: #0d3a3a !important;
+  border: 1px solid #00ffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    inset 0 0 6px rgba(0, 255, 255, 0.3),
+    0 0 6px rgba(0, 255, 255, 0.4) !important;
+}
+body.theme-tron ::-webkit-scrollbar-thumb:hover {
+  background: #00ffff !important;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.9) !important;
+}
+body.theme-tron ::-webkit-scrollbar-corner {
+  background: #000000 !important;
+}
+
+/* ========== SELECTION ========== */
+body.theme-tron ::selection {
+  background: #00ffff !important;
+  color: #000000 !important;
+  text-shadow: none !important;
+}
+
+/* ========== EKSTRA: ENCOM köşe etiketi ========== */
+body.theme-tron .content-pane::before {
+  content: "ENCOM OS v12 // THE GRID" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 22px !important;
+  color: #ff8800 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 9px !important;
+  letter-spacing: 2.5px !important;
+  opacity: 0.6 !important;
+  text-shadow: 0 0 6px rgba(255, 136, 0, 0.7) !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+  text-transform: uppercase !important;
+}
+
+/* ========== EKSTRA: Sol üstte cyan çapraz çizgi ========== */
+body.theme-tron .content-pane::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 60px !important;
+  height: 60px !important;
+  background:
+    linear-gradient(135deg,
+      transparent 40%,
+      rgba(0, 255, 255, 0.3) 40%,
+      rgba(0, 255, 255, 0.3) 42%,
+      transparent 42%
+    ) !important;
+  pointer-events: none !important;
+  z-index: 4 !important;
+  opacity: 0.7 !important;
+}

@@ -27,7 +27,8 @@
     { id: 'minecraft',  name: 'Minecraft Theme',    desc: 'Authentic Blocky UI',  file: 'themes/minecraft.css' },
     { id: 'undertale',  name: 'Undertale Theme',    desc: 'Determination Mono',   file: 'themes/undertale.css' },
     { id: 'pipboy',     name: 'Pip-Boy Theme',      desc: 'Vault-Tec RobCo',      file: 'themes/pipboy.css' },
-    { id: 'cyberpunk',  name: 'Cyberpunk 2077',     desc: 'Night City Breach',    file: 'themes/cyberpunk.css' }
+    { id: 'cyberpunk',  name: 'Cyberpunk 2077',     desc: 'Night City Breach',    file: 'themes/cyberpunk.css' },
+    { id: 'tron',       name: 'Tron Theme',         desc: 'The Grid / Encom OS',  file: 'themes/tron.css' }
   ];
 
   const themeDefaults = {
@@ -41,7 +42,8 @@
     minecraft: '#7cfc00',
     undertale: '#ff0000',
     pipboy:    '#14fe17',
-    cyberpunk: '#fcee0a'
+    cyberpunk: '#fcee0a',
+    tron:      '#00ffff'
   };
 
   /* ===========================================
