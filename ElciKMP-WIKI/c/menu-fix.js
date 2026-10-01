@@ -23,22 +23,29 @@
   const THEMES = [
     {
       id: 'datapad',
-      name: 'Datapad Theme',
+      name: 'Datapad Teması',
       desc: 'GitHub Glass',
       file: null              // Varsayılan tema – harici CSS yok
     },
     {
       id: 'halflife',
-      name: 'Half-Life Theme',
+      name: 'Half-Life Teması',
       desc: 'Valve HL2 Terminal',
       file: 'themes/halflife.css'
     },
     {
       id: 'matrix',
-      name: 'Matrix Theme',
+      name: 'Matrix Teması',
       desc: 'Digital Rain',
       file: 'themes/matrix.css'
     },
+    {
+      id: 'winxp',
+      name: 'Windows XP Teması',
+      desc: 'Eski Tip Win Teması',
+      file: 'themes/winxp.css'
+
+    }
     // { id: 'matrix', name: 'Matrix Theme', desc: 'Digital Rain', file: 'themes/matrix.css' },
     // { id: 'pipboy', name: 'Pip-Boy Theme', desc: 'Fallout Terminal', file: 'themes/pipboy.css' },
   ];
