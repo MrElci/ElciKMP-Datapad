@@ -226,6 +226,8 @@ body::after {
   border-bottom: 1px solid var(--accent-border);
   flex-shrink: 0;
   transition: border-color 0.6s ease;
+  position: relative;
+  z-index: 1000;
 }
 
 .menu-bar span {
@@ -271,6 +273,8 @@ body::after {
   flex-wrap: wrap;
   flex-shrink: 0;
   transition: border-color 0.6s ease;
+  position: relative;
+  z-index: 100;
 }
 
 .toolbar a {
@@ -1677,6 +1681,61 @@ details[open] summary::before {
   background-clip: padding-box;
 }
 
+/* ===========================================
+   FLOAT ÇAKIŞMA ÇÖZÜMÜ – BFC (masaüstü + mobil)
+   h1/h2/h3/blockquote artık yandaki float'ların
+   (infobox, wiki-thumb, warinfobox vb.) ALTINA binmez.
+   =========================================== */
+
+.content-pane > h1.article-title,
+.content-pane > h2,
+.content-pane > h3,
+.content-pane > p,
+.content-pane > .article-subtitle {
+  overflow: hidden !important;
+  display: block !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+.content-pane > blockquote {
+  overflow: hidden !important;
+  display: flow-root !important;
+  width: auto !important;
+}
+
+h1.article-title::before,
+h1.article-title::after,
+h2::before,
+h3::before,
+blockquote::before {
+  z-index: 2 !important;
+}
+
+.infobox,
+.warinfobox,
+.krono-box,
+.wiki-thumb,
+.rff-box,
+.rff-right,
+.rff-left,
+.map-container {
+  position: relative !important;
+  z-index: 5 !important;
+  isolation: isolate !important;
+}
+
+.menu-bar,
+.toolbar,
+.title-bar {
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+.view-dropdown-fixed {
+  z-index: 2147483647 !important;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .content-pane { padding: 20px 18px; }
@@ -1692,12 +1751,10 @@ details[open] summary::before {
 @media (max-width: 750px) {
   body { font-size: 13px; }
 
-  /* ---- Başlık Çubuğu ---- */
   .title-bar { padding: 10px 12px; }
   .title-bar-text { font-size: 11px; }
   .window-buttons span { width: 9px; height: 9px; }
 
-  /* ---- Menü Çubuğu ---- */
   .menu-bar {
     padding: 4px 10px;
     overflow-x: auto;
@@ -1713,7 +1770,6 @@ details[open] summary::before {
     flex: 0 0 auto;
   }
 
-  /* ---- Toolbar ---- */
   .toolbar {
     padding: 8px 10px;
     gap: 6px;
@@ -1730,10 +1786,8 @@ details[open] summary::before {
     white-space: nowrap;
   }
 
-  /* ---- Ana Alan ---- */
   .main-area { flex-direction: column; }
 
-  /* ---- Sidebar (Drawer) ---- */
   .sidebar {
     position: fixed;
     top: 0;
@@ -1776,7 +1830,6 @@ details[open] summary::before {
     border-left-color: var(--accent-color);
   }
 
-  /* Sidebar overlay */
   .sidebar-overlay {
     position: fixed;
     inset: 0;
@@ -1792,7 +1845,6 @@ details[open] summary::before {
     pointer-events: auto;
   }
 
-  /* Hamburger buton */
   .sidebar-toggle {
     position: fixed;
     bottom: 20px;
@@ -1821,7 +1873,6 @@ details[open] summary::before {
     box-shadow: 0 4px 12px var(--accent-soft);
   }
 
-  /* ---- İçerik ---- */
   .content-pane { padding: 16px 14px; }
   h1.article-title { font-size: 1.4rem; }
   h1.article-title::before { font-size: 1rem; }
@@ -1830,7 +1881,6 @@ details[open] summary::before {
   h3 { font-size: 1rem; }
   p { font-size: 13px; }
 
-  /* ---- Infobox ---- */
   .infobox,
   .warinfobox {
     width: 100%;
@@ -1852,22 +1902,18 @@ details[open] summary::before {
   .infobox-flags { flex-direction: row; gap: 6px; }
   .flag-box img { height: 70px; }
 
-  /* ---- Kronoloji / RFF / Thumb ---- */
   .krono-box { width: 100%; margin: 0 0 14px 0; }
   .rff-box { padding: 12px 14px; font-size: 12px; }
   .wiki-thumb { max-width: 100%; margin: 0 0 14px 0; }
 
-  /* ---- Tablolar ---- */
   .players-table th,
   .players-table td {
     padding: 8px 10px;
     font-size: 11px;
   }
 
-  /* ---- Vid button ---- */
   .vid-button { padding: 8px 14px; font-size: 11px; }
 
-  /* ---- Video modal ---- */
   .video-controls { gap: 4px; padding: 8px; }
   .video-controls button,
   .video-controls a {
@@ -1879,7 +1925,6 @@ details[open] summary::before {
     max-height: 60vh;
   }
 
-  /* ---- XP Explorer ---- */
   .xp-explorer { flex-direction: column; }
   .xp-tree {
     width: 100%;
@@ -1895,7 +1940,6 @@ details[open] summary::before {
   .xp-file-item { padding: 10px 14px; font-size: 12px; }
   .xp-file-item img.xp-file-icon { width: 22px; height: 22px; }
 
-  /* ---- Status Bar ---- */
   .status-bar { font-size: 9px; padding: 6px 10px; letter-spacing: 0.2px; }
 }
 
@@ -1956,66 +2000,4 @@ details[open] summary::before {
   .xp-preview-pane.expanded .preview-body {
     display: block;
   }
-/* ===========================================
-   FLOAT ÇAKIŞMA ÇÖZÜMÜ – BFC
-   h1/h2/h3/blockquote artık yandaki float'ların
-   (infobox, wiki-thumb, warinfobox vb.) ALTINA binmez.
-   =========================================== */
-
-/* KESİN ÇÖZÜM: overflow: hidden → BFC oluşturur
-   → blok, sağındaki float'ın YANINA sıkışır
-   → border-bottom, float'ın sol kenarında biter */
-.content-pane > h1.article-title,
-.content-pane > h2,
-.content-pane > h3,
-.content-pane > p,
-.content-pane > .article-subtitle {
-  overflow: hidden !important;
-  display: block !important;
-  width: auto !important;
-  max-width: 100% !important;
-}
-
-/* Blockquote için özel: ::before absolute kırpılmasın */
-.content-pane > blockquote {
-  overflow: hidden !important;
-  display: flow-root !important;
-  width: auto !important;
-}
-
-/* Bu öğelerin pseudo-elementleri float'ı ezmesin */
-h1.article-title::before,
-h1.article-title::after,
-h2::before,
-h3::before,
-blockquote::before {
-  z-index: 2 !important;
-}
-
-/* Float kutular kendi katmanında kalsın */
-.infobox,
-.warinfobox,
-.krono-box,
-.wiki-thumb,
-.rff-box,
-.rff-right,
-.rff-left,
-.map-container {
-  position: relative !important;
-  z-index: 5 !important;
-  isolation: isolate !important;
-}
-
-/* Menü çubuğu her şeyin üstünde */
-.menu-bar,
-.toolbar,
-.title-bar {
-  position: relative !important;
-  z-index: 100 !important;
-}
-
-/* Dropdown en üstte */
-.view-dropdown-fixed {
-  z-index: 2147483647 !important;
-}
 }

@@ -1686,16 +1686,6 @@ async function initCmdPage() {
         setupMobileGezi();
     }
 })();
-li.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById(heading.id).scrollIntoView({ behavior: 'smooth' });
-    
-    // Mobilde gezinti panelini kapat
-    if (window.innerWidth <= 750) {
-        const sidebar = document.querySelector('.sidebar');
-        if (sidebar) sidebar.classList.remove('open');
-    }
-});
 /* ===========================================
    "DOSYA" MENÜSÜNÜ "MATERYAL" OLARAK DEĞİŞTİR (V2)
    =========================================== */
