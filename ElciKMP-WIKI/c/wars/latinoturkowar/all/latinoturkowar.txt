@@ -11,7 +11,7 @@
     §l Taraflar:
         Türk Güçleri:
         flag.img.flag.naziturkey Nazi Türkiyesi
-        flag.img.flag.ibfi İnek Bayram Federe İmparatorluğu
+        flag.img.flag.IBFC İnek Bayram Federe İmparatorluğu
         flag.img.flag.austria Avusturya Krallığı
         -
         Latin Güçleri:
@@ -25,7 +25,7 @@
     §l Kuvvetler:
         Türk Kuvvetleri:
         flag.img.flag.naziturkey 400.000-950.000
-        flag.img.flag.ibfi 250.050-50.000
+        flag.img.flag.IBFC 250.050-50.000
         flag.img.flag.austria 200.000-400.000
         -
         Latin Kuvvetleri:
@@ -62,7 +62,7 @@
 
         §l Komutanlar:
 
-        flag.img.flag.ibfi Efe Batur Tüysüz
+        flag.img.flag.IBFC Efe Batur Tüysüz
         flag.img.flag.naziturkey Atarlı Cihangir
         flag.img.flag.naziturkey Polat Alemdar
         flag.img.flag.naziturkey Aras Mormont

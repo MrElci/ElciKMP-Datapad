@@ -1957,96 +1957,42 @@ details[open] summary::before {
     display: block;
   }
 /* ===========================================
-   KATMAN SORUNU DÜZELTMESİ (Tüm Temalar)
-   Çizgi/kutu çakışmalarını giderir
+   FLOAT ÇAKIŞMA ÇÖZÜMÜ – BFC
+   h1/h2/h3/blockquote artık yandaki float'ların
+   (infobox, wiki-thumb, warinfobox vb.) ALTINA binmez.
    =========================================== */
 
-/* --- ALT KATMAN (çizgiler ve alıntılar) --- */
-h1.article-title,
-blockquote {
-  position: relative !important;
-  z-index: 1 !important;
+/* KESİN ÇÖZÜM: overflow: hidden → BFC oluşturur
+   → blok, sağındaki float'ın YANINA sıkışır
+   → border-bottom, float'ın sol kenarında biter */
+.content-pane > h1.article-title,
+.content-pane > h2,
+.content-pane > h3,
+.content-pane > p,
+.content-pane > .article-subtitle {
+  overflow: hidden !important;
+  display: block !important;
+  width: auto !important;
+  max-width: 100% !important;
 }
 
-/* H1'in ::before / ::after pseudo elementleri de aynı katta */
-h1.article-title::before,
-h1.article-title::after {
-  z-index: 1 !important;
+/* Blockquote için özel: ::before absolute kırpılmasın */
+.content-pane > blockquote {
+  overflow: hidden !important;
+  display: flow-root !important;
+  width: auto !important;
 }
 
-/* --- ORTA KATMAN (float olan kutular) --- */
-.infobox,
-.warinfobox,
-.krono-box,
-.wiki-thumb,
-.rff-box,
-.rff-right,
-.rff-left,
-.map-container {
-  position: relative !important;
-  z-index: 10 !important;
-}
-
-/* Infobox içindeki görsel ve yazılar aynı katta kalsın */
-.infobox img,
-.warinfobox img,
-.wiki-thumb img,
-.krono-box img {
-  position: relative !important;
-  z-index: 11 !important;
-}
-
-/* --- ÜST KATMAN (menü ve toolbar) --- */
-.menu-bar {
-  position: relative !important;
-  z-index: 100 !important;
-}
-
-.toolbar {
-  position: relative !important;
-  z-index: 100 !important;
-}
-
-.title-bar {
-  position: relative !important;
-  z-index: 100 !important;
-}
-
-/* Dropdown en üstte kalsın */
-.view-dropdown-fixed {
-  z-index: 2147483647 !important;
-}
-  /* ===========================================
-   FLOAT ÇAKIŞMA ÇÖZÜMÜ – BFC (Block Formatting Context)
-   h1, h2, h3 ve blockquote artık yanlarındaki float öğelerin
-   (infobox, wiki-thumb, warinfobox vb.) üzerine binmeyecek.
-   =========================================== */
-
-/* Block seviyesindeki başlıklar float'ların yanına çekilir */
-h1.article-title,
-h2,
-h3 {
-  display: flow-root;   /* Modern tarayıcı: BFC oluşturur */
-  overflow: hidden;     /* Eski tarayıcı fallback */
-}
-
-/* Blockquote için: absolute ::before kırpılmasın diye
-   yalnızca flow-root kullanıyoruz, overflow kullanmıyoruz */
-blockquote {
-  display: flow-root;
-}
-
-/* Tüm bu öğelerin dekoratif pseudo-elementleri
-   çakışmayı tetiklemesin */
+/* Bu öğelerin pseudo-elementleri float'ı ezmesin */
 h1.article-title::before,
 h1.article-title::after,
 h2::before,
-h3::before {
-  position: relative;
-  z-index: 2;
+h3::before,
+blockquote::before {
+  z-index: 2 !important;
 }
 
-/* Float'lı kutular hala en önde kalsın */
+/* Float kutular kendi katmanında kalsın */
 .infobox,
 .warinfobox,
 .krono-box,
@@ -2055,19 +2001,20 @@ h3::before {
 .rff-right,
 .rff-left,
 .map-container {
-  position: relative;
-  z-index: 10;
+  position: relative !important;
+  z-index: 5 !important;
+  isolation: isolate !important;
 }
 
-/* Menü ve toolbar en üst katmanda */
+/* Menü çubuğu her şeyin üstünde */
 .menu-bar,
 .toolbar,
 .title-bar {
-  position: relative;
-  z-index: 100;
+  position: relative !important;
+  z-index: 100 !important;
 }
 
-/* Dropdown her şeyin üstünde */
+/* Dropdown en üstte */
 .view-dropdown-fixed {
   z-index: 2147483647 !important;
 }
