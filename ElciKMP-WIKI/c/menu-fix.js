@@ -84,6 +84,12 @@
   }
 
   function applyTheme(themeId) {
+    if (themeId === 'backrooms') {
+      const randomLevel = Math.floor(Math.random() * 8); // 0-7
+      document.body.classList.add('level-' + randomLevel);
+      console.log('[backrooms] Level', randomLevel, 'seçildi.');
+    }
+
     if (!THEMES.some(t => t.id === themeId)) themeId = 'datapad';
 
     // 1) Attribute + body class
@@ -125,11 +131,6 @@
     .join(' ')
     .trim();
 
-  if (themeId === 'backrooms') {
-    const randomLevel = Math.floor(Math.random() * 8); // 0-7
-    document.body.classList.add('level-' + randomLevel);
-    console.log('[backrooms] Level', randomLevel, 'seçildi.');
-  }
 
     console.log('[theme]', themeId, '| file:', theme ? theme.file : 'default');
     
