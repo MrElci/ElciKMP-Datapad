@@ -98,6 +98,70 @@
         .join(' ')
         .trim();
     }
+    // ========== ATLA ELEMENT TESPİTİ ==========
+document.body.className = document.body.className
+  .split(' ')
+  .filter(c => !/^atla-(avatar|earth|water|air|fire)$/.test(c))
+  .join(' ')
+  .trim();
+
+if (themeId === 'atla') {
+  const element = detectAtlaElement();
+  document.body.classList.add('atla-' + element);
+  console.log('[atla] Element algılandı:', element);
+}
+
+function detectAtlaElement() {
+  // Anasayfa, oyuncular listesi ve oyuncu detay → avatar teması
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const avatarPages = ['', 'index.html', 'players.html', 'player.html'];
+  if (avatarPages.includes(path)) return 'avatar';
+
+  // Başlık rengini oku
+  const h1 = document.querySelector('h1.article-title');
+  if (!h1) return 'avatar';
+
+  const color = window.getComputedStyle(h1).color;
+  const rgb = color.match(/\d+/g);
+  if (!rgb || rgb.length < 3) return 'avatar';
+
+  const [r, g, b] = rgb.map(Number);
+  const rN = r / 255, gN = g / 255, bN = b / 255;
+  const max = Math.max(rN, gN, bN);
+  const min = Math.min(rN, gN, bN);
+  const l = (max + min) / 2;
+  let h = 0, s = 0;
+
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case rN: h = ((gN - bN) / d + (gN < bN ? 6 : 0)) / 6; break;
+      case gN: h = ((bN - rN) / d + 2) / 6; break;
+      case bN: h = ((rN - gN) / d + 4) / 6; break;
+    }
+  }
+
+  const hue = h * 360;
+  const sat = s * 100;
+  const light = l * 100;
+
+  // Düşük doygunluk veya aşırı açık/koyu → hava
+  if (sat < 15 || light < 8 || light > 92) return 'air';
+
+  // Yüksek doygunluk → hue'ya göre ayır
+  if (hue < 20 || hue >= 340) return 'fire';      // kırmızı
+  if (hue >= 20 && hue < 50) {
+    // Sarı-turuncu arası: turuncu ateş, sarı toprak
+    if (sat > 70 && light > 45) return 'fire';
+    return 'earth';
+  }
+  if (hue >= 50 && hue < 160) return 'earth';     // yeşil/sarı-yeşil
+  if (hue >= 160 && hue < 260) return 'water';    // mavi/turkuaz
+  if (hue >= 260 && hue < 340) return 'fire';     // mor-pembe
+
+  return 'avatar';
+}
     if (themeId === 'backrooms') {
       const randomLevel = Math.floor(Math.random() * 8); // 0-7
       document.body.classList.add('level-' + randomLevel);

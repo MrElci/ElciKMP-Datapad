@@ -1,231 +1,196 @@
 /* ===========================================
    ATLA THEME – Avatar: The Last Airbender
-   5 Variants: Avatar, Earth, Water, Air, Fire
+   5 Variants: Avatar / Earth / Water / Air / Fire
    =========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ===========================================
-   ORTAK STİLLER (Tüm elementler)
+   ORTAK ATLA STİLLERİ
    =========================================== */
 body.theme-atla {
-  /* Varsayılan değerler – her element bunları ezer */
-  --atla-bg-1: #1a1a1a;
-  --atla-bg-2: #0f0f0f;
-  --atla-panel: rgba(20, 20, 20, 0.55);
-  --atla-panel-2: rgba(30, 30, 30, 0.6);
-  --atla-text: #e0dcd0;
-  --atla-text-dim: #8a8478;
-  --atla-border: #3a3a3a;
-  --atla-accent: var(--accent-color, #d4af37);
-  --atla-accent-glow: rgba(212, 175, 55, 0.6);
-  --atla-symbol: "☯";
-  --atla-element-name: "AVATAR";
+  --atla-earth: #8b6914;
+  --atla-water: #1a6b8f;
+  --atla-air:   #c8d4d8;
+  --atla-fire:  #c42b1c;
 
-  background-color: var(--atla-bg-1) !important;
-  background-image: var(--atla-texture) !important;
-  background-size: var(--atla-texture-size, auto) !important;
-  background-attachment: fixed !important;
-  color: var(--atla-text) !important;
-  font-family: 'Noto Serif SC', 'Share Tech Mono', serif !important;
+  background-color: var(--al-bg);
+  background-image: var(--al-bg-image);
+  background-size: var(--al-bg-size, auto);
+  background-attachment: fixed;
+  color: var(--al-text);
+  font-family: 'Inter', 'Cormorant Garamond', serif !important;
   font-size: 15px !important;
-  line-height: 1.7 !important;
-  letter-spacing: 0.4px !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0.3px !important;
   text-shadow: none !important;
-  overflow-x: hidden !important;
+  transition: background 0.8s ease, color 0.5s ease;
 }
 
 body.theme-atla *,
 body.theme-atla *::before,
 body.theme-atla *::after {
-  font-family: 'Noto Serif SC', 'Share Tech Mono', 'Cinzel', serif !important;
+  font-family: 'Inter', 'Cormorant Garamond', serif !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   box-sizing: border-box !important;
 }
 
-/* Hafif grain overlay */
+/* Element parçacık katmanı – tüm elementlerde ortak kullanılır */
 body.theme-atla::before {
   content: "" !important;
   position: fixed !important;
   inset: 0 !important;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>") !important;
-  background-size: 200px 200px !important;
   pointer-events: none !important;
-  z-index: 99999 !important;
-  opacity: 0.5 !important;
+  z-index: 9999 !important;
   display: block !important;
+  background: var(--al-overlay, none) !important;
+  animation: var(--al-overlay-anim, none) !important;
 }
 
-/* Element sembolü – sağ üst köşe */
 body.theme-atla::after {
-  content: var(--atla-symbol) !important;
+  content: "" !important;
   position: fixed !important;
-  top: 24px !important;
-  right: 28px !important;
-  font-family: 'Noto Serif SC', serif !important;
-  font-size: 56px !important;
-  font-weight: 700 !important;
-  color: var(--atla-accent) !important;
-  opacity: 0.18 !important;
+  inset: 0 !important;
   pointer-events: none !important;
-  z-index: 99997 !important;
-  line-height: 1 !important;
-  text-shadow: 0 0 30px var(--atla-accent-glow) !important;
+  z-index: 9998 !important;
   display: block !important;
+  background: var(--al-vignette, none) !important;
 }
 
-/* ===========================================
-   ANA PENCERE
-   =========================================== */
+/* ==== ANA PENCERE ==== */
 body.theme-atla .app-window {
-  background: var(--atla-panel) !important;
-  border: 1px solid var(--atla-border) !important;
-  border-top: 3px solid var(--atla-accent) !important;
+  background: var(--al-panel) !important;
+  border: 2px solid var(--al-border) !important;
   border-radius: 0 !important;
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(0, 0, 0, 0.5),
-    inset 0 0 80px rgba(0, 0, 0, 0.35) !important;
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 0 40px var(--al-glow, rgba(0, 0, 0, 0.3)),
+    inset 0 0 60px rgba(0, 0, 0, 0.15) !important;
   margin: 0 !important;
   overflow: hidden !important;
   position: relative !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
 }
 
-/* ===========================================
-   BAŞLIK ÇUBUĞU
-   =========================================== */
+/* ==== BAŞLIK ÇUBUĞU ==== */
 body.theme-atla .title-bar {
-  background: var(--atla-panel-2) !important;
-  border-bottom: 1px solid var(--atla-accent) !important;
-  padding: 14px 22px !important;
-  height: auto !important;
-  min-height: 54px !important;
+  background: var(--al-panel) !important;
+  border-bottom: 1px solid var(--al-accent) !important;
+  padding: 16px 24px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   position: relative !important;
-  box-shadow:
-    0 2px 15px var(--atla-accent-glow),
-    inset 0 -1px 0 var(--atla-accent-glow) !important;
 }
 body.theme-atla .title-bar::before {
-  content: var(--atla-symbol) !important;
+  content: "" !important;
   position: absolute !important;
-  left: 20px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  color: var(--atla-accent) !important;
-  font-family: 'Noto Serif SC', serif !important;
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  opacity: 0.8 !important;
-  display: block !important;
-}
-body.theme-atla .title-bar::after {
-  display: none !important;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--al-accent), transparent) !important;
+  opacity: 0.6 !important;
 }
 body.theme-atla .title-bar-text {
-  color: var(--atla-text) !important;
-  font-family: 'Cinzel', 'Noto Serif SC', serif !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
+  color: var(--al-text) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 4px !important;
-  font-style: normal !important;
-  padding-left: 34px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
-  line-height: 1.4 !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
+  gap: 12px !important;
+  line-height: 1.3 !important;
 }
 body.theme-atla .title-bar-text::before {
-  content: var(--atla-element-name) !important;
-  color: var(--atla-accent) !important;
-  font-family: 'Cinzel', serif !important;
-  font-size: 11px !important;
-  letter-spacing: 3px !important;
-  opacity: 0.7 !important;
+  content: var(--al-symbol, "☯") !important;
+  color: var(--al-accent) !important;
+  font-size: 20px !important;
   display: inline !important;
-  margin-right: 6px !important;
+  animation: atlaSymbolSpin 8s linear infinite !important;
+}
+@keyframes atlaSymbolSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-/* Sağdaki butonlar */
+/* Pencere kontrol butonları */
 body.theme-atla .window-buttons {
   order: 1 !important;
   display: flex !important;
-  gap: 5px !important;
+  gap: 6px !important;
   margin-left: auto !important;
 }
 body.theme-atla .window-buttons span {
-  width: 22px !important;
-  height: 22px !important;
+  width: 20px !important;
+  height: 20px !important;
   background: transparent !important;
-  border: 1px solid var(--atla-accent) !important;
-  border-radius: 50% !important;
+  border: 1px solid var(--al-accent) !important;
   cursor: pointer !important;
   position: relative !important;
   transition: all 0.25s ease !important;
-  opacity: 0.6 !important;
+  opacity: 0.7 !important;
 }
 body.theme-atla .window-buttons span:hover {
+  background: var(--al-accent) !important;
   opacity: 1 !important;
-  background: var(--atla-accent) !important;
-  box-shadow: 0 0 12px var(--atla-accent-glow) !important;
+  box-shadow: 0 0 15px var(--al-accent) !important;
 }
 body.theme-atla .window-buttons span::after {
   content: "" !important;
   position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
+  top: 50% !important; left: 50% !important;
   transform: translate(-50%, -50%) !important;
-  background: var(--atla-accent) !important;
+  background: var(--al-accent) !important;
 }
 body.theme-atla .window-buttons span:hover::after {
-  background: var(--atla-bg-1) !important;
+  background: var(--al-bg) !important;
 }
 body.theme-atla .window-buttons span:nth-child(1)::after {
-  width: 8px !important;
-  height: 1px !important;
+  width: 9px !important; height: 1px !important;
 }
 body.theme-atla .window-buttons span:nth-child(2)::after {
-  width: 7px !important;
-  height: 7px !important;
+  width: 8px !important; height: 8px !important;
   background: transparent !important;
-  border: 1px solid var(--atla-accent) !important;
-  border-radius: 50% !important;
+  border: 1px solid var(--al-accent) !important;
 }
 body.theme-atla .window-buttons span:nth-child(2):hover::after {
-  border-color: var(--atla-bg-1) !important;
+  border-color: var(--al-bg) !important;
 }
 body.theme-atla .window-buttons span:nth-child(3)::after {
-  width: 8px !important;
-  height: 8px !important;
+  width: 9px !important; height: 9px !important;
   background:
-    linear-gradient(45deg, transparent 42%, var(--atla-accent) 42%, var(--atla-accent) 58%, transparent 58%),
-    linear-gradient(-45deg, transparent 42%, var(--atla-accent) 42%, var(--atla-accent) 58%, transparent 58%) !important;
+    linear-gradient(45deg, transparent 42%, var(--al-accent) 42%, var(--al-accent) 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, var(--al-accent) 42%, var(--al-accent) 58%, transparent 58%) !important;
+}
+body.theme-atla .window-buttons span:nth-child(3):hover::after {
+  background:
+    linear-gradient(45deg, transparent 42%, var(--al-bg) 42%, var(--al-bg) 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, var(--al-bg) 42%, var(--al-bg) 58%, transparent 58%) !important;
 }
 
-/* ===========================================
-   MENÜ ÇUBUĞU
-   =========================================== */
+/* ==== MENÜ ÇUBUĞU ==== */
 body.theme-atla .menu-bar {
-  background: var(--atla-bg-2) !important;
-  border-bottom: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-bottom: 1px solid var(--al-border) !important;
   padding: 0 12px !important;
   display: flex !important;
   align-items: center !important;
 }
 body.theme-atla .menu-bar > * {
-  color: var(--atla-text-dim) !important;
+  color: var(--al-text-dim) !important;
   font-family: 'Cinzel', serif !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  padding: 14px 20px !important;
+  padding: 14px 22px !important;
   border: none !important;
   background: transparent !important;
   border-bottom: 2px solid transparent !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.25s ease !important;
   cursor: pointer !important;
 }
 body.theme-atla .menu-bar > *::before {
@@ -234,679 +199,600 @@ body.theme-atla .menu-bar > *::before {
 }
 body.theme-atla .menu-bar > *:hover {
   background: transparent !important;
-  color: var(--atla-text) !important;
-  border-bottom-color: var(--atla-accent) !important;
+  color: var(--al-text) !important;
+  border-bottom-color: var(--al-accent) !important;
   transform: none !important;
-  text-shadow: 0 0 6px var(--atla-accent-glow) !important;
 }
 body.theme-atla .menu-bar > *.active {
-  color: var(--atla-accent) !important;
-  border-bottom-color: var(--atla-accent) !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
+  color: var(--al-text) !important;
+  border-bottom-color: var(--al-accent) !important;
 }
 
-/* ===========================================
-   TOOLBAR
-   =========================================== */
+/* ==== TOOLBAR ==== */
 body.theme-atla .toolbar {
-  background: var(--atla-bg-2) !important;
-  border-bottom: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid var(--al-border) !important;
   padding: 12px 16px !important;
-  gap: 6px !important;
+  gap: 4px !important;
   display: flex !important;
   flex-wrap: wrap !important;
 }
 body.theme-atla .toolbar a {
   background: transparent !important;
-  border: 1px solid var(--atla-border) !important;
-  color: var(--atla-text-dim) !important;
+  border: 1px solid var(--al-border) !important;
+  color: var(--al-text-dim) !important;
   font-family: 'Cinzel', serif !important;
-  font-size: 11px !important;
+  font-size: 12px !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
   padding: 8px 16px !important;
   transition: all 0.25s ease !important;
   cursor: pointer !important;
-  border-radius: 2px !important;
 }
 body.theme-atla .toolbar a::before,
 body.theme-atla .toolbar a::after {
-  content: none !important;
-  display: none !important;
+  content: none !important; display: none !important;
 }
 body.theme-atla .toolbar a:hover {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border-color: var(--atla-accent) !important;
-  color: var(--atla-text) !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: var(--al-accent) !important;
+  color: var(--al-text) !important;
   transform: none !important;
-  box-shadow: 0 0 10px var(--atla-accent-glow) !important;
 }
 body.theme-atla .toolbar a.active {
-  background: var(--atla-accent) !important;
-  border-color: var(--atla-accent) !important;
-  color: var(--atla-bg-1) !important;
+  background: var(--al-accent) !important;
+  border-color: var(--al-accent) !important;
+  color: var(--al-bg) !important;
   font-weight: 700 !important;
-  box-shadow: 0 0 15px var(--atla-accent-glow) !important;
+  box-shadow: 0 0 15px var(--al-glow) !important;
 }
 
-/* ===========================================
-   SIDEBAR
-   =========================================== */
+/* ==== SIDEBAR ==== */
 body.theme-atla .sidebar {
-  background: var(--atla-bg-2) !important;
-  border-right: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-right: 1px solid var(--al-border) !important;
   padding: 20px 14px !important;
 }
-body.theme-atla .sidebar::after {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  right: -1px !important;
-  bottom: 0 !important;
-  width: 1px !important;
-  background: linear-gradient(180deg,
-    transparent 0%,
-    var(--atla-accent) 50%,
-    transparent 100%) !important;
-  opacity: 0.4 !important;
-}
+body.theme-atla .sidebar::after { display: none !important; }
 body.theme-atla .sidebar-title {
   background: transparent !important;
-  color: var(--atla-accent) !important;
+  color: var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
-  border-bottom: 1px solid var(--atla-border) !important;
+  border-bottom: 1px solid var(--al-border) !important;
   padding: 10px 0 !important;
   margin-bottom: 16px !important;
   text-align: center !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
 }
 body.theme-atla .sidebar-title::before {
-  content: var(--atla-symbol) " " !important;
-  color: var(--atla-accent) !important;
-  font-family: 'Noto Serif SC', serif !important;
+  content: var(--al-symbol, "☯") "  " !important;
+  color: var(--al-accent) !important;
   display: inline !important;
-  margin-right: 4px !important;
 }
 body.theme-atla .sidebar-title::after {
-  content: " " var(--atla-symbol) !important;
-  color: var(--atla-accent) !important;
-  font-family: 'Noto Serif SC', serif !important;
+  content: "  " var(--al-symbol, "☯") !important;
+  color: var(--al-accent) !important;
   display: inline !important;
-  margin-left: 4px !important;
 }
-body.theme-atla .sidebar ul {
-  gap: 2px !important;
-}
+body.theme-atla .sidebar ul { gap: 3px !important; }
 body.theme-atla .sidebar li {
   background: transparent !important;
   border: none !important;
   border-left: 2px solid transparent !important;
-  color: var(--atla-text-dim) !important;
-  font-family: 'Noto Serif SC', serif !important;
+  color: var(--al-text-dim) !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 14px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
   padding: 8px 12px !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.25s ease !important;
   cursor: pointer !important;
   position: relative !important;
 }
 body.theme-atla .sidebar li::before {
-  content: "❋ " !important;
-  color: var(--atla-accent) !important;
+  content: "▸ " !important;
+  color: var(--al-accent) !important;
   margin-right: 6px !important;
   opacity: 0.4 !important;
   display: inline !important;
-  transition: opacity 0.2s ease !important;
+  transition: opacity 0.25s ease !important;
 }
 body.theme-atla .sidebar li:hover {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border-left-color: var(--atla-accent) !important;
-  color: var(--atla-text) !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-left-color: var(--al-accent) !important;
+  color: var(--al-text) !important;
   padding-left: 16px !important;
-  text-shadow: 0 0 6px var(--atla-accent-glow) !important;
 }
-body.theme-atla .sidebar li:hover::before {
-  opacity: 1 !important;
-}
+body.theme-atla .sidebar li:hover::before { opacity: 1 !important; }
 body.theme-atla .sidebar li.active {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-left-color: var(--atla-accent) !important;
-  color: var(--atla-accent) !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
+  border-left-color: var(--al-accent) !important;
+  color: var(--al-text) !important;
+  font-weight: 500 !important;
 }
-body.theme-atla .sidebar li.active::before {
-  opacity: 1 !important;
-  content: "✦ " !important;
-}
+body.theme-atla .sidebar li.active::before { opacity: 1 !important; }
 
-/* ===========================================
-   İÇERİK
-   =========================================== */
+/* ==== İÇERİK ==== */
 body.theme-atla .content-pane {
   background: transparent !important;
-  padding: 36px 44px !important;
-  color: var(--atla-text) !important;
+  padding: 34px 42px !important;
+  color: var(--al-text) !important;
   position: relative !important;
 }
-
-/* ===========================================
-   H1
-   =========================================== */
-body.theme-atla h1.article-title {
-  color: var(--atla-accent) !important;
-  font-family: 'Cinzel', serif !important;
-  font-size: 2rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 4px !important;
-  border-bottom: 2px solid var(--atla-accent) !important;
-  padding: 0 0 14px 0 !important;
-  margin-bottom: 22px !important;
-  text-shadow: 0 0 12px var(--atla-accent-glow) !important;
-  background: none !important;
-  -webkit-text-fill-color: var(--atla-accent) !important;
-  line-height: 1.3 !important;
-  position: relative !important;
-}
-body.theme-atla h1.article-title::before {
-  content: var(--atla-symbol) " " !important;
-  color: var(--atla-accent) !important;
-  font-family: 'Noto Serif SC', serif !important;
-  font-size: 1.6rem !important;
-  display: inline !important;
-  margin-right: 8px !important;
-  text-shadow: 0 0 15px var(--atla-accent-glow) !important;
-  vertical-align: middle !important;
-}
-body.theme-atla h1.article-title::after {
+body.theme-atla .content-pane::before {
   content: "" !important;
-  display: none !important;
+  position: absolute !important;
+  top: 12px !important;
+  right: 20px !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: var(--al-symbol-bg, none) !important;
+  opacity: 0.15 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
 }
 
-/* ===========================================
-   H2
-   =========================================== */
-body.theme-atla h2 {
-  color: var(--atla-text) !important;
+/* ==== H1 ==== */
+body.theme-atla h1.article-title {
+  color: var(--al-text) !important;
   font-family: 'Cinzel', serif !important;
-  font-size: 1.4rem !important;
+  font-size: 1.9rem !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
-  padding: 10px 0 10px 20px !important;
-  margin: 34px 0 16px !important;
-  border-left: 4px solid var(--atla-accent) !important;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%) !important;
+  border-bottom: 2px solid var(--al-accent) !important;
+  padding: 0 0 16px 0 !important;
+  margin-bottom: 22px !important;
+  line-height: 1.3 !important;
   position: relative !important;
-  text-shadow: 0 0 6px var(--atla-accent-glow) !important;
+  text-shadow: 0 0 20px var(--al-glow) !important;
 }
-body.theme-atla h2::before {
-  content: "❋ " !important;
-  color: var(--atla-accent) !important;
+body.theme-atla h1.article-title::before {
+  content: var(--al-symbol, "☯") " " !important;
+  color: var(--al-accent) !important;
   display: inline !important;
   margin-right: 6px !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
+}
+body.theme-atla h1.article-title::after { display: none !important; }
+
+/* ==== H2 ==== */
+body.theme-atla h2 {
+  color: var(--al-text) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 10px 0 10px 18px !important;
+  margin: 34px 0 16px !important;
+  border-left: 3px solid var(--al-accent) !important;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, transparent 100%) !important;
+  position: relative !important;
+}
+body.theme-atla h2::before {
+  content: "❖ " !important;
+  color: var(--al-accent) !important;
+  display: inline !important;
+  margin-right: 4px !important;
+  font-size: 0.9rem !important;
 }
 
-/* ===========================================
-   H3
-   =========================================== */
+/* ==== H3 ==== */
 body.theme-atla h3 {
-  color: var(--atla-text) !important;
+  color: var(--al-text) !important;
   font-family: 'Cinzel', serif !important;
   font-size: 1.1rem !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  border-left: 2px solid var(--atla-accent) !important;
+  border-left: 2px solid var(--al-accent) !important;
   padding-left: 14px !important;
   margin: 24px 0 10px !important;
-  text-shadow: 0 0 5px var(--atla-accent-glow) !important;
 }
 body.theme-atla h3::before {
-  content: "◆ " !important;
-  color: var(--atla-accent) !important;
+  content: "◇ " !important;
+  color: var(--al-accent) !important;
   display: inline !important;
   margin-right: 4px !important;
 }
 
-/* ===========================================
-   PARAGRAF & LINK
-   =========================================== */
+/* ==== PARAGRAF & LINK ==== */
 body.theme-atla p {
   font-size: 15px !important;
   line-height: 1.8 !important;
-  color: var(--atla-text) !important;
+  color: var(--al-text) !important;
   margin-bottom: 1em !important;
 }
 body.theme-atla a {
-  color: var(--atla-accent) !important;
+  color: var(--al-accent) !important;
   font-weight: 500 !important;
   text-decoration: none !important;
-  border-bottom: 1px dashed var(--atla-accent) !important;
-  transition: all 0.2s ease !important;
+  border-bottom: 1px solid var(--al-accent) !important;
+  transition: all 0.25s ease !important;
 }
 body.theme-atla a:hover {
-  color: var(--atla-text) !important;
-  border-bottom-style: solid !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
+  color: var(--al-text) !important;
+  border-bottom-color: var(--al-text) !important;
+  text-shadow: 0 0 10px var(--al-glow) !important;
 }
 
-/* ===========================================
-   INFOBOX
-   =========================================== */
+/* ==== INFOBOX ==== */
 body.theme-atla .infobox,
 body.theme-atla .warinfobox,
 body.theme-atla .krono-box,
 body.theme-atla .wiki-thumb,
 body.theme-atla .rff-box {
-  background: var(--atla-panel-2) !important;
-  border: 1px solid var(--atla-border) !important;
-  border-top: 3px solid var(--atla-accent) !important;
-  padding: 16px !important;
-  color: var(--atla-text) !important;
+  background: var(--al-bg-2) !important;
+  border: 1px solid var(--al-accent) !important;
+  padding: 18px !important;
+  color: var(--al-text) !important;
   position: relative !important;
   box-shadow:
-    0 0 20px rgba(0, 0, 0, 0.4),
-    inset 0 0 30px rgba(0, 0, 0, 0.2) !important;
+    inset 0 0 30px rgba(0, 0, 0, 0.15),
+    0 0 20px var(--al-glow) !important;
 }
 body.theme-atla .infobox::before,
 body.theme-atla .warinfobox::before {
-  content: var(--atla-symbol) " " var(--atla-element-name) !important;
+  content: var(--al-symbol, "☯") !important;
   position: absolute !important;
-  top: -12px !important;
-  left: 12px !important;
-  background: var(--atla-bg-1) !important;
-  color: var(--atla-accent) !important;
+  top: -14px !important;
+  left: 14px !important;
+  background: var(--al-bg) !important;
+  color: var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  letter-spacing: 2px !important;
-  padding: 2px 10px !important;
-  text-shadow: 0 0 6px var(--atla-accent-glow) !important;
+  font-size: 18px !important;
+  padding: 0 8px !important;
   display: block !important;
+  text-shadow: 0 0 10px var(--al-glow) !important;
 }
-body.theme-atla .infobox::after {
-  content: none !important;
-  display: none !important;
-}
+body.theme-atla .infobox::after { display: none !important; }
 body.theme-atla .infobox-title {
   background: transparent !important;
-  color: var(--atla-accent) !important;
+  color: var(--al-text) !important;
   font-family: 'Cinzel', serif !important;
   font-size: 1.15rem !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  border-bottom: 1px dashed var(--atla-border) !important;
+  border-bottom: 1px solid var(--al-border) !important;
   padding: 0 0 10px 0 !important;
   margin: 0 0 12px 0 !important;
   text-align: center !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
 }
 body.theme-atla .infobox-subtitle {
-  color: var(--atla-text-dim) !important;
-  font-family: 'Noto Serif SC', serif !important;
+  color: var(--al-text-dim) !important;
+  font-family: 'Cormorant Garamond', serif !important;
   font-style: italic !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
   text-align: center !important;
 }
 body.theme-atla .infobox-label {
-  color: var(--atla-accent) !important;
+  color: var(--al-accent) !important;
+  font-family: 'Cinzel', serif !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 1.5px !important;
   font-size: 11px !important;
 }
 body.theme-atla .infobox-value {
-  color: var(--atla-text) !important;
+  color: var(--al-text) !important;
   font-size: 13px !important;
 }
 body.theme-atla .infobox-row {
-  border-bottom: 1px dashed var(--atla-border) !important;
-  padding: 6px 0 !important;
+  border-bottom: 1px solid var(--al-border) !important;
+  padding: 7px 0 !important;
 }
-body.theme-atla .infobox-row:last-child {
-  border-bottom: none !important;
-}
+body.theme-atla .infobox-row:last-child { border-bottom: none !important; }
 body.theme-atla .flag-box {
-  background: var(--atla-bg-2) !important;
-  border: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid var(--al-border) !important;
   padding: 8px !important;
 }
+body.theme-atla .flag-box::after { display: none !important; }
 body.theme-atla .flag-label,
 body.theme-atla .map-label {
-  color: var(--atla-accent) !important;
+  color: var(--al-accent) !important;
+  font-family: 'Cinzel', serif !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
   font-size: 11px !important;
 }
 body.theme-atla .infobox-map {
-  background: var(--atla-bg-2) !important;
-  border: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid var(--al-border) !important;
   padding: 6px !important;
 }
 
-/* ===========================================
-   BLOCKQUOTE
-   =========================================== */
+/* ==== BLOCKQUOTE ==== */
 body.theme-atla blockquote {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border-left: 3px solid var(--atla-accent) !important;
-  border-top: 1px solid var(--atla-border) !important;
-  border-bottom: 1px solid var(--atla-border) !important;
-  padding: 16px 22px !important;
-  color: var(--atla-text) !important;
-  font-family: 'Noto Serif SC', serif !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-left: 3px solid var(--al-accent) !important;
+  border-top: 1px solid var(--al-border) !important;
+  border-bottom: 1px solid var(--al-border) !important;
+  padding: 18px 24px !important;
+  color: var(--al-text) !important;
+  font-family: 'Cormorant Garamond', serif !important;
   font-style: italic !important;
-  font-size: 15px !important;
-  margin: 16px 0 !important;
-  box-shadow: inset 6px 0 20px var(--atla-accent-glow) !important;
+  font-size: 16px !important;
+  margin: 18px 0 !important;
   position: relative !important;
 }
 body.theme-atla blockquote::before {
   content: "❝" !important;
-  color: var(--atla-accent) !important;
-  font-size: 24px !important;
+  color: var(--al-accent) !important;
+  font-size: 26px !important;
   position: absolute !important;
   top: 2px !important;
   left: 8px !important;
-  opacity: 0.7 !important;
-  text-shadow: 0 0 10px var(--atla-accent-glow) !important;
+  opacity: 0.8 !important;
   display: block !important;
 }
 
-/* ===========================================
-   DETAILS
-   =========================================== */
+/* ==== DETAILS ==== */
 body.theme-atla details {
-  background: rgba(0, 0, 0, 0.15) !important;
-  border: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid var(--al-border) !important;
   margin: 14px 0 !important;
   overflow: hidden !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.25s ease !important;
 }
-body.theme-atla details:hover {
-  border-color: var(--atla-accent) !important;
-}
+body.theme-atla details:hover { border-color: var(--al-accent) !important; }
 body.theme-atla details[open] {
-  border-color: var(--atla-accent) !important;
-  box-shadow: 0 0 15px var(--atla-accent-glow) !important;
+  border-color: var(--al-accent) !important;
+  background: rgba(0, 0, 0, 0.18) !important;
+  box-shadow: 0 0 20px var(--al-glow) !important;
 }
 body.theme-atla summary {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%) !important;
-  color: var(--atla-text) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
+  color: var(--al-text) !important;
   font-family: 'Cinzel', serif !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
+  letter-spacing: 2px !important;
   padding: 12px 18px !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.25s ease !important;
 }
 body.theme-atla summary:hover {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%) !important;
-  color: var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: var(--al-accent) !important;
 }
 body.theme-atla summary::before {
-  content: "❋ " !important;
-  color: var(--atla-accent) !important;
+  content: "▸ " !important;
+  color: var(--al-accent) !important;
   display: inline !important;
   margin-right: 4px !important;
-  text-shadow: 0 0 6px var(--atla-accent-glow) !important;
 }
 body.theme-atla details[open] summary::before {
-  content: "✦ " !important;
+  content: "▾ " !important;
   transform: none !important;
 }
 body.theme-atla .details-content {
-  background: rgba(0, 0, 0, 0.15) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
   padding: 16px 20px !important;
-  color: var(--atla-text) !important;
+  color: var(--al-text) !important;
   font-size: 14px !important;
 }
 
-/* ===========================================
-   BUTONLAR
-   =========================================== */
+/* ==== BUTONLAR ==== */
 body.theme-atla .vid-button,
 body.theme-atla .qa-button,
 body.theme-atla .lightbox-download {
   background: transparent !important;
-  border: 2px solid var(--atla-accent) !important;
-  color: var(--atla-accent) !important;
+  border: 1px solid var(--al-accent) !important;
+  color: var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
   font-size: 12px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  padding: 10px 22px !important;
+  padding: 12px 26px !important;
   cursor: pointer !important;
-  transition: all 0.25s ease !important;
+  transition: all 0.3s ease !important;
   position: relative !important;
-  border-radius: 2px !important;
 }
 body.theme-atla .vid-button:hover,
 body.theme-atla .qa-button:hover,
 body.theme-atla .lightbox-download:hover {
-  background: var(--atla-accent) !important;
-  color: var(--atla-bg-1) !important;
-  box-shadow: 0 0 20px var(--atla-accent-glow) !important;
+  background: var(--al-accent) !important;
+  color: var(--al-bg) !important;
+  box-shadow:
+    0 0 20px var(--al-glow),
+    inset 0 0 10px rgba(0, 0, 0, 0.2) !important;
   transform: none !important;
 }
 body.theme-atla .vid-button::before {
-  content: "▶ " !important;
+  content: "▸ " !important;
   color: inherit !important;
   animation: none !important;
 }
 
-/* ===========================================
-   TABLOLAR
-   =========================================== */
+/* ==== TABLOLAR ==== */
 body.theme-atla .players-table {
-  background: rgba(0, 0, 0, 0.15) !important;
-  border: 1px solid var(--atla-border) !important;
-  border-top: 3px solid var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid var(--al-border) !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
   overflow: hidden !important;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) !important;
 }
 body.theme-atla .players-table th {
-  background: rgba(0, 0, 0, 0.3) !important;
-  color: var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-  border-bottom: 1px solid var(--atla-accent) !important;
-  padding: 14px 18px !important;
-  font-size: 11px !important;
+  letter-spacing: 2px !important;
+  border-bottom: 1px solid var(--al-accent) !important;
+  padding: 12px 16px !important;
+  font-size: 12px !important;
   text-align: left !important;
-  text-shadow: 0 0 6px var(--atla-accent-glow) !important;
 }
 body.theme-atla .players-table td {
-  color: var(--atla-text) !important;
-  border-bottom: 1px dashed var(--atla-border) !important;
-  padding: 12px 18px !important;
+  color: var(--al-text) !important;
+  border-bottom: 1px solid var(--al-border) !important;
+  padding: 12px 16px !important;
   font-size: 14px !important;
 }
 body.theme-atla .players-table tr:hover td {
-  background: rgba(255, 255, 255, 0.03) !important;
-}
-body.theme-atla .players-table a {
-  color: var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.08) !important;
 }
 
-/* ===========================================
-   STATUS BAR
-   =========================================== */
+/* ==== STATUS BAR ==== */
 body.theme-atla .status-bar {
-  background: var(--atla-bg-2) !important;
-  border-top: 1px solid var(--atla-accent) !important;
-  color: var(--atla-text-dim) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-top: 1px solid var(--al-accent) !important;
+  color: var(--al-text-dim) !important;
   font-family: 'Cinzel', serif !important;
-  font-weight: 500 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-  font-size: 10px !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
   padding: 10px 18px !important;
-  box-shadow: 0 -2px 12px var(--atla-accent-glow) !important;
-  position: relative !important;
 }
-body.theme-atla .status-bar::before {
-  display: none !important;
-}
+body.theme-atla .status-bar::before { display: none !important; }
 body.theme-atla .status-bar span:first-child::before {
-  content: var(--atla-symbol) " " !important;
-  color: var(--atla-accent) !important;
-  text-shadow: 0 0 8px var(--atla-accent-glow) !important;
+  content: var(--al-symbol, "☯") " " !important;
+  color: var(--al-accent) !important;
   display: inline !important;
+  margin-right: 4px !important;
 }
 
-/* ===========================================
-   MODAL
-   =========================================== */
+/* ==== MODAL ==== */
 body.theme-atla .lightbox-window,
 body.theme-atla .video-window {
-  background: var(--atla-bg-1) !important;
-  border: 2px solid var(--atla-accent) !important;
+  background: var(--al-bg-2) !important;
+  border: 2px solid var(--al-accent) !important;
   box-shadow:
-    0 0 0 2px #000,
-    0 0 50px var(--atla-accent-glow) !important;
+    0 0 0 2px rgba(0, 0, 0, 0.6),
+    0 0 60px var(--al-glow) !important;
   overflow: hidden !important;
 }
 body.theme-atla .lightbox-title-bar,
 body.theme-atla .video-title-bar {
-  background: var(--atla-panel-2) !important;
-  color: var(--atla-accent) !important;
-  border-bottom: 1px solid var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  color: var(--al-accent) !important;
+  border-bottom: 1px solid var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  padding: 12px 18px !important;
-  font-size: 11px !important;
+  padding: 14px 20px !important;
+  font-size: 13px !important;
 }
 body.theme-atla .lightbox-close,
 body.theme-atla .video-close {
   background: transparent !important;
-  border: 1px solid var(--atla-accent) !important;
-  color: var(--atla-accent) !important;
-  border-radius: 50% !important;
-  width: 26px !important;
-  height: 26px !important;
+  border: 1px solid var(--al-accent) !important;
+  color: var(--al-accent) !important;
+  width: 28px !important; height: 28px !important;
 }
 body.theme-atla .lightbox-close:hover,
 body.theme-atla .video-close:hover {
-  background: var(--atla-accent) !important;
-  color: var(--atla-bg-1) !important;
+  background: var(--al-accent) !important;
+  color: var(--al-bg) !important;
 }
 body.theme-atla .video-controls {
-  background: var(--atla-panel-2) !important;
-  border-top: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-top: 1px solid var(--al-border) !important;
 }
 body.theme-atla .video-controls button {
   background: transparent !important;
-  border: 1px solid var(--atla-accent) !important;
-  color: var(--atla-accent) !important;
+  border: 1px solid var(--al-accent) !important;
+  color: var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
-  padding: 7px 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 14px !important;
   font-size: 11px !important;
 }
 body.theme-atla .video-controls button:hover {
-  background: var(--atla-accent) !important;
-  color: var(--atla-bg-1) !important;
+  background: var(--al-accent) !important;
+  color: var(--al-bg) !important;
 }
 body.theme-atla .video-controls a {
-  background: var(--atla-accent) !important;
-  color: var(--atla-bg-1) !important;
-  border: 1px solid var(--atla-accent) !important;
-  padding: 7px 16px !important;
+  background: var(--al-accent) !important;
+  color: var(--al-bg) !important;
+  font-family: 'Cinzel', serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 8px 16px !important;
+  border: 1px solid var(--al-accent) !important;
 }
 
-/* ===========================================
-   XP EXPLORER
-   =========================================== */
+/* ==== XP EXPLORER ==== */
 body.theme-atla .xp-explorer,
 body.theme-atla .xp-tree,
 body.theme-atla .xp-preview-pane {
-  background: rgba(0, 0, 0, 0.15) !important;
-  border-color: var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
+  border-color: var(--al-border) !important;
 }
 body.theme-atla .xp-tree-title,
 body.theme-atla .xp-file-header {
-  background: rgba(0, 0, 0, 0.25) !important;
-  color: var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
-  border-color: var(--atla-accent) !important;
+  border-color: var(--al-accent) !important;
   padding: 12px 16px !important;
-  font-size: 11px !important;
+  font-size: 12px !important;
 }
 body.theme-atla .xp-file-item,
 body.theme-atla .xp-tree-item {
-  color: var(--atla-text-dim) !important;
+  color: var(--al-text-dim) !important;
   padding: 8px 12px 8px 24px !important;
   position: relative !important;
   cursor: pointer !important;
 }
 body.theme-atla .xp-file-item::before,
 body.theme-atla .xp-tree-item::before {
-  content: "❋" !important;
+  content: "▸" !important;
   position: absolute !important;
-  left: 8px !important;
-  top: 50% !important;
+  left: 8px !important; top: 50% !important;
   transform: translateY(-50%) !important;
-  color: var(--atla-accent) !important;
+  color: var(--al-accent) !important;
   opacity: 0 !important;
 }
 body.theme-atla .xp-file-item:hover,
 body.theme-atla .xp-tree-item:hover {
-  background: rgba(255, 255, 255, 0.03) !important;
-  color: var(--atla-text) !important;
-}
-body.theme-atla .xp-file-item.selected,
-body.theme-atla .xp-tree-item.active {
-  background: rgba(255, 255, 255, 0.05) !important;
-  color: var(--atla-accent) !important;
-  box-shadow: inset 3px 0 0 var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
+  color: var(--al-text) !important;
 }
 body.theme-atla .xp-file-item:hover::before,
-body.theme-atla .xp-tree-item:hover::before,
-body.theme-atla .xp-file-item.selected::before,
-body.theme-atla .xp-tree-item.active::before {
-  opacity: 1 !important;
+body.theme-atla .xp-tree-item:hover::before { opacity: 1 !important; }
+body.theme-atla .xp-file-item.selected,
+body.theme-atla .xp-tree-item.active {
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: var(--al-text) !important;
+  box-shadow: inset 3px 0 0 var(--al-accent) !important;
 }
+body.theme-atla .xp-file-item.selected::before,
+body.theme-atla .xp-tree-item.active::before { opacity: 1 !important; }
 body.theme-atla .xp-preview-text {
-  background: rgba(0, 0, 0, 0.15) !important;
-  border: 1px solid var(--atla-border) !important;
-  color: var(--atla-text) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid var(--al-border) !important;
+  color: var(--al-text) !important;
   padding: 14px !important;
+  font-size: 14px !important;
 }
 
-/* ===========================================
-   DROPDOWN
-   =========================================== */
+/* ==== DROPDOWN ==== */
 body.theme-atla ~ .view-dropdown-fixed,
 body.theme-atla .view-dropdown-fixed {
-  background: var(--atla-bg-1) !important;
-  border: 2px solid var(--atla-accent) !important;
+  background: var(--al-bg-2) !important;
+  border: 1px solid var(--al-accent) !important;
   box-shadow:
-    0 0 0 2px #000,
-    0 0 40px var(--atla-accent-glow) !important;
+    0 0 0 2px rgba(0, 0, 0, 0.4),
+    0 0 40px var(--al-glow) !important;
   padding: 10px !important;
 }
-body.theme-atla .view-dropdown-fixed * {
-  font-family: 'Noto Serif SC', serif !important;
-}
+body.theme-atla .view-dropdown-fixed * { font-family: 'Inter', sans-serif !important; }
 body.theme-atla .view-dropdown-fixed span {
-  color: var(--atla-accent) !important;
+  color: var(--al-accent) !important;
   font-family: 'Cinzel', serif !important;
   font-size: 12px !important;
   text-transform: uppercase !important;
@@ -915,320 +801,484 @@ body.theme-atla .view-dropdown-fixed span {
 body.theme-atla .view-dropdown-fixed [data-z],
 body.theme-atla .view-dropdown-fixed .zoom-value {
   background: transparent !important;
-  border: 1px solid var(--atla-accent) !important;
-  color: var(--atla-accent) !important;
+  border: 1px solid var(--al-accent) !important;
+  color: var(--al-accent) !important;
   font-size: 12px !important;
   padding: 4px 8px !important;
-  border-radius: 2px !important;
 }
 body.theme-atla .view-dropdown-fixed [data-z]:hover {
-  background: var(--atla-accent) !important;
-  color: var(--atla-bg-1) !important;
+  background: var(--al-accent) !important;
+  color: var(--al-bg) !important;
 }
 body.theme-atla .view-dropdown-fixed .theme-item {
   background: transparent !important;
   border: 1px solid transparent !important;
-  color: var(--atla-text-dim) !important;
+  color: var(--al-text-dim) !important;
   padding: 10px 14px 10px 28px !important;
   position: relative !important;
   font-size: 13px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
 }
 body.theme-atla .view-dropdown-fixed .theme-item::before {
-  content: "❋" !important;
+  content: "▸" !important;
   position: absolute !important;
-  left: 10px !important;
-  top: 50% !important;
+  left: 10px !important; top: 50% !important;
   transform: translateY(-50%) !important;
-  color: var(--atla-accent) !important;
+  color: var(--al-accent) !important;
   opacity: 0 !important;
 }
 body.theme-atla .view-dropdown-fixed .theme-item:hover {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: var(--atla-accent) !important;
-  color: var(--atla-text) !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: var(--al-accent) !important;
+  color: var(--al-text) !important;
 }
-body.theme-atla .view-dropdown-fixed .theme-item:hover::before {
-  opacity: 1 !important;
-}
+body.theme-atla .view-dropdown-fixed .theme-item:hover::before { opacity: 1 !important; }
 body.theme-atla .view-dropdown-fixed .theme-item.active {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-color: var(--atla-accent) !important;
-  color: var(--atla-accent) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-color: var(--al-accent) !important;
+  color: var(--al-text) !important;
 }
-body.theme-atla .view-dropdown-fixed .theme-item.active::before {
-  opacity: 1 !important;
-}
-body.theme-atla .view-dropdown-fixed .theme-item span {
-  color: inherit !important;
-  font-size: 13px !important;
-}
+body.theme-atla .view-dropdown-fixed .theme-item.active::before { opacity: 1 !important; }
+body.theme-atla .view-dropdown-fixed .theme-item span { color: inherit !important; font-size: 13px !important; }
 
-/* ===========================================
-   SCROLLBAR
-   =========================================== */
-body.theme-atla ::-webkit-scrollbar {
-  width: 12px !important;
-}
+/* ==== SCROLLBAR ==== */
+body.theme-atla ::-webkit-scrollbar { width: 12px !important; }
 body.theme-atla ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid var(--atla-border) !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid var(--al-border) !important;
 }
 body.theme-atla ::-webkit-scrollbar-thumb {
-  background: var(--atla-accent) !important;
-  border: 1px solid var(--atla-bg-1) !important;
-  opacity: 0.6 !important;
+  background: var(--al-accent) !important;
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  opacity: 0.7 !important;
 }
 body.theme-atla ::-webkit-scrollbar-thumb:hover {
-  background: var(--atla-accent) !important;
-  box-shadow: 0 0 10px var(--atla-accent-glow) !important;
+  background: var(--al-text) !important;
 }
 
-/* ===========================================
-   SELECTION
-   =========================================== */
+/* ==== SELECTION ==== */
 body.theme-atla ::selection {
-  background: var(--atla-accent) !important;
-  color: var(--atla-bg-1) !important;
+  background: var(--al-accent) !important;
+  color: var(--al-bg) !important;
+  text-shadow: none !important;
 }
 
 /* ===========================================
-   AVATAR – 4 ELEMENT BİRLEŞİK
+   AVATAR (ANASAYFA) – 4 ELEMENT BİR ARADA
    =========================================== */
 body.theme-atla.atla-avatar {
-  --atla-bg-1: #1a1410;
-  --atla-bg-2: #0f0a08;
-  --atla-panel: rgba(26, 20, 16, 0.65);
-  --atla-panel-2: rgba(38, 30, 24, 0.7);
-  --atla-text: #e8dcc8;
-  --atla-text-dim: #8a7a62;
-  --atla-border: #3a2e22;
-  --atla-symbol: "☯";
-  --atla-element-name: "AVATAR";
-  --atla-texture:
-    /* 4 element orb: sol üst toprak (yeşil), sağ üst su (mavi), sol alt hava (beyaz), sağ alt ateş (turuncu) */
-    radial-gradient(circle at 12% 15%, rgba(120, 180, 80, 0.10) 0%, transparent 25%),
-    radial-gradient(circle at 88% 15%, rgba(80, 160, 220, 0.10) 0%, transparent 25%),
-    radial-gradient(circle at 12% 85%, rgba(220, 220, 220, 0.06) 0%, transparent 25%),
-    radial-gradient(circle at 88% 85%, rgba(240, 120, 40, 0.10) 0%, transparent 25%),
-    /* 4 element hafif merkez glow */
-    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-    linear-gradient(180deg, #1a1410 0%, #0f0a08 100%);
-  --atla-texture-size: auto, auto, auto, auto, auto, auto;
+  --al-bg: #d4c9a8;
+  --al-bg-2: #c0b090;
+  --al-panel: rgba(224, 213, 184, 0.7);
+  --al-accent: #6b3f8c;
+  --al-text: #1a1410;
+  --al-text-dim: #5a4a35;
+  --al-border: #9a8a60;
+  --al-glow: rgba(107, 63, 140, 0.3);
+  --al-symbol: "☯";
+  --al-symbol-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%236b3f8c' stroke-width='3'/><path d='M50 10 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 90 A 40 40 0 0 1 50 10' fill='%236b3f8c' opacity='0.3'/></svg>");
+  --al-bg-image:
+    radial-gradient(circle at 15% 20%, rgba(107, 63, 140, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(196, 43, 28, 0.1), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(26, 107, 143, 0.08), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(139, 105, 20, 0.15), transparent 50%),
+    linear-gradient(180deg, #d4c9a8 0%, #c0b090 100%);
+  --al-overlay:
+    conic-gradient(from 0deg at 50% 50%,
+      rgba(26, 107, 143, 0.08) 0deg,
+      rgba(26, 107, 143, 0.08) 90deg,
+      rgba(196, 43, 28, 0.08) 90deg,
+      rgba(196, 43, 28, 0.08) 180deg,
+      rgba(139, 105, 20, 0.08) 180deg,
+      rgba(139, 105, 20, 0.08) 270deg,
+      rgba(200, 212, 216, 0.08) 270deg,
+      rgba(200, 212, 216, 0.08) 360deg);
+  --al-overlay-anim: atlaAvatarRotate 60s linear infinite;
 }
-body.theme-atla.atla-avatar .content-pane::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 40px !important;
-  right: 40px !important;
-  width: 140px !important;
-  height: 140px !important;
-  border: 2px solid rgba(212, 175, 55, 0.15) !important;
-  border-radius: 50% !important;
-  background:
-    /* 4 element quadrant */
-    conic-gradient(
-      from 0deg,
-      rgba(120, 180, 80, 0.12) 0deg 90deg,
-      rgba(80, 160, 220, 0.12) 90deg 180deg,
-      rgba(240, 240, 240, 0.08) 180deg 270deg,
-      rgba(240, 120, 40, 0.12) 270deg 360deg
-    ) !important;
-  pointer-events: none !important;
-  opacity: 0.6 !important;
-  animation: atlaRotate 60s linear infinite !important;
-}
-@keyframes atlaRotate {
+
+@keyframes atlaAvatarRotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
+/* Avatar temasında 4 element sembolü köşelerde döner */
+body.theme-atla.atla-avatar .content-pane::after {
+  content: "" !important;
+  position: fixed !important;
+  top: 80px !important;
+  right: 40px !important;
+  width: 120px !important;
+  height: 120px !important;
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle cx='60' cy='60' r='55' fill='none' stroke='%236b3f8c' stroke-width='1' opacity='0.3' stroke-dasharray='4 6'/><text x='60' y='40' font-size='20' text-anchor='middle' fill='%231a6b8f'>水</text><text x='60' y='90' font-size='20' text-anchor='middle' fill='%23c42b1c'>火</text><text x='30' y='68' font-size='20' text-anchor='middle' fill='%238b6914'>土</text><text x='90' y='68' font-size='20' text-anchor='middle' fill='%235a6a70'>气</text></svg>") center/contain no-repeat !important;
+  opacity: 0.35 !important;
+  animation: atlaAvatarRotate 40s linear infinite reverse !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
 /* ===========================================
-   TOPRAK – Earth Kingdom (sarı, yeşil, kahverengi)
+   TOPRAK ELEMENTİ – Earth Kingdom
    =========================================== */
 body.theme-atla.atla-earth {
-  --atla-bg-1: #2a2010;
-  --atla-bg-2: #1a1408;
-  --atla-panel: rgba(42, 32, 16, 0.65);
-  --atla-panel-2: rgba(58, 44, 22, 0.7);
-  --atla-text: #e8dcc0;
-  --atla-text-dim: #9a8a5a;
-  --atla-border: #4a3a1e;
-  --atla-accent: var(--accent-color, #c9a86a);
-  --atla-accent-glow: rgba(201, 168, 106, 0.5);
-  --atla-symbol: "土";
-  --atla-element-name: "EARTH";
-  --atla-texture:
-    /* Toprak çatlağı dokusu */
-    repeating-linear-gradient(45deg, transparent 0px, transparent 80px, rgba(0, 0, 0, 0.15) 80px, rgba(0, 0, 0, 0.15) 82px),
-    repeating-linear-gradient(-45deg, transparent 0px, transparent 100px, rgba(0, 0, 0, 0.1) 100px, rgba(0, 0, 0, 0.1) 102px),
-    radial-gradient(circle at 20% 30%, rgba(140, 110, 50, 0.12) 0%, transparent 30%),
-    radial-gradient(circle at 80% 70%, rgba(100, 80, 40, 0.15) 0%, transparent 30%),
-    radial-gradient(ellipse at 50% 100%, rgba(201, 168, 106, 0.08) 0%, transparent 50%),
-    linear-gradient(180deg, #2a2010 0%, #1a1408 100%);
-  --atla-texture-size: auto, auto, auto, auto, auto, auto;
+  --al-bg: #8b6914;
+  --al-bg-2: #6b4d0a;
+  --al-panel: rgba(139, 105, 20, 0.35);
+  --al-accent: #d4a76a;
+  --al-text: #f0e0c0;
+  --al-text-dim: #b09868;
+  --al-border: #5a3f08;
+  --al-glow: rgba(212, 167, 106, 0.4);
+  --al-symbol: "⛰";
+  --al-symbol-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M10 80 L30 40 L45 60 L60 25 L80 60 L90 45 L95 80 Z' fill='none' stroke='%23d4a76a' stroke-width='2'/><circle cx='50' cy='50' r='45' fill='none' stroke='%23d4a76a' stroke-width='1' opacity='0.4' stroke-dasharray='2 4'/></svg>");
+  --al-bg-image:
+    /* Mezopotamya kabartma desenleri (üst) */
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 60px,
+      rgba(0, 0, 0, 0.08) 60px, rgba(0, 0, 0, 0.08) 62px),
+    /* Çatlak örüntüsü */
+    repeating-linear-gradient(115deg,
+      transparent 0px, transparent 30px,
+      rgba(0, 0, 0, 0.15) 30px, rgba(0, 0, 0, 0.15) 32px,
+      transparent 32px, transparent 80px),
+    repeating-linear-gradient(-70deg,
+      transparent 0px, transparent 50px,
+      rgba(0, 0, 0, 0.1) 50px, rgba(0, 0, 0, 0.1) 52px,
+      transparent 52px, transparent 100px),
+    /* Dağ siluetleri */
+    radial-gradient(ellipse at 20% 90%, rgba(60, 40, 10, 0.6), transparent 40%),
+    radial-gradient(ellipse at 60% 95%, rgba(80, 55, 15, 0.5), transparent 45%),
+    radial-gradient(ellipse at 90% 100%, rgba(50, 35, 8, 0.55), transparent 40%),
+    /* Toprak partikülleri */
+    radial-gradient(circle at 15% 30%, rgba(212, 167, 106, 0.08) 2px, transparent 2px),
+    radial-gradient(circle at 65% 70%, rgba(212, 167, 106, 0.06) 2px, transparent 2px),
+    /* Ana gradient */
+    linear-gradient(180deg, #a07a18 0%, #8b6914 40%, #6b4d0a 100%);
+  --al-bg-size: auto, auto, auto, auto, auto, auto, 90px 90px, 130px 130px, auto;
+  --al-vignette: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.5) 100%);
+
+  /* Karınca gezintisi (pseudo-element ile) */
+  --al-overlay:
+    radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.7) 1.5px, transparent 2px),
+    radial-gradient(circle at 40% 60%, rgba(0, 0, 0, 0.7) 1.5px, transparent 2px),
+    radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.7) 1.5px, transparent 2px),
+    radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.7) 1.5px, transparent 2px),
+    radial-gradient(circle at 25% 90%, rgba(0, 0, 0, 0.7) 1.5px, transparent 2px);
+  --al-overlay-anim: atlaAntsPath 24s linear infinite;
 }
-body.theme-atla.atla-earth .content-pane::before {
-  content: "土" !important;
+
+@keyframes atlaAntsPath {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+  25% { background-position: 200px 100px, -100px 80px, 150px -50px, -180px 120px, 90px -70px; }
+  50% { background-position: 400px 200px, -200px 160px, 300px -100px, -360px 240px, 180px -140px; }
+  75% { background-position: 600px 300px, -300px 240px, 450px -150px, -540px 360px, 270px -210px; }
+  100% { background-position: 800px 400px, -400px 320px, 600px -200px, -720px 480px, 360px -280px; }
+}
+
+/* Toprak: çatlak animasyonu */
+body.theme-atla.atla-earth .app-window::after {
+  content: "" !important;
   position: absolute !important;
-  top: 40px !important;
-  right: 40px !important;
-  color: rgba(201, 168, 106, 0.15) !important;
-  font-family: 'Noto Serif SC', serif !important;
-  font-size: 180px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
+  inset: 0 !important;
+  background-image:
+    linear-gradient(115deg, transparent 48%, rgba(0, 0, 0, 0.3) 48.5%, rgba(0, 0, 0, 0.3) 49%, transparent 49.5%),
+    linear-gradient(-70deg, transparent 48%, rgba(0, 0, 0, 0.2) 48.5%, rgba(0, 0, 0, 0.2) 49%, transparent 49.5%);
+  background-size: 400px 400px, 600px 600px;
   pointer-events: none !important;
-  text-shadow: 0 0 40px rgba(201, 168, 106, 0.3) !important;
+  opacity: 0.4 !important;
+  animation: atlaCrackShift 20s linear infinite !important;
+  z-index: 1 !important;
+}
+@keyframes atlaCrackShift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 400px 400px, -600px 600px; }
+}
+
+/* Toprak: Dağ sembolü */
+body.theme-atla.atla-earth .content-pane::before {
+  content: "⛰" !important;
+  position: absolute !important;
+  top: 14px !important;
+  right: 24px !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 44px !important;
+  color: rgba(212, 167, 106, 0.35) !important;
+  opacity: 1 !important;
+  background: none !important;
+  text-shadow: 0 0 20px rgba(212, 167, 106, 0.3) !important;
 }
 
 /* ===========================================
-   SU – Water Tribe (mavi, turkuaz)
+   SU ELEMENTİ – Water Tribe
    =========================================== */
 body.theme-atla.atla-water {
-  --atla-bg-1: #0a1a2a;
-  --atla-bg-2: #05101a;
-  --atla-panel: rgba(10, 26, 42, 0.65);
-  --atla-panel-2: rgba(16, 38, 58, 0.7);
-  --atla-text: #d0e8f5;
-  --atla-text-dim: #6a9ab5;
-  --atla-border: #1a3a5a;
-  --atla-accent: var(--accent-color, #7ee0ff);
-  --atla-accent-glow: rgba(126, 224, 255, 0.5);
-  --atla-symbol: "水";
-  --atla-element-name: "WATER";
-  --atla-texture:
-    /* Su dalgası */
-    repeating-linear-gradient(0deg, transparent 0px, transparent 60px, rgba(126, 224, 255, 0.04) 60px, rgba(126, 224, 255, 0.04) 62px),
-    radial-gradient(circle at 25% 25%, rgba(126, 224, 255, 0.1) 0%, transparent 30%),
-    radial-gradient(circle at 75% 75%, rgba(80, 160, 220, 0.12) 0%, transparent 35%),
-    radial-gradient(ellipse at 50% 0%, rgba(126, 224, 255, 0.06) 0%, transparent 50%),
-    linear-gradient(180deg, #0a1a2a 0%, #05101a 100%);
-  --atla-texture-size: auto, auto, auto, auto, auto;
-  animation: atlaWaterFloat 8s ease-in-out infinite !important;
+  --al-bg: #0a1f2e;
+  --al-bg-2: #061520;
+  --al-panel: rgba(26, 107, 143, 0.25);
+  --al-accent: #4fc3d9;
+  --al-text: #d0eef5;
+  --al-text-dim: #6a9aad;
+  --al-border: #1a4f66;
+  --al-glow: rgba(79, 195, 217, 0.4);
+  --al-symbol: "🌊";
+  --al-symbol-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M10 50 Q 25 30, 40 50 T 70 50 T 100 50' fill='none' stroke='%234fc3d9' stroke-width='2'/><path d='M10 65 Q 25 45, 40 65 T 70 65 T 100 65' fill='none' stroke='%234fc3d9' stroke-width='2' opacity='0.6'/><path d='M10 80 Q 25 60, 40 80 T 70 80 T 100 80' fill='none' stroke='%234fc3d9' stroke-width='2' opacity='0.3'/></svg>");
+  --al-bg-image:
+    /* Dalga örüntüsü - büyük */
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 80px,
+      rgba(79, 195, 217, 0.08) 80px, rgba(79, 195, 217, 0.08) 82px,
+      transparent 82px, transparent 160px),
+    /* Dalga örüntüsü - küçük */
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 30px,
+      rgba(79, 195, 217, 0.05) 30px, rgba(79, 195, 217, 0.05) 31px,
+      transparent 31px, transparent 60px),
+    /* Ay ışığı */
+    radial-gradient(ellipse at 50% 0%, rgba(200, 230, 245, 0.15), transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(26, 107, 143, 0.4), transparent 60%),
+    /* Işık yansımaları */
+    radial-gradient(circle at 20% 40%, rgba(79, 195, 217, 0.1), transparent 25%),
+    radial-gradient(circle at 80% 60%, rgba(79, 195, 217, 0.08), transparent 25%),
+    /* Ana gradient */
+    linear-gradient(180deg, #0a1f2e 0%, #061520 100%);
+  --al-bg-size: auto, auto, auto, auto, auto, auto, auto;
+  --al-vignette: radial-gradient(ellipse at center, transparent 25%, rgba(0, 20, 40, 0.8) 100%);
+
+  /* Su damlaları/kabarcıklar */
+  --al-overlay:
+    radial-gradient(circle at 15% 100%, rgba(79, 195, 217, 0.6) 3px, transparent 5px),
+    radial-gradient(circle at 40% 100%, rgba(79, 195, 217, 0.5) 2px, transparent 4px),
+    radial-gradient(circle at 65% 100%, rgba(79, 195, 217, 0.7) 3px, transparent 5px),
+    radial-gradient(circle at 90% 100%, rgba(79, 195, 217, 0.4) 2px, transparent 4px);
+  --al-overlay-anim: atlaBubbles 8s linear infinite;
 }
-@keyframes atlaWaterFloat {
-  0%, 100% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
-  50% { background-position: 0 30px, 0 0, 0 0, 0 0, 0 0; }
+
+@keyframes atlaBubbles {
+  0% { background-position: 0 100%, 0 100%, 0 100%, 0 100%; }
+  100% { background-position: 0 -100vh, 0 -120vh, 0 -90vh, 0 -110vh; }
 }
-body.theme-atla.atla-water .content-pane::before {
-  content: "水" !important;
+
+/* Su: dalga sallanma animasyonu */
+body.theme-atla.atla-water .app-window::after {
+  content: "" !important;
   position: absolute !important;
-  top: 40px !important;
-  right: 40px !important;
-  color: rgba(126, 224, 255, 0.15) !important;
-  font-family: 'Noto Serif SC', serif !important;
-  font-size: 180px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
+  bottom: 0 !important;
+  left: 0 !important; right: 0 !important;
+  height: 100px !important;
+  background:
+    radial-gradient(ellipse at 20% 100%, rgba(79, 195, 217, 0.15), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(79, 195, 217, 0.12), transparent 50%);
+  background-size: 200px 60px, 250px 80px;
+  background-repeat: repeat-x;
   pointer-events: none !important;
-  text-shadow: 0 0 40px rgba(126, 224, 255, 0.4) !important;
-  animation: atlaSymbolPulse 4s ease-in-out infinite !important;
+  opacity: 0.7 !important;
+  animation: atlaWaveMove 8s ease-in-out infinite alternate !important;
+  z-index: 1 !important;
 }
-@keyframes atlaSymbolPulse {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.3; }
+@keyframes atlaWaveMove {
+  0% { background-position: 0 0, 0 0; transform: translateX(0); }
+  100% { background-position: 200px 0, -250px 0; transform: translateX(-20px); }
+}
+
+/* Su: dalga sembolü */
+body.theme-atla.atla-water .content-pane::before {
+  content: "🌊" !important;
+  position: absolute !important;
+  top: 14px !important;
+  right: 24px !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 44px !important;
+  color: rgba(79, 195, 217, 0.5) !important;
+  opacity: 1 !important;
+  background: none !important;
+  text-shadow: 0 0 20px rgba(79, 195, 217, 0.5) !important;
 }
 
 /* ===========================================
-   HAVA – Air Nomads (gri, beyaz, siyah)
+   HAVA ELEMENTİ – Air Nomads
    =========================================== */
 body.theme-atla.atla-air {
-  --atla-bg-1: #2a2a2a;
-  --atla-bg-2: #1a1a1a;
-  --atla-panel: rgba(42, 42, 42, 0.65);
-  --atla-panel-2: rgba(58, 58, 58, 0.7);
-  --atla-text: #e8e8e8;
-  --atla-text-dim: #9a9a9a;
-  --atla-border: #4a4a4a;
-  --atla-accent: var(--accent-color, #e0e0e0);
-  --atla-accent-glow: rgba(224, 224, 224, 0.4);
-  --atla-symbol: "气";
-  --atla-element-name: "AIR";
-  --atla-texture:
-    /* Rüzgar spirali */
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.04) 0%, transparent 40%),
-    repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg 15deg, rgba(255, 255, 255, 0.02) 15deg 20deg),
-    radial-gradient(ellipse at 50% 50%, rgba(224, 224, 224, 0.05) 0%, transparent 60%),
-    linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
-  --atla-texture-size: auto, auto, 200px 200px, auto, auto;
-  animation: atlaAirFloat 12s ease-in-out infinite !important;
+  --al-bg: #2a2f33;
+  --al-bg-2: #1a1e22;
+  --al-panel: rgba(50, 55, 60, 0.5);
+  --al-accent: #c8d4d8;
+  --al-text: #eef2f4;
+  --al-text-dim: #8a949a;
+  --al-border: #4a5560;
+  --al-glow: rgba(200, 212, 216, 0.4);
+  --al-symbol: "☁";
+  --al-symbol-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 60 Q 20 45, 35 45 Q 40 30, 55 30 Q 70 30, 75 45 Q 85 45, 85 60 Q 85 70, 75 70 L 30 70 Q 20 70, 20 60 Z' fill='none' stroke='%23c8d4d8' stroke-width='2'/><path d='M10 80 Q 30 75, 50 80 T 90 80' fill='none' stroke='%23c8d4d8' stroke-width='1.5' opacity='0.5'/></svg>");
+  --al-bg-image:
+    /* Yatay rüzgar çizgileri */
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 200px,
+      rgba(200, 212, 216, 0.06) 200px, rgba(200, 212, 216, 0.06) 400px,
+      transparent 400px, transparent 600px),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 100px,
+      rgba(200, 212, 216, 0.04) 100px, rgba(200, 212, 216, 0.04) 300px,
+      transparent 300px, transparent 500px),
+    /* Bulut desenleri */
+    radial-gradient(ellipse at 20% 15%, rgba(200, 212, 216, 0.08), transparent 30%),
+    radial-gradient(ellipse at 70% 25%, rgba(200, 212, 216, 0.06), transparent 35%),
+    radial-gradient(ellipse at 40% 60%, rgba(200, 212, 216, 0.05), transparent 30%),
+    radial-gradient(ellipse at 85% 75%, rgba(200, 212, 216, 0.07), transparent 30%),
+    /* Ana gradient */
+    linear-gradient(180deg, #2a2f33 0%, #1a1e22 100%);
+  --al-bg-size: 800px 100%, 600px 100%, auto, auto, auto, auto, auto;
+  --al-vignette: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.5) 100%);
+
+  /* Uçan parçacıklar */
+  --al-overlay:
+    radial-gradient(circle at 0% 30%, rgba(200, 212, 216, 0.6) 2px, transparent 3px),
+    radial-gradient(circle at 0% 50%, rgba(200, 212, 216, 0.4) 1.5px, transparent 2.5px),
+    radial-gradient(circle at 0% 70%, rgba(200, 212, 216, 0.5) 2px, transparent 3px);
+  --al-overlay-anim: atlaWindParticles 6s linear infinite;
 }
-@keyframes atlaAirFloat {
-  0%, 100% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
-  50% { background-position: 20px -20px, -20px 20px, 30px 30px, 0 0, 0 0; }
+
+@keyframes atlaWindParticles {
+  0% { background-position: -100px 0, -100px 40px, -100px 80px; }
+  100% { background-position: 110vw 0, 110vw 40px, 110vw 80px; }
 }
-body.theme-atla.atla-air .content-pane::before {
-  content: "气" !important;
+
+/* Hava: rüzgar esintisi animasyonu */
+body.theme-atla.atla-air .app-window::after {
+  content: "" !important;
   position: absolute !important;
-  top: 40px !important;
-  right: 40px !important;
-  color: rgba(224, 224, 224, 0.12) !important;
-  font-family: 'Noto Serif SC', serif !important;
-  font-size: 180px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(200, 212, 216, 0.06) 40%,
+      transparent 60%);
+  background-size: 100% 100%;
   pointer-events: none !important;
-  text-shadow: 0 0 40px rgba(224, 224, 224, 0.3) !important;
+  opacity: 0.8 !important;
+  animation: atlaWindGust 8s ease-in-out infinite !important;
+  z-index: 1 !important;
+}
+@keyframes atlaWindGust {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* Hava: bulut sembolü */
+body.theme-atla.atla-air .content-pane::before {
+  content: "☁" !important;
+  position: absolute !important;
+  top: 14px !important;
+  right: 24px !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 44px !important;
+  color: rgba(200, 212, 216, 0.4) !important;
+  opacity: 1 !important;
+  background: none !important;
+  text-shadow: 0 0 20px rgba(200, 212, 216, 0.4) !important;
 }
 
 /* ===========================================
-   ATEŞ – Fire Nation (kırmızı, turuncu)
+   ATEŞ ELEMENTİ – Fire Nation
    =========================================== */
 body.theme-atla.atla-fire {
-  --atla-bg-1: #2a0a0a;
-  --atla-bg-2: #1a0404;
-  --atla-panel: rgba(42, 10, 10, 0.65);
-  --atla-panel-2: rgba(58, 16, 16, 0.7);
-  --atla-text: #f0d8d0;
-  --atla-text-dim: #a06a5a;
-  --atla-border: #4a1a1a;
-  --atla-accent: var(--accent-color, #ff6b35);
-  --atla-accent-glow: rgba(255, 107, 53, 0.55);
-  --atla-symbol: "火";
-  --atla-element-name: "FIRE";
-  --atla-texture:
-    /* Alev */
-    radial-gradient(ellipse at 50% 100%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(255, 80, 40, 0.1) 0%, transparent 25%),
-    radial-gradient(circle at 80% 60%, rgba(255, 150, 60, 0.1) 0%, transparent 25%),
-    radial-gradient(circle at 50% 30%, rgba(255, 200, 100, 0.06) 0%, transparent 30%),
-    linear-gradient(180deg, #2a0a0a 0%, #1a0404 100%);
-  --atla-texture-size: auto, auto, auto, auto, auto;
-  animation: atlaFireFlicker 3s ease-in-out infinite !important;
-}
-@keyframes atlaFireFlicker {
-  0%, 100% { filter: brightness(1); }
-  25% { filter: brightness(1.06); }
-  50% { filter: brightness(0.97); }
-  75% { filter: brightness(1.04); }
-}
-body.theme-atla.atla-fire .content-pane::before {
-  content: "火" !important;
-  position: absolute !important;
-  top: 40px !important;
-  right: 40px !important;
-  color: rgba(255, 107, 53, 0.18) !important;
-  font-family: 'Noto Serif SC', serif !important;
-  font-size: 180px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  pointer-events: none !important;
-  text-shadow: 0 0 50px rgba(255, 107, 53, 0.5) !important;
-  animation: atlaFireSymbolFlicker 2s ease-in-out infinite !important;
-}
-@keyframes atlaFireSymbolFlicker {
-  0%, 100% { opacity: 0.18; }
-  30% { opacity: 0.28; }
-  60% { opacity: 0.15; }
-  80% { opacity: 0.32; }
+  --al-bg: #1a0a04;
+  --al-bg-2: #0d0502;
+  --al-panel: rgba(196, 43, 28, 0.15);
+  --al-accent: #ff6b35;
+  --al-text: #f5d8b8;
+  --al-text-dim: #a86540;
+  --al-border: #4a1a0a;
+  --al-glow: rgba(255, 107, 53, 0.5);
+  --al-symbol: "🔥";
+  --al-symbol-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 10 Q 45 30, 55 40 Q 65 30, 60 50 Q 70 55, 65 70 Q 75 75, 55 85 Q 45 90, 40 80 Q 30 75, 35 60 Q 25 55, 40 45 Q 35 30, 50 10 Z' fill='none' stroke='%23ff6b35' stroke-width='2'/></svg>");
+  --al-bg-image:
+    /* Alev örüntüsü - dikey */
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 40px,
+      rgba(255, 107, 53, 0.06) 40px, rgba(255, 107, 53, 0.06) 42px,
+      transparent 42px, transparent 90px),
+    /* Kıvılcım örüntüsü */
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 60px,
+      rgba(255, 200, 80, 0.05) 60px, rgba(255, 200, 80, 0.05) 61px,
+      transparent 61px, transparent 120px),
+    /* Yerden yükselen ateş glow */
+    radial-gradient(ellipse at 30% 100%, rgba(255, 107, 53, 0.2), transparent 45%),
+    radial-gradient(ellipse at 70% 100%, rgba(255, 60, 20, 0.18), transparent 45%),
+    radial-gradient(ellipse at 50% 90%, rgba(255, 200, 80, 0.1), transparent 50%),
+    /* Üstten duman */
+    radial-gradient(ellipse at 50% 0%, rgba(80, 30, 10, 0.4), transparent 50%),
+    /* Ana gradient */
+    linear-gradient(180deg, #1a0a04 0%, #0d0502 100%);
+  --al-bg-size: auto, auto, auto, auto, auto, auto, auto;
+  --al-vignette: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.7) 100%);
+
+  /* Uçan kıvılcımlar */
+  --al-overlay:
+    radial-gradient(circle at 10% 100%, rgba(255, 200, 80, 0.9) 2px, transparent 3px),
+    radial-gradient(circle at 30% 100%, rgba(255, 107, 53, 0.8) 1.5px, transparent 2.5px),
+    radial-gradient(circle at 50% 100%, rgba(255, 200, 80, 0.85) 2px, transparent 3px),
+    radial-gradient(circle at 70% 100%, rgba(255, 107, 53, 0.7) 1.5px, transparent 2.5px),
+    radial-gradient(circle at 90% 100%, rgba(255, 200, 80, 0.9) 2px, transparent 3px);
+  --al-overlay-anim: atlaSparksRise 5s linear infinite;
 }
 
-/* ===========================================
-   ANASAYFA ÖZEL – Avatar dairesi
-   =========================================== */
-body.theme-atla.atla-avatar .content-pane {
-  padding-top: 60px !important;
+@keyframes atlaSparksRise {
+  0% { background-position: 0 100vh, 0 100vh, 0 100vh, 0 100vh, 0 100vh; opacity: 1; }
+  100% { background-position: 20px -100vh, -30px -100vh, 15px -120vh, -20px -90vh, 25px -110vh; opacity: 0; }
+}
+
+/* Ateş: yerden yükselen alev animasyonu */
+body.theme-atla.atla-fire .app-window::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important; right: 0 !important;
+  height: 200px !important;
+  background:
+    radial-gradient(ellipse at 15% 100%, rgba(255, 107, 53, 0.3), transparent 40%),
+    radial-gradient(ellipse at 35% 100%, rgba(255, 200, 80, 0.25), transparent 40%),
+    radial-gradient(ellipse at 55% 100%, rgba(255, 60, 20, 0.28), transparent 40%),
+    radial-gradient(ellipse at 75% 100%, rgba(255, 107, 53, 0.3), transparent 40%),
+    radial-gradient(ellipse at 95% 100%, rgba(255, 200, 80, 0.25), transparent 40%);
+  background-size: 200px 150px, 250px 180px, 220px 160px, 240px 170px, 260px 190px;
+  background-repeat: repeat-x;
+  pointer-events: none !important;
+  animation: atlaFireFlicker 0.6s ease-in-out infinite alternate !important;
+  z-index: 1 !important;
+  mix-blend-mode: screen !important;
+}
+@keyframes atlaFireFlicker {
+  0% { transform: translateY(0) scaleY(1); opacity: 0.85; }
+  100% { transform: translateY(-8px) scaleY(1.1); opacity: 1; }
+}
+
+/* Ateş: alev sembolü */
+body.theme-atla.atla-fire .content-pane::before {
+  content: "🔥" !important;
+  position: absolute !important;
+  top: 14px !important;
+  right: 24px !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 44px !important;
+  color: rgba(255, 107, 53, 0.55) !important;
+  opacity: 1 !important;
+  background: none !important;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.6) !important;
+  animation: atlaFireFlickerIcon 0.8s ease-in-out infinite alternate !important;
+}
+@keyframes atlaFireFlickerIcon {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 0.85; transform: scale(1.05); }
+}
+
+/* Ateş: sıcak glow tüm pencerede */
+body.theme-atla.atla-fire .app-window {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(255, 107, 53, 0.3),
+    0 0 120px rgba(255, 60, 20, 0.15),
+    inset 0 0 80px rgba(255, 107, 53, 0.05) !important;
 }
