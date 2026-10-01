@@ -1,0 +1,1314 @@
+/* ===========================================
+   PIP-BOY THEME – Vault-Tec RobCo Terminal
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Major+Mono+Display&display=swap');
+
+/* ========== KÖK DEĞİŞKENLER ========== */
+body.theme-pipboy {
+  --accent-color: #14fe17;
+  --accent-glow: 0 0 8px rgba(20, 254, 23, 0.7);
+
+  /* Pip-Boy Green Phosphor Paleti */
+  --pip-green: #14fe17;
+  --pip-green-bright: #7aff7c;
+  --pip-green-dim: #0d8f10;
+  --pip-green-dark: #053a06;
+  --pip-green-deeper: #011a02;
+
+  --pip-amber: #feb414;
+  --pip-amber-dim: #8f6408;
+
+  --pip-red: #fe2b14;
+  --pip-red-dim: #8f1a0d;
+
+  --pip-bg: #051505;
+  --pip-bg-deep: #010a01;
+  --pip-bg-panel: #0a2409;
+  --pip-bg-elevated: #0f3310;
+
+  --pip-border: #1a5c1a;
+  --pip-border-bright: #14fe17;
+  --pip-border-dim: #0d3a0d;
+
+  --pip-text: #14fe17;
+  --pip-text-bright: #7aff7c;
+  --pip-text-dim: #0f8812;
+  --pip-text-hint: #0a5a0a;
+
+  background-color: #051505 !important;
+  background-image:
+    /* Phosphor glow spots */
+    radial-gradient(ellipse at 30% 30%, rgba(20, 254, 23, 0.06), transparent 50%),
+    radial-gradient(ellipse at 70% 70%, rgba(20, 254, 23, 0.04), transparent 50%),
+    /* Diagonal CRT pattern */
+    repeating-linear-gradient(
+      0deg,
+      rgba(20, 254, 23, 0.02) 0px,
+      rgba(20, 254, 23, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    ) !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', 'VT323', 'Courier New', monospace !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.5px !important;
+  text-shadow:
+    0 0 2px rgba(20, 254, 23, 0.8),
+    0 0 6px rgba(20, 254, 23, 0.4) !important;
+}
+
+/* ========== GENEL OVERRIDE ========== */
+body.theme-pipboy *,
+body.theme-pipboy *::before,
+body.theme-pipboy *::after {
+  font-family: 'Share Tech Mono', 'VT323', 'Courier New', monospace !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Scanline efekti */
+body.theme-pipboy::after {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 3px
+    ) !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  animation: pipScanline 6s linear infinite !important;
+  mix-blend-mode: multiply !important;
+  display: block !important;
+}
+@keyframes pipScanline {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 6px; }
+}
+
+/* Vignette + subtle flicker */
+body.theme-pipboy::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%) !important;
+  pointer-events: none !important;
+  z-index: 9998 !important;
+  animation: pipFlicker 0.15s infinite alternate !important;
+  display: block !important;
+}
+@keyframes pipFlicker {
+  0% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+/* ========== ANA PENCERE (Terminal Frame) ========== */
+body.theme-pipboy .app-window {
+  background: #051505 !important;
+  border: 4px solid #14fe17 !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 30px rgba(20, 254, 23, 0.4),
+    0 0 60px rgba(20, 254, 23, 0.15),
+    inset 0 0 60px rgba(20, 254, 23, 0.08) !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Köşe radyasyon sembolleri */
+body.theme-pipboy .app-window::after {
+  content: "☢" !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 12px !important;
+  color: #14fe17 !important;
+  font-size: 20px !important;
+  opacity: 0.5 !important;
+  text-shadow: 0 0 8px rgba(20, 254, 23, 0.9) !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  animation: pipRadBlink 3s ease-in-out infinite !important;
+}
+@keyframes pipRadBlink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* ========== BAŞLIK ÇUBUĞU ========== */
+body.theme-pipboy .title-bar {
+  background: #0a2409 !important;
+  border-bottom: 2px solid #14fe17 !important;
+  padding: 12px 20px !important;
+  height: auto !important;
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  box-shadow:
+    0 0 20px rgba(20, 254, 23, 0.3),
+    inset 0 -1px 0 rgba(20, 254, 23, 0.4) !important;
+}
+body.theme-pipboy .title-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #14fe17, transparent) !important;
+  display: block !important;
+  animation: pipTitleGlow 3s ease-in-out infinite !important;
+}
+@keyframes pipTitleGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+body.theme-pipboy .title-bar::after {
+  display: none !important;
+}
+body.theme-pipboy .title-bar-text {
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-style: normal !important;
+  text-shadow:
+    0 0 4px rgba(20, 254, 23, 0.9),
+    0 0 12px rgba(20, 254, 23, 0.5) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  line-height: 1.4 !important;
+}
+body.theme-pipboy .title-bar-text::before {
+  content: "▶" !important;
+  color: #14fe17 !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.9) !important;
+  display: inline !important;
+  animation: pipBlink 1.2s step-end infinite !important;
+}
+@keyframes pipBlink {
+  50% { opacity: 0; }
+}
+
+/* Sağdaki butonlar */
+body.theme-pipboy .window-buttons {
+  order: 1 !important;
+  display: flex !important;
+  gap: 4px !important;
+  margin-left: auto !important;
+}
+body.theme-pipboy .window-buttons span {
+  width: 24px !important;
+  height: 24px !important;
+  background: #0a2409 !important;
+  border: 2px solid #14fe17 !important;
+  border-radius: 0 !important;
+  box-shadow:
+    inset 0 0 6px rgba(20, 254, 23, 0.4),
+    0 0 6px rgba(20, 254, 23, 0.3) !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-pipboy .window-buttons span:hover {
+  background: #14fe17 !important;
+  border-color: #14fe17 !important;
+  box-shadow:
+    inset 0 0 8px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(20, 254, 23, 0.8) !important;
+}
+body.theme-pipboy .window-buttons span::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #14fe17 !important;
+  box-shadow: 0 0 4px rgba(20, 254, 23, 0.8) !important;
+}
+body.theme-pipboy .window-buttons span:hover::after {
+  background: #051505 !important;
+  box-shadow: none !important;
+}
+body.theme-pipboy .window-buttons span:nth-child(1)::after {
+  width: 10px !important;
+  height: 2px !important;
+}
+body.theme-pipboy .window-buttons span:nth-child(2)::after {
+  width: 10px !important;
+  height: 10px !important;
+  background: transparent !important;
+  border: 2px solid #14fe17 !important;
+}
+body.theme-pipboy .window-buttons span:nth-child(2):hover::after {
+  border-color: #051505 !important;
+}
+body.theme-pipboy .window-buttons span:nth-child(3)::after {
+  width: 10px !important;
+  height: 10px !important;
+  background:
+    linear-gradient(45deg, transparent 42%, #14fe17 42%, #14fe17 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #14fe17 42%, #14fe17 58%, transparent 58%) !important;
+}
+
+/* ========== MENÜ ÇUBUĞU ========== */
+body.theme-pipboy .menu-bar {
+  background: #010a01 !important;
+  border-bottom: 2px solid #0d3a0d !important;
+  padding: 0 12px !important;
+  gap: 2px !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+}
+body.theme-pipboy .menu-bar::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #14fe17 30%, transparent 70%, #14fe17, transparent) !important;
+  opacity: 0.4 !important;
+}
+body.theme-pipboy .menu-bar > * {
+  color: #0f8812 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 12px 20px !important;
+  border: none !important;
+  background: transparent !important;
+  border-bottom: 3px solid transparent !important;
+  text-shadow: 0 0 4px rgba(20, 254, 23, 0.4) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-pipboy .menu-bar > *::before {
+  display: none !important;
+  content: none !important;
+}
+body.theme-pipboy .menu-bar > *:hover {
+  background: transparent !important;
+  color: #14fe17 !important;
+  border-bottom-color: #14fe17 !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 15px rgba(20, 254, 23, 0.5) !important;
+  transform: none !important;
+}
+body.theme-pipboy .menu-bar > *.active {
+  color: #14fe17 !important;
+  border-bottom-color: #14fe17 !important;
+  text-shadow:
+    0 0 8px rgba(20, 254, 23, 0.9),
+    0 0 20px rgba(20, 254, 23, 0.5) !important;
+  font-weight: 400 !important;
+}
+
+/* ========== TOOLBAR (Sekmeler) ========== */
+body.theme-pipboy .toolbar {
+  background: #010a01 !important;
+  border-bottom: 2px solid #0d3a0d !important;
+  padding: 10px 16px !important;
+  gap: 4px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+body.theme-pipboy .toolbar a {
+  background: transparent !important;
+  border: 1px solid #0d3a0d !important;
+  color: #0f8812 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 7px 14px !important;
+  text-shadow: 0 0 4px rgba(20, 254, 23, 0.4) !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+  filter: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-pipboy .toolbar a::before,
+body.theme-pipboy .toolbar a::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-pipboy .toolbar a:hover {
+  background: rgba(20, 254, 23, 0.08) !important;
+  border-color: #14fe17 !important;
+  color: #14fe17 !important;
+  box-shadow:
+    0 0 12px rgba(20, 254, 23, 0.4),
+    inset 0 0 8px rgba(20, 254, 23, 0.1) !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 12px rgba(20, 254, 23, 0.5) !important;
+  transform: none !important;
+}
+body.theme-pipboy .toolbar a.active {
+  background: rgba(20, 254, 23, 0.15) !important;
+  border-color: #14fe17 !important;
+  color: #14fe17 !important;
+  box-shadow:
+    0 0 16px rgba(20, 254, 23, 0.6),
+    inset 0 0 12px rgba(20, 254, 23, 0.2) !important;
+  text-shadow:
+    0 0 8px rgba(20, 254, 23, 1),
+    0 0 16px rgba(20, 254, 23, 0.6) !important;
+}
+
+/* ========== SIDEBAR ========== */
+body.theme-pipboy .sidebar {
+  background: #010a01 !important;
+  border-right: 2px solid #0d3a0d !important;
+  padding: 16px 12px !important;
+  position: relative !important;
+}
+body.theme-pipboy .sidebar::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: -2px !important;
+  bottom: 0 !important;
+  width: 2px !important;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    #14fe17 20%,
+    #14fe17 80%,
+    transparent 100%) !important;
+  opacity: 0.6 !important;
+  animation: pipSidebarGlow 4s ease-in-out infinite !important;
+}
+@keyframes pipSidebarGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+body.theme-pipboy .sidebar-title {
+  background: transparent !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  border-bottom: 1px solid #0d3a0d !important;
+  padding: 10px 0 !important;
+  margin-bottom: 14px !important;
+  text-align: center !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 15px rgba(20, 254, 23, 0.5) !important;
+  position: relative !important;
+}
+body.theme-pipboy .sidebar-title::before {
+  content: "◄ " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+  animation: pipBlink 1.5s step-end infinite !important;
+}
+body.theme-pipboy .sidebar-title::after {
+  content: " ►" !important;
+  color: #14fe17 !important;
+  display: inline !important;
+  animation: pipBlink 1.5s step-end infinite !important;
+}
+body.theme-pipboy .sidebar ul {
+  gap: 4px !important;
+  margin-left: 0 !important;
+}
+body.theme-pipboy .sidebar li {
+  background: transparent !important;
+  border: none !important;
+  border-left: 2px solid transparent !important;
+  color: #0f8812 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 8px 12px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.3) !important;
+}
+body.theme-pipboy .sidebar li::before {
+  content: ">" !important;
+  color: #14fe17 !important;
+  margin-right: 8px !important;
+  display: inline !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.8) !important;
+}
+body.theme-pipboy .sidebar li:hover {
+  background: rgba(20, 254, 23, 0.05) !important;
+  border-left-color: #14fe17 !important;
+  color: #14fe17 !important;
+  padding-left: 16px !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 12px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy .sidebar li:hover::before {
+  opacity: 1 !important;
+}
+body.theme-pipboy .sidebar li.active {
+  background: rgba(20, 254, 23, 0.1) !important;
+  border-left-color: #14fe17 !important;
+  color: #14fe17 !important;
+  text-shadow:
+    0 0 8px rgba(20, 254, 23, 1),
+    0 0 16px rgba(20, 254, 23, 0.6) !important;
+}
+body.theme-pipboy .sidebar li.active::before {
+  opacity: 1 !important;
+  content: "▶" !important;
+}
+
+/* ========== İÇERİK ========== */
+body.theme-pipboy .content-pane {
+  background: transparent !important;
+  padding: 32px 40px !important;
+  color: #14fe17 !important;
+  position: relative !important;
+}
+
+/* ========== H1 ========== */
+body.theme-pipboy h1.article-title {
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 1.8rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 4px !important;
+  border-bottom: 2px solid #14fe17 !important;
+  padding: 0 0 14px 0 !important;
+  margin-bottom: 20px !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 1),
+    0 0 15px rgba(20, 254, 23, 0.7),
+    0 0 30px rgba(20, 254, 23, 0.4) !important;
+  background: none !important;
+  -webkit-text-fill-color: #14fe17 !important;
+  line-height: 1.3 !important;
+  position: relative !important;
+}
+body.theme-pipboy h1.article-title::before {
+  content: "► " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+  animation: pipBlink 1s step-end infinite !important;
+  margin-right: 4px !important;
+}
+body.theme-pipboy h1.article-title::after {
+  content: "█" !important;
+  color: #14fe17 !important;
+  display: inline !important;
+  margin-left: 8px !important;
+  animation: pipBlink 0.8s step-end infinite !important;
+  text-shadow: 0 0 8px rgba(20, 254, 23, 1) !important;
+}
+
+/* ========== H2 ========== */
+body.theme-pipboy h2 {
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 1.35rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 10px 0 10px 18px !important;
+  margin: 32px 0 16px !important;
+  border-left: 4px solid #14fe17 !important;
+  background: linear-gradient(90deg, rgba(20, 254, 23, 0.1) 0%, transparent 100%) !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 12px rgba(20, 254, 23, 0.5) !important;
+  position: relative !important;
+}
+body.theme-pipboy h2::before {
+  content: "▸ " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+  margin-right: 4px !important;
+  font-size: 1rem !important;
+}
+body.theme-pipboy h2::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, #14fe17 0%, transparent 60%) !important;
+  opacity: 0.5 !important;
+}
+
+/* ========== H3 ========== */
+body.theme-pipboy h3 {
+  color: #7aff7c !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  border-left: 3px solid #0f8812 !important;
+  padding-left: 14px !important;
+  margin: 22px 0 10px !important;
+  text-shadow:
+    0 0 5px rgba(20, 254, 23, 0.7),
+    0 0 10px rgba(20, 254, 23, 0.4) !important;
+}
+body.theme-pipboy h3::before {
+  content: "» " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+  margin-right: 4px !important;
+}
+
+/* ========== PARAGRAF & LINK ========== */
+body.theme-pipboy p {
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.6) !important;
+  margin-bottom: 1em !important;
+}
+body.theme-pipboy a {
+  color: #7aff7c !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed rgba(20, 254, 23, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-pipboy a:hover {
+  color: #14fe17 !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #14fe17 !important;
+  text-shadow:
+    0 0 8px rgba(20, 254, 23, 1),
+    0 0 15px rgba(20, 254, 23, 0.6) !important;
+}
+
+/* ========== INFOBOX ========== */
+body.theme-pipboy .infobox,
+body.theme-pipboy .warinfobox,
+body.theme-pipboy .krono-box,
+body.theme-pipboy .wiki-thumb,
+body.theme-pipboy .rff-box {
+  background: #051505 !important;
+  border: 2px solid #14fe17 !important;
+  border-radius: 0 !important;
+  padding: 16px !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 20px rgba(20, 254, 23, 0.3),
+    inset 0 0 20px rgba(20, 254, 23, 0.08) !important;
+  color: #14fe17 !important;
+  position: relative !important;
+}
+/* Radyasyon uyarı köşesi */
+body.theme-pipboy .infobox::before,
+body.theme-pipboy .warinfobox::before {
+  content: "☢" !important;
+  position: absolute !important;
+  top: -10px !important;
+  right: -10px !important;
+  color: #051505 !important;
+  background: #14fe17 !important;
+  width: 22px !important;
+  height: 22px !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  text-align: center !important;
+  box-shadow: 0 0 10px rgba(20, 254, 23, 0.8) !important;
+  z-index: 10 !important;
+  display: block !important;
+  text-shadow: none !important;
+}
+body.theme-pipboy .infobox::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-pipboy .infobox-title {
+  background: transparent !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-bottom: 1px solid #14fe17 !important;
+  padding: 0 0 10px 0 !important;
+  margin: 0 0 12px 0 !important;
+  text-align: center !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 15px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy .infobox-title::before {
+  content: "► " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+}
+body.theme-pipboy .infobox-subtitle {
+  color: #0f8812 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-style: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  font-size: 12px !important;
+  text-align: center !important;
+  text-shadow: 0 0 4px rgba(20, 254, 23, 0.4) !important;
+}
+body.theme-pipboy .infobox-label {
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 13px !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.6) !important;
+}
+body.theme-pipboy .infobox-value {
+  color: #7aff7c !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 13px !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy .infobox-row {
+  border-bottom: 1px dashed #0d3a0d !important;
+  padding: 6px 0 !important;
+}
+body.theme-pipboy .flag-box {
+  background: #010a01 !important;
+  border: 1px solid #0d3a0d !important;
+  padding: 8px !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-pipboy .flag-box:hover {
+  border-color: #14fe17 !important;
+  box-shadow: 0 0 15px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy .flag-box::after {
+  display: none !important;
+}
+body.theme-pipboy .flag-label,
+body.theme-pipboy .map-label {
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.6) !important;
+}
+body.theme-pipboy .infobox-map {
+  background: #010a01 !important;
+  border: 1px solid #0d3a0d !important;
+  padding: 6px !important;
+}
+
+/* ========== BLOCKQUOTE ========== */
+body.theme-pipboy blockquote {
+  background: rgba(20, 254, 23, 0.05) !important;
+  border-left: 4px solid #14fe17 !important;
+  border-top: 1px solid rgba(20, 254, 23, 0.15) !important;
+  border-bottom: 1px solid rgba(20, 254, 23, 0.15) !important;
+  border-radius: 0 !important;
+  padding: 16px 22px !important;
+  color: #7aff7c !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-style: normal !important;
+  font-size: 15px !important;
+  text-shadow: 0 0 4px rgba(20, 254, 23, 0.6) !important;
+  box-shadow: inset 6px 0 20px rgba(20, 254, 23, 0.08) !important;
+  margin: 16px 0 !important;
+  position: relative !important;
+}
+body.theme-pipboy blockquote::before {
+  content: "► " !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 14px !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  opacity: 1 !important;
+  margin-right: 6px !important;
+  animation: none !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.8) !important;
+  display: inline !important;
+}
+
+/* ========== DETAILS ========== */
+body.theme-pipboy details {
+  background: #010a01 !important;
+  border: 1px solid #0d3a0d !important;
+  border-radius: 0 !important;
+  margin: 14px 0 !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-pipboy details:hover {
+  border-color: #14fe17 !important;
+}
+body.theme-pipboy details[open] {
+  border-color: #14fe17 !important;
+  box-shadow: 0 0 20px rgba(20, 254, 23, 0.3) !important;
+}
+body.theme-pipboy summary {
+  background: linear-gradient(90deg, rgba(20, 254, 23, 0.08) 0%, transparent 100%) !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 12px 18px !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid transparent !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.7) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-pipboy details[open] summary {
+  border-bottom-color: #0d3a0d !important;
+}
+body.theme-pipboy summary:hover {
+  background: linear-gradient(90deg, rgba(20, 254, 23, 0.15) 0%, transparent 100%) !important;
+  color: #14fe17 !important;
+  text-shadow:
+    0 0 8px rgba(20, 254, 23, 0.9),
+    0 0 15px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy summary::before {
+  content: "► " !important;
+  color: #14fe17 !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.8) !important;
+  animation: none !important;
+}
+body.theme-pipboy details[open] summary::before {
+  content: "▼ " !important;
+  transform: none !important;
+}
+body.theme-pipboy .details-content {
+  background: #051505 !important;
+  border-top: none !important;
+  padding: 14px 20px !important;
+  color: #14fe17 !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.6) !important;
+}
+
+/* ========== BUTONLAR ========== */
+body.theme-pipboy .vid-button,
+body.theme-pipboy .qa-button,
+body.theme-pipboy .lightbox-download {
+  background: #051505 !important;
+  border: 2px solid #14fe17 !important;
+  border-radius: 0 !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 10px 22px !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 12px rgba(20, 254, 23, 0.3),
+    inset 0 0 8px rgba(20, 254, 23, 0.1) !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.7) !important;
+  transition: all 0.2s ease !important;
+  filter: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-pipboy .vid-button:hover,
+body.theme-pipboy .qa-button:hover,
+body.theme-pipboy .lightbox-download:hover {
+  background: #14fe17 !important;
+  color: #051505 !important;
+  border-color: #14fe17 !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 25px rgba(20, 254, 23, 0.8),
+    0 0 40px rgba(20, 254, 23, 0.4) !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+body.theme-pipboy .vid-button::before {
+  content: "▶ " !important;
+  color: inherit !important;
+  animation: none !important;
+}
+
+/* ========== TABLOLAR ========== */
+body.theme-pipboy .players-table {
+  background: #051505 !important;
+  border: 2px solid #14fe17 !important;
+  border-radius: 0 !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 20px rgba(20, 254, 23, 0.3) !important;
+}
+body.theme-pipboy .players-table th {
+  background: linear-gradient(180deg, rgba(20, 254, 23, 0.15) 0%, rgba(20, 254, 23, 0.05) 100%) !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-bottom: 2px solid #14fe17 !important;
+  padding: 12px 16px !important;
+  font-size: 12px !important;
+  text-shadow:
+    0 0 5px rgba(20, 254, 23, 0.9),
+    0 0 12px rgba(20, 254, 23, 0.5) !important;
+  text-align: left !important;
+}
+body.theme-pipboy .players-table th::before {
+  content: "► " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+  font-size: 10px !important;
+}
+body.theme-pipboy .players-table td {
+  color: #14fe17 !important;
+  border-bottom: 1px dashed #0d3a0d !important;
+  padding: 10px 16px !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy .players-table tr:last-child td {
+  border-bottom: none !important;
+}
+body.theme-pipboy .players-table tr:hover td {
+  background: rgba(20, 254, 23, 0.08) !important;
+  color: #7aff7c !important;
+}
+body.theme-pipboy .players-table a {
+  color: #7aff7c !important;
+  border-bottom: 1px dashed rgba(20, 254, 23, 0.5) !important;
+}
+
+/* ========== STATUS BAR (Vault-Tec info) ========== */
+body.theme-pipboy .status-bar {
+  background: #010a01 !important;
+  border-top: 2px solid #14fe17 !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
+  padding: 10px 18px !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.7) !important;
+  box-shadow:
+    0 -2px 15px rgba(20, 254, 23, 0.2),
+    inset 0 1px 0 rgba(20, 254, 23, 0.3) !important;
+  position: relative !important;
+}
+body.theme-pipboy .status-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #14fe17, transparent) !important;
+  opacity: 0.6 !important;
+  display: block !important;
+}
+body.theme-pipboy .status-bar span:first-child::before {
+  content: "☢ " !important;
+  color: #14fe17 !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.9) !important;
+  animation: pipRadBlink 2s ease-in-out infinite !important;
+  display: inline !important;
+  margin-right: 4px !important;
+}
+
+/* ========== MODAL ========== */
+body.theme-pipboy .lightbox-window,
+body.theme-pipboy .video-window {
+  background: #051505 !important;
+  border: 3px solid #14fe17 !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(20, 254, 23, 0.5),
+    0 0 80px rgba(20, 254, 23, 0.2),
+    inset 0 0 40px rgba(20, 254, 23, 0.1) !important;
+  overflow: hidden !important;
+}
+body.theme-pipboy .lightbox-title-bar,
+body.theme-pipboy .video-title-bar {
+  background: #0a2409 !important;
+  color: #14fe17 !important;
+  border-bottom: 2px solid #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  padding: 12px 16px !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.8) !important;
+}
+body.theme-pipboy .lightbox-title-bar::before,
+body.theme-pipboy .video-title-bar::before {
+  content: "► " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+}
+body.theme-pipboy .lightbox-close,
+body.theme-pipboy .video-close {
+  background: transparent !important;
+  border: 2px solid #14fe17 !important;
+  color: #14fe17 !important;
+  border-radius: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.7) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-pipboy .lightbox-close:hover,
+body.theme-pipboy .video-close:hover {
+  background: #14fe17 !important;
+  color: #051505 !important;
+  box-shadow: 0 0 20px rgba(20, 254, 23, 0.8) !important;
+  text-shadow: none !important;
+}
+body.theme-pipboy .video-controls {
+  background: #010a01 !important;
+  border-top: 1px solid #0d3a0d !important;
+  padding: 12px !important;
+  gap: 6px !important;
+}
+body.theme-pipboy .video-controls button {
+  background: transparent !important;
+  border: 1px solid #14fe17 !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 7px 14px !important;
+  font-size: 12px !important;
+  border-radius: 0 !important;
+  text-shadow: 0 0 4px rgba(20, 254, 23, 0.6) !important;
+  transition: all 0.2s ease !important;
+}
+body.theme-pipboy .video-controls button:hover {
+  background: #14fe17 !important;
+  color: #051505 !important;
+  box-shadow: 0 0 15px rgba(20, 254, 23, 0.7) !important;
+  text-shadow: none !important;
+}
+body.theme-pipboy .video-controls a {
+  background: #14fe17 !important;
+  color: #051505 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 7px 16px !important;
+  border: 1px solid #14fe17 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 15px rgba(20, 254, 23, 0.5) !important;
+  text-shadow: none !important;
+  font-size: 12px !important;
+}
+body.theme-pipboy .video-controls a:hover {
+  background: #7aff7c !important;
+  box-shadow: 0 0 25px rgba(20, 254, 23, 0.8) !important;
+}
+
+/* ========== XP EXPLORER ========== */
+body.theme-pipboy .xp-explorer,
+body.theme-pipboy .xp-tree,
+body.theme-pipboy .xp-preview-pane {
+  background: #051505 !important;
+  border-color: #0d3a0d !important;
+}
+body.theme-pipboy .xp-tree-title,
+body.theme-pipboy .xp-file-header {
+  background: linear-gradient(90deg, rgba(20, 254, 23, 0.15) 0%, transparent 100%) !important;
+  color: #14fe17 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  border-color: #14fe17 !important;
+  padding: 10px 14px !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.8),
+    0 0 12px rgba(20, 254, 23, 0.4) !important;
+  font-size: 12px !important;
+}
+body.theme-pipboy .xp-tree-title::before,
+body.theme-pipboy .xp-file-header::before {
+  content: "► " !important;
+  color: #14fe17 !important;
+  display: inline !important;
+}
+body.theme-pipboy .xp-file-item,
+body.theme-pipboy .xp-tree-item {
+  color: #0f8812 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 8px 12px 8px 22px !important;
+  margin: 1px 0 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.4) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-pipboy .xp-file-item::before,
+body.theme-pipboy .xp-tree-item::before {
+  content: ">" !important;
+  position: absolute !important;
+  left: 6px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #14fe17 !important;
+  opacity: 0 !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.8) !important;
+  transition: opacity 0.2s ease !important;
+}
+body.theme-pipboy .xp-file-item:hover,
+body.theme-pipboy .xp-tree-item:hover {
+  background: rgba(20, 254, 23, 0.05) !important;
+  color: #14fe17 !important;
+  box-shadow: none !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 12px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy .xp-file-item:hover::before,
+body.theme-pipboy .xp-tree-item:hover::before {
+  opacity: 1 !important;
+}
+body.theme-pipboy .xp-file-item.selected,
+body.theme-pipboy .xp-tree-item.active {
+  background: rgba(20, 254, 23, 0.12) !important;
+  color: #14fe17 !important;
+  box-shadow: inset 3px 0 0 #14fe17 !important;
+  text-shadow:
+    0 0 8px rgba(20, 254, 23, 1),
+    0 0 15px rgba(20, 254, 23, 0.6) !important;
+}
+body.theme-pipboy .xp-file-item.selected::before,
+body.theme-pipboy .xp-tree-item.active::before {
+  opacity: 1 !important;
+  content: "▶" !important;
+}
+body.theme-pipboy .xp-preview-text {
+  background: #010a01 !important;
+  border: 1px solid #0d3a0d !important;
+  border-radius: 0 !important;
+  color: #14fe17 !important;
+  padding: 14px !important;
+  box-shadow: inset 0 0 20px rgba(20, 254, 23, 0.08) !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.5) !important;
+  line-height: 1.75 !important;
+}
+
+/* ========== DROPDOWN ========== */
+body.theme-pipboy ~ .view-dropdown-fixed,
+body.theme-pipboy .view-dropdown-fixed {
+  background: #051505 !important;
+  border: 2px solid #14fe17 !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(20, 254, 23, 0.5),
+    inset 0 0 30px rgba(20, 254, 23, 0.1) !important;
+  padding: 10px !important;
+}
+body.theme-pipboy .view-dropdown-fixed * {
+  font-family: 'Share Tech Mono', monospace !important;
+}
+body.theme-pipboy .view-dropdown-fixed span {
+  color: #14fe17 !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-weight: 400 !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.7) !important;
+}
+body.theme-pipboy .view-dropdown-fixed [data-z],
+body.theme-pipboy .view-dropdown-fixed .zoom-value {
+  background: #010a01 !important;
+  border: 1px solid #14fe17 !important;
+  color: #14fe17 !important;
+  border-radius: 0 !important;
+  box-shadow:
+    inset 0 0 8px rgba(20, 254, 23, 0.15),
+    0 0 6px rgba(20, 254, 23, 0.2) !important;
+  font-weight: 400 !important;
+  text-shadow: 0 0 5px rgba(20, 254, 23, 0.6) !important;
+  font-size: 13px !important;
+}
+body.theme-pipboy .view-dropdown-fixed [data-z]:hover {
+  background: #14fe17 !important;
+  color: #051505 !important;
+  box-shadow: 0 0 15px rgba(20, 254, 23, 0.7) !important;
+  text-shadow: none !important;
+}
+body.theme-pipboy .view-dropdown-fixed .theme-item {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: #0f8812 !important;
+  border-radius: 0 !important;
+  padding: 10px 14px 10px 26px !important;
+  transition: all 0.2s ease !important;
+  text-shadow: 0 0 3px rgba(20, 254, 23, 0.4) !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  position: relative !important;
+  font-size: 13px !important;
+}
+body.theme-pipboy .view-dropdown-fixed .theme-item::before {
+  content: ">" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #14fe17 !important;
+  opacity: 0 !important;
+  text-shadow: 0 0 6px rgba(20, 254, 23, 0.8) !important;
+  transition: opacity 0.2s ease !important;
+}
+body.theme-pipboy .view-dropdown-fixed .theme-item:hover {
+  background: rgba(20, 254, 23, 0.08) !important;
+  border-color: #14fe17 !important;
+  color: #14fe17 !important;
+  text-shadow:
+    0 0 6px rgba(20, 254, 23, 0.9),
+    0 0 12px rgba(20, 254, 23, 0.5) !important;
+}
+body.theme-pipboy .view-dropdown-fixed .theme-item:hover::before {
+  opacity: 1 !important;
+}
+body.theme-pipboy .view-dropdown-fixed .theme-item.active {
+  background: rgba(20, 254, 23, 0.15) !important;
+  border-color: #14fe17 !important;
+  color: #14fe17 !important;
+  box-shadow: 0 0 12px rgba(20, 254, 23, 0.4) !important;
+  text-shadow:
+    0 0 8px rgba(20, 254, 23, 1),
+    0 0 15px rgba(20, 254, 23, 0.6) !important;
+}
+body.theme-pipboy .view-dropdown-fixed .theme-item.active::before {
+  opacity: 1 !important;
+  content: "▶" !important;
+}
+body.theme-pipboy .view-dropdown-fixed .theme-item span {
+  color: inherit !important;
+  font-size: 13px !important;
+}
+
+/* ========== SCROLLBAR ========== */
+body.theme-pipboy ::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+}
+body.theme-pipboy ::-webkit-scrollbar-track {
+  background: #010a01 !important;
+  border: 1px solid #0d3a0d !important;
+}
+body.theme-pipboy ::-webkit-scrollbar-thumb {
+  background: #0f8812 !important;
+  border: 1px solid #14fe17 !important;
+  border-radius: 0 !important;
+  box-shadow:
+    inset 0 0 6px rgba(20, 254, 23, 0.5),
+    0 0 6px rgba(20, 254, 23, 0.3) !important;
+}
+body.theme-pipboy ::-webkit-scrollbar-thumb:hover {
+  background: #14fe17 !important;
+  box-shadow: 0 0 12px rgba(20, 254, 23, 0.8) !important;
+}
+body.theme-pipboy ::-webkit-scrollbar-corner {
+  background: #010a01 !important;
+}
+
+/* ========== SELECTION ========== */
+body.theme-pipboy ::selection {
+  background: #14fe17 !important;
+  color: #051505 !important;
+  text-shadow: none !important;
+}
+
+/* ========== EKSTRA: Vault-Tec logosu ========== */
+body.theme-pipboy .content-pane::before {
+  content: "VAULT-TEC // ROBCO IND.™" !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 20px !important;
+  color: #0f8812 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 2px !important;
+  opacity: 0.5 !important;
+  text-shadow: 0 0 4px rgba(20, 254, 23, 0.4) !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* ========== EKSTRA: Data stream top line ========== */
+body.theme-pipboy .app-window::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #14fe17, transparent) !important;
+  opacity: 0.7 !important;
+  animation: pipDataStream 4s linear infinite !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  box-shadow: 0 0 10px rgba(20, 254, 23, 0.8) !important;
+}
+@keyframes pipDataStream {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}

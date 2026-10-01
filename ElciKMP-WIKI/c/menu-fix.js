@@ -17,14 +17,16 @@
 
   /* ===== TEMA KAYIT DEFTERİ ===== */
   const THEMES = [
-    { id: 'datapad',    name: 'Datapad Teması',      desc: 'GitHub Glass',        file: null },
-    { id: 'halflife',   name: 'Half-Life Teması',    desc: 'Valve HL2 Terminal',  file: 'themes/halflife.css' },
-    { id: 'matrix',     name: 'Matrix Teması',       desc: 'Digital Rain',        file: 'themes/matrix.css' },
-    { id: 'winxp',      name: 'Windows XP Teması',   desc: 'Luna Blue Classic',   file: 'themes/winxp.css' },
-    { id: 'win11',      name: 'Windows 11 Teması',   desc: 'Fluent Dark / Mica',  file: 'themes/win11.css' },
-    { id: 'github',     name: 'GitHub Teması',       desc: 'Official GitHub Dark', file: 'themes/github.css' },
-    { id: 'synthwave',  name: 'Synthwave Teması',    desc: 'Retro Neon 80s',      file: 'themes/synthwave.css' },
-    { id: 'minecraft',  name: 'Minecraft Theme',    desc: 'Authentic Blocky UI',  file: 'themes/minecraft.css' }
+    { id: 'datapad',    name: 'Datapad Theme',      desc: 'GitHub Glass',         file: null },
+    { id: 'halflife',   name: 'Half-Life Theme',    desc: 'Valve HL2 Terminal',   file: 'themes/halflife.css' },
+    { id: 'matrix',     name: 'Matrix Theme',       desc: 'Digital Rain',         file: 'themes/matrix.css' },
+    { id: 'winxp',      name: 'Windows XP Theme',   desc: 'Luna Blue Classic',    file: 'themes/winxp.css' },
+    { id: 'win11',      name: 'Windows 11 Theme',   desc: 'Fluent Dark / Mica',   file: 'themes/win11.css' },
+    { id: 'github',     name: 'GitHub Theme',       desc: 'Official GitHub Dark', file: 'themes/github.css' },
+    { id: 'synthwave',  name: 'Synthwave Theme',    desc: 'Retro Neon 80s',       file: 'themes/synthwave.css' },
+    { id: 'minecraft',  name: 'Minecraft Theme',    desc: 'Authentic Blocky UI',  file: 'themes/minecraft.css' },
+    { id: 'undertale',  name: 'Undertale Theme',    desc: 'Determination Mono',   file: 'themes/undertale.css' },
+    { id: 'pipboy',     name: 'Pip-Boy Theme',      desc: 'Vault-Tec RobCo',      file: 'themes/pipboy.css' }
   ];
 
   const themeDefaults = {
@@ -35,7 +37,9 @@
     win11:     '#60cdff',
     github:    '#58a6ff',
     synthwave: '#ff2e97',
-    minecraft: '#7cfc00'
+    minecraft: '#7cfc00',
+    undertale: '#ff0000',
+    pipboy:    '#14fe17'
   };
 
   /* ===========================================

@@ -1,0 +1,1095 @@
+/* ===========================================
+   UNDERTALE THEME – Determination Mono
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=DotGothic16&display=swap');
+
+/* ========== KÖK DEĞİŞKENLER ========== */
+body.theme-undertale {
+  --accent-color: #ff0000;
+  --accent-glow: 0 0 4px rgba(255, 0, 0, 0.6);
+
+  --ut-black: #000000;
+  --ut-white: #ffffff;
+  --ut-red: #ff0000;
+  --ut-red-dim: #a00000;
+  --ut-yellow: #ffff00;
+  --ut-orange: #ff8800;
+  --ut-green: #00ff00;
+  --ut-cyan: #00ffff;
+  --ut-grey: #808080;
+  --ut-grey-dim: #404040;
+
+  --ut-text: #ffffff;
+  --ut-text-shadow: #000000;
+  --ut-text-dim: #c0c0c0;
+  --ut-text-hint: #808080;
+
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  font-family: 'DotGothic16', 'Silkscreen', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.3px !important;
+  text-shadow: none !important;
+  image-rendering: pixelated !important;
+}
+
+/* ========== GENEL OVERRIDE ========== */
+body.theme-undertale *,
+body.theme-undertale *::before,
+body.theme-undertale *::after {
+  font-family: 'DotGothic16', 'Silkscreen', 'Courier New', monospace !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  image-rendering: pixelated !important;
+  text-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* VHS katmanlarını kapat */
+body.theme-undertale::after,
+body.theme-undertale::before {
+  display: none !important;
+}
+
+/* ========== ANA PENCERE ========== */
+body.theme-undertale .app-window {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff,
+    0 0 30px rgba(255, 255, 255, 0.08) !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  padding: 3px !important;
+}
+
+/* ========== BAŞLIK ÇUBUĞU ========== */
+body.theme-undertale .title-bar {
+  background: #000000 !important;
+  border-bottom: 3px solid #ffffff !important;
+  padding: 12px 16px !important;
+  height: auto !important;
+  min-height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+}
+body.theme-undertale .title-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -3px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background:
+    repeating-linear-gradient(90deg,
+      #ffffff 0px,
+      #ffffff 6px,
+      #000000 6px,
+      #000000 9px) !important;
+  display: block !important;
+}
+body.theme-undertale .title-bar::after {
+  display: none !important;
+}
+body.theme-undertale .title-bar-text {
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-style: normal !important;
+  text-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  line-height: 1.5 !important;
+}
+body.theme-undertale .title-bar-text::before {
+  content: "♥" !important;
+  color: #ff0000 !important;
+  font-size: 14px !important;
+  font-family: 'Press Start 2P', monospace !important;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8) !important;
+  display: inline !important;
+  animation: utHeartBeat 1.2s ease-in-out infinite !important;
+}
+@keyframes utHeartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Sağdaki butonlar */
+body.theme-undertale .window-buttons {
+  order: 1 !important;
+  display: flex !important;
+  gap: 4px !important;
+  margin-left: auto !important;
+}
+body.theme-undertale .window-buttons span {
+  width: 22px !important;
+  height: 22px !important;
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-undertale .window-buttons span:hover {
+  background: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+body.theme-undertale .window-buttons span::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #ffffff !important;
+}
+body.theme-undertale .window-buttons span:hover::after {
+  background: #000000 !important;
+}
+body.theme-undertale .window-buttons span:nth-child(1)::after {
+  width: 9px !important;
+  height: 2px !important;
+}
+body.theme-undertale .window-buttons span:nth-child(2)::after {
+  width: 9px !important;
+  height: 9px !important;
+  background: transparent !important;
+  border: 2px solid #ffffff !important;
+}
+body.theme-undertale .window-buttons span:nth-child(2):hover::after {
+  border-color: #000000 !important;
+}
+body.theme-undertale .window-buttons span:nth-child(3)::after {
+  width: 9px !important;
+  height: 9px !important;
+  background:
+    linear-gradient(45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%) !important;
+}
+
+/* ========== MENÜ ÇUBUĞU ========== */
+body.theme-undertale .menu-bar {
+  background: #000000 !important;
+  border-bottom: 3px solid #ffffff !important;
+  padding: 10px 16px !important;
+  gap: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+body.theme-undertale .menu-bar > * {
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 6px 14px !important;
+  border: none !important;
+  background: transparent !important;
+  text-shadow: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+  line-height: 1.5 !important;
+}
+body.theme-undertale .menu-bar > *::before {
+  content: "♥ " !important;
+  color: transparent !important;
+  display: inline !important;
+  margin-right: 2px !important;
+}
+body.theme-undertale .menu-bar > *:hover {
+  background: transparent !important;
+  color: #ffff00 !important;
+  transform: none !important;
+}
+body.theme-undertale .menu-bar > *:hover::before {
+  color: #ff0000 !important;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+body.theme-undertale .menu-bar > *.active {
+  color: #ffff00 !important;
+  background: transparent !important;
+}
+body.theme-undertale .menu-bar > *.active::before {
+  color: #ff0000 !important;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+
+/* ========== TOOLBAR (Sekmeler) ========== */
+body.theme-undertale .toolbar {
+  background: #000000 !important;
+  border-bottom: 3px solid #ffffff !important;
+  padding: 10px 16px !important;
+  gap: 6px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+body.theme-undertale .toolbar a {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 9px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 8px 12px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  line-height: 1.4 !important;
+}
+body.theme-undertale .toolbar a::before,
+body.theme-undertale .toolbar a::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-undertale .toolbar a:hover {
+  background: #000000 !important;
+  border-color: #ffff00 !important;
+  color: #ffff00 !important;
+  transform: none !important;
+}
+body.theme-undertale .toolbar a.active {
+  background: #ffff00 !important;
+  border-color: #ffff00 !important;
+  color: #000000 !important;
+  box-shadow: none !important;
+}
+
+/* ========== SIDEBAR ========== */
+body.theme-undertale .sidebar {
+  background: #000000 !important;
+  border-right: 3px solid #ffffff !important;
+  padding: 18px 12px !important;
+  position: relative !important;
+}
+body.theme-undertale .sidebar::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: -3px !important;
+  bottom: 0 !important;
+  width: 3px !important;
+  background:
+    repeating-linear-gradient(180deg,
+      #ffffff 0px,
+      #ffffff 6px,
+      #000000 6px,
+      #000000 9px) !important;
+}
+body.theme-undertale .sidebar-title {
+  background: transparent !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 9px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-bottom: 2px solid #ffffff !important;
+  padding: 10px 0 !important;
+  margin-bottom: 14px !important;
+  text-align: center !important;
+  line-height: 1.5 !important;
+}
+body.theme-undertale .sidebar-title::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+body.theme-undertale .sidebar-title::after {
+  content: " *" !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+body.theme-undertale .sidebar ul {
+  gap: 4px !important;
+  margin-left: 0 !important;
+}
+body.theme-undertale .sidebar li {
+  background: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  color: #ffffff !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  padding: 6px 10px 6px 24px !important;
+  margin-bottom: 2px !important;
+  cursor: pointer !important;
+  position: relative !important;
+  line-height: 1.5 !important;
+}
+body.theme-undertale .sidebar li::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: transparent !important;
+  clip-path: polygon(
+    20% 0%, 40% 0%, 40% 20%, 60% 20%, 60% 0%, 80% 0%, 80% 20%,
+    100% 20%, 100% 60%, 80% 60%, 80% 80%, 60% 80%, 60% 100%,
+    40% 100%, 40% 80%, 20% 80%, 20% 60%, 0% 60%, 0% 20%, 20% 20%
+  );
+  display: block !important;
+  opacity: 0 !important;
+}
+body.theme-undertale .sidebar li:hover {
+  background: transparent !important;
+  color: #ffff00 !important;
+}
+body.theme-undertale .sidebar li:hover::before {
+  background: #ff0000 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+body.theme-undertale .sidebar li.active {
+  background: transparent !important;
+  color: #ffff00 !important;
+}
+body.theme-undertale .sidebar li.active::before {
+  background: #ff0000 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+
+/* ========== İÇERİK ========== */
+body.theme-undertale .content-pane {
+  background: #000000 !important;
+  padding: 28px 36px !important;
+  color: #ffffff !important;
+  position: relative !important;
+}
+
+/* ========== H1 ========== */
+body.theme-undertale h1.article-title {
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 1px !important;
+  border-bottom: 3px solid #ffffff !important;
+  padding: 0 0 14px 0 !important;
+  margin-bottom: 20px !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale h1.article-title::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+  margin-right: 4px !important;
+}
+body.theme-undertale h1.article-title::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== H2 ========== */
+body.theme-undertale h2 {
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 0 10px 0 !important;
+  margin: 28px 0 14px !important;
+  border: none !important;
+  border-bottom: 2px solid #ffffff !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale h2::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+  margin-right: 4px !important;
+}
+body.theme-undertale h2::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== H3 ========== */
+body.theme-undertale h3 {
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  border-left: none !important;
+  padding: 0 0 0 18px !important;
+  margin: 22px 0 10px !important;
+  line-height: 1.6 !important;
+  position: relative !important;
+}
+body.theme-undertale h3::before {
+  content: ">" !important;
+  color: #ff0000 !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6) !important;
+}
+
+/* ========== PARAGRAF & LINK ========== */
+body.theme-undertale p {
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+  color: #ffffff !important;
+  font-family: 'DotGothic16', monospace !important;
+  margin-bottom: 1.1em !important;
+}
+body.theme-undertale a {
+  color: #ffff00 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed #ffff00 !important;
+}
+body.theme-undertale a:hover {
+  color: #ff0000 !important;
+  border-bottom-color: #ff0000 !important;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6) !important;
+  border-bottom-style: solid !important;
+}
+
+/* ========== INFOBOX ========== */
+body.theme-undertale .infobox,
+body.theme-undertale .warinfobox,
+body.theme-undertale .krono-box,
+body.theme-undertale .wiki-thumb,
+body.theme-undertale .rff-box {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  padding: 14px !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff !important;
+  color: #ffffff !important;
+}
+body.theme-undertale .infobox::before,
+body.theme-undertale .infobox::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-undertale .infobox-title {
+  background: transparent !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  border-bottom: 2px solid #ffffff !important;
+  padding: 0 0 10px 0 !important;
+  margin: 0 0 12px 0 !important;
+  text-align: left !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale .infobox-title::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+body.theme-undertale .infobox-subtitle {
+  color: #c0c0c0 !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-style: normal !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 12px !important;
+  text-align: left !important;
+}
+body.theme-undertale .infobox-label {
+  color: #ff0000 !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 13px !important;
+}
+body.theme-undertale .infobox-value {
+  color: #ffffff !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-size: 13px !important;
+}
+body.theme-undertale .infobox-row {
+  border-bottom: 2px solid #404040 !important;
+  padding: 5px 0 !important;
+}
+body.theme-undertale .infobox-row:last-child {
+  border-bottom: none !important;
+}
+body.theme-undertale .flag-box {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  padding: 6px !important;
+}
+body.theme-undertale .flag-box::after {
+  display: none !important;
+}
+body.theme-undertale .flag-label,
+body.theme-undertale .map-label {
+  color: #ffffff !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 12px !important;
+}
+body.theme-undertale .infobox-map {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  padding: 5px !important;
+}
+
+/* ========== BLOCKQUOTE ========== */
+body.theme-undertale blockquote {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  padding: 16px 20px !important;
+  color: #ffffff !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-style: normal !important;
+  font-size: 15px !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff !important;
+  margin: 16px 0 !important;
+  position: relative !important;
+  line-height: 1.85 !important;
+}
+body.theme-undertale blockquote::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 11px !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  opacity: 1 !important;
+  margin-right: 6px !important;
+  display: inline !important;
+}
+body.theme-undertale blockquote p {
+  color: #ffffff !important;
+  display: inline !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+}
+
+/* ========== DETAILS ========== */
+body.theme-undertale details {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  margin: 14px 0 !important;
+  overflow: hidden !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff !important;
+}
+body.theme-undertale summary {
+  background: #000000 !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  padding: 12px 16px !important;
+  font-size: 10px !important;
+  border-bottom: 2px solid #ffffff !important;
+  cursor: pointer !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale summary:hover {
+  background: #000000 !important;
+  color: #ffff00 !important;
+}
+body.theme-undertale summary::before {
+  content: "▶ " !important;
+  color: #ff0000 !important;
+  font-size: 9px !important;
+  margin-right: 6px !important;
+  display: inline !important;
+}
+body.theme-undertale details[open] summary::before {
+  content: "▼ " !important;
+  transform: none !important;
+}
+body.theme-undertale .details-content {
+  background: #000000 !important;
+  border-top: none !important;
+  padding: 14px 18px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+}
+body.theme-undertale .details-content::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+
+/* ========== BUTONLAR ========== */
+body.theme-undertale .vid-button,
+body.theme-undertale .qa-button,
+body.theme-undertale .lightbox-download {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 10px 20px !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff !important;
+  cursor: pointer !important;
+  line-height: 1.4 !important;
+  position: relative !important;
+}
+body.theme-undertale .vid-button:hover,
+body.theme-undertale .qa-button:hover,
+body.theme-undertale .lightbox-download:hover {
+  background: #000000 !important;
+  border-color: #ffff00 !important;
+  color: #ffff00 !important;
+  transform: none !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffff00,
+    0 0 20px rgba(255, 255, 0, 0.4) !important;
+}
+body.theme-undertale .vid-button:active,
+body.theme-undertale .qa-button:active {
+  background: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffff00 !important;
+}
+body.theme-undertale .vid-button::before {
+  content: "▶ " !important;
+  color: inherit !important;
+  animation: none !important;
+}
+
+/* ========== TABLOLAR ========== */
+body.theme-undertale .players-table {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff !important;
+}
+body.theme-undertale .players-table th {
+  background: #000000 !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  border-bottom: 2px solid #ffffff !important;
+  padding: 12px 14px !important;
+  font-size: 9px !important;
+  text-align: left !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale .players-table th::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+body.theme-undertale .players-table td {
+  color: #ffffff !important;
+  border-bottom: 1px solid #404040 !important;
+  padding: 10px 14px !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale .players-table tr:last-child td {
+  border-bottom: none !important;
+}
+body.theme-undertale .players-table tr:hover td {
+  background: rgba(255, 255, 0, 0.05) !important;
+  color: #ffff00 !important;
+}
+body.theme-undertale .players-table a {
+  color: #ffff00 !important;
+  border-bottom: 1px dashed #ffff00 !important;
+}
+
+/* ========== STATUS BAR (HP barı kaldırıldı) ========== */
+body.theme-undertale .status-bar {
+  background: #000000 !important;
+  border-top: 3px solid #ffffff !important;
+  color: #ffffff !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  font-size: 12px !important;
+  padding: 10px 16px !important;
+  position: relative !important;
+  line-height: 1.5 !important;
+}
+body.theme-undertale .status-bar::before,
+body.theme-undertale .status-bar::after {
+  display: none !important;
+  content: none !important;
+}
+body.theme-undertale .status-bar span:first-child::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-undertale .status-bar > span {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ========== MODAL ========== */
+body.theme-undertale .lightbox-window,
+body.theme-undertale .video-window {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff,
+    0 0 60px rgba(255, 255, 255, 0.2) !important;
+  overflow: hidden !important;
+}
+body.theme-undertale .lightbox-title-bar,
+body.theme-undertale .video-title-bar {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-bottom: 3px solid #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  padding: 12px 16px !important;
+  font-size: 10px !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale .lightbox-title-bar::before,
+body.theme-undertale .video-title-bar::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+body.theme-undertale .lightbox-close,
+body.theme-undertale .video-close {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+  width: 26px !important;
+  height: 26px !important;
+  font-size: 13px !important;
+}
+body.theme-undertale .lightbox-close:hover,
+body.theme-undertale .video-close:hover {
+  background: #ff0000 !important;
+  border-color: #ff0000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7) !important;
+}
+body.theme-undertale .video-controls {
+  background: #000000 !important;
+  border-top: 3px solid #ffffff !important;
+  padding: 10px !important;
+  gap: 6px !important;
+}
+body.theme-undertale .video-controls button {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 7px 12px !important;
+  font-size: 9px !important;
+  border-radius: 0 !important;
+  line-height: 1.4 !important;
+}
+body.theme-undertale .video-controls button:hover {
+  background: #000000 !important;
+  border-color: #ffff00 !important;
+  color: #ffff00 !important;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.5) !important;
+}
+body.theme-undertale .video-controls a {
+  background: #000000 !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 7px 14px !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+}
+body.theme-undertale .video-controls a:hover {
+  background: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffff00 !important;
+}
+
+/* ========== XP EXPLORER ========== */
+body.theme-undertale .xp-explorer,
+body.theme-undertale .xp-tree,
+body.theme-undertale .xp-preview-pane {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+}
+body.theme-undertale .xp-tree-title,
+body.theme-undertale .xp-file-header {
+  background: #000000 !important;
+  color: #ffffff !important;
+  font-family: 'Press Start 2P', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  border-color: #ffffff !important;
+  padding: 10px 12px !important;
+  font-weight: 400 !important;
+  font-size: 9px !important;
+  line-height: 1.6 !important;
+}
+body.theme-undertale .xp-tree-title::before,
+body.theme-undertale .xp-file-header::before {
+  content: "* " !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+body.theme-undertale .xp-file-item,
+body.theme-undertale .xp-tree-item {
+  color: #ffffff !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 8px 12px 8px 24px !important;
+  margin: 1px 0 !important;
+  font-family: 'DotGothic16', monospace !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  position: relative !important;
+  line-height: 1.5 !important;
+}
+body.theme-undertale .xp-file-item::before,
+body.theme-undertale .xp-tree-item::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: transparent !important;
+  clip-path: polygon(
+    20% 0%, 40% 0%, 40% 20%, 60% 20%, 60% 0%, 80% 0%, 80% 20%,
+    100% 20%, 100% 60%, 80% 60%, 80% 80%, 60% 80%, 60% 100%,
+    40% 100%, 40% 80%, 20% 80%, 20% 60%, 0% 60%, 0% 20%, 20% 20%
+  );
+  display: block !important;
+  opacity: 0 !important;
+}
+body.theme-undertale .xp-file-item:hover,
+body.theme-undertale .xp-tree-item:hover {
+  background: transparent !important;
+  color: #ffff00 !important;
+}
+body.theme-undertale .xp-file-item:hover::before,
+body.theme-undertale .xp-tree-item:hover::before {
+  background: #ff0000 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+body.theme-undertale .xp-file-item.selected,
+body.theme-undertale .xp-tree-item.active {
+  background: transparent !important;
+  color: #ffff00 !important;
+}
+body.theme-undertale .xp-file-item.selected::before,
+body.theme-undertale .xp-tree-item.active::before {
+  background: #ff0000 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+body.theme-undertale .xp-preview-text {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  color: #ffffff !important;
+  padding: 14px !important;
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+  font-family: 'DotGothic16', monospace !important;
+}
+
+/* ========== DROPDOWN ========== */
+body.theme-undertale ~ .view-dropdown-fixed,
+body.theme-undertale .view-dropdown-fixed {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 0 0 5px #ffffff,
+    0 0 40px rgba(255, 255, 255, 0.2) !important;
+  padding: 10px !important;
+}
+body.theme-undertale .view-dropdown-fixed * {
+  font-family: 'DotGothic16', monospace !important;
+}
+body.theme-undertale .view-dropdown-fixed span {
+  color: #ffffff !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-weight: 400 !important;
+  font-family: 'Press Start 2P', monospace !important;
+}
+body.theme-undertale .view-dropdown-fixed [data-z],
+body.theme-undertale .view-dropdown-fixed .zoom-value {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-weight: 400 !important;
+  font-size: 10px !important;
+  padding: 4px 8px !important;
+}
+body.theme-undertale .view-dropdown-fixed [data-z]:hover {
+  background: #000000 !important;
+  border-color: #ffff00 !important;
+  color: #ffff00 !important;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.4) !important;
+}
+body.theme-undertale .view-dropdown-fixed .theme-item {
+  background: #000000 !important;
+  border: 2px solid transparent !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+  padding: 8px 12px 8px 24px !important;
+  font-family: 'DotGothic16', monospace !important;
+  position: relative !important;
+  font-size: 13px !important;
+}
+body.theme-undertale .view-dropdown-fixed .theme-item::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: transparent !important;
+  clip-path: polygon(
+    20% 0%, 40% 0%, 40% 20%, 60% 20%, 60% 0%, 80% 0%, 80% 20%,
+    100% 20%, 100% 60%, 80% 60%, 80% 80%, 60% 80%, 60% 100%,
+    40% 100%, 40% 80%, 20% 80%, 20% 60%, 0% 60%, 0% 20%, 20% 20%
+  );
+  display: block !important;
+  opacity: 0 !important;
+}
+body.theme-undertale .view-dropdown-fixed .theme-item:hover {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+  color: #ffff00 !important;
+}
+body.theme-undertale .view-dropdown-fixed .theme-item:hover::before {
+  background: #ff0000 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+body.theme-undertale .view-dropdown-fixed .theme-item.active {
+  background: #000000 !important;
+  border-color: #ff0000 !important;
+  color: #ffff00 !important;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) !important;
+}
+body.theme-undertale .view-dropdown-fixed .theme-item.active::before {
+  background: #ff0000 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8) !important;
+}
+body.theme-undertale .view-dropdown-fixed .theme-item span {
+  color: inherit !important;
+  font-size: 13px !important;
+}
+
+/* ========== SCROLLBAR ========== */
+body.theme-undertale ::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+}
+body.theme-undertale ::-webkit-scrollbar-track {
+  background: #000000 !important;
+  border-left: 2px solid #404040 !important;
+}
+body.theme-undertale ::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  image-rendering: pixelated !important;
+}
+body.theme-undertale ::-webkit-scrollbar-thumb:hover {
+  background: #ffff00 !important;
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.6) !important;
+}
+body.theme-undertale ::-webkit-scrollbar-corner {
+  background: #000000 !important;
+}
+
+/* ========== SELECTION ========== */
+body.theme-undertale ::selection {
+  background: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+/* ========== EKSTRA: Sağ altta kalp ========== */
+body.theme-undertale .app-window::before {
+  content: "♥" !important;
+  position: absolute !important;
+  bottom: 8px !important;
+  right: 10px !important;
+  color: #ff0000 !important;
+  font-size: 12px !important;
+  font-family: 'Press Start 2P', monospace !important;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.7) !important;
+  display: block !important;
+  z-index: 100 !important;
+  animation: utHeartBeat 1.2s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
