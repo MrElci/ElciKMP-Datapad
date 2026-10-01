@@ -1,0 +1,1066 @@
+/* ===========================================
+   STEAM THEME – Classic Steam Client
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Motiva+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ========== KÖK DEĞİŞKENLER ========== */
+body.theme-steam {
+  --accent-color: #66c0f4;
+  --accent-glow: 0 0 8px rgba(102, 192, 244, 0.5);
+
+  /* Steam Paleti */
+  --stm-bg-dark: #171a21;
+  --stm-bg: #1b2838;
+  --stm-bg-2: #2a475e;
+  --stm-bg-panel: #16202d;
+  --stm-bg-elevated: #202d3d;
+  --stm-bg-hover: #2c3e50;
+
+  --stm-blue: #66c0f4;
+  --stm-blue-bright: #8fd3f7;
+  --stm-blue-dark: #417a9b;
+  --stm-blue-darker: #2c5468;
+
+  --stm-green: #5ba32b;
+  --stm-green-bright: #7dbf44;
+  --stm-green-dark: #3f7a1a;
+  --stm-green-darker: #2a5210;
+
+  --stm-orange: #b98c14;
+  --stm-red: #c13030;
+  --stm-yellow: #e5c07b;
+
+  --stm-border: #2a475e;
+  --stm-border-bright: #66c0f4;
+  --stm-border-dim: #1e2a37;
+
+  --stm-text: #c7d5e0;
+  --stm-text-bright: #ffffff;
+  --stm-text-dim: #8f98a0;
+  --stm-text-muted: #56707f;
+
+  background-color: #1b2838 !important;
+  background-image:
+    /* Subtle radial glows */
+    radial-gradient(ellipse at 20% 10%, rgba(42, 71, 94, 0.4), transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(102, 192, 244, 0.06), transparent 50%),
+    /* Base gradient */
+    linear-gradient(180deg, #171a21 0%, #1b2838 50%, #171a21 100%) !important;
+  background-attachment: fixed !important;
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', 'Segoe UI', Arial, sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 0.2px !important;
+  text-shadow: none !important;
+}
+
+/* ========== GENEL OVERRIDE ========== */
+body.theme-steam *,
+body.theme-steam *::before,
+body.theme-steam *::after {
+  font-family: 'Motiva Sans', 'Inter', 'Segoe UI', Arial, sans-serif !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* VHS katmanlarını kapat */
+body.theme-steam::after,
+body.theme-steam::before {
+  display: none !important;
+}
+
+/* ========== ANA PENCERE ========== */
+body.theme-steam .app-window {
+  background: #1b2838 !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 3px !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ========== BAŞLIK ÇUBUĞU ========== */
+body.theme-steam .title-bar {
+  background: linear-gradient(180deg, #2a475e 0%, #1b2838 100%) !important;
+  border-bottom: 1px solid #0e1419 !important;
+  padding: 12px 20px !important;
+  height: auto !important;
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  box-shadow:
+    inset 0 1px 0 rgba(102, 192, 244, 0.15),
+    0 1px 0 rgba(0, 0, 0, 0.5) !important;
+}
+body.theme-steam .title-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(102, 192, 244, 0.4), transparent) !important;
+  display: block !important;
+}
+body.theme-steam .title-bar::after {
+  display: none !important;
+}
+body.theme-steam .title-bar-text {
+  color: #ffffff !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  font-style: normal !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  line-height: 1.3 !important;
+}
+body.theme-steam .title-bar-text::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 30px !important;
+  height: 30px !important;
+  background: linear-gradient(135deg, #66c0f4, #2a475e) !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 8px rgba(102, 192, 244, 0.4) !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'><path d='M12 2C6.48 2 2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88l1.53-2.21c-.31-.11-.58-.28-.81-.51-.53-.53-.53-1.4 0-1.93.5-.5 1.32-.53 1.86-.08l3.86-5.57c-.16-.36-.26-.77-.26-1.2 0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3c-.04 0-.08 0-.12 0l-3.81 5.5c.07.25.11.51.11.78 0 1.66-1.34 3-3 3-.82 0-1.56-.33-2.1-.87l-2.07 1.5C7.5 20.9 9.68 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zM6.5 17.5c.28.28.65.5 1.09.63l-.7-1.94c.13-.05.26-.12.38-.2l-1.07-3c-.5.06-.94.28-1.28.63-.63.63-.63 1.65 0 2.28.44.44 1.1.58 1.66.4zM17 9.5c0 .83-.67 1.5-1.5 1.5S14 10.33 14 9.5 14.67 8 15.5 8 17 8.67 17 9.5z'/></svg>") !important;
+  background-size: 20px 20px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+/* Sağdaki butonlar */
+body.theme-steam .window-buttons {
+  order: 1 !important;
+  display: flex !important;
+  gap: 2px !important;
+  margin-left: auto !important;
+}
+body.theme-steam .window-buttons span {
+  width: 26px !important;
+  height: 24px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: background 0.15s ease !important;
+}
+body.theme-steam .window-buttons span:hover {
+  background: rgba(102, 192, 244, 0.15) !important;
+}
+body.theme-steam .window-buttons span:nth-child(3):hover {
+  background: #c13030 !important;
+}
+body.theme-steam .window-buttons span::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #8f98a0 !important;
+}
+body.theme-steam .window-buttons span:hover::after {
+  background: #ffffff !important;
+}
+body.theme-steam .window-buttons span:nth-child(1)::after {
+  width: 10px !important;
+  height: 1px !important;
+}
+body.theme-steam .window-buttons span:nth-child(2)::after {
+  width: 10px !important;
+  height: 10px !important;
+  background: transparent !important;
+  border: 1px solid #8f98a0 !important;
+}
+body.theme-steam .window-buttons span:nth-child(2):hover::after {
+  border-color: #ffffff !important;
+}
+body.theme-steam .window-buttons span:nth-child(3)::after {
+  width: 10px !important;
+  height: 10px !important;
+  background:
+    linear-gradient(45deg, transparent 42%, #8f98a0 42%, #8f98a0 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #8f98a0 42%, #8f98a0 58%, transparent 58%) !important;
+}
+body.theme-steam .window-buttons span:nth-child(3):hover::after {
+  background:
+    linear-gradient(45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%) !important;
+}
+
+/* ========== MENÜ ÇUBUĞU (Steam Client Menu) ========== */
+body.theme-steam .menu-bar {
+  background: #171a21 !important;
+  border-bottom: 1px solid #2a475e !important;
+  padding: 0 12px !important;
+  gap: 2px !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+}
+body.theme-steam .menu-bar > * {
+  color: #8f98a0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  padding: 12px 16px !important;
+  border: none !important;
+  background: transparent !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-steam .menu-bar > *::before {
+  display: none !important;
+  content: none !important;
+}
+body.theme-steam .menu-bar > *:hover {
+  background: #2a475e !important;
+  color: #66c0f4 !important;
+  transform: none !important;
+  border-bottom-color: transparent !important;
+}
+body.theme-steam .menu-bar > *.active {
+  color: #ffffff !important;
+  background: #2a475e !important;
+  font-weight: 500 !important;
+}
+
+/* ========== TOOLBAR (Sekmeler) ========== */
+body.theme-steam .toolbar {
+  background: #1b2838 !important;
+  border-bottom: 1px solid #2a475e !important;
+  padding: 10px 16px !important;
+  gap: 4px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+body.theme-steam .toolbar a {
+  background: linear-gradient(180deg, #2a475e 0%, #1e3446 100%) !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 2px !important;
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  padding: 7px 16px !important;
+  transition: all 0.15s ease !important;
+  filter: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+  box-shadow:
+    inset 0 1px 0 rgba(102, 192, 244, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+body.theme-steam .toolbar a::before,
+body.theme-steam .toolbar a::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-steam .toolbar a:hover {
+  background: linear-gradient(180deg, #3d5a73 0%, #2a475e 100%) !important;
+  border-color: #66c0f4 !important;
+  color: #ffffff !important;
+  box-shadow:
+    inset 0 1px 0 rgba(102, 192, 244, 0.2),
+    0 0 8px rgba(102, 192, 244, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  transform: none !important;
+}
+body.theme-steam .toolbar a.active {
+  background: linear-gradient(180deg, #4a6f8e 0%, #2a475e 100%) !important;
+  border-color: #66c0f4 !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(102, 192, 244, 0.3),
+    0 0 12px rgba(102, 192, 244, 0.4),
+    0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ========== SIDEBAR (Steam Library) ========== */
+body.theme-steam .sidebar {
+  background: #16202d !important;
+  border-right: 1px solid #0e1419 !important;
+  padding: 16px 12px !important;
+  position: relative !important;
+}
+body.theme-steam .sidebar::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: -1px !important;
+  bottom: 0 !important;
+  width: 1px !important;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(102, 192, 244, 0.3) 30%,
+    rgba(102, 192, 244, 0.5) 50%,
+    rgba(102, 192, 244, 0.3) 70%,
+    transparent 100%) !important;
+  display: block !important;
+}
+body.theme-steam .sidebar-title {
+  background: transparent !important;
+  color: #56707f !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  border-bottom: 1px solid #0e1419 !important;
+  padding: 10px 4px !important;
+  margin-bottom: 12px !important;
+  text-align: left !important;
+  text-shadow: none !important;
+  position: relative !important;
+}
+body.theme-steam .sidebar-title::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-steam .sidebar-title::after {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-steam .sidebar ul {
+  gap: 1px !important;
+  margin-left: 0 !important;
+}
+body.theme-steam .sidebar li {
+  background: transparent !important;
+  border: none !important;
+  border-left: 3px solid transparent !important;
+  border-radius: 2px !important;
+  color: #8f98a0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  padding: 8px 12px !important;
+  margin-bottom: 1px !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+body.theme-steam .sidebar li::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-steam .sidebar li:hover {
+  background: #2a475e !important;
+  color: #ffffff !important;
+  padding-left: 12px !important;
+  border-left-color: transparent !important;
+}
+body.theme-steam .sidebar li.active {
+  background: linear-gradient(90deg, #2a475e 0%, transparent 100%) !important;
+  color: #66c0f4 !important;
+  font-weight: 500 !important;
+  border-left-color: #66c0f4 !important;
+}
+
+/* ========== İÇERİK (Steam Community) ========== */
+body.theme-steam .content-pane {
+  background: #1b2838 !important;
+  padding: 28px 36px !important;
+  color: #c7d5e0 !important;
+  position: relative !important;
+}
+
+/* ========== H1 ========== */
+body.theme-steam h1.article-title {
+  color: #ffffff !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  border-bottom: 1px solid #2a475e !important;
+  padding: 0 0 14px 0 !important;
+  margin-bottom: 20px !important;
+  text-shadow: none !important;
+  background: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  line-height: 1.3 !important;
+}
+body.theme-steam h1.article-title::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-steam h1.article-title::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== H2 ========== */
+body.theme-steam h2 {
+  color: #66c0f4 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  padding: 0 0 10px 0 !important;
+  margin: 30px 0 14px !important;
+  border: none !important;
+  border-bottom: 1px solid #2a475e !important;
+  background: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+}
+body.theme-steam h2::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-steam h2::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== H3 ========== */
+body.theme-steam h3 {
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  border-left: none !important;
+  padding: 0 !important;
+  margin: 22px 0 10px !important;
+  text-shadow: none !important;
+}
+body.theme-steam h3::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== PARAGRAF & LINK ========== */
+body.theme-steam p {
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  margin-bottom: 1em !important;
+  text-shadow: none !important;
+}
+body.theme-steam a {
+  color: #66c0f4 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  transition: color 0.15s ease !important;
+}
+body.theme-steam a:hover {
+  color: #8fd3f7 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-shadow: none !important;
+}
+
+/* ========== INFOBOX (Steam Info Panel) ========== */
+body.theme-steam .infobox,
+body.theme-steam .warinfobox,
+body.theme-steam .krono-box,
+body.theme-steam .wiki-thumb,
+body.theme-steam .rff-box {
+  background: #16202d !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 3px !important;
+  padding: 16px !important;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(102, 192, 244, 0.05) !important;
+  color: #c7d5e0 !important;
+  text-shadow: none !important;
+}
+body.theme-steam .infobox::before,
+body.theme-steam .infobox::after {
+  content: none !important;
+  display: none !important;
+}
+body.theme-steam .infobox-title {
+  background: linear-gradient(180deg, #2a475e 0%, #1e3446 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  border-bottom: 1px solid #0e1419 !important;
+  padding: 10px 14px !important;
+  margin: -16px -16px 14px -16px !important;
+  text-align: left !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 3px 3px 0 0 !important;
+}
+body.theme-steam .infobox-title::before {
+  content: "" !important;
+  display: none !important;
+}
+body.theme-steam .infobox-subtitle {
+  color: #56707f !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-style: normal !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  font-size: 12px !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+body.theme-steam .infobox-label {
+  color: #8f98a0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  font-size: 12px !important;
+  text-shadow: none !important;
+}
+body.theme-steam .infobox-value {
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+}
+body.theme-steam .infobox-row {
+  border-bottom: 1px solid #1e3446 !important;
+  padding: 6px 0 !important;
+}
+body.theme-steam .infobox-row:last-child {
+  border-bottom: none !important;
+}
+body.theme-steam .flag-box {
+  background: #0e1419 !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 2px !important;
+  padding: 8px !important;
+  transition: all 0.15s ease !important;
+}
+body.theme-steam .flag-box:hover {
+  border-color: #66c0f4 !important;
+  box-shadow: 0 0 10px rgba(102, 192, 244, 0.3) !important;
+}
+body.theme-steam .flag-box::after {
+  display: none !important;
+}
+body.theme-steam .flag-label,
+body.theme-steam .map-label {
+  color: #8f98a0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  font-size: 11px !important;
+  text-shadow: none !important;
+}
+body.theme-steam .infobox-map {
+  background: #0e1419 !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 2px !important;
+  padding: 6px !important;
+}
+
+/* ========== BLOCKQUOTE ========== */
+body.theme-steam blockquote {
+  background: #2a475e !important;
+  border-left: 4px solid #66c0f4 !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-radius: 0 2px 2px 0 !important;
+  padding: 14px 20px !important;
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-style: italic !important;
+  font-size: 14px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  margin: 14px 0 !important;
+  position: relative !important;
+}
+body.theme-steam blockquote::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* ========== DETAILS ========== */
+body.theme-steam details {
+  background: #16202d !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 2px !important;
+  margin: 12px 0 !important;
+  overflow: hidden !important;
+  transition: all 0.15s ease !important;
+}
+body.theme-steam details:hover {
+  border-color: #417a9b !important;
+}
+body.theme-steam details[open] {
+  border-color: #66c0f4 !important;
+  box-shadow: 0 0 12px rgba(102, 192, 244, 0.15) !important;
+}
+body.theme-steam summary {
+  background: linear-gradient(180deg, #2a475e 0%, #1e3446 100%) !important;
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid transparent !important;
+  text-shadow: none !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+}
+body.theme-steam details[open] summary {
+  border-bottom-color: #0e1419 !important;
+}
+body.theme-steam summary:hover {
+  background: linear-gradient(180deg, #3d5a73 0%, #2a475e 100%) !important;
+  color: #ffffff !important;
+}
+body.theme-steam summary::before {
+  content: "▶ " !important;
+  color: #66c0f4 !important;
+  font-size: 9px !important;
+  text-shadow: none !important;
+  animation: none !important;
+  margin-right: 6px !important;
+}
+body.theme-steam details[open] summary::before {
+  content: "▼ " !important;
+  transform: none !important;
+}
+body.theme-steam .details-content {
+  background: #1b2838 !important;
+  border-top: none !important;
+  padding: 14px 18px !important;
+  color: #c7d5e0 !important;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+  text-shadow: none !important;
+}
+
+/* ========== BUTONLAR (Steam Buttons) ========== */
+body.theme-steam .vid-button,
+body.theme-steam .qa-button,
+body.theme-steam .lightbox-download {
+  background: linear-gradient(180deg, #4a9ed6 0%, #2a7ab0 100%) !important;
+  border: 1px solid #2a7ab0 !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  padding: 9px 20px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.15s ease !important;
+  filter: none !important;
+  cursor: pointer !important;
+  line-height: 1.2 !important;
+}
+body.theme-steam .vid-button:hover,
+body.theme-steam .qa-button:hover,
+body.theme-steam .lightbox-download:hover {
+  background: linear-gradient(180deg, #66c0f4 0%, #4a9ed6 100%) !important;
+  border-color: #66c0f4 !important;
+  color: #ffffff !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 12px rgba(102, 192, 244, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  transform: none !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+body.theme-steam .vid-button:active,
+body.theme-steam .qa-button:active {
+  background: linear-gradient(180deg, #2a7ab0 0%, #1e5a85 100%) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+body.theme-steam .vid-button::before {
+  content: "▶ " !important;
+  color: inherit !important;
+  animation: none !important;
+}
+
+/* Yeşil Steam butonu (satın al / oyna) */
+body.theme-steam .qa-button {
+  background: linear-gradient(180deg, #75b022 0%, #588a1b 100%) !important;
+  border-color: #588a1b !important;
+}
+body.theme-steam .qa-button:hover {
+  background: linear-gradient(180deg, #8fce2f 0%, #6fa025 100%) !important;
+  border-color: #8fce2f !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 12px rgba(117, 176, 34, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ========== TABLOLAR ========== */
+body.theme-steam .players-table {
+  background: #16202d !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 2px !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+body.theme-steam .players-table th {
+  background: linear-gradient(180deg, #2a475e 0%, #1e3446 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  border-bottom: 1px solid #0e1419 !important;
+  padding: 12px 16px !important;
+  font-size: 12px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  text-align: left !important;
+}
+body.theme-steam .players-table td {
+  color: #c7d5e0 !important;
+  border-bottom: 1px solid #1e3446 !important;
+  padding: 10px 16px !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  text-shadow: none !important;
+}
+body.theme-steam .players-table tr:last-child td {
+  border-bottom: none !important;
+}
+body.theme-steam .players-table tr:hover td {
+  background: #2a475e !important;
+  color: #ffffff !important;
+}
+body.theme-steam .players-table a {
+  color: #66c0f4 !important;
+  text-shadow: none !important;
+}
+
+/* ========== STATUS BAR ========== */
+body.theme-steam .status-bar {
+  background: #171a21 !important;
+  border-top: 1px solid #0e1419 !important;
+  color: #8f98a0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  font-size: 12px !important;
+  padding: 8px 16px !important;
+  text-shadow: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(102, 192, 244, 0.05) !important;
+  position: relative !important;
+}
+body.theme-steam .status-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -1px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(102, 192, 244, 0.3), transparent) !important;
+  display: block !important;
+}
+body.theme-steam .status-bar span:first-child::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: #5ba32b !important;
+  border-radius: 50% !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+  box-shadow: 0 0 6px rgba(91, 163, 43, 0.7) !important;
+  animation: steamPulse 2s ease-in-out infinite !important;
+}
+@keyframes steamPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ========== MODAL ========== */
+body.theme-steam .lightbox-window,
+body.theme-steam .video-window {
+  background: #1b2838 !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 3px !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 8px 40px rgba(0, 0, 0, 0.6) !important;
+  overflow: hidden !important;
+}
+body.theme-steam .lightbox-title-bar,
+body.theme-steam .video-title-bar {
+  background: linear-gradient(180deg, #2a475e 0%, #1b2838 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #0e1419 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+body.theme-steam .lightbox-close,
+body.theme-steam .video-close {
+  background: transparent !important;
+  border: none !important;
+  color: #8f98a0 !important;
+  border-radius: 2px !important;
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 14px !important;
+  transition: all 0.15s ease !important;
+}
+body.theme-steam .lightbox-close:hover,
+body.theme-steam .video-close:hover {
+  background: #c13030 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+body.theme-steam .video-controls {
+  background: #171a21 !important;
+  border-top: 1px solid #0e1419 !important;
+  padding: 10px !important;
+  gap: 6px !important;
+}
+body.theme-steam .video-controls button {
+  background: linear-gradient(180deg, #2a475e 0%, #1e3446 100%) !important;
+  border: 1px solid #2a475e !important;
+  color: #c7d5e0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  padding: 6px 14px !important;
+  font-size: 12px !important;
+  border-radius: 2px !important;
+  text-shadow: none !important;
+  transition: all 0.15s ease !important;
+}
+body.theme-steam .video-controls button:hover {
+  background: linear-gradient(180deg, #3d5a73 0%, #2a475e 100%) !important;
+  border-color: #66c0f4 !important;
+  color: #ffffff !important;
+}
+body.theme-steam .video-controls a {
+  background: linear-gradient(180deg, #75b022 0%, #588a1b 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  padding: 6px 16px !important;
+  border: 1px solid #588a1b !important;
+  border-radius: 2px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+  font-size: 12px !important;
+}
+body.theme-steam .video-controls a:hover {
+  background: linear-gradient(180deg, #8fce2f 0%, #6fa025 100%) !important;
+  box-shadow: 0 0 12px rgba(117, 176, 34, 0.4) !important;
+}
+
+/* ========== XP EXPLORER ========== */
+body.theme-steam .xp-explorer,
+body.theme-steam .xp-tree,
+body.theme-steam .xp-preview-pane {
+  background: #16202d !important;
+  border-color: #0e1419 !important;
+}
+body.theme-steam .xp-tree-title,
+body.theme-steam .xp-file-header {
+  background: linear-gradient(180deg, #2a475e 0%, #1e3446 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+  border-color: #0e1419 !important;
+  padding: 10px 14px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+}
+body.theme-steam .xp-file-item,
+body.theme-steam .xp-tree-item {
+  color: #8f98a0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 2px !important;
+  padding: 8px 12px !important;
+  margin: 1px 0 !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+  text-shadow: none !important;
+}
+body.theme-steam .xp-file-item:hover,
+body.theme-steam .xp-tree-item:hover {
+  background: #2a475e !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+body.theme-steam .xp-file-item.selected,
+body.theme-steam .xp-tree-item.active {
+  background: #2a475e !important;
+  color: #66c0f4 !important;
+  box-shadow: inset 3px 0 0 #66c0f4 !important;
+}
+body.theme-steam .xp-preview-text {
+  background: #0e1419 !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 2px !important;
+  color: #c7d5e0 !important;
+  padding: 12px !important;
+  box-shadow: none !important;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+  text-shadow: none !important;
+}
+
+/* ========== DROPDOWN ========== */
+body.theme-steam ~ .view-dropdown-fixed,
+body.theme-steam .view-dropdown-fixed {
+  background: #1b2838 !important;
+  border: 1px solid #2a475e !important;
+  border-radius: 3px !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 8px 32px rgba(0, 0, 0, 0.6) !important;
+  padding: 8px !important;
+}
+body.theme-steam .view-dropdown-fixed * {
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+}
+body.theme-steam .view-dropdown-fixed span {
+  color: #8f98a0 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+body.theme-steam .view-dropdown-fixed [data-z],
+body.theme-steam .view-dropdown-fixed .zoom-value {
+  background: linear-gradient(180deg, #2a475e 0%, #1e3446 100%) !important;
+  border: 1px solid #2a475e !important;
+  color: #c7d5e0 !important;
+  border-radius: 2px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(102, 192, 244, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+  font-size: 12px !important;
+}
+body.theme-steam .view-dropdown-fixed [data-z]:hover {
+  background: linear-gradient(180deg, #3d5a73 0%, #2a475e 100%) !important;
+  border-color: #66c0f4 !important;
+  color: #ffffff !important;
+  box-shadow:
+    inset 0 1px 0 rgba(102, 192, 244, 0.2),
+    0 0 8px rgba(102, 192, 244, 0.3) !important;
+}
+body.theme-steam .view-dropdown-fixed .theme-item {
+  background: transparent !important;
+  border: none !important;
+  color: #8f98a0 !important;
+  border-radius: 2px !important;
+  padding: 10px 12px !important;
+  transition: all 0.15s ease !important;
+  font-family: 'Motiva Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+}
+body.theme-steam .view-dropdown-fixed .theme-item:hover {
+  background: #2a475e !important;
+  color: #ffffff !important;
+}
+body.theme-steam .view-dropdown-fixed .theme-item.active {
+  background: linear-gradient(90deg, #2a475e 0%, transparent 100%) !important;
+  color: #66c0f4 !important;
+  box-shadow: inset 3px 0 0 #66c0f4 !important;
+  font-weight: 500 !important;
+}
+body.theme-steam .view-dropdown-fixed .theme-item span {
+  color: inherit !important;
+  font-size: 13px !important;
+}
+
+/* ========== SCROLLBAR ========== */
+body.theme-steam ::-webkit-scrollbar {
+  width: 12px !important;
+  height: 12px !important;
+}
+body.theme-steam ::-webkit-scrollbar-track {
+  background: #16202d !important;
+  border-left: 1px solid #0e1419 !important;
+}
+body.theme-steam ::-webkit-scrollbar-thumb {
+  background: #2a475e !important;
+  border: 2px solid #16202d !important;
+  background-clip: padding-box !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+body.theme-steam ::-webkit-scrollbar-thumb:hover {
+  background: #4a9ed6 !important;
+  background-clip: padding-box !important;
+  border: 2px solid #16202d !important;
+}
+body.theme-steam ::-webkit-scrollbar-corner {
+  background: #16202d !important;
+}
+
+/* ========== SELECTION ========== */
+body.theme-steam ::selection {
+  background: rgba(102, 192, 244, 0.4) !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* ========== FOCUS RING ========== */
+body.theme-steam a:focus-visible,
+body.theme-steam button:focus-visible,
+body.theme-steam .toolbar a:focus-visible {
+  outline: 2px solid #66c0f4 !important;
+  outline-offset: 2px !important;
+}

@@ -23,6 +23,7 @@
     { id: 'winxp',      name: 'Windows XP Theme',   desc: 'Luna Blue Classic',    file: 'themes/winxp.css' },
     { id: 'win11',      name: 'Windows 11 Theme',   desc: 'Fluent Dark / Mica',   file: 'themes/win11.css' },
     { id: 'github',     name: 'GitHub Theme',       desc: 'Official GitHub Dark', file: 'themes/github.css' },
+    { id: 'steam',      name: 'Steam Theme',        desc: 'Classic Steam Client', file: 'themes/steam.css' },
     { id: 'synthwave',  name: 'Synthwave Theme',    desc: 'Retro Neon 80s',       file: 'themes/synthwave.css' },
     { id: 'minecraft',  name: 'Minecraft Theme',    desc: 'Authentic Blocky UI',  file: 'themes/minecraft.css' },
     { id: 'undertale',  name: 'Undertale Theme',    desc: 'Determination Mono',   file: 'themes/undertale.css' },
@@ -49,7 +50,8 @@
     tron:      '#00ffff',
     scp:       '#d10000',
     backrooms: '#c9b458',
-    atla: '#d4af37'
+    atla: '#d4af37',
+    steam:     '#66c0f4'
   };
 
   /* ===========================================
