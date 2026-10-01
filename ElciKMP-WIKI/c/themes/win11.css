@@ -58,7 +58,6 @@ body.theme-win11 *::after {
   box-sizing: border-box !important;
 }
 
-body.theme-win11::after,
 body.theme-win11::before {
   display: none !important;
 }

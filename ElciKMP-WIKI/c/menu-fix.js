@@ -1,5 +1,5 @@
 /* ===========================================
-   MENU-FIX.JS – V9 (Ölçeklenebilir Tema Sistemi)
+   MENU-FIX.JS – V10 (Tam Çalışan Sürüm)
    - Dosya → Materyal
    - Görünüm dropdown (Ölçek + Tema)
    - Temalar harici CSS dosyalarından yüklenir
@@ -15,52 +15,24 @@
   const ZOOM_MIN = 50;
   const ZOOM_MAX = 200;
 
-  /* ===== TEMA KAYIT DEFTERİ =====
-     Yeni tema eklemek için:
-     1. themes/ altına css dosyası koy
-     2. Buraya bir satır ekle
-     Bu kadar. */
+  /* ===== TEMA KAYIT DEFTERİ ===== */
   const THEMES = [
-    {
-      id: 'datapad',
-      name: 'Datapad Teması',
-      desc: 'GitHub Glass',
-      file: null              // Varsayılan tema – harici CSS yok
-    },
-    {
-      id: 'halflife',
-      name: 'Half-Life Teması',
-      desc: 'Valve HL2 Terminal',
-      file: 'themes/halflife.css'
-    },
-    {
-      id: 'matrix',
-      name: 'Matrix Teması',
-      desc: 'Digital Rain',
-      file: 'themes/matrix.css'
-    },
-    {
-      id: 'winxp',
-      name: 'Windows XP Teması',
-      desc: 'Eski Tip Win Teması',
-      file: 'themes/winxp.css'
-
-    },
-    {
-      id: 'win11',
-      name: 'Windows 11 Teması',
-      desc: 'Windows 11 Karanlık Tema Seçeneği',
-      file: 'themes/win11.css'
-    },
-    {
-      id: 'github-dark',
-      name: 'GitHub Dark Teması',
-      desc: 'Karanlık GitHub Teması',
-      file: 'themes/github-dark.css'
-    }
-    // { id: 'matrix', name: 'Matrix Theme', desc: 'Digital Rain', file: 'themes/matrix.css' },
-    // { id: 'pipboy', name: 'Pip-Boy Theme', desc: 'Fallout Terminal', file: 'themes/pipboy.css' },
+    { id: 'datapad',  name: 'Datapad Teması',    desc: 'GitHub Glass',             file: null },
+    { id: 'halflife', name: 'Half-Life Teması',  desc: 'Valve HL2 Terminal',       file: 'themes/halflife.css' },
+    { id: 'matrix',   name: 'Matrix Teması',     desc: 'Digital Rain',             file: 'themes/matrix.css' },
+    { id: 'winxp',    name: 'Windows XP Teması', desc: 'Eski Tip Win Teması',      file: 'themes/winxp.css' },
+    { id: 'win11',    name: 'Windows 11 Teması', desc: 'Windows 11 Karanlık Tema', file: 'themes/win11.css' },
+    { id: 'github',   name: 'GitHub Teması',     desc: 'Karanlık GitHub Teması',   file: 'themes/github.css' }
   ];
+  /* ===== TEMA VARSAYILAN RENKLERİ ===== */
+  const THEME_DEFAULTS = {
+    datapad:     null,
+    halflife:    '#ff9c2e',
+    matrix:      '#00ff41',
+    winxp:       '#0054e3',
+    win11:       '#60cdff',
+    github: '#58a6ff'
+  };
 
   /* ===========================================
      ZOOM
@@ -96,29 +68,62 @@
   }
 
   function applyTheme(themeId) {
-// Her temanın kendi varsayılan rengi
-const themeDefaults = {
-  datapad:  null,          // :root'tan gelir
-  halflife: '#ff9c2e',     // sabit turuncu
-  matrix:   '#00ff41',     // varsayılan yeşil
-  winxp:    '#0054e3',     // XP mavisi
-  win11:    '#60cdff'      // Win11 cyan
-};
+    if (!THEMES.some(t => t.id === themeId)) themeId = 'datapad';
 
-const defColor = themeDefaults[themeId];
+    // 1) Attribute + body class
+    document.documentElement.setAttribute('data-theme', themeId);
+    // Eski tema class'larını temizle
+    THEMES.forEach(t => document.body.classList.remove('theme-' + t.id));
+    document.body.classList.add('theme-' + themeId);
 
-if (defColor) {
-  document.documentElement.style.setProperty('--accent-color', defColor, 'important');
-  document.documentElement.style.setProperty('--accent-glow', `0 0 12px ${defColor}`, 'important');
-} else {
-  document.documentElement.style.removeProperty('--accent-color');
-  document.documentElement.style.removeProperty('--accent-glow');
-}
+    // 2) localStorage
+    localStorage.setItem(THEME_KEY, themeId);
 
-// Başlıktaki rengi (varsa) üstüne uygula
-if (typeof window.applyAccentColor === 'function') {
-  window.applyAccentColor();
-}
+    // 3) Harici CSS dosyasını yükle
+    const theme = THEMES.find(t => t.id === themeId);
+    loadThemeFile(theme ? theme.file : null);
+
+    // 4) Accent renk
+    const defColor = THEME_DEFAULTS[themeId];
+    if (defColor) {
+      document.documentElement.style.setProperty('--accent-color', defColor, 'important');
+      document.documentElement.style.setProperty('--accent-glow', '0 0 12px ' + defColor, 'important');
+    } else {
+      document.documentElement.style.removeProperty('--accent-color');
+      document.documentElement.style.removeProperty('--accent-glow');
+    }
+
+    // 5) Başlıktaki özel renk kodu varsa üstüne uygula
+    if (typeof window.applyAccentColor === 'function') {
+      window.applyAccentColor();
+    }
+
+    // 6) UI güncelle
+    document.querySelectorAll('.theme-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.theme === themeId);
+    });
+
+    console.log('[theme]', themeId, '| file:', theme ? theme.file : 'default');
+  }
+
+  /* ===========================================
+     DOSYA → MATERYAL
+     =========================================== */
+  function fixMaterial() {
+    document.querySelectorAll('.menu-bar > *').forEach(el => {
+      if (el.dataset.__matFixed === '1') return;
+      const t = (el.textContent || '').trim();
+      if (/^(dosya|file)$/i.test(t)) {
+        el.dataset.__matFixed = '1';
+        el.textContent = 'Materyal';
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.href = 'material.html';
+        });
+      }
+    });
   }
 
   /* ===========================================
@@ -165,7 +170,7 @@ if (typeof window.applyAccentColor === 'function') {
       `;
       document.body.appendChild(dd);
 
-      // Tema listesini doldur
+      // Tema listesi
       const themeList = dd.querySelector('.theme-list');
       THEMES.forEach(t => {
         const btn = document.createElement('button');
@@ -214,10 +219,12 @@ if (typeof window.applyAccentColor === 'function') {
 
       // Zoom butonları
       dd.querySelector('[data-z="minus"]').addEventListener('click', e => {
-        e.stopPropagation(); applyZoom(getZoom() - ZOOM_STEP);
+        e.stopPropagation();
+        applyZoom(getZoom() - ZOOM_STEP);
       });
       dd.querySelector('[data-z="plus"]').addEventListener('click', e => {
-        e.stopPropagation(); applyZoom(getZoom() + ZOOM_STEP);
+        e.stopPropagation();
+        applyZoom(getZoom() + ZOOM_STEP);
       });
 
       /* ---- AÇ / KAPAT ---- */
@@ -241,7 +248,8 @@ if (typeof window.applyAccentColor === 'function') {
       }
 
       el.addEventListener('click', e => {
-        e.preventDefault(); e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
         isOpen ? closeMenu() : openMenu();
       });
       document.addEventListener('click', e => {

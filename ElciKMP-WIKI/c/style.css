@@ -95,28 +95,6 @@ body::before {
   to { transform: rotate(360deg); }
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.08) 0px,
-      rgba(0, 0, 0, 0.08) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: multiply;
-  animation: scanShift 8s linear infinite;
-}
-@keyframes scanShift {
-  0% { background-position: 0 0, 0 0; }
-  100% { background-position: 0 3px, 0 0; }
-}
 
 /* ===== ANA PENCERE ===== */
 .app-window {
@@ -2000,45 +1978,5 @@ blockquote::before {
   .xp-preview-pane.expanded .preview-body {
     display: block;
   }
-  /* ===========================================
-   VHS / SCANLINE KATMANLARINI KAPAT
-   =========================================== */
-body::before,
-body::after,
-body.theme-datapad::before,
-body.theme-datapad::after,
-body.theme-halflife::before,
-body.theme-halflife::after,
-body.theme-matrix::before,
-body.theme-matrix::after,
-body.theme-winxp::before,
-body.theme-winxp::after,
-body.theme-win11::before,
-body.theme-win11::after {
-  background: none !important;
-  background-image: none !important;
-  animation: none !important;
-  opacity: 0 !important;
-  display: none !important;
-  content: none !important;
-  pointer-events: none !important;
-  mix-blend-mode: normal !important;
-}
-
-/* App window üzerindeki scanline katmanları da kapat */
-.app-window::before,
-.app-window::after,
-body.theme-matrix .app-window::before,
-body.theme-matrix .app-window::after,
-body.theme-halflife .app-window::before,
-body.theme-halflife .app-window::after {
-  display: none !important;
-  content: none !important;
-  animation: none !important;
-}
-
-/* CRT flicker animasyonu varsa kapat */
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-}
+  
 }
