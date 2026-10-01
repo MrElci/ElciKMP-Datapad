@@ -26,7 +26,8 @@
     { id: 'synthwave',  name: 'Synthwave Theme',    desc: 'Retro Neon 80s',       file: 'themes/synthwave.css' },
     { id: 'minecraft',  name: 'Minecraft Theme',    desc: 'Authentic Blocky UI',  file: 'themes/minecraft.css' },
     { id: 'undertale',  name: 'Undertale Theme',    desc: 'Determination Mono',   file: 'themes/undertale.css' },
-    { id: 'pipboy',     name: 'Pip-Boy Theme',      desc: 'Vault-Tec RobCo',      file: 'themes/pipboy.css' }
+    { id: 'pipboy',     name: 'Pip-Boy Theme',      desc: 'Vault-Tec RobCo',      file: 'themes/pipboy.css' },
+    { id: 'cyberpunk',  name: 'Cyberpunk 2077',     desc: 'Night City Breach',    file: 'themes/cyberpunk.css' }
   ];
 
   const themeDefaults = {
@@ -39,7 +40,8 @@
     synthwave: '#ff2e97',
     minecraft: '#7cfc00',
     undertale: '#ff0000',
-    pipboy:    '#14fe17'
+    pipboy:    '#14fe17',
+    cyberpunk: '#fcee0a'
   };
 
   /* ===========================================
