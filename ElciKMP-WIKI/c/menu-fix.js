@@ -28,7 +28,8 @@
     { id: 'undertale',  name: 'Undertale Theme',    desc: 'Determination Mono',   file: 'themes/undertale.css' },
     { id: 'pipboy',     name: 'Pip-Boy Theme',      desc: 'Vault-Tec RobCo',      file: 'themes/pipboy.css' },
     { id: 'cyberpunk',  name: 'Cyberpunk 2077',     desc: 'Night City Breach',    file: 'themes/cyberpunk.css' },
-    { id: 'tron',       name: 'Tron Theme',         desc: 'The Grid / Encom OS',  file: 'themes/tron.css' }
+    { id: 'tron',       name: 'Tron Theme',         desc: 'The Grid / Encom OS',  file: 'themes/tron.css' },
+    { id: 'scp',        name: 'SCP Foundation',     desc: 'Secure. Contain. Protect.', file: 'themes/scp.css' }
   ];
 
   const themeDefaults = {
@@ -43,7 +44,8 @@
     undertale: '#ff0000',
     pipboy:    '#14fe17',
     cyberpunk: '#fcee0a',
-    tron:      '#00ffff'
+    tron:      '#00ffff',
+    scp:       '#d10000'
   };
 
   /* ===========================================
