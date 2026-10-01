@@ -1,111 +1,107 @@
 /* ===========================================
-   GITHUB THEME – Repo Page UI
+   GITHUB DARK THEME – Official GitHub Dark
    =========================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ========== KÖK ========== */
+/* ========== KÖK DEĞİŞKENLER ========== */
 body.theme-github {
   --accent-color: #58a6ff;
   --accent-glow: none;
 
-  /* GitHub Resmi Renkler */
-  --gh-canvas: #0d1117;
+  /* GitHub Resmi Renk Paleti */
+  --gh-canvas-default: #0d1117;
   --gh-canvas-subtle: #161b22;
   --gh-canvas-inset: #010409;
   --gh-canvas-overlay: #1c2128;
 
-  --gh-border: #30363d;
+  --gh-border-default: #30363d;
   --gh-border-muted: #21262d;
+  --gh-border-subtle: rgba(240, 246, 252, 0.1);
 
-  --gh-fg: #c9d1d9;
+  --gh-fg-default: #c9d1d9;
   --gh-fg-muted: #8b949e;
   --gh-fg-subtle: #6e7681;
   --gh-fg-onEmphasis: #ffffff;
 
-  --gh-accent: #58a6ff;
+  --gh-accent-fg: #58a6ff;
   --gh-accent-emphasis: #1f6feb;
+  --gh-accent-muted: rgba(56, 139, 253, 0.4);
   --gh-accent-subtle: rgba(56, 139, 253, 0.15);
-  --gh-success: #3fb950;
+
+  --gh-success-fg: #3fb950;
   --gh-success-emphasis: #238636;
   --gh-success-subtle: rgba(46, 160, 67, 0.15);
-  --gh-attention: #d29922;
-  --gh-danger: #f85149;
-  --gh-done: #a371f7;
 
-  background: #0d1117 !important;
+  --gh-attention-fg: #d29922;
+  --gh-attention-emphasis: #9e6a03;
+
+  --gh-danger-fg: #f85149;
+  --gh-danger-emphasis: #da3633;
+  --gh-danger-subtle: rgba(248, 81, 73, 0.1);
+
+  --gh-done-fg: #a371f7;
+  --gh-done-emphasis: #8957e5;
+
+  --gh-neutral-emphasis: #6e7681;
+  --gh-neutral-muted: rgba(110, 118, 129, 0.4);
+  --gh-neutral-subtle: rgba(110, 118, 129, 0.1);
+
+  background-color: #0d1117 !important;
   background-image: none !important;
   color: #c9d1d9 !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif !important;
   font-size: 14px !important;
   line-height: 1.5 !important;
+  letter-spacing: 0 !important;
 }
 
+/* ========== GENEL OVERRIDE ========== */
 body.theme-github *,
 body.theme-github *::before,
 body.theme-github *::after {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   text-shadow: none !important;
 }
 
-body.theme-github::before,
-body.theme-github::after {
+/* VHS katmanlarını kapat */
+body.theme-github::after,
+body.theme-github::before {
   display: none !important;
 }
 
 /* ========== ANA PENCERE ========== */
 body.theme-github .app-window {
   background: #0d1117 !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+  border: 1px solid #30363d !important;
+  border-radius: 6px !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.5) !important;
   margin: 0 !important;
-  overflow: visible !important;
-  max-width: 100% !important;
+  overflow: hidden !important;
 }
 
-/* ==========================================
-   ÜST NAV (GitHub Top Navigation)
-   ========================================== */
+/* ========== BAŞLIK ÇUBUĞU (GitHub Header) ========== */
 body.theme-github .title-bar {
   background: #010409 !important;
-  border: none !important;
-  border-bottom: 1px solid #21262d !important;
-  padding: 12px 24px !important;
+  border-bottom: 1px solid #30363d !important;
+  padding: 12px 20px !important;
   height: auto !important;
-  min-height: 62px !important;
+  min-height: 52px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   border-radius: 0 !important;
-  position: relative !important;
-  gap: 16px !important;
 }
-
-/* Sol tarafa GitHub logosu */
-body.theme-github .title-bar::before {
-  content: "" !important;
-  display: block !important;
-  position: static !important;
-  width: 32px !important;
-  height: 32px !important;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f0f6fc'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z'/></svg>") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: contain !important;
-  flex-shrink: 0 !important;
-  margin-right: 8px !important;
-  opacity: 1 !important;
-  animation: none !important;
-}
-
+body.theme-github .title-bar::before,
 body.theme-github .title-bar::after {
   display: none !important;
 }
-
 body.theme-github .title-bar-text {
   color: #f0f6fc !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif !important;
   font-size: 14px !important;
   font-weight: 600 !important;
   text-transform: none !important;
@@ -114,48 +110,43 @@ body.theme-github .title-bar-text {
   text-shadow: none !important;
   display: flex !important;
   align-items: center !important;
-  gap: 0 !important;
-  margin-right: auto !important;
+  gap: 10px !important;
 }
-
 body.theme-github .title-bar-text::before {
   content: "" !important;
-  display: none !important;
+  display: inline-block !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: #f0f6fc !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230d1117'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 22px 22px !important;
 }
 
-body.theme-github .title-bar-text::after {
-  content: "  /  dashboard" !important;
-  color: #8b949e !important;
-  font-weight: 400 !important;
-  margin-left: 4px !important;
-}
-
-/* Sağ taraftaki sahte GitHub aksiyon ikonları */
+/* GitHub sağ üst butonlar */
 body.theme-github .window-buttons {
   order: 1 !important;
   display: flex !important;
-  gap: 12px !important;
+  gap: 8px !important;
   margin-left: auto !important;
-  align-items: center !important;
 }
-
 body.theme-github .window-buttons span {
-  width: 28px !important;
-  height: 28px !important;
-  background: transparent !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: #21262d !important;
   border: 1px solid #30363d !important;
   border-radius: 6px !important;
   box-shadow: none !important;
   cursor: pointer !important;
   position: relative !important;
-  transition: background 0.15s ease, border-color 0.15s ease !important;
 }
-
 body.theme-github .window-buttons span:hover {
-  background: #21262d !important;
+  background: #30363d !important;
   border-color: #8b949e !important;
 }
-
 body.theme-github .window-buttons span::after {
   content: "" !important;
   position: absolute !important;
@@ -163,224 +154,130 @@ body.theme-github .window-buttons span::after {
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   background: #8b949e !important;
-  width: 12px !important;
-  height: 12px !important;
+  width: 10px !important;
+  height: 10px !important;
 }
 
-/* Bell icon (bildirimler) */
-body.theme-github .window-buttons span:nth-child(1)::after {
-  background: none !important;
-  content: "🔔" !important;
-  font-size: 14px !important;
-  width: auto !important;
-  height: auto !important;
-  filter: grayscale(1) brightness(2) !important;
-  opacity: 0.6 !important;
-}
-
-/* Plus icon (yeni repo) */
-body.theme-github .window-buttons span:nth-child(2)::after {
-  background: none !important;
-  content: "+" !important;
-  color: #c9d1d9 !important;
-  font-size: 18px !important;
-  font-weight: 300 !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-/* Avatar (profil) */
-body.theme-github .window-buttons span:nth-child(3) {
-  width: 32px !important;
-  height: 32px !important;
-  background: linear-gradient(135deg, #58a6ff 0%, #a371f7 100%) !important;
-  border: 1px solid #30363d !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-}
-
-body.theme-github .window-buttons span:nth-child(3)::after {
-  background: none !important;
-  content: "" !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* ==========================================
-   ÜST MENÜ (GitHub sub-nav)
-   ========================================== */
+/* ========== MENÜ ÇUBUĞU (GitHub Nav) ========== */
 body.theme-github .menu-bar {
-  background: #010409 !important;
+  background: #0d1117 !important;
   border-bottom: 1px solid #21262d !important;
-  padding: 0 24px !important;
-  gap: 0 !important;
+  padding: 0 16px !important;
+  gap: 4px !important;
   display: flex !important;
   align-items: center !important;
-  position: relative !important;
 }
-
 body.theme-github .menu-bar > * {
   color: #c9d1d9 !important;
   font-size: 14px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
-  padding: 12px 16px !important;
+  padding: 12px 10px !important;
   border: none !important;
   background: transparent !important;
+  border-radius: 6px !important;
   border-bottom: 2px solid transparent !important;
   transition: color 0.15s ease, border-color 0.15s ease !important;
   cursor: pointer !important;
   position: relative !important;
-  white-space: nowrap !important;
 }
-
 body.theme-github .menu-bar > *::before {
   display: none !important;
   content: none !important;
 }
-
 body.theme-github .menu-bar > *:hover {
   color: #58a6ff !important;
   background: transparent !important;
   border-bottom-color: #f78166 !important;
   transform: none !important;
 }
-
 body.theme-github .menu-bar > *.active {
   color: #f0f6fc !important;
   font-weight: 600 !important;
   border-bottom-color: #f78166 !important;
 }
 
-/* ==========================================
-   REPO TOOLBAR (Sekmeler / Repo Tabs)
-   ========================================== */
+/* ========== TOOLBAR (Sekmeler) ========== */
 body.theme-github .toolbar {
   background: #0d1117 !important;
   border-bottom: 1px solid #21262d !important;
-  padding: 0 24px !important;
-  gap: 0 !important;
+  padding: 8px 16px 0 16px !important;
+  gap: 4px !important;
   display: flex !important;
-  align-items: center !important;
-  position: relative !important;
-  margin-bottom: 0 !important;
 }
-
-/* Repo ikonu ekle */
-body.theme-github .toolbar::before {
-  content: "" !important;
-  display: block !important;
-  width: 16px !important;
-  height: 16px !important;
-  margin-right: 8px !important;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238b949e'><path d='M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z'/></svg>") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: contain !important;
-  flex-shrink: 0 !important;
-}
-
 body.theme-github .toolbar a {
   background: transparent !important;
   border: none !important;
   color: #c9d1d9 !important;
   font-size: 14px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
-  padding: 12px 12px !important;
-  border-radius: 0 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px 6px 0 0 !important;
   border-bottom: 2px solid transparent !important;
   box-shadow: none !important;
   filter: none !important;
   transition: color 0.15s ease, border-color 0.15s ease !important;
   position: relative !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
 }
-
 body.theme-github .toolbar a::before,
 body.theme-github .toolbar a::after {
   content: none !important;
   display: none !important;
 }
-
 body.theme-github .toolbar a:hover {
-  background: transparent !important;
+  background: rgba(177, 186, 196, 0.12) !important;
   color: #f0f6fc !important;
   transform: none !important;
-  border-bottom-color: #30363d !important;
+  border-bottom-color: transparent !important;
   box-shadow: none !important;
 }
-
 body.theme-github .toolbar a.active {
-  background: transparent !important;
+  background: #0d1117 !important;
   color: #f0f6fc !important;
   font-weight: 600 !important;
   border-bottom-color: #f78166 !important;
   box-shadow: none !important;
 }
 
-/* ==========================================
-   ANA İÇERİK ALANI
-   ========================================== */
-body.theme-github .main-area {
-  background: #0d1117 !important;
-  padding: 24px 0 !important;
-  display: flex !important;
-  gap: 24px !important;
-  max-width: 1280px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-}
-
-/* ==========================================
-   SIDEBAR (GitHub Repo Sidebar)
-   ========================================== */
+/* ========== SIDEBAR ========== */
 body.theme-github .sidebar {
   background: #0d1117 !important;
-  border-right: none !important;
-  padding: 0 8px 0 24px !important;
-  width: 260px !important;
-  min-width: 260px !important;
+  border-right: 1px solid #21262d !important;
+  padding: 16px 8px !important;
+  border-radius: 0 !important;
 }
-
 body.theme-github .sidebar::after {
   display: none !important;
 }
-
 body.theme-github .sidebar-title {
   background: transparent !important;
   color: #8b949e !important;
   font-size: 12px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0 !important;
-  padding: 8px 0 !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 8px !important;
   margin: 0 0 8px 0 !important;
   border: none !important;
   border-bottom: 1px solid #21262d !important;
   text-align: left !important;
   text-shadow: none !important;
 }
-
 body.theme-github .sidebar-title::before {
   content: "" !important;
   display: none !important;
 }
-
 body.theme-github .sidebar-title::after {
   content: "" !important;
   display: none !important;
 }
-
 body.theme-github .sidebar ul {
   gap: 0 !important;
   margin-left: 0 !important;
 }
-
 body.theme-github .sidebar li {
   background: transparent !important;
   border: none !important;
@@ -391,111 +288,62 @@ body.theme-github .sidebar li {
   text-transform: none !important;
   letter-spacing: 0 !important;
   padding: 6px 10px !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 2px !important;
   transition: background 0.1s ease !important;
   cursor: pointer !important;
   position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
 }
-
 body.theme-github .sidebar li::before {
   content: "" !important;
-  display: inline-block !important;
-  width: 16px !important;
-  height: 16px !important;
-  margin: 0 !important;
-  opacity: 0.7 !important;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238b949e'><path d='M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Z'/></svg>") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: contain !important;
-  flex-shrink: 0 !important;
-  position: static !important;
-  border: none !important;
-  border-radius: 0 !important;
+  display: none !important;
 }
-
 body.theme-github .sidebar li:hover {
   background: #161b22 !important;
   color: #f0f6fc !important;
   padding-left: 10px !important;
 }
-
 body.theme-github .sidebar li.active {
   background: #161b22 !important;
   color: #f0f6fc !important;
   font-weight: 500 !important;
 }
-
 body.theme-github .sidebar li.active::before {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f78166'><path d='M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Z'/></svg>") !important;
-  opacity: 1 !important;
-  border: none !important;
-}
-
-/* ==========================================
-   İÇERİK (README.md Rendering)
-   ========================================== */
-body.theme-github .content-pane {
-  background: transparent !important;
-  padding: 0 24px 0 0 !important;
-  color: #c9d1d9 !important;
-  flex: 1 !important;
-  max-width: none !important;
-  border: 1px solid #30363d !important;
-  border-radius: 6px !important;
-  padding: 32px !important;
-  margin-right: 24px !important;
-  position: relative !important;
-}
-
-/* README.md header etiketi */
-body.theme-github .content-pane::before {
-  content: "README.md" !important;
+  content: "" !important;
+  display: block !important;
   position: absolute !important;
-  top: 0 !important;
   left: 0 !important;
-  right: 0 !important;
-  height: 48px !important;
-  background: #161b22 !important;
-  border-bottom: 1px solid #30363d !important;
-  border-radius: 6px 6px 0 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 0 16px !important;
-  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace !important;
-  font-size: 12px !important;
-  color: #8b949e !important;
-  font-weight: 500 !important;
-  letter-spacing: 0 !important;
+  top: 6px !important;
+  bottom: 6px !important;
+  width: 2px !important;
+  background: #f78166 !important;
+  border-radius: 2px !important;
 }
 
-body.theme-github .content-pane > *:first-child {
-  margin-top: 48px !important;
+/* ========== İÇERİK ========== */
+body.theme-github .content-pane {
+  background: #0d1117 !important;
+  padding: 24px 32px !important;
+  color: #c9d1d9 !important;
 }
 
 /* ========== H1 ========== */
 body.theme-github h1.article-title {
   color: #f0f6fc !important;
-  font-size: 32px !important;
+  font-size: 28px !important;
   font-weight: 600 !important;
   text-transform: none !important;
-  letter-spacing: -0.5px !important;
+  letter-spacing: -0.3px !important;
   border-bottom: 1px solid #21262d !important;
   padding: 0 0 12px 0 !important;
-  margin: 8px 0 24px 0 !important;
+  margin-bottom: 16px !important;
   text-shadow: none !important;
   background: none !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif !important;
 }
-
 body.theme-github h1.article-title::before {
   content: "" !important;
   display: none !important;
 }
-
 body.theme-github h1.article-title::after {
   content: "" !important;
   display: none !important;
@@ -504,21 +352,23 @@ body.theme-github h1.article-title::after {
 /* ========== H2 ========== */
 body.theme-github h2 {
   color: #f0f6fc !important;
-  font-size: 24px !important;
+  font-size: 20px !important;
   font-weight: 600 !important;
   text-transform: none !important;
-  letter-spacing: -0.3px !important;
+  letter-spacing: -0.2px !important;
   padding: 0 0 8px 0 !important;
-  margin: 32px 0 16px !important;
+  margin: 32px 0 12px !important;
   border: none !important;
   border-bottom: 1px solid #21262d !important;
   background: none !important;
   text-shadow: none !important;
   box-shadow: none !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif !important;
 }
-
-body.theme-github h2::before,
+body.theme-github h2::before {
+  content: "" !important;
+  display: none !important;
+}
 body.theme-github h2::after {
   content: "" !important;
   display: none !important;
@@ -527,16 +377,16 @@ body.theme-github h2::after {
 /* ========== H3 ========== */
 body.theme-github h3 {
   color: #f0f6fc !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
   border-left: none !important;
   padding: 0 !important;
-  margin: 24px 0 12px !important;
+  margin: 24px 0 8px !important;
   text-shadow: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif !important;
 }
-
 body.theme-github h3::before {
   content: "" !important;
   display: none !important;
@@ -545,12 +395,10 @@ body.theme-github h3::before {
 /* ========== PARAGRAF & LINK ========== */
 body.theme-github p {
   font-size: 14px !important;
-  line-height: 1.65 !important;
+  line-height: 1.6 !important;
   color: #c9d1d9 !important;
   text-shadow: none !important;
-  margin-bottom: 16px !important;
 }
-
 body.theme-github a {
   color: #58a6ff !important;
   font-weight: 400 !important;
@@ -558,7 +406,6 @@ body.theme-github a {
   border-bottom: none !important;
   transition: color 0.15s ease !important;
 }
-
 body.theme-github a:hover {
   color: #79c0ff !important;
   text-decoration: underline !important;
@@ -566,7 +413,7 @@ body.theme-github a:hover {
   text-shadow: none !important;
 }
 
-/* ========== INFOBOX ========== */
+/* ========== INFOBOX (GitHub Card) ========== */
 body.theme-github .infobox,
 body.theme-github .warinfobox,
 body.theme-github .krono-box,
@@ -576,15 +423,13 @@ body.theme-github .rff-box {
   border: 1px solid #30363d !important;
   border-radius: 6px !important;
   padding: 16px !important;
-  box-shadow: none !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) !important;
 }
-
 body.theme-github .infobox::before,
 body.theme-github .infobox::after {
   content: none !important;
   display: none !important;
 }
-
 body.theme-github .infobox-title {
   color: #f0f6fc !important;
   font-size: 16px !important;
@@ -596,9 +441,7 @@ body.theme-github .infobox-title {
   margin: 0 0 12px 0 !important;
   text-shadow: none !important;
   text-align: left !important;
-  background: transparent !important;
 }
-
 body.theme-github .infobox-subtitle {
   color: #8b949e !important;
   font-style: normal !important;
@@ -607,43 +450,31 @@ body.theme-github .infobox-subtitle {
   font-size: 12px !important;
   text-align: left !important;
 }
-
 body.theme-github .infobox-label {
   color: #8b949e !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
   text-shadow: none !important;
 }
-
 body.theme-github .infobox-value {
   color: #c9d1d9 !important;
   font-weight: 400 !important;
 }
-
 body.theme-github .infobox-row {
   border-bottom: 1px solid #21262d !important;
-  padding: 8px 0 !important;
-  display: flex !important;
-  gap: 8px !important;
+  padding: 6px 0 !important;
 }
-
-body.theme-github .infobox-row:last-child {
-  border-bottom: none !important;
-}
-
 body.theme-github .flag-box {
   background: #010409 !important;
   border: 1px solid #21262d !important;
   border-radius: 6px !important;
   padding: 8px !important;
 }
-
 body.theme-github .flag-box::after {
   display: none !important;
 }
-
 body.theme-github .flag-label,
 body.theme-github .map-label {
   color: #8b949e !important;
@@ -653,69 +484,56 @@ body.theme-github .map-label {
   font-size: 11px !important;
   text-shadow: none !important;
 }
-
 body.theme-github .infobox-map {
   background: #010409 !important;
   border: 1px solid #21262d !important;
   border-radius: 6px !important;
-  padding: 8px !important;
+  padding: 6px !important;
 }
 
-/* ========== BLOCKQUOTE (GitHub Alert/Note) ========== */
+/* ========== BLOCKQUOTE ========== */
 body.theme-github blockquote {
   background: transparent !important;
-  border: 1px solid #30363d !important;
-  border-left: 4px solid #58a6ff !important;
-  border-radius: 6px !important;
-  padding: 12px 16px !important;
-  margin: 16px 0 !important;
-  color: #c9d1d9 !important;
+  border-left: 4px solid #30363d !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  padding: 0 16px !important;
+  margin: 12px 0 !important;
+  color: #8b949e !important;
   font-style: normal !important;
   font-size: 14px !important;
   box-shadow: none !important;
 }
-
 body.theme-github blockquote::before {
-  content: "ℹ " !important;
-  color: #58a6ff !important;
-  font-size: 14px !important;
-  position: static !important;
-  margin-right: 8px !important;
-  opacity: 1 !important;
-  animation: none !important;
-  display: inline !important;
+  content: "" !important;
+  display: none !important;
 }
-
 body.theme-github blockquote p {
-  color: #c9d1d9 !important;
-  display: inline !important;
-  margin: 0 !important;
+  color: #8b949e !important;
 }
 
-/* ========== DETAILS (GitHub Disclosure) ========== */
+/* ========== DETAILS (GitHub Details) ========== */
 body.theme-github details {
   background: #0d1117 !important;
   border: 1px solid #30363d !important;
   border-radius: 6px !important;
-  margin: 16px 0 !important;
+  margin: 12px 0 !important;
   overflow: hidden !important;
   transition: border-color 0.15s ease !important;
 }
-
 body.theme-github details:hover {
   border-color: #8b949e !important;
 }
-
 body.theme-github details[open] {
   background: #0d1117 !important;
   border-color: #30363d !important;
   box-shadow: none !important;
 }
-
 body.theme-github summary {
   background: #161b22 !important;
   color: #f0f6fc !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
   padding: 12px 16px !important;
@@ -725,18 +543,14 @@ body.theme-github summary {
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  cursor: pointer !important;
 }
-
 body.theme-github details[open] summary {
   border-bottom-color: #30363d !important;
   border-radius: 6px 6px 0 0 !important;
 }
-
 body.theme-github summary:hover {
   background: #1c2128 !important;
 }
-
 body.theme-github summary::before {
   content: "▸" !important;
   color: #8b949e !important;
@@ -744,14 +558,11 @@ body.theme-github summary::before {
   display: inline-block !important;
   transition: transform 0.15s ease !important;
   animation: none !important;
-  margin-right: 4px !important;
 }
-
 body.theme-github details[open] summary::before {
   content: "▾" !important;
   transform: none !important;
 }
-
 body.theme-github .details-content {
   background: #0d1117 !important;
   border-top: none !important;
@@ -759,7 +570,7 @@ body.theme-github .details-content {
   color: #c9d1d9 !important;
 }
 
-/* ========== BUTONLAR ========== */
+/* ========== BUTONLAR (GitHub Buttons) ========== */
 body.theme-github .vid-button,
 body.theme-github .qa-button,
 body.theme-github .lightbox-download {
@@ -780,11 +591,7 @@ body.theme-github .lightbox-download {
   transition: background 0.1s ease, border-color 0.1s ease !important;
   cursor: pointer !important;
   line-height: 20px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
 }
-
 body.theme-github .vid-button:hover,
 body.theme-github .qa-button:hover,
 body.theme-github .lightbox-download:hover {
@@ -792,35 +599,34 @@ body.theme-github .lightbox-download:hover {
   border-color: #8b949e !important;
   color: #f0f6fc !important;
   transform: none !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) !important;
 }
-
 body.theme-github .vid-button:active,
 body.theme-github .qa-button:active {
   background: #282e33 !important;
   border-color: #8b949e !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
-
 body.theme-github .vid-button::before {
-  content: "▶" !important;
+  content: "▶ " !important;
   color: #8b949e !important;
-  font-size: 10px !important;
   animation: none !important;
 }
 
+/* Primary buton (yeşil) */
 body.theme-github .qa-button {
   background: #238636 !important;
   border-color: rgba(240, 246, 252, 0.1) !important;
   color: #ffffff !important;
   font-weight: 600 !important;
 }
-
 body.theme-github .qa-button:hover {
   background: #2ea043 !important;
   border-color: rgba(240, 246, 252, 0.1) !important;
   color: #ffffff !important;
 }
 
-/* ========== TABLOLAR ========== */
+/* ========== TABLOLAR (GitHub Table) ========== */
 body.theme-github .players-table {
   background: #0d1117 !important;
   border: 1px solid #30363d !important;
@@ -828,9 +634,7 @@ body.theme-github .players-table {
   border-collapse: separate !important;
   border-spacing: 0 !important;
   overflow: hidden !important;
-  width: 100% !important;
 }
-
 body.theme-github .players-table th {
   background: #161b22 !important;
   color: #f0f6fc !important;
@@ -839,57 +643,51 @@ body.theme-github .players-table th {
   letter-spacing: 0 !important;
   border-bottom: 1px solid #30363d !important;
   border-right: none !important;
-  padding: 10px 16px !important;
+  padding: 8px 16px !important;
   font-size: 13px !important;
   text-shadow: none !important;
   text-align: left !important;
 }
-
 body.theme-github .players-table td {
   color: #c9d1d9 !important;
   border-bottom: 1px solid #21262d !important;
   border-right: none !important;
-  padding: 10px 16px !important;
+  padding: 8px 16px !important;
   font-size: 13px !important;
 }
-
 body.theme-github .players-table tr:last-child td {
   border-bottom: none !important;
 }
-
 body.theme-github .players-table tr:hover td {
   background: #161b22 !important;
 }
 
-/* ========== STATUS BAR ========== */
+/* ========== STATUS BAR (GitHub Footer) ========== */
 body.theme-github .status-bar {
-  background: #010409 !important;
-  border-top: 1px solid #21262d !important;
+  background: #161b22 !important;
+  border-top: 1px solid #30363d !important;
   color: #8b949e !important;
   font-weight: 400 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
   font-size: 12px !important;
-  padding: 12px 24px !important;
+  padding: 8px 16px !important;
   box-shadow: none !important;
 }
-
 body.theme-github .status-bar::before {
   display: none !important;
 }
-
 body.theme-github .status-bar span:first-child::before {
   content: "" !important;
   display: none !important;
 }
-
 body.theme-github .status-bar > span {
   padding: 0 !important;
   border: none !important;
   background: transparent !important;
 }
 
-/* ========== MODAL ========== */
+/* ========== MODAL (GitHub Dialog) ========== */
 body.theme-github .lightbox-window,
 body.theme-github .video-window {
   background: #0d1117 !important;
@@ -897,11 +695,10 @@ body.theme-github .video-window {
   border-radius: 6px !important;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 16px 48px rgba(0, 0, 0, 0.6),
-    0 32px 80px rgba(0, 0, 0, 0.5) !important;
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 16px 48px rgba(0, 0, 0, 0.5) !important;
   overflow: hidden !important;
 }
-
 body.theme-github .lightbox-title-bar,
 body.theme-github .video-title-bar {
   background: #161b22 !important;
@@ -914,7 +711,6 @@ body.theme-github .video-title-bar {
   font-size: 14px !important;
   text-shadow: none !important;
 }
-
 body.theme-github .lightbox-close,
 body.theme-github .video-close {
   background: transparent !important;
@@ -927,7 +723,6 @@ body.theme-github .video-close {
   box-shadow: none !important;
   transition: background 0.1s ease !important;
 }
-
 body.theme-github .lightbox-close:hover,
 body.theme-github .video-close:hover {
   background: #21262d !important;
@@ -935,14 +730,12 @@ body.theme-github .video-close:hover {
   color: #f0f6fc !important;
   box-shadow: none !important;
 }
-
 body.theme-github .video-controls {
   background: #161b22 !important;
   border-top: 1px solid #30363d !important;
   padding: 12px !important;
   gap: 8px !important;
 }
-
 body.theme-github .video-controls button {
   background: #21262d !important;
   border: 1px solid #30363d !important;
@@ -956,14 +749,12 @@ body.theme-github .video-controls button {
   box-shadow: none !important;
   text-shadow: none !important;
 }
-
 body.theme-github .video-controls button:hover {
   background: #30363d !important;
   border-color: #8b949e !important;
   color: #f0f6fc !important;
   box-shadow: none !important;
 }
-
 body.theme-github .video-controls a {
   background: #238636 !important;
   color: #ffffff !important;
@@ -975,7 +766,6 @@ body.theme-github .video-controls a {
   border-radius: 6px !important;
   box-shadow: none !important;
 }
-
 body.theme-github .video-controls a:hover {
   background: #2ea043 !important;
   color: #ffffff !important;
@@ -988,7 +778,6 @@ body.theme-github .xp-preview-pane {
   background: #0d1117 !important;
   border-color: #21262d !important;
 }
-
 body.theme-github .xp-tree-title,
 body.theme-github .xp-file-header {
   background: #161b22 !important;
@@ -1001,7 +790,6 @@ body.theme-github .xp-file-header {
   font-weight: 600 !important;
   font-size: 12px !important;
 }
-
 body.theme-github .xp-file-item,
 body.theme-github .xp-tree-item {
   color: #c9d1d9 !important;
@@ -1011,20 +799,18 @@ body.theme-github .xp-tree-item {
   transition: background 0.1s ease !important;
   margin: 2px 4px !important;
 }
-
 body.theme-github .xp-file-item:hover,
 body.theme-github .xp-tree-item:hover {
   background: #161b22 !important;
   color: #f0f6fc !important;
+  box-shadow: none !important;
 }
-
 body.theme-github .xp-file-item.selected,
 body.theme-github .xp-tree-item.active {
   background: #161b22 !important;
   color: #f0f6fc !important;
   box-shadow: inset 3px 0 0 #f78166 !important;
 }
-
 body.theme-github .xp-preview-text {
   background: #0d1117 !important;
   border: 1px solid #30363d !important;
@@ -1034,7 +820,7 @@ body.theme-github .xp-preview-text {
   box-shadow: none !important;
 }
 
-/* ========== DROPDOWN ========== */
+/* ========== DROPDOWN (Görünüm menüsü GitHub Dropdown) ========== */
 body.theme-github ~ .view-dropdown-fixed,
 body.theme-github .view-dropdown-fixed {
   background: #161b22 !important;
@@ -1046,14 +832,15 @@ body.theme-github .view-dropdown-fixed {
     0 16px 48px rgba(0, 0, 0, 0.4) !important;
   padding: 8px !important;
 }
-
+body.theme-github .view-dropdown-fixed * {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif !important;
+}
 body.theme-github .view-dropdown-fixed span {
   color: #8b949e !important;
   font-size: 12px !important;
   text-transform: none !important;
   font-weight: 600 !important;
 }
-
 body.theme-github .view-dropdown-fixed [data-z],
 body.theme-github .view-dropdown-fixed .zoom-value {
   background: #21262d !important;
@@ -1063,56 +850,55 @@ body.theme-github .view-dropdown-fixed .zoom-value {
   box-shadow: none !important;
   font-weight: 500 !important;
 }
-
 body.theme-github .view-dropdown-fixed [data-z]:hover {
   background: #30363d !important;
   border-color: #8b949e !important;
   color: #f0f6fc !important;
 }
-
 body.theme-github .view-dropdown-fixed .theme-item {
   background: transparent !important;
   border: 1px solid transparent !important;
   color: #c9d1d9 !important;
   border-radius: 6px !important;
   padding: 10px 12px !important;
+  transition: background 0.1s ease !important;
 }
-
 body.theme-github .view-dropdown-fixed .theme-item:hover {
   background: #21262d !important;
+  border-color: transparent !important;
   color: #f0f6fc !important;
 }
-
 body.theme-github .view-dropdown-fixed .theme-item.active {
   background: #1f6feb !important;
+  border-color: #1f6feb !important;
   color: #ffffff !important;
 }
-
 body.theme-github .view-dropdown-fixed .theme-item span {
   color: inherit !important;
 }
 
-/* ========== SCROLLBAR ========== */
+/* ========== SCROLLBAR (GitHub Scrollbar) ========== */
 body.theme-github ::-webkit-scrollbar {
   width: 12px !important;
   height: 12px !important;
 }
-
 body.theme-github ::-webkit-scrollbar-track {
   background: #0d1117 !important;
 }
-
 body.theme-github ::-webkit-scrollbar-thumb {
   background: #30363d !important;
   border: 3px solid #0d1117 !important;
   background-clip: padding-box !important;
   border-radius: 6px !important;
+  box-shadow: none !important;
 }
-
 body.theme-github ::-webkit-scrollbar-thumb:hover {
   background: #484f58 !important;
   background-clip: padding-box !important;
   border: 3px solid #0d1117 !important;
+}
+body.theme-github ::-webkit-scrollbar-corner {
+  background: #0d1117 !important;
 }
 
 /* ========== SELECTION ========== */
@@ -1121,8 +907,11 @@ body.theme-github ::selection {
   color: #ffffff !important;
 }
 
+/* ========== FOCUS RING (GitHub Accessibility) ========== */
 body.theme-github a:focus-visible,
-body.theme-github button:focus-visible {
+body.theme-github button:focus-visible,
+body.theme-github .toolbar a:focus-visible,
+body.theme-github .menu-bar > *:focus-visible {
   outline: 2px solid #58a6ff !important;
   outline-offset: 2px !important;
 }
