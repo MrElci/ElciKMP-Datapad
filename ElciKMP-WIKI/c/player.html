@@ -34,29 +34,33 @@
     </div>
     <script src="script.js"></script>
     <script>
-        (async () => {
-            const main = document.getElementById('mainContent');
-            const params = new URLSearchParams(window.location.search);
-            const folder = params.get('player'); // veya country / war
-            if (!folder) { main.innerHTML = '<p>Belirtilmedi.</p>'; return; }
+    (async () => {
+        const main = document.getElementById('mainContent');
+        const params = new URLSearchParams(window.location.search);
+        const folder = params.get('player');
+        if (!folder) { main.innerHTML = '<p>Belirtilmedi.</p>'; return; }
 
-            try {
-                const result = await loadPlayerPageContent(folder);
-                main.innerHTML = result.html;
+        try {
+            const info = await fetchPlayerInfo(folder);
+            if (!info) throw new Error('Bilgi yok');
 
-                // Tooltip altyapısını kur (sadece 1 kere)
-                setupHGTooltips(main);
+            const html = await loadPlayerPageContent(folder);
+            main.innerHTML = html;
 
-                // Kavram linklerini uygula
-                applyHyperglossary(main, result.hg);
-
-                // Diğer mevcut işlemleriniz (lightbox, related, quick access vb.)
-                enableImageLightbox(main);
-                // ...
-            } catch (e) {
-                main.innerHTML = '<p>Hata: ' + e.message + '</p>';
+            if (info.classmans && info.classmans.length) {
+                const related = await getRelatedItemsByClassmans(info.classmans, folder);
+                main.innerHTML += renderRelatedItems(related);
             }
-        })();
+
+            enableImageLightbox(main);
+            applyAccentColor();
+            buildQuickAccess();
+            await applyHGToPage(folder, 'player', main);
+
+        } catch (e) {
+            main.innerHTML = '<p>Hata: ' + e.message + '</p>';
+        }
+    })();
     </script>
     <script src="menu-fix.js"></script>
 </body>

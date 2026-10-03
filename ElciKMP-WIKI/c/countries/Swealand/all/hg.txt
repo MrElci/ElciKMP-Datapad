@@ -1,4 +1,7 @@
-<"KSI"> --exp<"Kutsal Sandeburg İmparatorluğu">
-<"Sverige"> --ur:countries.Swealand-exp<"Kuzeyin Kapitalist İmparatorluğu">
-<"Sverige Feodalitesi"> --exp<"Sverige'nin feodal dönemi">
-<"Zerdüşt"> --exp<"Ateşe tapan kadim Pers inancı">
+<"SUOK"> --exp<"Swealand Dış Devletler Yönetim Kurumu. Çoğunlukla şirketleşmiş yapıların bir birlikteliği olduğundan bir şirket koalisyonu olarakta adlandırılmışlardır.">
+<"Nazi Türkiyesi"> --ur:countries.Nazi-Turkiyesi-exp<"Minecraft öncesi 1. Binyılda almanyadan göçen Arasisler tarafından kurulmuş radikal türk devleti">
+<"Nazi Türkiyesinin"> --ur:countries.Nazi-Turkiyesi-exp<"Minecraft öncesi 1. Binyılda almanyadan göçen Arasisler tarafından kurulmuş radikal türk devleti">
+<"Nazi Türkiyesine"> --ur:countries.Nazi-Turkiyesi-exp<"Minecraft öncesi 1. Binyılda almanyadan göçen Arasisler tarafından kurulmuş radikal türk devleti">
+<"Atilla Roması"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
+<"Atilla Romasının"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
+<"Atilla Romasının;"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
