@@ -35,23 +35,25 @@
         (async () => {
             const main = document.getElementById('mainContent');
             const params = new URLSearchParams(window.location.search);
-            const folder = params.get('war');
-            if (!folder) { main.innerHTML = '<p>Savaş belirtilmedi.</p>'; return; }
+            const folder = params.get('player'); // veya country / war
+            if (!folder) { main.innerHTML = '<p>Belirtilmedi.</p>'; return; }
+
             try {
-                const info = await fetchWarInfo(folder);
-                if (!info) throw new Error('Bilgi yok');
-                let html = await loadWarPageContent(folder);
-                main.innerHTML = html;
+                const result = await loadPlayerPageContent(folder);
+                main.innerHTML = result.html;
 
-                if (info.classmans && info.classmans.length) {
-                    const related = await getRelatedItemsByClassmans(info.classmans, folder);
-                    main.innerHTML += renderRelatedItems(related);
-                }
+                // Tooltip altyapısını kur (sadece 1 kere)
+                setupHGTooltips(main);
 
+                // Kavram linklerini uygula
+                applyHyperglossary(main, result.hg);
+
+                // Diğer mevcut işlemleriniz (lightbox, related, quick access vb.)
                 enableImageLightbox(main);
-                applyAccentColor();
-                buildQuickAccess();
-            } catch(e) { main.innerHTML = '<p>Hata: ' + e.message + '</p>'; }
+                // ...
+            } catch (e) {
+                main.innerHTML = '<p>Hata: ' + e.message + '</p>';
+            }
         })();
     </script>
     <script src="menu-fix.js"></script>

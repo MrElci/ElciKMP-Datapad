@@ -1,0 +1,4 @@
+<"KSI"> --exp<"Kutsal Sandeburg İmparatorluğu">
+<"Sverige"> --ur:countries.Swealand-exp<"Kuzeyin Kapitalist İmparatorluğu">
+<"Sverige Feodalitesi"> --exp<"Sverige'nin feodal dönemi">
+<"Zerdüşt"> --exp<"Ateşe tapan kadim Pers inancı">

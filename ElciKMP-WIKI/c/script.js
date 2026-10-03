@@ -699,7 +699,13 @@ async function loadContent(folder, type) {
     const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
     const res = await fetch(`${base}/${folder}/all/${info.mainFile}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Dosya bulunamadı');
-    return parseWikiText(await res.text());
+    const html = parseWikiText(await res.text());
+
+    // hg.txt opsiyonel — yoksa boş dizi döner
+    const hgText = await fetchHG(folder, type);
+    const hg = hgText ? parseHG(hgText) : [];
+
+    return { html, hg };
 }
 
 const loadPlayerPageContent = f => loadContent(f, 'player');
@@ -1547,79 +1553,6 @@ async function initCmdPage() {
             await typewriterLine(terminal, 'ELCIKMP - DATAPAD v4.00PG', 10);
         } else if (upperCmd === 'EXIT') {
             window.location.href = 'index.html';
-        } else if (input === 'HACKERAURA') {
-                // HackerAura easter egg – animasyonlu hacker manifestosu
-                const hackerContent = `def HelloWorld(a):
-                print(a)
-
-
-            HelloWorld("print")
-
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠘⢿⣿⣿⣿⡿⠉⣿⣿⡿⣻⠃⠀⠘⣿⣿⣿⣿⠋⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠙⢿⡿⠃⢀⣿⠿⠁⠁⠀⠀⠀⣿⣿⠟⠁⠀⢻⣿⣿⠟⠋⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠈⢿⣿⠛⠿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠘⠋⠀⠀⠀⠀⠀⢰⣟⡵⠀⠀⢀⣾⠏⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠈⢿⡆⠀⠀⠙⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣟⡿⠁⠀⡾⠉⠇⠀⠀⠛⢛⡛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢹⣿⡇⠀⠀⠀⠻⠀⠀⢸⠀⠀⢱⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠉⠉⠀⢀⡼⠁⠀⠀⠀⠀⠀⠀⢀⣤⡿⠟⠋⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⣿⣿⠀⠀⠀⠀⡀⠀⠸⣆⠀⠀⠂⠁⠀⠀⠀⠀⢹⠀⠀⠀⠀⠀⢰⠏⠀⠀⢀⡀⠀⠀⠀⠐⠉⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⡇⠹⣿⠷⠀⠀⠀⢸⡄⠀⠀⠀⢠⡄⠀⠀⠀⠀⠀⣾⠀⠀⠀⠀⠀⠀⣀⣴⠞⠉⠠⠖⠀⠠⠀⠀⠀⠀⠀⠾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠙⢷⠀⠈⠀⠀⠐⢦⣀⢳⡄⠀⠀⠈⢳⡀⠀⠀⠀⢀⣿⢀⣴⢆⣠⣴⣾⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⢉⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠄⠀⠀⠀⠀⠀⠀⠈⠁⠀⠁⢤⣀⣈⣳⣄⣀⣠⣾⠿⢋⡿⠿⠿⣿⣃⣉⣀⣠⣤⣴⡶⠿⠋⣀⣀⠀⠀⠀⠀⠀⣀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣦⠈⠉⠉⠉⠁⠀⠀⠀⠀⠠⣤⣀⡀⠀⣀⣰⣴⠖⠛⠛⠋⣭⠁⢨⣇⠀⢠⡄⠀⠀⠀⠀⠀⠀⠀⠈⢻⢷⡼⠟⠉⠀⠀⠀⠀⠀⠫⠵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣧⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠷⣾⠟⠀⠀⠀⠀⠀⢠⡏⢀⣸⣿⠀⣦⢹⣆⠀⠀⠀⠀⠀⠀⠀⠈⠙⠷⣄⠀⠀⠀⠀⠀⠀⢦⣀⣀⣉⣻⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⡻⢯⠅⠀⠐⠦⢤⣤⣥⠤⠴⠒⣴⠏⠀⠀⠀⠀⠀⠀⣸⣧⣸⡿⠛⢰⣿⠾⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⣿⡇⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣤⠶⠀⠀⠀⠀⠀⣠⡾⠁⠀⠀⠀⠀⠀⠀⠀⣽⡟⠉⣿⠀⢸⡏⠀⠀⠙⠂⣀⣀⣤⣤⠶⠆⠀⠀⠀⢹⣧⡀⢤⣀⠀⠀⢀⣈⣻⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⡟⢿⠿⠿⠿⠛⠋⠁⠀⠀⠀⠀⢀⣴⣿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⡇⠀⢀⣴⠿⠋⣄⣤⠤⠤⠀⠀⠀⠀⠀⢻⣿⣷⣮⣷⣦⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣷⡀⠀⠀⠀⠀⣠⠀⠀⠀⢠⣶⣻⣿⠇⠀⠀⠀⠐⠚⠉⠉⠉⠛⠻⡶⣤⡀⠀⠀⠀⠀⣿⢉⣴⠟⣉⣥⣤⠶⠶⠶⢶⡀⠀⢹⣿⣿⣷⣦⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣄⣀⣀⣴⠋⠀⣀⣴⢿⡿⢫⡿⠀⠀⠀⠀⠀⢠⣶⣾⣛⣛⣛⣿⣿⣻⣆⠀⠀⠀⠻⠿⠱⡿⠋⣸⣷⣤⡀⠀⣠⣇⠀⠘⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⡋⢁⣤⣾⣿⠗⢈⣴⣿⣷⠀⠀⢀⡶⠚⠉⠉⢀⣤⣄⠙⢯⡈⠛⢙⣦⣀⡀⠀⠀⠀⢧⣤⣹⣿⣟⣀⣴⣯⡏⣶⡶⠀⣿⡿⠋⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣆⣸⣿⣿⣿⡀⠀⢈⡻⣄⠀⠀⠻⣾⢿⣀⡬⠁⣰⣿⣿⠿⠿⣷⣦⣄⣀⣀⡀⠀⠀⠀⣩⣷⣾⣿⡧⠀⣿⢠⡞⣳⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣴⢦⡙⣿⣷⣦⠾⠚⠋⠁⣀⣼⡿⠋⠉⠀⠀⠈⠉⠉⠉⠁⠀⠀⠀⠀⠰⠻⡿⢿⣷⢴⢡⣟⢳⡍⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢀⠈⠻⣇⣸⣷⡿⣟⠶⠆⠀⠀⠀⠈⠉⠉⠀⠀⡀⠀⠀⢠⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⢰⢈⣿⣿⠁⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠿⠛⣦⡈⣻⣿⡟⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣷⡠⠾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⢸⣼⡿⠃⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠸⣿⣇⠉⠻⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⣀⣀⣀⣀⣰⣦⡀⠀⠀⣾⣧⡾⠋⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠹⢿⣧⣄⠙⣿⡄⠀⠀⠀⠀⠀⠀⠀⣀⣤⠴⠖⠚⠛⠋⣉⣀⣀⣀⣤⣤⡟⠁⠀⢰⣿⢿⣧⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠉⠉⢷⣼⣿⡆⠀⠀⢠⣶⠖⢫⣉⣀⣤⣶⣶⣿⣯⣿⡿⠟⣩⠼⠋⠀⠀⠀⣾⣿⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣴⣿⡸⣿⣄⠀⠈⠙⠳⠶⠤⠍⠍⠉⠁⠀⠤⠤⣖⡏⠀⠀⠀⠀⢠⣾⡿⣳⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢷⡹⣿⣷⣄⠀⠀⠀⠀⠀⠀⠒⠒⠒⠛⠛⠉⠀⢀⣀⣀⣴⣿⢋⣾⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡈⠻⢦⡙⢿⣷⣄⣀⠀⣠⣶⣤⣄⡀⠀⠀⣴⢿⣿⠿⠿⠟⣵⠟⣱⠏⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠙⠳⣭⣛⠿⠿⠛⠛⣷⣽⡆⠀⢀⣯⡼⠃⠀⣠⡾⠃⣴⠃⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠉⠛⠦⣤⣀⠈⠻⠛⠀⠀⠀⠀⣠⡾⠋⣀⣴⡇⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⣀⣄⠀⠀⠀⠀⠀⠉⠛⠓⠒⠒⠒⠒⠛⠁⣠⡞⢹⣿⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⡞⢻⣹⠀⠀⠀⠀⠀⠰⡄⠀⠀⠀⠀⠀⢠⡾⠉⠀⢸⣿⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠘⡿⣧⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⣴⠏⠀⠀⠀⣸⡏⠀⠀⢸⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢻⡇⠀⠀⢹⣽⡀⠀⠀⠀⠀⠈⢳⣦⣀⡾⠃⠀⠀⠀⠀⣿⠃⠀⠀⢸⠀⠈⠉⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣁⣀⣸⡇⠀⠀⠈⢿⣇⠀⠀⠀⠀⠀⠀⠸⢿⠁⠀⠀⠀⠀⠀⣿⠀⠀⠀⢸⡇⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠉⠉⠻⣿⠀⠀⠀⠘⣿⡆⢸⡛⠳⣤⡀⠀⠸⡇⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⡄⠀⠀⠀⢻⣇⢸⡇⠀⠀⠙⠻⠾⠃⠀⠀⠀⠀⢰⡇⠀⠀⠀⢧⠀⠀⠀⠀⠀⠀⠘⢿⠿⠿⠿⠿⠇⠈⠛⠿⣿"
-            "⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⢡⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀⠀⢻⡦⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠁⠀⠀⠀⢸⣆⠀⠀⠀⠀⠀⠀⠘⣤⣤⣤⣤⣤⣄⠀⠀⠀"
-            "⣿⣿⣿⣿⣿⣿⠿⠛⠉⠀⠀⠾⠟⠛⠉⠉⠀⠀⠀⠀⠀⠀⢠⣿⠀⠀⠀⠀⠀⠀⢹⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⢸⣿⣦⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⡀⠀⠀"
-            "⠿⠛⠋⠀⠀⠀⣀⣤⠀⠀⣠⣤⣤⣶⣶⣿⠇⠀⠀⠀⠀⣰⣿⣿⠀⠀⠀⠀⠀⠀⠀⢻⣿⠀⠀⠀⠀⠀⠀⠀⠀⣾⠁⠀⠀⠀⠀⢸⢿⠘⠷⣄⣀⣀⣀⣀⣨⣿⡿⠿⠟⠛⣛⣀⠀"
-            "⠀⠀⠀⠀⠀⠾⣯⣄⡀⢠⣿⣿⣿⣿⣿⡟⠀⠀⠀⣠⡾⣿⠏⣿⠀⠀⠀⠀⠀⠀⠀⠀⢿⣷⡀⠀⠀⠀⠀⠀⢠⠇⠀⣀⣀⣤⣤⠾⠞⠓⠊⠉⠉⠉⠉⠀⠀⠀⢷⣶⣿⣿⣿⣿⡆"
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠉⢉⣙⣛⠻⠿⠿⠧⠤⠴⢿⣯⣿⠃⠀⣿⣀⣀⣀⣀⠀⠀⠀⠀⠀⢻⣷⣦⣀⠀⢀⣴⣿⡔⠋⠁⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿"
-            "I BECOME THE DEVOLOPER`;
-
-                // İlk satırları typewriter ile yaz
-                const hackerLines = hackerContent.split('\n');
-                for (let li = 0; li < hackerLines.length; li++) {
-                    const line = hackerLines[li];
-                    // ASCII blok satırları çok uzun; onları hızlı yaz
-                    const lineSpeed = line.length > 100 ? 1 : 15;
-                    await typewriterLine(terminal, line, lineSpeed);
-                    if (line.length > 100) {
-                        // ASCII blokları için ekstra kısa bekleme
-                        await new Promise(r => setTimeout(r, 15));
-                    }
-                }
-                commandInput.focus();
         } else if (upperCmd === 'GOD IS DEAD') {
             // Bozulma aşamalarını başlat
             await applyAdminPhases();
@@ -1646,7 +1579,8 @@ async function initCmdPage() {
                 document.body.classList.remove('red-theme');
                 await typewriterLine(terminal, 'Erişim iptal edildi. Sistem normale döndü.', 10);
             }
-        } else {
+        }
+         else {
             const req = data.reqs.find(r => r.command === input);
             if (req) {
                 await showThinking(terminal);
@@ -1744,3 +1678,285 @@ async function initCmdPage() {
   setTimeout(upgradeMenuBar, 300);
   setTimeout(upgradeMenuBar, 1200);
 })();
+
+/* ===========================================
+   HYPERGLOSSARY (hg.txt) SİSTEMİ
+   =========================================== */
+
+async function fetchHG(folder, type) {
+    const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
+    try {
+        const res = await fetch(`${base}/${folder}/all/hg.txt`, { cache: 'no-store' });
+        if (!res.ok) return null;   // hg.txt opsiyonel
+        return await res.text();
+    } catch { return null; }
+}
+
+function parseHG(text) {
+    if (!text) return [];
+    const entries = [];
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+    for (const line of lines) {
+        const wordMatch = line.match(/^<"([^"]+)">\s*/);
+        if (!wordMatch) continue;
+        const word = wordMatch[1];
+        const rest = line.substring(wordMatch[0].length).trim();
+
+        let url = null;
+        let exp = '';
+
+        if (rest.startsWith('--ur:')) {
+            const marker = '-exp<"';
+            const idx = rest.indexOf(marker);
+            if (idx === -1) continue;
+            url = rest.substring(5, idx).trim();
+            const tail = rest.substring(idx + marker.length);
+            exp = tail.replace(/"\s*>$/, '');
+        } else if (rest.startsWith('--exp<"')) {
+            const tail = rest.substring(6);
+            exp = tail.replace(/"\s*>$/, '');
+        } else {
+            continue;
+        }
+
+        entries.push({ word, url, exp });
+    }
+    return entries;
+}
+
+function parseHGUrl(url) {
+    if (!url) return null;
+    const parts = url.split('.');
+    if (parts.length < 2) return null;
+    const base = parts[0];
+    const folder = parts.slice(1).join('.');
+    let type = null;
+    if (base === 'players') type = 'player';
+    else if (base === 'countries') type = 'country';
+    else if (base === 'wars') type = 'war';
+    if (!type) return null;
+    return { type, folder };
+}
+
+const _hgImageCache = new Map();
+async function getHGPreviewImage(type, folder) {
+    const key = `${type}:${folder}`;
+    if (_hgImageCache.has(key)) return _hgImageCache.get(key);
+    let info;
+    if (type === 'player') info = await fetchPlayerInfo(folder);
+    else if (type === 'country') info = await fetchCountryInfo(folder);
+    else if (type === 'war') info = await fetchWarInfo(folder);
+    let img = null;
+    if (info) {
+        if (info.previewImage) img = info.previewImage;
+        else if (info.flagImage) img = `img/flag/${info.flagImage}`;
+    }
+    _hgImageCache.set(key, img);
+    return img;
+}
+
+function applyHyperglossary(container, entries) {
+    if (!entries || entries.length === 0) return;
+
+    // Uzun kelimeler önce eşleşsin (Sverige Feodalitesi → Sverige)
+    const sorted = [...entries].sort((a, b) => b.word.length - a.word.length);
+    const escaped = sorted.map(e => e.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+
+    let regex;
+    try {
+        // Kelime sınırı: harf veya rakam önce/sonra gelmemeli
+        regex = new RegExp(`(?<![\\p{L}\\p{N}])(${escaped.join('|')})(?![\\p{L}\\p{N}])`, 'gu');
+    } catch (e) {
+        regex = new RegExp(`(?:^|[^\\p{L}\\p{N}])(${escaped.join('|')})(?![\\p{L}\\p{N}])`, 'gu');
+    }
+
+    const wordMap = new Map();
+    sorted.forEach(e => wordMap.set(e.word, e));
+
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+        acceptNode: function(node) {
+            if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
+            let p = node.parentElement;
+            while (p && p !== container) {
+                if (p.classList && (p.classList.contains('wiki-link') || p.classList.contains('hg-tooltip'))) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+                const tag = p.tagName;
+                if (tag === 'A' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') {
+                    return NodeFilter.FILTER_REJECT;
+                }
+                p = p.parentElement;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+        }
+    });
+
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+
+    for (const node of nodes) {
+        const text = node.textContent;
+        regex.lastIndex = 0;
+        if (!regex.test(text)) continue;
+        regex.lastIndex = 0;
+
+        const frag = document.createDocumentFragment();
+        let lastIndex = 0;
+        let match;
+
+        while ((match = regex.exec(text)) !== null) {
+            if (match.index > lastIndex) {
+                frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+            }
+            const word = match[1];
+            const entry = wordMap.get(word);
+            if (entry) {
+                const span = document.createElement('span');
+                span.className = 'wiki-link';
+                span.dataset.exp = entry.exp || '';
+                if (entry.url) span.dataset.url = entry.url;
+                span.textContent = word;
+                frag.appendChild(span);
+            } else {
+                frag.appendChild(document.createTextNode(word));
+            }
+            lastIndex = regex.lastIndex;
+        }
+        if (lastIndex < text.length) {
+            frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+        }
+        node.parentNode.replaceChild(frag, node);
+    }
+}
+
+/* ---------- TOOLTIP ---------- */
+let _hgTooltipEl = null;
+let _hgHideTimer = null;
+
+function _getHGTooltip() {
+    if (_hgTooltipEl) return _hgTooltipEl;
+    _hgTooltipEl = document.createElement('div');
+    _hgTooltipEl.className = 'hg-tooltip';
+    _hgTooltipEl.style.display = 'none';
+    document.body.appendChild(_hgTooltipEl);
+    return _hgTooltipEl;
+}
+
+function _positionHGTooltip(tip, linkEl) {
+    const rect = linkEl.getBoundingClientRect();
+    tip.style.position = 'fixed';
+    tip.style.left = '0px';
+    tip.style.top = '0px';
+    const tipRect = tip.getBoundingClientRect();
+    const tipW = tipRect.width;
+    const tipH = tipRect.height;
+
+    let left = rect.left;
+    let top = rect.bottom + 8;
+
+    if (left + tipW > window.innerWidth - 8) left = window.innerWidth - tipW - 8;
+    if (left < 8) left = 8;
+    if (top + tipH > window.innerHeight - 8) top = rect.top - tipH - 8;
+    if (top < 8) top = 8;
+
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+}
+
+function _showHGTooltip(linkEl) {
+    const tip = _getHGTooltip();
+    if (_hgHideTimer) { clearTimeout(_hgHideTimer); _hgHideTimer = null; }
+
+    const exp = linkEl.dataset.exp || '';
+    const url = linkEl.dataset.url;
+
+    tip.innerHTML = '';
+
+    if (url) {
+        const parsed = parseHGUrl(url);
+        if (parsed) {
+            const imgWrap = document.createElement('div');
+            imgWrap.className = 'hg-tooltip-img-wrapper';
+            imgWrap.innerHTML = '<div class="hg-tooltip-loading">▊ yükleniyor...</div>';
+            tip.appendChild(imgWrap);
+
+            getHGPreviewImage(parsed.type, parsed.folder).then(img => {
+                if (!imgWrap.parentNode) return;
+                if (img) imgWrap.innerHTML = `<img src="${img}" alt="">`;
+                else imgWrap.remove();
+                if (tip.style.display !== 'none' && linkEl.isConnected) {
+                    _positionHGTooltip(tip, linkEl);
+                }
+            });
+        }
+    }
+
+    if (exp) {
+        const t = document.createElement('div');
+        t.className = 'hg-tooltip-text';
+        t.textContent = exp;
+        tip.appendChild(t);
+    }
+
+    if (url) {
+        const h = document.createElement('div');
+        h.className = 'hg-tooltip-hint';
+        h.textContent = '→ sayfaya gitmek için tıkla';
+        tip.appendChild(h);
+    }
+
+    tip.style.display = 'block';
+    _positionHGTooltip(tip, linkEl);
+}
+
+function _hideHGTooltip() {
+    if (_hgTooltipEl) _hgTooltipEl.style.display = 'none';
+}
+
+function setupHGTooltips(container) {
+    if (container._hgSetup) return;
+    container._hgSetup = true;
+
+    container.addEventListener('mouseover', (e) => {
+        const link = e.target.closest && e.target.closest('.wiki-link');
+        if (link && container.contains(link)) _showHGTooltip(link);
+    });
+
+    container.addEventListener('mouseout', (e) => {
+        const link = e.target.closest && e.target.closest('.wiki-link');
+        if (!link) return;
+        const related = e.relatedTarget;
+        if (related && related.closest && related.closest('.hg-tooltip')) return;
+        _hgHideTimer = setTimeout(() => _hideHGTooltip(), 80);
+    });
+
+    container.addEventListener('touchstart', (e) => {
+        const link = e.target.closest && e.target.closest('.wiki-link');
+        if (link && container.contains(link)) {
+            _showHGTooltip(link);
+            if (_hgHideTimer) clearTimeout(_hgHideTimer);
+            _hgHideTimer = setTimeout(() => _hideHGTooltip(), 3000);
+        }
+    }, { passive: true });
+
+    container.addEventListener('click', (e) => {
+        const link = e.target.closest && e.target.closest('.wiki-link');
+        if (link && container.contains(link) && link.dataset.url) {
+            const parsed = parseHGUrl(link.dataset.url);
+            if (parsed) {
+                let page = '';
+                if (parsed.type === 'player') page = 'player.html?player=' + encodeURIComponent(parsed.folder);
+                else if (parsed.type === 'country') page = 'country.html?country=' + encodeURIComponent(parsed.folder);
+                else if (parsed.type === 'war') page = 'war.html?war=' + encodeURIComponent(parsed.folder);
+                if (page) window.location.href = page;
+            }
+        }
+    });
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest && e.target.closest('.hg-tooltip')) {
+            if (_hgHideTimer) { clearTimeout(_hgHideTimer); _hgHideTimer = null; }
+        }
+    });
+}

@@ -1894,3 +1894,74 @@ blockquote::before { z-index: 2 !important; }
     font-size: 10px;
   }
 }
+/* ===========================================
+   HYPERGLOSSARY (wiki-link + tooltip)
+   =========================================== */
+.wiki-link {
+  color: var(--gh-accent-fg);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--gh-accent-muted);
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 0.15s var(--ease), text-decoration-color 0.15s var(--ease);
+}
+.wiki-link:hover {
+  color: var(--gh-accent-hover);
+  text-decoration-style: solid;
+  text-decoration-color: var(--gh-accent-hover);
+}
+
+.hg-tooltip {
+  position: fixed;
+  z-index: 2147483647;
+  max-width: 320px;
+  min-width: 180px;
+  background: var(--gh-canvas-overlay);
+  border: 1px solid var(--gh-border-default);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(1, 4, 9, 0.7), 0 0 0 1px rgba(247, 129, 102, 0.15);
+  padding: 10px;
+  color: var(--gh-fg-bright);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  pointer-events: none;
+  animation: hgTooltipIn 0.18s var(--ease);
+}
+@keyframes hgTooltipIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hg-tooltip-img-wrapper {
+  margin: -4px -4px 8px -4px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--gh-canvas-inset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}
+.hg-tooltip-img-wrapper img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  display: block;
+}
+.hg-tooltip-loading {
+  padding: 20px 8px;
+  color: var(--gh-fg-muted);
+  font-size: 11px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.hg-tooltip-text { color: var(--gh-fg-bright); }
+.hg-tooltip-hint {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--gh-border-muted);
+  font-size: 10px;
+  color: var(--data-coral);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
