@@ -1,0 +1,175 @@
+§l §e Adriyatik Savaşları
+<tablowar>
+    §0 Adriyatik Savaşları
+    "Kalitenin sayıyı yendiği, devrin değiştiğini her seferinde kanıtlayan savaşlar"
+    img.map.war.adriyatikwar
+    Tarih: MC öncesi birinci binyılın ortası (MC.O. 450)
+    Konum: Adriyatik Denizi Çevresi
+    Sonuç: Ezici Swealand Koalisyonu Zaferi
+    Cepheler: Adriyatik Deniz Cephesi, Yunan-Trakya cephesi, Belgrad Cephesi, Romanya Direniş Cephesi, Arnavutluk Cephesi
+
+    §l §0 Taraflar:
+        Koalisyon Güçleri:
+        flag.img.flag.SKI Swenska / Swealand Kapitalist İmparatorluğu
+        flag.img.flag.SKIgreece Yunanistan
+        flag.img.flag.SKIserbia Sırbistan
+        -
+        Devleti Alliye Güçleri:
+        flag.img.flag.DASC Devleti Alliye Sosyalist Cumhuriyeti
+        -
+
+    §l §0 Kuvvetler:
+        Koalisyon Kuvvetleri:
+        flag.img.flag.SKI 280.000 - 330.000
+        flag.img.flag.SKIgreece 12.000
+        flag.img.flag.SKIserbia 7.000
+        -
+        Devleti Alliye Kuvvetleri:
+        flag.img.flag.DASC 3.800.000 -  3.200.000
+        -
+    
+    §l §0 Savaşlar:
+
+    §l §0  Birinci Adriyatik Mücadelesi - Adriyatik Deniz Cephesi
+    §l §0 İkinci Adriyatik Savaşı - Arnavutluk Cephesi
+    §l §0 Üçüncü Adriyatik Savaşı - Belgrad Cephesi
+    §l §0 Dördüncü Adriyatik Savaşı - Romanya Direniş Cephesi
+    §l §0 Son Adriyatik Savaşı - Yunan-Trakya Cephesi
+    -
+        §l §0 Birinci Adriyatik Mücadelesi - Taraflar:
+        flag.img.flag.SKI 170.000 Deniz Eliti
+        flag.img.flag.SKI 80.000 Ağır Zırhlı
+        flag.img.flag.SKI 50.000 Mühendis-Asker
+        -        
+        flag.img.flag.DASC 1.200.000
+
+        §l §0 Komutanlar:
+
+        flag.img.flag.SKI Wilhelm Sharpenhour
+        flag.img.flag.SKI Frederick Markouns
+        -
+        flag.img.flag.DASC Alparslan Türkoğlu
+        flag.img.flag.DASC Oğuzhan Yılmaz
+        flag.img.flag.DASC Orhan Gazi
+    
+    §l §e Anadolu Batı Cephesi:
+        §l §0  Taraflar:
+        flag.img.flag.naziturkey 200.000
+        -
+        flag.img.flag.atillaroma  350.000
+
+        §l §0 Komutanlar:
+
+        flag.img.flag.IBFC Efe Batur Tüysüz
+        flag.img.flag.naziturkey Atarlı Cihangir
+        flag.img.flag.naziturkey Polat Alemdar
+        flag.img.flag.naziturkey Aras Mormont
+        -
+        flag.img.flag.atillaroma İskender
+        flag.img.flag.atillaroma Byzantine
+        flag.img.flag.atillaroma Atilla Ved
+        flag.img.flag.atillaroma Belisarius
+        flag.img.flag.SKI Wilhelm Sharpenhour
+
+
+
+
+
+    §l §e Doğu Cephesi (Swealand Katılımı ile):
+        §l §0 Taraflar:
+        flag.img.flag.naziturkey 400.000
+        -    
+        flag.img.flag.SKI 3.500.000
+
+        §l §0 Komutanlar:
+
+        flag.img.flag.austria Charles III
+        flag.img.flag.naziturkey Pala
+        flag.img.flag.naziturkey Sempatuco
+        flag.img.flag.naziturkey İbrahim yıkılmaz
+        flag.img.flag.naziturkey Icardi
+        -
+        flag.img.flag.SKI Rahil Şerif
+        flag.img.flag.SKI Madappa Cariappa
+        flag.img.flag.SKI Subayya Thimayya
+        flag.img.flag.SKI S. Mallannah
+        flag.img.flag.SKI Azad Keşmir
+        flag.img.flag.SKI Tikka Khan
+        flag.img.flag.SKI Sam Manekshaw
+        flag.img.flag.SKI MAG Osmani
+        
+        §l §0 Kayıplar:
+        flag.img.flag.naziturkey Nazi Türkiyesi: 
+            400.000 asker 
+            20 bin teçhizat
+        -
+        flag.img.flag.SKI Swealand Kapitalist İmparatorluğu:        
+            15 bin asker
+<tablowar /end>
+
+<h2> §l Savaşın Başlangıcı
+
+    Büyük Latin-Türk Savaşı, Nazi Türkiyesi’nin geniş çaplı bir taarruz başlatmasıyla patlak vermiştir. 
+    Balkanlarda hızla yayılan Türk kuvvetleri, Bulgaristan ve Sırbistan’ı hede
+    
+    
+    
+    
+    f alarak bölgedeki Latin güçlerini geri çekilmeye zorlamıştır. 
+    Ancak Atilla Roması, Swealand Kapitalist İmparatorluğundan satın alınan askeri erişimle, stratejik bir karşı saldırı planı hazırlamış ve savaşı tamamen başka bir boyuta taşımıştır.
+
+<h2> §l Balkan Cephesi: Türk Ordusunun Çemberde Kalışı
+
+    Atilla Roması ordusu, Swealand'den askeri geçiş izinleri alarak Yunanistan üzerinden Trakya’ya saldırıya geçti. 
+    Bu hamle, Türk ordusunu Balkanlar’da sıkışmaya zorladı. Romalılar, Trakya cephesindeki Türk ordusunu iki taraftan kıskaca almayı başardı. 
+    Bu stratejik başarı, Nazi Türkiyesi’nin Balkanlarda büyük toprak kayıplarına yol açtı.
+
+    Ancak bu sırada güney cephesinde Nazi Türkiyesi için büyük bir felaket yaşandı. 
+    Kıbrıs’tan İsrail’e çıkarma yapan Türk ordusu, tarihindeki en büyük bozgunlardan birini yaşadı ve bu başarısızlık savaşın gidişatını Nazi Türkiyesi aleyhine çevirdi.
+
+<h2> §l Hindistan Hatası: Türkiye’nin Stratejik Çöküşü
+
+    Nazi Türkiyesi’nin savaşta yaptığı en büyük stratejik hata, Hindistan’a yönelik devasa bir saldırı planını uygulamaya koyması oldu. 
+    Hindistan’a giren 200 bin kişilik Türk ordusu, bölgedeki Swealand kolonilerinden gelebilecek Romalı saldırılarını durdurmayı amaçladı. 
+    Ancak burada bir sorun vardı: Hindistan’da Romalı hiçbir askeri birlik bulunmuyordu.
+    Bu saldırıyı kendisine tehdit olarak algılayan Swealand, Hindistan’daki 3 milyonu aşan devasa gücünü harekete geçirdi. 
+    Bu ordu, Türk kuvvetlerini önce Afganistan’dan, ardından aynı hızla İran’dan püskürttü. 
+    Türkiye’nin kaynaklarını tüketen bu hata, güneyde ve batıda savunma hatlarının çökmesine neden oldu.
+
+<h2> §l Ankara ve Kerkük Kuşatmaları
+    Swealand, İran ve Afganistan’da zafer kazandıktan sonra, iki ana cepheden Nazi Türkiyesi’nin kalan topraklarına ilerledi.
+
+        Mısır üzerinden: 3 milyonluk kuvvetle doğrudan güneyden saldırıya geçti.
+        Yunanistan üzerinden: Aynı büyüklükte bir kuvvetle batı cephesine yoğunlaştı.
+
+    <img> img.addon.SKI | §o Swealand için savaş dönemi hazırlanmış countryhuman maskotu
+    Bu saldırılar sonucunda Nazi Türkiyesi, başkentini ve parti yönetimini Kerkük’e taşımak zorunda kaldı. 
+    Ancak bu hareket, Nazi Türkiyesi’nin daha da zayıflamasına neden oldu. Kerkük, kısa bir süre sonra 6 milyonluk Swealand ordusu ve 400 binlik Atilla Roması ordusunun saldırısıyla düştü.
+    Ankara ise Nazi Türkiyesi’nin son savunma noktası olarak direnişini sürdürdü. 
+    Başkentte 200 bin Arasis ve Türk askeri, devasa büyüklükteki düşman kuvvetlerine karşı savaşmaya devam etti. 
+    Günlerce süren çarpışmalara rağmen, Ankara doğrudan düşmedi, ancak ağır kayıplar nedeniyle teslim olmak zorunda kaldı.
+
+<h2> §l Savaşın Sonuçları ve Etkileri
+
+    Nazi Türkiyesi’nin Çöküşü:
+    Savaşın ardından Nazi Türkiyesi tamamen yıkıldı. Ülke, siyasi ve askeri olarak tarihten silindi, toprakları Swealand ve Atilla Roması arasında paylaşıldı.
+    Arasis halkı ve Türkler, bu yenilgiden sonra tarih sahnesinde bağımsız bir güç olarak varlıklarını sürdüremedi.
+
+    Atilla Roması’nın Vasallaşması:
+    Her ne kadar savaşı kazanan tarafta yer alsa da, Atilla Roması, Swealand’nin ağır ekonomik ve siyasi etkisi altına girdi. 
+    Swealand, Roma topraklarını tamamen kolonileştirerek İtalyan pazarını ele geçirdi ve ülkenin siyasi yönetimini kontrol etmeye başladı.
+
+    Swealand’nin Egemenliği:
+    Swealand Kapitalist İmparatorluğu, bu savaştan en kârlı çıkan taraf oldu. 
+    Savaş sırasında askeri üstünlüğünü ve diplomatik gücünü pekiştiren Swealand, hem İtalya’yı hem de eski Nazi Türkiyesi topraklarını etkili bir şekilde sömürgeleştirdi.
+
+<h2> §l Tarihi Anlam ve Miras
+    Büyük Latin-Türk Savaşı, dünya tarihinin en büyük güç mücadelelerinden biri olarak kabul edilir. 
+    Savaş, yalnızca iki büyük taraf arasında bir rekabet olarak kalmamış, aynı zamanda dünya siyasetinde büyük değişimlere yol açmıştır. 
+    Nazi Türkiyesi’nin çöküşü ve Atilla Roması’nın vasallaşması, Türkiye ve Roma bölgelerinin uluslararası güç dengesindeki rolünü büyük ölçüde değiştirmiştir.
+    Bu savaş, askeri stratejilerin hatalı uygulanmasının ve büyük ittifakların savaşın sonucunu nasıl etkileyebileceğinin çarpıcı bir örneği olarak tarihte yerini almıştır.
+
+<alıntı karesi>
+    "Her büyük güç elbet birgün çökecektir. Biz bir istisna değildik." - Aras Muhammed MORKOÇ | Ankara'nın düşüşü haberinden sonra
+<alıntı karesi /end>
+

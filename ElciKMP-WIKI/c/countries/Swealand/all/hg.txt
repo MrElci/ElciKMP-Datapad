@@ -4,4 +4,5 @@
 <"Nazi Türkiyesine"> --ur:countries.Nazi-Turkiyesi-exp<"Minecraft öncesi 1. Binyılda almanyadan göçen Arasisler tarafından kurulmuş radikal türk devleti">
 <"Atilla Roması"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
 <"Atilla Romasının"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
-<"Atilla Romasının;"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
+<"Atilla Romasına"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
+<"Latin Türk Savaşı"> --ur:wars.latinoturkowar-exp<"Minecraft öncesi 1. Binyılda global anlamda etkili olmuş ve binyılı sonlandırdığı kabul edilen kanlı savaş">

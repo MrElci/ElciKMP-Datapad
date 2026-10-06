@@ -1119,23 +1119,78 @@ function parseHGUrl(url) {
     if (!type) return null;
     return { type, folder };
 }
-
 const _hgImageCache = new Map();
+
+/**
+ * Verilen ham wiki metninden ilk görsel belirtecini bulur.
+ * Sırayla tarar: img. satırı (tablo içi), <map>, <img>.
+ * Bulamazsa null döner.
+ */
+function extractFirstImageFromTxt(raw) {
+    if (!raw) return null;
+    const lines = raw.split('\n').map(l => l.trim());
+
+    for (const line of lines) {
+        if (!line) continue;
+
+        // 1) img.xxx | img.yyy  (tablo içi veya düz satır)
+        if (line.startsWith('img.')) {
+            const first = line.split('|')[0].trim();
+            if (first.startsWith('img.')) return resolveImagePath(first);
+        }
+
+        // 2) <map> img.map.xxx
+        if (line.startsWith('<map>')) {
+            const inner = line.substring(5).trim();
+            if (inner.startsWith('img.')) return resolveImagePath(inner);
+        }
+
+        // 3) <img> img.xxx -. caption   veya   <img> img.xxx | caption
+        if (line.startsWith('<img>')) {
+            const content = line.substring(5).trim();
+            const dashIdx = content.indexOf(' -.');
+            let imgRaw;
+            if (dashIdx !== -1) imgRaw = content.substring(0, dashIdx).trim();
+            else imgRaw = content.split('|')[0].trim();
+            if (imgRaw.startsWith('img.')) return resolveImagePath(imgRaw);
+        }
+    }
+    return null;
+}
 
 async function getHGPreviewImage(type, folder) {
     const key = `${type}:${folder}`;
     if (_hgImageCache.has(key)) return _hgImageCache.get(key);
+
     let info = null;
+    let img = null;
+
     try {
         if (type === 'player') info = await fetchPlayerInfo(folder);
         else if (type === 'country') info = await fetchCountryInfo(folder);
         else if (type === 'war') info = await fetchWarInfo(folder);
     } catch (e) { info = null; }
-    let img = null;
-    if (info) {
+
+    // 1. Öncelik: sayfanın kendi metnindeki ilk görsel
+    if (info && info.mainFile) {
+        const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
+        try {
+            const res = await fetch(`${base}/${folder}/all/${info.mainFile}`, { cache: 'no-store' });
+            if (res.ok) {
+                const raw = await res.text();
+                img = extractFirstImageFromTxt(raw);
+            }
+        } catch (e) {
+            console.warn('[HG] içerik okunamadı:', e);
+        }
+    }
+
+    // 2. Fallback: dat.txt'deki previewImage / flagImage
+    if (!img && info) {
         if (info.previewImage) img = info.previewImage;
         else if (info.flagImage) img = `img/flag/${info.flagImage}`;
     }
+
     _hgImageCache.set(key, img);
     return img;
 }
