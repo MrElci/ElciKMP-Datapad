@@ -16,16 +16,18 @@
         -
         Devleti Alliye Güçleri:
         flag.img.flag.DASC Devleti Alliye Sosyalist Cumhuriyeti
+        flag.img.flag.romaniadasc Romanya Sosyalist Cumhuriyeti
         -
 
     §l §0 Kuvvetler:
         Koalisyon Kuvvetleri:
         flag.img.flag.SKI 280.000 - 330.000
-        flag.img.flag.SKIgreece 12.000
+        flag.img.flag.SKIgreece 12.000 - 80.000
         flag.img.flag.SKIserbia 7.000
         -
         Devleti Alliye Kuvvetleri:
-        flag.img.flag.DASC 3.800.000 -  3.200.000
+        flag.img.flag.DASC 1.300.000 - 3.800.000
+        flag.img.flag.romaniadasc 120.000
         -
     
     §l §0 Savaşlar:
@@ -41,7 +43,10 @@
         flag.img.flag.SKI 80.000 Ağır Zırhlı
         flag.img.flag.SKI 50.000 Mühendis-Asker
         -        
-        flag.img.flag.DASC 1.200.000
+        flag.img.flag.DASC 300.000 Milis
+        flag.img.flag.DASC 650.000 Sosyalist Yeniçerisi
+        flag.img.flag.DASC 300.000 Tüfekli Asker
+        flag.img.flag.DASC 200.000 Süvari
 
         §l §0 Komutanlar:
 
@@ -52,65 +57,125 @@
         flag.img.flag.DASC Oğuzhan Yılmaz
         flag.img.flag.DASC Orhan Gazi
     
-    §l §e Anadolu Batı Cephesi:
-        §l §0  Taraflar:
-        flag.img.flag.naziturkey 200.000
+    §l §0 İkinci Adriyatik Savaşı - Taraflar:
+        flag.img.flag.SKI 140.000 Deniz Eliti
+        flag.img.flag.SKI 70.000 Ağır Zırhlı
+        flag.img.flag.SKI 40.000 Süvari
+        flag.img.flag.SKI 50.000 Mühendis-Asker
         -
-        flag.img.flag.atillaroma  350.000
+        flag.img.flag.DASC 500.000 Milis
+        flag.img.flag.DASC 450.000 Sosyalist Yeniçerisi
+        flag.img.flag.DASC 120.000 Tüfekli Asker
+        flag.img.flag.DASC 500.000 Sipahi
+        flag.img.flag.DASC 480.000 Süvari
 
         §l §0 Komutanlar:
 
-        flag.img.flag.IBFC Efe Batur Tüysüz
-        flag.img.flag.naziturkey Atarlı Cihangir
-        flag.img.flag.naziturkey Polat Alemdar
-        flag.img.flag.naziturkey Aras Mormont
-        -
-        flag.img.flag.atillaroma İskender
-        flag.img.flag.atillaroma Byzantine
-        flag.img.flag.atillaroma Atilla Ved
-        flag.img.flag.atillaroma Belisarius
         flag.img.flag.SKI Wilhelm Sharpenhour
+        flag.img.flag.SKI Frederick Markouns
+        -
+        flag.img.flag.DASC Alparslan Türkoğlu
+        flag.img.flag.DASC Oğuzhan Yılmaz
+        flag.img.flag.DASC Egemen Topaloğlu
+        flag.img.flag.DASC Emir Polatlı
+        flag.img.flag.DASC Kaya Alp Ermiş
 
-
-
-
-
-    §l §e Doğu Cephesi (Swealand Katılımı ile):
-        §l §0 Taraflar:
-        flag.img.flag.naziturkey 400.000
-        -    
-        flag.img.flag.SKI 3.500.000
+    §l §§0 Üçüncü Adriyatik Savaşı - Taraflar:
+        flag.img.flag.SKI 20.000 Ağır Zırhlı
+        flag.img.flag.SKIgreece 8.000 Tüfekli
+        flag.img.flag.SKI 100.000 Süvari
+        flag.img.flag.SKI 120.000 Elit Bürüt Tüfekli
+        flag.img.flag.SKI 30.000 Mühendis-Asker
+        -
+        flag.img.flag.DASC 900.000 Milis
+        flag.img.flag.DASC 250.000 Sosyalist Yeniçerisi
+        flag.img.flag.DASC 120.000 Tüfekli Asker
+        flag.img.flag.DASC 700.000 Sipahi
+        flag.img.flag.DASC 380.000 Süvari
 
         §l §0 Komutanlar:
 
-        flag.img.flag.austria Charles III
-        flag.img.flag.naziturkey Pala
-        flag.img.flag.naziturkey Sempatuco
-        flag.img.flag.naziturkey İbrahim yıkılmaz
-        flag.img.flag.naziturkey Icardi
+        flag.img.flag.SKI Wilhelm Sharpenhour
+        flag.img.flag.SKI Frederick Markouns
+        flag.img.flag.SKIgreece Hellen Ackiranio
         -
-        flag.img.flag.SKI Rahil Şerif
-        flag.img.flag.SKI Madappa Cariappa
-        flag.img.flag.SKI Subayya Thimayya
-        flag.img.flag.SKI S. Mallannah
-        flag.img.flag.SKI Azad Keşmir
-        flag.img.flag.SKI Tikka Khan
-        flag.img.flag.SKI Sam Manekshaw
-        flag.img.flag.SKI MAG Osmani
-        
-        §l §0 Kayıplar:
-        flag.img.flag.naziturkey Nazi Türkiyesi: 
-            400.000 asker 
-            20 bin teçhizat
+        flag.img.flag.DASC Alparslan Türkoğlu
+        flag.img.flag.DASC Besim Bahar
+        flag.img.flag.DASC Egemen Topaloğlu
+        flag.img.flag.DASC Emir Polatlı
+        flag.img.flag.DASC Kıvanç Tatlıtuğ
+
+    §l §0 Dördüncü Adriyatik Savaşı - Taraflar:
+        flag.img.flag.SKI 30.000 Ağır Zırhlı
+        flag.img.flag.SKIgreece 12.000 Tüfekli
+        flag.img.flag.SKI 100.000 Süvari
+        flag.img.flag.SKI 120.000 Elit Bürüt Tüfekli
+        flag.img.flag.SKI 50.000 Mühendis-Asker
+        flag.img.flag.SKIserbia 7000 Tüfekli
         -
-        flag.img.flag.SKI Swealand Kapitalist İmparatorluğu:        
-            15 bin asker
+        flag.img.flag.DASC 200.000 Milis
+        flag.img.flag.DASC 50.000 Sosyalist Yeniçerisi
+        flag.img.flag.DASC 20.000 Tüfekli Asker
+        flag.img.flag.DASC 70.000 Sipahi
+        flag.img.flag.DASC 80.000 Süvari
+        flag.img.flag.romaniadasc 50.000 Tüfekli
+        flag.img.flag.romaniadasc 70.000 Elite Arbaletli
+        §l §0 Komutanlar:
+
+        flag.img.flag.SKI Wilhelm Sharpenhour
+        flag.img.flag.SKI Frederick Markouns
+        flag.img.flag.SKIgreece Hellen Ackiranio
+        flag.img.flag.SKIserbia Vuk Zmajević
+        -
+        flag.img.flag.DASC Devrim Kızılkan
+        flag.img.flag.DASC Ekin Halköz
+        flag.img.flag.DASC Diren Emeksever
+        flag.img.flag.DASC Özgür Yıldız
+        flag.img.flag.DASC Barış Ayışığı
+        flag.img.flag.romaniadasc Andrei Popescu
+        flag.img.flag.romaniadasc Ioana Munteanu
+        flag.img.flag.romaniadasc Cristian Dumitrescu
+        -
+
+
+    §l §0 Son Adriyatik Savaşı - Taraflar:
+        flag.img.flag.SKIgreece 82.000 Tüfekli
+        flag.img.flag.SKI 60.000 Süvari
+        flag.img.flag.SKI 12.000 Elit Bürüt Tüfekli
+        flag.img.flag.SKI 50.000 Mühendis-Asker
+        flag.img.flag.SKIserbia 4000 Tüfekli
+        flag.img.flag.SKIgreece
+        -
+        flag.img.flag.DASC 2.000.000 Milis
+        flag.img.flag.DASC 500.000 Sosyalist Yeniçerisi
+        flag.img.flag.DASC 200.000 Tüfekli Asker
+        flag.img.flag.DASC 700.000 Sipahi
+        flag.img.flag.DASC 400.000 Süvari
+
+        §l §0 Komutanlar:
+
+        flag.img.flag.SKI Wilhelm Sharpenhour
+        flag.img.flag.SKIgreece Hellen Ackiranio
+        flag.img.flag.SKIserbia Vuk Zmajević
+        -
+        flag.img.flag.DASC Devrim Kızılkan
+        flag.img.flag.DASC Ekin Halköz
+        flag.img.flag.DASC Diren Emeksever
+        flag.img.flag.DASC Özgür Yıldız
+        flag.img.flag.DASC Kurtuluş Halksever
+        flag.img.flag.DASC İsyan Kızılbayrak
+        flag.img.flag.DASC Kıvılcım Halkkan
+        flag.img.flag.DASC Barikat Yurtkan
+        flag.img.flag.DASC Zeybek Kızılhan
+        flag.img.flag.DASC 
+        flag.img.flag.romaniadasc Andrei Popescu
+        flag.img.flag.romaniadasc Ioana Munteanu
+        -
+
 <tablowar /end>
 
-<h2> §l Savaşın Başlangıcı
-
-    Büyük Latin-Türk Savaşı, Nazi Türkiyesi’nin geniş çaplı bir taarruz başlatmasıyla patlak vermiştir. 
-    Balkanlarda hızla yayılan Türk kuvvetleri, Bulgaristan ve Sırbistan’ı hede
+<h2> §l Savaş öncesinde bölgenin-dünyanın durumu
+    Savaş ön
     
     
     
