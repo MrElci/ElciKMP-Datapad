@@ -1965,3 +1965,11 @@ blockquote::before { z-index: 2 !important; }
   text-transform: uppercase;
   letter-spacing: 0.6px;
 }
+body {
+  cursor: url('img/site/cursor.png') 4 4, auto;
+}
+
+/* Tıklanabilir yerlerde farklı imleç */
+a, button, .toolbar a, .menu-bar span, .sidebar li, .xp-file-item, .qa-button, .vid-button {
+  cursor: url('img/site/cursor-pointer.png') 4 4, pointer;
+}
