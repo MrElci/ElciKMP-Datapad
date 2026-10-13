@@ -1615,30 +1615,13 @@ details[open] summary::before {
   background: #7d8896;
   background-clip: padding-box;
 }
-
 /* ===========================================
-   FLOAT ÇAKIŞMA ÇÖZÜMÜ
+   WORD TARZI TEXT WRAP
+   - Float kutular normal davranır → metin etraflarından akar
+   - Sadece arka arkaya gelen float kutular üst üste binmesin
    =========================================== */
-.content-pane > h1.article-title,
-.content-pane > h2,
-.content-pane > h3,
-.content-pane > p,
-.content-pane > .article-subtitle {
-  overflow: hidden !important;
-  display: block !important;
-  width: auto !important;
-  max-width: 100% !important;
-}
-.content-pane > blockquote {
-  overflow: hidden !important;
-  display: flow-root !important;
-  width: auto !important;
-}
-h1.article-title::before,
-h1.article-title::after,
-h2::before,
-h3::before,
-blockquote::before { z-index: 2 !important; }
+
+/* Katman güvenliği — float davranışına dokunmuyoruz */
 .infobox,
 .warinfobox,
 .krono-box,
@@ -1647,32 +1630,39 @@ blockquote::before { z-index: 2 !important; }
 .rff-right,
 .rff-left,
 .map-container {
-  position: relative !important;
-  z-index: 5 !important;
-  isolation: isolate !important;
+  position: relative;
+  z-index: 5;
+  isolation: isolate;
 }
-.menu-bar,
-.toolbar,
-.title-bar { position: relative !important; z-index: 100 !important; }
-.view-dropdown-fixed { z-index: 2147483647 !important; }
-/* === FLOAT ÇAKIŞMA ÇÖZÜMÜ (BFC + alt alta dizilim) === */
-.infobox,
-.warinfobox,
-.krono-box,
-.wiki-thumb,
-.rff-box,
-.rff-right,
-.map-container {
-  position: relative !important;
-  z-index: 5 !important;
-  isolation: isolate !important;
-  clear: right !important;    /* sağa float edenler alt alta insin */
-}
-.rff-left {
-  position: relative !important;
-  z-index: 5 !important;
-  isolation: isolate !important;
-  clear: left !important;     /* sola float edenler alt alta insin */
+
+/* Arka arkaya gelen görsel kutular üst üste binmesin */
+/* (aralarında metin yoksa ikincisi birincinin altına iner) */
+.infobox + .infobox,
+.infobox + .wiki-thumb,
+.infobox + .krono-box,
+.infobox + .rff-box,
+.infobox + .rff-right,
+.infobox + .map-container,
+.wiki-thumb + .infobox,
+.wiki-thumb + .wiki-thumb,
+.wiki-thumb + .krono-box,
+.wiki-thumb + .rff-box,
+.wiki-thumb + .map-container,
+.krono-box + .infobox,
+.krono-box + .wiki-thumb,
+.krono-box + .krono-box,
+.krono-box + .rff-box,
+.map-container + .infobox,
+.map-container + .wiki-thumb,
+.map-container + .krono-box,
+.map-container + .map-container,
+.rff-box + .infobox,
+.rff-box + .wiki-thumb,
+.rff-box + .krono-box,
+.rff-box + .rff-box,
+.rff-right + .infobox,
+.rff-right + .wiki-thumb {
+  clear: right;
 }
 /* ===========================================
    RESPONSIVE

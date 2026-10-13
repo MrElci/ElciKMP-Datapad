@@ -180,7 +180,12 @@
 
 <tablowar /end>
 <h1> Genel Bakış
-    Adriyatik Seferleri/Savaşları, sunucuda sessiz şekilde güçlenerek ilerleyen ve globalde Swenska kalıntısı olarak görülmeme çabasında defalarca kez başarısız olmuş Swealand Krallığının fitilini ateşlediği, Sayının niteliğe karşı duruşu olarak yorumlanan Devleti Alliye Sosyalist Cumhuriyetinin birkaç yüzyıllık hegomanyasının çöküşünü başlatan, efsanevi 
+    Adriyatik Seferleri/Savaşları, sunucuda sessiz şekilde güçlenerek ilerleyen ve globalde Swenska kalıntısı olarak görülmeme çabasında defalarca kez başarısız olmuş Swealand Krallığının fitilini ateşlediği, Sayının niteliğe karşı duruşu olarak yorumlanan Devleti Alliye Sosyalist Cumhuriyetinin birkaç yüzyıllık hegomanyasının çöküşünü başlatan savaşlar dizisidir. Akınlar İtalyaa, Balkanlar ve Anadolu üstünde etkili olmuş, Mısır ve Cezayir gibi kuzey afrika bölgelerinde nüfusun dramatik düşüşünde ve ileride bu bölgelerinde hızla kolonileştirilmesinde etkili olmuştur.
 <h2> §l Savaş öncesinde bölgenin-dünyanın durumu
+<img> img.addon.petrolbalkan | Balkanlarda Petrol Çıkan bölgeler. Siyah-Beyaz renk diagramı
+    Balkan halkları uzun süredir Devleti Alliye Sosyalist Cumhuriyeti yönetimi altında temel osmanlı iskan ve istikrar hedefli politikaları ile yönetilmekteydi. Bölge uzun süren Xenia-Arasis savaşları nedeniyle bitap düşmüştü ve ticaret durgundu. Devleti ALliye ordusu çoğunlukla kuzey afrikadaki isyanlara ve Xenia saldırılarına odaklanmıştı ve anadolu-balkan hattı genel anlamda yerel ordunun korumasına bırakılmıştı. Devleti Alliye Sosyalist Cumhuriyeti, yeni çıkarılmaya başlanan petrol ile birlikte güçlenme dönemini duyurmuş ancak sanayi faaliyetlerindeki gerilik ve mühendis yetersizliği, petrol için dış şirketler ile anlaşmayı gerektirmişti. Kuzeyde ise Swealand sanayi çağının altın dönemindeydi ve mekanik arbaletlerin çağında pompalı ve otomatik tüfekleri tanıtmıştı. Politikacılar bütün bu savaş gücünü kaynak arayışında etkin kullanmanın gerekliliğinden söz ediyordu. Swealand bunu hedef olarak alıp Devleti Alliye Sosyalist Cumhuriyetini kışkırtmaya başladı. Sınır tacizleri, denizden yapılan saldırılara yapılan "ufak kusur" açıklamaları, dönemin yönetimleri tarafından "aslanı kafese çeken fare" olarak yorumlanmıştır. Bölgesel gerilimin yükselmesi, Nazi Arasistan dominasyonu altındaki dünyada ilgiyi uzun sürenin ardından italya-almanya ekseninden kaydırmıştır.
 
-<h2>
+
+
+<h2> §l Birinci Adriyatik Seferi
+<img> img.map.war.adriyatik1 | Birinci Adriyatik Seferi, &9 Swealand - Mavi, &4 Devleti ALliye Sosyalist Cumhuriyeti - Kırmızı

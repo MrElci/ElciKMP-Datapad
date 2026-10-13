@@ -1,6 +1,6 @@
 Adriyatik Savaşları
 adriyatikwar.txt
+SKI
 DASC
-SKI.Xenia
 SKI.adriyatik
 >adriyatik
