@@ -1,5 +1,5 @@
 // =============================================
-// ELciKMP-DataPad – Tam Betik (v12.0 – HG Entegre)
+// ELciKMP-DataPad – Tam Betik (v13.0 – SRCR Entegre)
 // =============================================
 
 /* ---------- Favicon ---------- */
@@ -14,6 +14,10 @@
   document.head.appendChild(favicon);
   document.head.appendChild(appleTouch);
 })();
+
+/* ---------- Kaynakça (SRCR) cache ---------- */
+let _srcListCache = null;
+let _srcListPromise = null;
 
 /* ===========================================
    MINECRAFT BİÇİMLENDİRME
@@ -57,6 +61,62 @@ function resolveVideoPath(raw) {
     if (!raw || !raw.startsWith('img.vid.')) return raw;
     const parts = raw.substring(4).split('.');
     return 'img/' + parts.join('/') + '.mp4';
+}
+
+/* ===========================================
+   SRCR – KAYNAKÇA SİSTEMİ
+   =========================================== */
+async function loadSourceList() {
+    if (_srcListCache) return _srcListCache;
+    if (_srcListPromise) return _srcListPromise;
+    _srcListPromise = (async () => {
+        try {
+            const res = await fetch('additional/sourcerer/list.txt', { cache: 'no-store' });
+            if (!res.ok) { _srcListCache = {}; return _srcListCache; }
+            const text = await res.text();
+            const map = {};
+            text.split('\n').forEach(line => {
+                line = line.trim();
+                if (!line || line.startsWith('//') || line.startsWith('#')) return;
+                const match = line.match(/^(\d+)\."([^"]+)"-([^-]+)-(.+)$/);
+                if (match) {
+                    map[match[1]] = {
+                        id: match[1],
+                        title: match[2],
+                        image: match[3],
+                        anchor: match[4].trim()
+                    };
+                }
+            });
+            _srcListCache = map;
+            return map;
+        } catch (e) {
+            console.warn('[srcr] list.txt yüklenemedi:', e);
+            _srcListCache = {};
+            return _srcListCache;
+        }
+    })();
+    return _srcListPromise;
+}
+
+function renderSrcrBadge(id) {
+    const entry = _srcListCache ? _srcListCache[id] : null;
+    if (!entry) {
+        return `<span class="srcr-missing" title="Kaynak #${id} bulunamadı">[#${id}]</span>`;
+    }
+    const imgSrc = resolveImagePath(entry.image);
+    const href = `source.html?anchor=${encodeURIComponent(entry.anchor)}`;
+    return `<a class="srcr-badge" href="${href}" title="${entry.title} — kaynakça">
+        <img class="srcr-badge-img" src="${imgSrc}" alt="${entry.title}">
+        <span class="srcr-badge-text">${entry.title}</span>
+    </a>`;
+}
+
+function generateHeadingId(rawText) {
+    const cleaned = rawText.replace(/§[0-9a-fk-or]/gi, '').trim();
+    const match = cleaned.match(/^(\d+(?:\.\d+)*)\.?(?:\s|$)/);
+    if (match) return 'anchor-' + match[1].replace(/\./g, '-');
+    return null;
 }
 
 /* ===========================================
@@ -221,7 +281,6 @@ function parseWarInfobox(rawText, titleColor) {
     const lines = rawText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
     let html = `<table class="warinfobox"><tbody>`;
     let i = 0;
-
     if (i < lines.length) {
         const title = lines[i++];
         html += `<tr><th class="war-title" colspan="2" style="background-color:${titleColor};">${applyMinecraftFormatting(title)}</th></tr>`;
@@ -242,18 +301,15 @@ function parseWarInfobox(rawText, titleColor) {
         const idx = line.indexOf(':');
         const label = line.substring(0, idx).trim();
         const value = line.substring(idx + 1).trim();
-        html += `<tr><td class="war-row-label">${applyMinecraftFormatting(label)}</td>
-                     <td class="war-row-value">${applyMinecraftFormatting(value)}</td></tr>`;
+        html += `<tr><td class="war-row-label">${applyMinecraftFormatting(label)}</td><td class="war-row-value">${applyMinecraftFormatting(value)}</td></tr>`;
     }
-
     while (i < lines.length) {
         const line = lines[i];
         if (line.includes('Cephesi') && line.endsWith(':')) {
             const theaterName = lines[i++].replace(':', '').trim();
             html += `<tr><td colspan="2" class="war-subsection"><div class="war-subsection-title">${applyMinecraftFormatting(theaterName)}</div>`;
             const result = parseTheaterBlock(lines, i);
-            html += result.html;
-            i = result.newIdx;
+            html += result.html; i = result.newIdx;
             html += `</td></tr>`;
             continue;
         }
@@ -261,8 +317,7 @@ function parseWarInfobox(rawText, titleColor) {
             const sectionTitle = lines[i++].replace('§l', '').trim();
             html += `<tr><th class="war-section" colspan="2" style="background-color:${titleColor};">${applyMinecraftFormatting(sectionTitle)}</th></tr>`;
             const result = parseMainSection(lines, i);
-            html += result.html;
-            i = result.newIdx;
+            html += result.html; i = result.newIdx;
             continue;
         }
         break;
@@ -272,11 +327,7 @@ function parseWarInfobox(rawText, titleColor) {
 }
 
 function parseMainSection(lines, startIdx) {
-    let html = '';
-    let groups = [];
-    let currentGroup = null;
-    let i = startIdx;
-
+    let html = '', groups = [], currentGroup = null, i = startIdx;
     while (i < lines.length) {
         const line = lines[i];
         if (line.startsWith('§l') || (line.includes('Cephesi') && line.endsWith(':'))) break;
@@ -298,7 +349,6 @@ function parseMainSection(lines, startIdx) {
         i++;
     }
     if (currentGroup) groups.push(currentGroup);
-
     if (groups.length > 0) {
         html += '<tr><td colspan="2"><div class="war-belligerents">';
         for (let g = 0; g < Math.min(groups.length, 2); g++) {
@@ -323,9 +373,7 @@ function parseMainSection(lines, startIdx) {
 }
 
 function parseTheaterBlock(lines, startIdx) {
-    let html = '<div style="padding:6px;">';
-    let i = startIdx;
-
+    let html = '<div style="padding:6px;">', i = startIdx;
     while (i < lines.length) {
         const line = lines[i];
         if ((line.includes('Cephesi') && line.endsWith(':')) || line.startsWith('§l')) break;
@@ -378,16 +426,16 @@ function parseWikiText(raw) {
         idx++;
     }
 
-    function isSpecialTag(l) {
-        return l.startsWith('<h1>') || l.startsWith('<h2>') || l.startsWith('<h3>') ||
-               l.startsWith('<tablo>') || l.startsWith('<tablowar>') || l.startsWith('<map>') ||
-               l.startsWith('<img>') || l.startsWith('<alıntı') || l.startsWith('<açılır') ||
-               l.startsWith('<krono>') || l.startsWith('<vid>') || l.startsWith('<randomfunfact>');
-    }
-
     for (let i = idx; i < lines.length; i++) {
         const line = lines[i];
         if (line === '') continue;
+
+        // Standalone <srcr> N line
+        const standaloneSrcr = line.match(/^<srcr>\s*(\d+)\s*$/);
+        if (standaloneSrcr) {
+            html += `<div class="srcr-block">${renderSrcrBadge(standaloneSrcr[1])}</div>`;
+            continue;
+        }
 
         if (line.startsWith('<map>')) {
             const src = resolveImagePath(line.substring(5).trim());
@@ -404,8 +452,7 @@ function parseWikiText(raw) {
                 caption = content.substring(dashIndex + 3).trim();
             } else {
                 const parts = content.split('|').map(s => s.trim());
-                imgRaw = parts[0];
-                caption = parts[1] || '';
+                imgRaw = parts[0]; caption = parts[1] || '';
             }
             const src = resolveImagePath(imgRaw);
             html += `<div class="wiki-thumb"><img src="${src}" alt="">`;
@@ -418,37 +465,39 @@ function parseWikiText(raw) {
             const content = line.substring(5).trim();
             let desc = '', videoRaw = '';
             const parts = content.split('|').map(s => s.trim());
-            if (parts.length >= 2) {
-                desc = parts[0];
-                videoRaw = parts[1];
-            } else {
-                videoRaw = content;
-            }
+            if (parts.length >= 2) { desc = parts[0]; videoRaw = parts[1]; }
+            else { videoRaw = content; }
             const videoSrc = resolveVideoPath(videoRaw);
             html += `<button class="vid-button" data-src="${videoSrc}" data-title="${applyMinecraftFormatting(desc)}">▶ ${applyMinecraftFormatting(desc)}</button>`;
             continue;
         }
 
         if (line.includes('<h1>')) {
-            html += `<h1 class="article-title">${applyMinecraftFormatting(line.replace(/<h1>/i, '').trim())}</h1>`;
+            const rawTitle = line.replace(/<h1>/i, '').trim();
+            const id = generateHeadingId(rawTitle);
+            const formatted = applyMinecraftFormatting(rawTitle);
+            html += `<h1 class="article-title"${id ? ` id="${id}"` : ''}>${formatted}</h1>`;
             continue;
         }
         if (line.includes('<h2>')) {
-            html += `<h2>${applyMinecraftFormatting(line.replace(/<h2>/i, '').trim())}</h2>`;
+            const rawTitle = line.replace(/<h2>/i, '').trim();
+            const id = generateHeadingId(rawTitle);
+            const formatted = applyMinecraftFormatting(rawTitle);
+            html += `<h2${id ? ` id="${id}"` : ''}>${formatted}</h2>`;
             continue;
         }
         if (line.includes('<h3>')) {
-            html += `<h3>${applyMinecraftFormatting(line.replace(/<h3>/i, '').trim())}</h3>`;
+            const rawTitle = line.replace(/<h3>/i, '').trim();
+            const id = generateHeadingId(rawTitle);
+            const formatted = applyMinecraftFormatting(rawTitle);
+            html += `<h3${id ? ` id="${id}"` : ''}>${formatted}</h3>`;
             continue;
         }
 
         if (line.startsWith('<randomfunfact>')) {
             i++;
             let factText = '';
-            if (i < lines.length) {
-                factText = lines[i].replace(/^"/, '').replace(/"$/, '').trim();
-                i++;
-            }
+            if (i < lines.length) { factText = lines[i].replace(/^"/, '').replace(/"$/, '').trim(); i++; }
             if (i < lines.length) {
                 const closing = lines[i];
                 let position = 'mid';
@@ -456,86 +505,55 @@ function parseWikiText(raw) {
                 else if (closing.includes('.left')) position = 'left';
                 else if (closing.includes('.mid')) position = 'mid';
                 i++;
-                const cls = `rff-box rff-${position}`;
-                html += `<div class="${cls}"><span class="rff-icon">ⓘ</span> <span>${applyMinecraftFormatting(factText)}</span></div>`;
+                html += `<div class="rff-box rff-${position}"><span class="rff-icon">ⓘ</span> <span>${applyMinecraftFormatting(factText)}</span></div>`;
             }
             continue;
         }
 
         if (line.startsWith('<tablo>')) {
             i++;
-            let dataRows = '';
-            let titleHtml = '';
-            let subtitleHtml = '';
-            let mediaRows = [];
-
+            let dataRows = '', titleHtml = '', subtitleHtml = '', mediaRows = [];
             while (i < lines.length && !lines[i].startsWith('<tablo /end>')) {
                 const row = lines[i];
                 if (row === '') { i++; continue; }
-
                 if (row.startsWith('§')) {
-                    if (row.startsWith('§o')) {
-                        subtitleHtml = applyMinecraftFormatting(row.replace('§o', '').trim());
-                    } else {
-                        titleHtml = applyMinecraftFormatting(row);
-                    }
-                    i++;
-                    continue;
+                    if (row.startsWith('§o')) subtitleHtml = applyMinecraftFormatting(row.replace('§o', '').trim());
+                    else titleHtml = applyMinecraftFormatting(row);
+                    i++; continue;
                 }
-
                 if (row.startsWith('img.') || row.includes('img.')) {
                     const colonIdx = row.indexOf(':');
-                    let imgPart = row;
-                    let labelPart = '';
+                    let imgPart = row, labelPart = '';
                     if (colonIdx !== -1) {
                         imgPart = row.substring(0, colonIdx).trim();
                         labelPart = row.substring(colonIdx + 1).trim();
                     }
                     const imgTokens = imgPart.split('|').map(s => s.trim()).filter(s => s.startsWith('img.'));
                     const labelTokens = labelPart ? labelPart.split('|').map(s => s.trim()) : [];
-                    const imgs = imgTokens.map((imgRaw, idx) => ({
-                        src: resolveImagePath(imgRaw),
-                        label: labelTokens[idx] || ''
-                    }));
-                    if (imgs.length === 1) {
-                        mediaRows.push({ type: 'single', imgs });
-                    } else if (imgs.length > 1) {
-                        mediaRows.push({ type: 'multi', imgs });
-                    }
-                    i++;
-                    continue;
+                    const imgs = imgTokens.map((imgRaw, ix) => ({ src: resolveImagePath(imgRaw), label: labelTokens[ix] || '' }));
+                    if (imgs.length === 1) mediaRows.push({ type: 'single', imgs });
+                    else if (imgs.length > 1) mediaRows.push({ type: 'multi', imgs });
+                    i++; continue;
                 }
-
                 const m = row.match(/^\*(.+?)\*\s+(.+)/);
-                if (m) {
-                    dataRows += `<div class="infobox-row"><span class="infobox-label">${m[1]}</span><span class="infobox-value">${m[2]}</span></div>`;
-                }
+                if (m) dataRows += `<div class="infobox-row"><span class="infobox-label">${m[1]}</span><span class="infobox-value">${m[2]}</span></div>`;
                 i++;
             }
-
             let ib = '<div class="infobox">';
             if (titleHtml) ib += `<div class="infobox-title">${titleHtml}</div>`;
             if (subtitleHtml) ib += `<div class="infobox-subtitle">${subtitleHtml}</div>`;
-
             mediaRows.forEach(mr => {
                 if (mr.type === 'single') {
                     const img = mr.imgs[0];
-                    ib += `<div class="infobox-map">
-                        <img src="${img.src}" alt="${img.label}">
-                        <span class="map-label">${img.label}</span>
-                    </div>`;
+                    ib += `<div class="infobox-map"><img src="${img.src}" alt="${img.label}"><span class="map-label">${img.label}</span></div>`;
                 } else {
                     ib += '<div class="infobox-flags">';
                     mr.imgs.forEach(img => {
-                        ib += `<div class="flag-box">
-                            <img src="${img.src}" alt="${img.label}">
-                            <span class="flag-label">${img.label}</span>
-                        </div>`;
+                        ib += `<div class="flag-box"><img src="${img.src}" alt="${img.label}"><span class="flag-label">${img.label}</span></div>`;
                     });
                     ib += '</div>';
                 }
             });
-
             ib += dataRows + '</div>';
             infoboxHtml += ib;
             continue;
@@ -544,10 +562,7 @@ function parseWikiText(raw) {
         if (line.startsWith('<tablowar>')) {
             i++;
             let warRaw = '';
-            while (i < lines.length && !lines[i].startsWith('<tablowar /end>')) {
-                warRaw += lines[i] + '\n';
-                i++;
-            }
+            while (i < lines.length && !lines[i].startsWith('<tablowar /end>')) { warRaw += lines[i] + '\n'; i++; }
             infoboxHtml += parseWarInfobox(warRaw, titleColor);
             continue;
         }
@@ -564,9 +579,7 @@ function parseWikiText(raw) {
                 }
                 i++;
             }
-            let kHTML = '<div class="krono-box">';
-            kHTML += '<div class="krono-title">Kronoloji</div>';
-            kHTML += '<ul class="krono-list">';
+            let kHTML = '<div class="krono-box"><div class="krono-title">Kronoloji</div><ul class="krono-list">';
             kronoItems.forEach(item => {
                 kHTML += `<li class="krono-item"><span class="krono-arrow">→</span><span class="krono-name ${item.bold ? 'krono-bold' : ''}">${applyMinecraftFormatting(item.name)}</span></li>`;
             });
@@ -580,18 +593,15 @@ function parseWikiText(raw) {
             let quote = '';
             while (i < lines.length) {
                 const nextLine = lines[i];
-                if (nextLine === '<alıntı karesi /end>' || nextLine === '</alıntı karesi>') {
-                    i++; break;
-                }
+                if (nextLine === '<alıntı karesi /end>' || nextLine === '</alıntı karesi>') { i++; break; }
                 if (nextLine.startsWith('<h1>') || nextLine.startsWith('<h2>') || nextLine.startsWith('<h3>') ||
                     nextLine.startsWith('<tablo>') || nextLine.startsWith('<tablowar>') || nextLine.startsWith('<map>') ||
-                    nextLine.startsWith('<img>') || nextLine.startsWith('<açılır') || nextLine.startsWith('<alıntı karesi>')) {
-                    break;
-                }
+                    nextLine.startsWith('<img>') || nextLine.startsWith('<açılır') || nextLine.startsWith('<alıntı karesi>')) break;
                 if (nextLine !== '') quote += nextLine + ' ';
                 i++;
             }
-            html += `<blockquote><p>${applyMinecraftFormatting(quote.trim())}</p></blockquote>`;
+            const q = applyMinecraftFormatting(quote.trim()).replace(/<srcr>\s*(\d+)/g, (m, id) => renderSrcrBadge(id));
+            html += `<blockquote><p>${q}</p></blockquote>`;
             continue;
         }
 
@@ -604,10 +614,11 @@ function parseWikiText(raw) {
                 if (nextLine.startsWith('<h2>') || nextLine.startsWith('<h1>') || nextLine.startsWith('<h3>') ||
                     nextLine.startsWith('<tablo>') || nextLine.startsWith('<tablowar>') ||
                     nextLine.startsWith('<map>') || nextLine.startsWith('<img>') ||
-                    nextLine.startsWith('<alıntı') || nextLine.startsWith('<açılır') || nextLine.startsWith('<use>')) {
-                    break;
+                    nextLine.startsWith('<alıntı') || nextLine.startsWith('<açılır') || nextLine.startsWith('<use>')) break;
+                if (nextLine !== '') {
+                    const withBadges = applyMinecraftFormatting(nextLine).replace(/<srcr>\s*(\d+)/g, (m, id) => renderSrcrBadge(id));
+                    det += `<p>${withBadges}</p>`;
                 }
-                if (nextLine !== '') det += `<p>${applyMinecraftFormatting(nextLine)}</p>`;
                 i++;
             }
             i--;
@@ -615,7 +626,9 @@ function parseWikiText(raw) {
             continue;
         }
 
-        html += `<p>${applyMinecraftFormatting(line)}</p>`;
+        // Default: paragraph with inline srcr replacement
+        const withBadges = applyMinecraftFormatting(line).replace(/<srcr>\s*(\d+)/g, (m, id) => renderSrcrBadge(id));
+        html += `<p>${withBadges}</p>`;
     }
 
     if (mapHtml) {
@@ -658,7 +671,6 @@ async function fetchDatInfo(folder, type) {
         const dataLines = allLines.filter(l => !l.startsWith('>'));
         if (dataLines.length < 2) return null;
         const info = { folder, displayName: dataLines[0], mainFile: dataLines[1], classmans };
-
         const previewLine = allLines.find(l => l.startsWith('*img.'));
         if (previewLine) {
             const match = previewLine.match(/^\*(img\..+)\|(.+)$/);
@@ -667,7 +679,6 @@ async function fetchDatInfo(folder, type) {
                 info.previewFile = match[2].trim();
             }
         }
-
         if (type === 'country' && dataLines.length >= 3) {
             if (!info.previewImage) info.flagImage = dataLines[2] || '';
             info.countryClass = dataLines[3] || '';
@@ -693,6 +704,9 @@ async function loadContent(folder, type) {
     const info = await fetchDatInfo(folder, type);
     if (!info) throw new Error('Bilgi alınamadı');
     const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
+
+    await loadSourceList();   // <srcr> desteği için
+
     const res = await fetch(`${base}/${folder}/all/${info.mainFile}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Dosya bulunamadı');
     return parseWikiText(await res.text());
@@ -708,21 +722,10 @@ const loadWarPageContent = f => loadContent(f, 'war');
 async function buildXPList(containerId, type) {
     const container = document.getElementById(containerId);
     if (!container) return;
-
     let folders, infoFn, detailPageBase;
-    if (type === 'player') {
-        folders = await fetchPlayerFolders();
-        infoFn = fetchPlayerInfo;
-        detailPageBase = 'player.html?player=';
-    } else if (type === 'country') {
-        folders = await fetchCountryFolders();
-        infoFn = fetchCountryInfo;
-        detailPageBase = 'country.html?country=';
-    } else if (type === 'war') {
-        folders = await fetchWarFolders();
-        infoFn = fetchWarInfo;
-        detailPageBase = 'war.html?war=';
-    }
+    if (type === 'player') { folders = await fetchPlayerFolders(); infoFn = fetchPlayerInfo; detailPageBase = 'player.html?player='; }
+    else if (type === 'country') { folders = await fetchCountryFolders(); infoFn = fetchCountryInfo; detailPageBase = 'country.html?country='; }
+    else if (type === 'war') { folders = await fetchWarFolders(); infoFn = fetchWarInfo; detailPageBase = 'war.html?war='; }
 
     const items = [];
     for (const folder of folders) {
@@ -746,8 +749,7 @@ async function buildXPList(containerId, type) {
             <div class="xp-preview-pane" id="xpPreviewPane">
                 <p style="color:#666;">Bir öğe seçin</p>
             </div>
-        </div>
-    `;
+        </div>`;
 
     const fileList = document.getElementById('xpFileList');
     const previewPane = document.getElementById('xpPreviewPane');
@@ -757,13 +759,9 @@ async function buildXPList(containerId, type) {
         li.className = 'xp-file-item';
         li.dataset.index = index;
         let iconHtml = '';
-        if (item.previewImage) {
-            iconHtml = `<img src="${item.previewImage}" class="xp-file-icon" alt="">`;
-        } else if (item.flagImage) {
-            iconHtml = `<img src="img/flag/${item.flagImage}" class="xp-file-icon" alt="">`;
-        } else {
-            iconHtml = `<span style="font-size:18px;">⌀</span>`;
-        }
+        if (item.previewImage) iconHtml = `<img src="${item.previewImage}" class="xp-file-icon" alt="">`;
+        else if (item.flagImage) iconHtml = `<img src="img/flag/${item.flagImage}" class="xp-file-icon" alt="">`;
+        else iconHtml = `<span style="font-size:18px;">⌀</span>`;
         li.innerHTML = `${iconHtml} ${item.displayName}`;
         li.addEventListener('click', () => selectItem(index));
         fileList.appendChild(li);
@@ -773,17 +771,11 @@ async function buildXPList(containerId, type) {
         fileList.querySelectorAll('.xp-file-item').forEach(li => li.classList.remove('selected'));
         const selectedLi = fileList.querySelectorAll('.xp-file-item')[index];
         if (selectedLi) selectedLi.classList.add('selected');
-
         const item = items[index];
         if (!item) return;
-
         let previewHTML = '';
-        if (item.previewImage) {
-            previewHTML += `<img src="${item.previewImage}" class="xp-preview-image" alt="">`;
-        } else if (item.flagImage) {
-            previewHTML += `<img src="img/flag/${item.flagImage}" class="xp-preview-image" alt="">`;
-        }
-
+        if (item.previewImage) previewHTML += `<img src="${item.previewImage}" class="xp-preview-image" alt="">`;
+        else if (item.flagImage) previewHTML += `<img src="img/flag/${item.flagImage}" class="xp-preview-image" alt="">`;
         if (item.previewFile) {
             try {
                 const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
@@ -791,12 +783,8 @@ async function buildXPList(containerId, type) {
                 if (res.ok) {
                     const text = await res.text();
                     previewHTML += `<div class="xp-preview-text">${text}</div>`;
-                } else {
-                    previewHTML += `<div class="xp-preview-text">Önizleme metni yüklenemedi.</div>`;
-                }
-            } catch (e) {
-                previewHTML += `<div class="xp-preview-text">Hata: ${e.message}</div>`;
-            }
+                } else previewHTML += `<div class="xp-preview-text">Önizleme metni yüklenemedi.</div>`;
+            } catch (e) { previewHTML += `<div class="xp-preview-text">Hata: ${e.message}</div>`; }
         } else {
             previewHTML += `<div class="xp-preview-text"><strong>${item.displayName}</strong><br>`;
             if (type === 'country') previewHTML += `Sınıf: ${item.countryClass || '—'}`;
@@ -804,28 +792,22 @@ async function buildXPList(containerId, type) {
             previewHTML += `</div>`;
         }
         previewHTML += `<p style="margin-top:12px;"><a href="${detailPageBase}${encodeURIComponent(item.folder)}">Wiki Sayfası</a></p>`;
-
         if (window.innerWidth <= 750) {
             const toggle = '<div class="preview-toggle">⇑⇑</div>';
             const body = `<div class="preview-body">${previewHTML}</div>`;
             previewPane.innerHTML = toggle + body;
             const toggleBtn = previewPane.querySelector('.preview-toggle');
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', () => {
-                    previewPane.classList.toggle('expanded');
-                });
-            }
+            if (toggleBtn) toggleBtn.addEventListener('click', () => previewPane.classList.toggle('expanded'));
             previewPane.classList.remove('expanded');
         } else {
             previewPane.innerHTML = previewHTML;
         }
     }
-
     if (items.length > 0) selectItem(0);
 }
 
 /* ===========================================
-   GRID OLUŞTURUCULAR
+   GRID / CLASSMAN / QUICK ACCESS / ACCENT
    =========================================== */
 async function buildCountryGrid(id) {
     const el = document.getElementById(id);
@@ -853,18 +835,13 @@ async function buildWarGrid(id) {
     </tbody></table>`;
 }
 
-/* ===========================================
-   CLASSMAN İLGİLİ MAKALELER
-   =========================================== */
 async function getRelatedItemsByClassmans(classmans, excludeFolder) {
     if (!classmans.length) return [];
     const all = [];
     const add = async (folder, type) => {
         if (folder === excludeFolder) return;
         const info = await fetchDatInfo(folder, type);
-        if (info && info.classmans.some(c => classmans.includes(c))) {
-            all.push({ type, folder, displayName: info.displayName });
-        }
+        if (info && info.classmans.some(c => classmans.includes(c))) all.push({ type, folder, displayName: info.displayName });
     };
     for (const f of await fetchCountryFolders()) await add(f, 'country');
     for (const f of await fetchWarFolders()) await add(f, 'war');
@@ -882,9 +859,6 @@ function renderRelatedItems(items) {
     }).join('')}</ul></div>`;
 }
 
-/* ===========================================
-   HIZLI ERİŞİM + TEMA RENGİ
-   =========================================== */
 function buildQuickAccess() {
     const list = document.getElementById('quickAccessList');
     if (!list) return;
@@ -912,14 +886,11 @@ function buildQuickAccess() {
 function applyAccentColor() {
     if (document.body.classList.contains('theme-halflife')) return;
     if (document.documentElement.getAttribute('data-theme') === 'halflife') return;
-
     const h1 = document.querySelector('h1.article-title');
     if (!h1) return;
-
     let color = window.getComputedStyle(h1).color;
     const span = h1.querySelector('span');
     if (span) color = window.getComputedStyle(span).color;
-
     if (color) {
         document.documentElement.style.setProperty('--accent-color', color, 'important');
         document.documentElement.style.setProperty('--accent-glow', `0 0 12px ${color}`, 'important');
@@ -947,10 +918,7 @@ function parseQAData(text) {
             const question = line.substring(5).trim();
             i++;
             let answer = '';
-            while (i < lines.length && !lines[i].startsWith('<maq/>')) {
-                answer += lines[i] + '\n';
-                i++;
-            }
+            while (i < lines.length && !lines[i].startsWith('<maq/>')) { answer += lines[i] + '\n'; i++; }
             i++;
             data.maqs.push({ question, answer: answer.trim() });
             continue;
@@ -958,16 +926,9 @@ function parseQAData(text) {
         if (line.startsWith('<REQ>')) {
             const command = line.substring(5).trim();
             i++;
-            let response = '';
-            let admin = false;
-            while (i < lines.length && !lines[i].startsWith('<REQ/')) {
-                response += lines[i] + '\n';
-                i++;
-            }
-            if (i < lines.length && lines[i].startsWith('<REQ/')) {
-                admin = lines[i].includes('admin');
-                i++;
-            }
+            let response = '', admin = false;
+            while (i < lines.length && !lines[i].startsWith('<REQ/')) { response += lines[i] + '\n'; i++; }
+            if (i < lines.length && lines[i].startsWith('<REQ/')) { admin = lines[i].includes('admin'); i++; }
             data.reqs.push({ command, response: response.trim(), admin });
             continue;
         }
@@ -985,54 +946,34 @@ function parseQAData(text) {
 (function() {
     function setupMobileSidebar() {
         if (window.innerWidth > 750) return;
-
         const sidebar = document.querySelector('.sidebar');
         if (!sidebar) return;
-
         const overlay = document.createElement('div');
         overlay.className = 'sidebar-overlay';
         document.body.appendChild(overlay);
-
         const toggleBtn = document.createElement('button');
         toggleBtn.className = 'sidebar-toggle visible';
         toggleBtn.innerHTML = '☰';
         toggleBtn.setAttribute('aria-label', 'Menü');
         document.body.appendChild(toggleBtn);
-
-        function openSidebar() {
-            sidebar.classList.add('open');
-            overlay.classList.add('active');
-        }
-        function closeSidebar() {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('active');
-        }
-
+        function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+        function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
         toggleBtn.addEventListener('click', () => {
             if (sidebar.classList.contains('open')) closeSidebar();
             else openSidebar();
         });
         overlay.addEventListener('click', closeSidebar);
-
-        sidebar.addEventListener('click', (e) => {
-            if (e.target.closest('li, a')) closeSidebar();
-        });
-
+        sidebar.addEventListener('click', (e) => { if (e.target.closest('li, a')) closeSidebar(); });
         window.addEventListener('resize', () => {
             if (window.innerWidth > 750) {
                 sidebar.classList.remove('open');
                 overlay.classList.remove('active');
                 toggleBtn.classList.remove('visible');
-            } else {
-                toggleBtn.classList.add('visible');
-            }
+            } else toggleBtn.classList.add('visible');
         });
     }
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupMobileSidebar);
-    } else {
-        setupMobileSidebar();
-    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupMobileSidebar);
+    else setupMobileSidebar();
 })();
 
 /* ===========================================
@@ -1040,17 +981,14 @@ function parseQAData(text) {
    =========================================== */
 (function () {
   function upgradeMenuBar() {
-    const items = document.querySelectorAll('.menu-bar > *');
-    items.forEach(el => {
+    document.querySelectorAll('.menu-bar > *').forEach(el => {
       if (el.dataset.materyal === '1') return;
       const text = (el.textContent || '').trim().toLowerCase();
       if (text === 'dosya' || text === 'file') {
         el.textContent = 'Materyal';
         el.dataset.materyal = '1';
         el.style.cursor = 'pointer';
-        el.addEventListener('click', () => {
-          window.location.href = 'material.html';
-        });
+        el.addEventListener('click', () => { window.location.href = 'material.html'; });
       }
     });
   }
@@ -1064,7 +1002,6 @@ function parseQAData(text) {
 /* ===========================================
    HYPERGLOSSARY (hg.txt) SİSTEMİ
    =========================================== */
-
 async function fetchHG(folder, type) {
     const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
     try {
@@ -1083,10 +1020,7 @@ function parseHG(text) {
         if (!wordMatch) continue;
         const word = wordMatch[1];
         const rest = line.substring(wordMatch[0].length).trim();
-
-        let url = null;
-        let exp = '';
-
+        let url = null, exp = '';
         if (rest.startsWith('--ur:')) {
             const marker = '-exp<"';
             const idx = rest.indexOf(marker);
@@ -1097,10 +1031,7 @@ function parseHG(text) {
         } else if (rest.startsWith('--exp<"')) {
             const tail = rest.substring(6);
             exp = tail.replace(/"\s*>$/, '');
-        } else {
-            continue;
-        }
-
+        } else continue;
         entries.push({ word, url, exp });
     }
     return entries;
@@ -1119,33 +1050,22 @@ function parseHGUrl(url) {
     if (!type) return null;
     return { type, folder };
 }
+
 const _hgImageCache = new Map();
 
-/**
- * Verilen ham wiki metninden ilk görsel belirtecini bulur.
- * Sırayla tarar: img. satırı (tablo içi), <map>, <img>.
- * Bulamazsa null döner.
- */
 function extractFirstImageFromTxt(raw) {
     if (!raw) return null;
     const lines = raw.split('\n').map(l => l.trim());
-
     for (const line of lines) {
         if (!line) continue;
-
-        // 1) img.xxx | img.yyy  (tablo içi veya düz satır)
         if (line.startsWith('img.')) {
             const first = line.split('|')[0].trim();
             if (first.startsWith('img.')) return resolveImagePath(first);
         }
-
-        // 2) <map> img.map.xxx
         if (line.startsWith('<map>')) {
             const inner = line.substring(5).trim();
             if (inner.startsWith('img.')) return resolveImagePath(inner);
         }
-
-        // 3) <img> img.xxx -. caption   veya   <img> img.xxx | caption
         if (line.startsWith('<img>')) {
             const content = line.substring(5).trim();
             const dashIdx = content.indexOf(' -.');
@@ -1161,17 +1081,12 @@ function extractFirstImageFromTxt(raw) {
 async function getHGPreviewImage(type, folder) {
     const key = `${type}:${folder}`;
     if (_hgImageCache.has(key)) return _hgImageCache.get(key);
-
-    let info = null;
-    let img = null;
-
+    let info = null, img = null;
     try {
         if (type === 'player') info = await fetchPlayerInfo(folder);
         else if (type === 'country') info = await fetchCountryInfo(folder);
         else if (type === 'war') info = await fetchWarInfo(folder);
     } catch (e) { info = null; }
-
-    // 1. Öncelik: sayfanın kendi metnindeki ilk görsel
     if (info && info.mainFile) {
         const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
         try {
@@ -1180,73 +1095,50 @@ async function getHGPreviewImage(type, folder) {
                 const raw = await res.text();
                 img = extractFirstImageFromTxt(raw);
             }
-        } catch (e) {
-            console.warn('[HG] içerik okunamadı:', e);
-        }
+        } catch (e) { console.warn('[HG] içerik okunamadı:', e); }
     }
-
-    // 2. Fallback: dat.txt'deki previewImage / flagImage
     if (!img && info) {
         if (info.previewImage) img = info.previewImage;
         else if (info.flagImage) img = `img/flag/${info.flagImage}`;
     }
-
     _hgImageCache.set(key, img);
     return img;
 }
 
 function applyHyperglossary(container, entries) {
     if (!entries || entries.length === 0) return;
-
     const sorted = [...entries].sort((a, b) => b.word.length - a.word.length);
     const escaped = sorted.map(e => e.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-
     let regex;
-    try {
-        regex = new RegExp(`(?<![\\p{L}\\p{N}])(${escaped.join('|')})(?![\\p{L}\\p{N}])`, 'gu');
-    } catch (e) {
-        regex = new RegExp(`(?:^|[^\\p{L}\\p{N}])(${escaped.join('|')})(?![\\p{L}\\p{N}])`, 'gu');
-    }
-
+    try { regex = new RegExp(`(?<![\\p{L}\\p{N}])(${escaped.join('|')})(?![\\p{L}\\p{N}])`, 'gu'); }
+    catch (e) { regex = new RegExp(`(?:^|[^\\p{L}\\p{N}])(${escaped.join('|')})(?![\\p{L}\\p{N}])`, 'gu'); }
     const wordMap = new Map();
     sorted.forEach(e => wordMap.set(e.word, e));
-
     const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
         acceptNode: function(node) {
             if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
             let p = node.parentElement;
             while (p && p !== container) {
-                if (p.classList && (p.classList.contains('wiki-link') || p.classList.contains('hg-tooltip'))) {
-                    return NodeFilter.FILTER_REJECT;
-                }
+                if (p.classList && (p.classList.contains('wiki-link') || p.classList.contains('hg-tooltip'))) return NodeFilter.FILTER_REJECT;
                 const tag = p.tagName;
-                if (tag === 'A' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') {
-                    return NodeFilter.FILTER_REJECT;
-                }
+                if (tag === 'A' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
                 p = p.parentElement;
             }
             return NodeFilter.FILTER_ACCEPT;
         }
     });
-
     const nodes = [];
     let n;
     while ((n = walker.nextNode())) nodes.push(n);
-
     for (const node of nodes) {
         const text = node.textContent;
         regex.lastIndex = 0;
         if (!regex.test(text)) continue;
         regex.lastIndex = 0;
-
         const frag = document.createDocumentFragment();
-        let lastIndex = 0;
-        let match;
-
+        let lastIndex = 0, match;
         while ((match = regex.exec(text)) !== null) {
-            if (match.index > lastIndex) {
-                frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-            }
+            if (match.index > lastIndex) frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
             const word = match[1];
             const entry = wordMap.get(word);
             if (entry) {
@@ -1256,17 +1148,11 @@ function applyHyperglossary(container, entries) {
                 if (entry.url) span.dataset.url = entry.url;
                 span.textContent = word;
                 frag.appendChild(span);
-            } else {
-                frag.appendChild(document.createTextNode(word));
-            }
+            } else frag.appendChild(document.createTextNode(word));
             lastIndex = regex.lastIndex;
         }
-        if (lastIndex < text.length) {
-            frag.appendChild(document.createTextNode(text.slice(lastIndex)));
-        }
-        if (node.parentNode) {
-            node.parentNode.replaceChild(frag, node);
-        }
+        if (lastIndex < text.length) frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+        if (node.parentNode) node.parentNode.replaceChild(frag, node);
     }
 }
 
@@ -1285,17 +1171,12 @@ function _getHGTooltip() {
 function _positionHGTooltip(tip, linkEl) {
     const rect = linkEl.getBoundingClientRect();
     const tipRect = tip.getBoundingClientRect();
-    const tipW = tipRect.width;
-    const tipH = tipRect.height;
-
-    let left = rect.left;
-    let top = rect.bottom + 8;
-
+    const tipW = tipRect.width, tipH = tipRect.height;
+    let left = rect.left, top = rect.bottom + 8;
     if (left + tipW > window.innerWidth - 8) left = window.innerWidth - tipW - 8;
     if (left < 8) left = 8;
     if (top + tipH > window.innerHeight - 8) top = rect.top - tipH - 8;
     if (top < 8) top = 8;
-
     tip.style.left = left + 'px';
     tip.style.top = top + 'px';
 }
@@ -1303,12 +1184,9 @@ function _positionHGTooltip(tip, linkEl) {
 function _showHGTooltip(linkEl) {
     const tip = _getHGTooltip();
     if (_hgHideTimer) { clearTimeout(_hgHideTimer); _hgHideTimer = null; }
-
     const exp = linkEl.dataset.exp || '';
     const url = linkEl.dataset.url;
-
     tip.innerHTML = '';
-
     if (url) {
         const parsed = parseHGUrl(url);
         if (parsed) {
@@ -1316,49 +1194,39 @@ function _showHGTooltip(linkEl) {
             imgWrap.className = 'hg-tooltip-img-wrapper';
             imgWrap.innerHTML = '<div class="hg-tooltip-loading">▊ yükleniyor...</div>';
             tip.appendChild(imgWrap);
-
             getHGPreviewImage(parsed.type, parsed.folder).then(img => {
                 if (!imgWrap.parentNode) return;
                 if (img) imgWrap.innerHTML = `<img src="${img}" alt="">`;
                 else imgWrap.remove();
-                if (tip.style.display !== 'none' && linkEl.isConnected) {
-                    _positionHGTooltip(tip, linkEl);
-                }
+                if (tip.style.display !== 'none' && linkEl.isConnected) _positionHGTooltip(tip, linkEl);
             });
         }
     }
-
     if (exp) {
         const t = document.createElement('div');
         t.className = 'hg-tooltip-text';
         t.textContent = exp;
         tip.appendChild(t);
     }
-
     if (url) {
         const h = document.createElement('div');
         h.className = 'hg-tooltip-hint';
         h.textContent = '→ sayfaya gitmek için tıkla';
         tip.appendChild(h);
     }
-
     tip.style.display = 'block';
     _positionHGTooltip(tip, linkEl);
 }
 
-function _hideHGTooltip() {
-    if (_hgTooltipEl) _hgTooltipEl.style.display = 'none';
-}
+function _hideHGTooltip() { if (_hgTooltipEl) _hgTooltipEl.style.display = 'none'; }
 
 function setupHGTooltips(container) {
     if (container._hgSetup) return;
     container._hgSetup = true;
-
     container.addEventListener('mouseover', (e) => {
         const link = e.target.closest && e.target.closest('.wiki-link');
         if (link && container.contains(link)) _showHGTooltip(link);
     });
-
     container.addEventListener('mouseout', (e) => {
         const link = e.target.closest && e.target.closest('.wiki-link');
         if (!link) return;
@@ -1366,7 +1234,6 @@ function setupHGTooltips(container) {
         if (related && related.closest && related.closest('.hg-tooltip')) return;
         _hgHideTimer = setTimeout(() => _hideHGTooltip(), 80);
     });
-
     container.addEventListener('touchstart', (e) => {
         const link = e.target.closest && e.target.closest('.wiki-link');
         if (link && container.contains(link)) {
@@ -1375,7 +1242,6 @@ function setupHGTooltips(container) {
             _hgHideTimer = setTimeout(() => _hideHGTooltip(), 3000);
         }
     }, { passive: true });
-
     container.addEventListener('click', (e) => {
         const link = e.target.closest && e.target.closest('.wiki-link');
         if (link && container.contains(link) && link.dataset.url) {
@@ -1389,7 +1255,6 @@ function setupHGTooltips(container) {
             }
         }
     });
-
     document.addEventListener('mouseover', (e) => {
         if (e.target.closest && e.target.closest('.hg-tooltip')) {
             if (_hgHideTimer) { clearTimeout(_hgHideTimer); _hgHideTimer = null; }
@@ -1397,7 +1262,6 @@ function setupHGTooltips(container) {
     });
 }
 
-/* ---------- SAYFA BAŞINA HG UYGULAYICI ---------- */
 async function applyHGToPage(folder, type, container) {
     try {
         const hgText = await fetchHG(folder, type);
@@ -1406,7 +1270,17 @@ async function applyHGToPage(folder, type, container) {
         if (!hg.length) return;
         setupHGTooltips(container);
         applyHyperglossary(container, hg);
-    } catch (e) {
-        console.warn('[HG] hata:', e);
-    }
+    } catch (e) { console.warn('[HG] hata:', e); }
 }
+
+/* ===========================================
+   GLOBAL EXPORT
+   =========================================== */
+window.loadSourceList = loadSourceList;
+window.renderSrcrBadge = renderSrcrBadge;
+window.generateHeadingId = generateHeadingId;
+window.parseWikiText = parseWikiText;
+window.enableImageLightbox = enableImageLightbox;
+window.enableVideoLinks = enableVideoLinks;
+window.buildQuickAccess = buildQuickAccess;
+window.applyAccentColor = applyAccentColor;
