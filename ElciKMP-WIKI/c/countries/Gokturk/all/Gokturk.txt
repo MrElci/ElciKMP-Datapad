@@ -1,0 +1,160 @@
+§l §3 Göktürk Hanlığı
+
+Resmî adıyla §3 Göktürk Hanlığı (sonradan Göktürk İmparatorluğu)
+(Ülke dilindeki adı: &o Köktürk Kanlıgı)
+
+<tablo>
+    §l §3 Göktürk Hanlığı
+    §o (Sverige kaynaklarında: Rote Kıtası Hanlığı)
+    img.flag.gokturk|img.coatofarms.gokturk: Bayrak|Arma
+    img.map.MCS1.gokturk1: Haritası
+    *Resmî Adı*              Göktürk Hanlığı (A.K.A: İmparatorluk)
+    *Diğer Adları*           Hun İmparatorluğu
+    *Başkenti*               Ötüken
+    *Resmî Dili*             Köktürkçe
+    *Demonim*                Göktürk / Hun
+    *Hükûmet*                Hanlık → Krallık → İmparatorluk
+    *İdeoloji*               Emperyalizm
+    *Kurucu Han*             EmiGrimes the Hun
+    *Ekonomik Sıralama*      2-6
+    *Askeri Sıralama*        1-4
+    *Konum*                  Rote kıtası
+    *Çağ Dilimi*             MC Binyılı
+    *Ömür*                   Yaklaşık 1000 yıl
+<tablo /end>
+
+<h1>Tarihçe
+<h2>1. Kökenler ve İlk Dönem
+    Göktürk Hanlığı, sunucu haritasına özel bir bölge olan Rote kıtasında kurulmuş, iki farklı dönemde incelenebilecek bir Türk devletidir. Devletin kuruluşunun ardından ilk hedef, Rote kıtasının geri kalanını ele geçirmek olmuştur. Bu doğrultuda kuzeyde yer alan Prussleh Adası/Kıtası üzerine akın hazırlıkları başlatılmıştır. Kuzeyde kurulan ilk düzenli krallık olan Lehistan Şehir Krallığı da Rote kıtası ve çevresinde hakimiyet amaçlayan bu göçebe devletinin doğal hedefi haline gelmiştir.
+
+    Göktürkler, kuruluşlarının ilk dönemlerinde kurdukları ilişkilerde Lehistan ile amaç gizliliği içerisinde hareket etmiş, daha da kuzeyde kurulmuş olan Viking boylarına karşı birlik mesajı verilmiştir. Bu diplomatik manevra, Göktürklerin henüz askeri gücünü tam olarak ortaya koymadığı bir dönemde stratejik bir avantaj sağlamayı amaçlıyordu. Ancak Lehistan Şehir Krallığı'nın bağımsızlık adına aldığı ilk kararda bu ilişkiler kopmuş, bu durum zaafiyet beklentisinde olan Viking boylarının bunu kendi avantajına kullanmasını sağlamıştır. Göktürkler bu dönemde kuzeyde yaşanan olaylara karşı ilgisiz kalmış, bu ilgisizlik Lehistan'ın tam bağımsızlığına ulaşması gibi bir sonuç doğurmuştur.
+
+<h2>2. Prussleh Akınları ve Krallığın İlanı
+    Hanlığın genişleme arzusu, ani bir kararla Prussleh Adası/Kıtası'na akınlar düzenleme kararı alınmasına yol açmıştır. Yağmacıların Lehistan başkentine kadar ulaşmasının ardından Göktürk Krallığı'nın ilanı bu şekilde gerçekleşmiştir. Akın sonrasında Prussleh Adası/Kıtası ile Rote kıtası arasında yer alan Lowyer Adası Göktürk hakimiyetine geçmiş, deniz hakları ise Göktürk yönetimine bırakılmıştır. Bu gelişme, Göktürklerin bölgedeki ilk kalıcı kazanımı olarak kayıtlara geçmiştir.
+
+    <alıntı karesi>
+        "Göktürk İmparatorluğunun en önemli simgesi, bölgesine yerleştirdiği devasa kaleydi. Sverige'in Feodalite simgesi olan Alman kalesinin inşaatına başlama kararı bu kaleyle beraber çıkmıştı. Öyle ki, Göktürk İmparatorluğu bu kalenin etrafındaki savunmayla yenilmez olduğu mesajını vermeyi çok güzel bir şekilde başarırdı." — MrElci
+    <alıntı karesi /end>
+
+    Bu devasa kale, yalnızca bir askeri yapı değil, aynı zamanda Göktürklerin bölgedeki kalıcılığını ve yenilmezlik iddiasını simgeleyen bir propaganda aracı haline gelmiştir. Kalenin inşası, çevre devletler üzerinde psikolojik bir baskı unsuru olarak işlev görmüş, Göktürklerin askeri doktrininde merkezi bir yer edinmiştir. Kalenin etrafındaki savunma hatları, dönemin askeri mimarisinde bir referans noktası olarak kabul edilmiş; Sverige Feodalitesi'nin kendi Alman kalesini inşa etme kararında dahi bu yapının doğrudan etkili olduğu belirtilmiştir.
+
+<img> img.map.MCS1.hırvata | §o Hırvata Bölgesi
+
+<h2>3. Orta Göktürk Çağı: Lehistan ile Hesaplaşma
+    Lehistan Şehir Devleti'nin tekrar siyasi birliğini toplaması sonucunda kaybedilen deniz hakları ve Lowyer Adası'nın hakimiyeti adına Lehistan Şehir Devleti, Göktürk Krallığı'na savaş ilan etmiştir. Bu savaş, Orta Göktürk Çağı'nın başı olarak kabul edilmektedir. Kararla ilgili bazı devletlerin itirazları olsa da söz konusu karar yasal tarihte de kabul görmüştür.
+
+    Savaş, Leh Krallığı'nın Lowyer Adası'nın yanı sıra güney Prussleh kıyılarını da kaybetmesiyle sonuçlanmıştır. Bu yenilgi, Lehistan'ın bölgedeki deniz gücünü önemli ölçüde zayıflatmış, Göktürklerin ise kuzey denizlerindeki etkinliğini pekiştirmiştir. Savaş sonrasında Göktürk Krallığı, hanlar hanı EmiGrimes the Hun tarafından imparatorluğa reforme edilme çabalarına girişmiştir.
+
+<h2>4. EmiGrimes Reformu ve İmparatorluk Dönemi
+    EmiGrimes the Hun'un liderliğinde gerçekleştirilen reformlar kapsamında devasa silah depoları, merkezi kale yapılaşması ve askeri yapılanma hayata geçirilmiş; bu sayede Göktürkler döneminin en güçlü devleti haline gelmiştir. Batıda sınırlarını Hırvat Denizi'ne kadar dayandıran Göktürkler, burada yeni kurulan devletlerden Roma ile tanışmıştır. Bu tanışma, Göktürk dış politikasında yeni bir çağın kapılarını aralamıştır.
+    <img> img.map.MCS1.lowyerIsland | &o Binyılın en değerli adası: &6 Lowyer Adası
+    Denizde ortaya çıkan bu yeni rakibe karşı EmiGrimes, yumuşak bir politika izlenmeyeceğini açıkça belirtmiştir. Bu bağlamda, başından beri son derece sorunlu ilerleyen Leh-Türk ilişkilerinde Türk tarafı olarak EmiGrimes olumlu adımlar atmış ve kısa süreli koalisyonların belki de sunucunun en önemli toprağı haline gelecek olan Lowyer Adası ile güney PrussLeh topraklarını Lehistan'a geri vermiştir. Bu stratejik hamle sayesinde kuzey denizi sınırlarını ve kuzey denizi hakimiyet gücünü olabildiğince garantileyen Göktürk Hanlığı, doğuda da önemli atılımlar yapmıştır.
+
+
+
+<h2>5. Roma ile İlk Temas ve İlk Göktürk-Roma Savaşı
+    Doğudaki en önemli atılım, Tsar Iswhl ile yapılan ittifaklık antlaşması olmuştur. Bu kapsamda Göktürkler ve Rus Çarlığı ortak amaçlar doğrultusunda hareket edecekti. Göktürk İmparatorluğu, bir süre sonra Roma İmparatorluğu ile sorunlar yaşayan Rus Çarlığı'nın desteğiyle Roma İmparatorluğu'na savaş ilan etmiştir. Ancak bu savaş bir yağma ve tehdit bütünü olarak başlamış olsa da kuzeyde yer alan Sverige Feodalitesi'nin müdahaleleriyle hızla bir akına dönüşmüştür.
+
+<img> img.map.MCS1.gokturk2 | &o Göktürk İmparatorluğunun savaş sonrası çekildiği Hırvatı-Rote sınırı
+    Roma, Hırvatı-Rote adını verdikleri ve Göktürklerin batısında yer alan bölgeyi işgal ederek savaşta herkesin beklentilerini alt üst etmiştir. Savaş sonrasında Göktürkler askeri durum hakkında devasa atılımlar gerçekleştirirken, Lowyer Adası ve Güney PrussLeh bölgesinde Türk-Leh hakimiyeti sona ermiştir.
+
+    EmiGrimes, Hırvatı-Rote sınırını "devlet iradesinin aşağılanması" olarak tanımlıyordu. Sınır, başkent çadırının dibine kadar uzanıyor ve deniz erişimini olabildiğince daraltıyordu. Ayrıca Roma surları bilerek aşağılayıcı şekilde dizayn edilmişti ve Göktürk çadırlarına paralel uzanan bu duvar, EmiGrimes ve Göktürk boylarını öfkeyle doldurmuştur. Bu öfke, ileriki dönemlerde doğuda Rusya'nın yayıldığı Slav buz düzlükleri ile Göktürkler arasında bulunan Frank Krallığı'na yapılacak savaşta kendisini gösterecekti.
+
+<img> img.addon.humiliatingborder | §o Hırvatı-Rote sınırının aşağılayıcı dizaynı ve Göktürk çadırlarına paralel uzanan Roma surları
+
+<h2>6. Frank Seferi ve İkinci Göktürk-Roma Savaşı
+    Öngörüldüğü gibi oldu. Hai kökenli Frank Krallığı bir anda iki ateş arasında kaldı ve Frank tarlaları alevler altında kaldı. Roma-Göktürk ilişkileri ilk çatışmadan beri ilk kez bu olayla gerildi. Bu sırada Lowyer Adası ve Güney PrussLeh yönetimini ele geçirmiş olan Sverige Feodalitesi ile Göktürk İmparatorluğu ticari antlaşmalara oturunca gerilim gizli şekilde tırmandı. Roma ve Göktürklerin Güney Devlet Yatırımları'ndan yararlanmak için sağladığı barış, Göktürklerin saldırısıyla bozuldu ve İkinci Göktürk-Roma Savaşı patlak verdi.
+
+    Savaş, Roma İmparatorluğu'nun üstün zırhı ve sayısal üstünlüğüne karşı Göktürklerin geliştirdiği taktiksel ve diplomatik üstünlüğün bir çatışmasıydı. Roma'nın karşısına çıkan Leh ve Göktürk devletleri, deniz kuşatması ile hızla içeriye doğru ilerledi ve savaş Göktürklerin tartışmasız galibiyetiyle sonuçlandı. Bu durum, Göktürkler için yeni bir çağın kapılarını açtı. Orta-Roma Çağı'nın başlangıcı bu savaş kabul edilir.
+
+<img> img.addon.frankburning | §o Frank tarlalarının alevler altında kalışı
+
+    <alıntı karesi>
+        "Dağların tepesinde ulu devletimizi kurmaya 7 kişi başladık
+        Ovaya indik bu sayı dahada çoğaldı günden güne devletimiz güçlendi kudretlendi
+        Öyle bir noktaya geldi ki kılıcımızın kesemediği kemik et, mızrağımızın delemediği zırh kalkan kalmadı 
+        Yendik öldürdük, kestik biçtik bize karşı geleni fakat asla diz çökmedik diz çöktürdük" — EmiGrimes
+    <alıntı karesi /end>
+
+<h2>7. Zaferin Gölgesi: Ekonomik ve Diplomatik Erime
+    Roma'dan alınan Kuzey Hırvat toprakları, devasa bir elmas madeni barındıran zengin topraklardı. Ancak Göktürkler bu dönemde zaferin refahına rağmen uygun bir gelişim eğrisi çizememiştir. En önemli ittifaklarından Rusya'nın pasif dönemine geçmesi ve Sverige Feodalitesi'nin artan etkisi konusunda yeterli tepkiyi gösteremeyen Göktürkler, Rusya ile birlikte Frank Krallığı'na saldırma planını da ekonomik yükü üstlenmemek adına kenara bırakmıştır.
+
+<img> img.addon.graphOfDiamond | §o döneme ait Elmas Krizi üstüne yapılmış mizahi paylaşımlar
+
+    Ayrıca dış politikadaki gelişmelere de tepkisizleşen devlet, Roma'nın hızla borçlanarak eski topraklarını almak için harekete geçtiğini fark etmemiştir. Göktürkler daima borçlanma karşıtı olsa da bölge çapında hızla yaşanan borçlanmalar ve durgun piyasa, Göktürkleri de borçlanmaya itmiştir. Sverige kaynaklı demir krizi sırasında materyal eksiğini bu borçla kapatan Göktürkler, Roma'nın da kendileriyle aynı hızda borçlanmasını bir fırsat olarak görmüş, Leh Krallığı gibi eski ittifak devletlerini tekrar bir yağma için koalisyona toplamıştır.
+
+    Temel hedef, Roma'yı yok etmek değil; Roma'yı borçlandırarak bu borcu Sverige'e olan borçları kapatmak için kullanmak ve ekonomideki durgun döngüyü bitirmekti. Bu durum, Sverige istihbaratı tarafından fark edilmiş ve Sverige gönüllü şekilde güney devlet yatırımlarını yoğunlaştırmıştır. Sverige, Roma ve Göktürklerin tekrar savaşması ihtimaline karşı Roma'yı düşük faizle fonlamaya başlamış, Roma ekonomisini askeriyeye sürmüştür. Romalı diplomatların satın alınması sonrasında ise Roma yönetimi, Göktürklere savaşı parlementodan geçirmiştir.
+
+<h2>8. Son Göktürk-Roma Savaşı ve Yıkım
+    Böylece başlayan Son Göktürk-Roma Savaşı, Roma ordusunun Hun başkentini ele geçirmesiyle sonlanmıştır. Leh Krallığı ise başkentini kaybetmemiş ancak kuşatmayı karşılayamaz hale gelmiştir. Savaş sonrasında Hırvata toprakları Roma'ya geri katılırken, Prussleh batı kıyıları yeniden Roma'ya katılmıştır.
+
+<img> img.addon.Huncapital | §o Hun başkentinin Roma ordusu tarafından ele geçirilişi
+
+    Elmas krizinin son konumu, dev borç yükü ve askeri yorgunluk, Hun İmparatorluğu'nu son çağa hazırlıksız bırakmıştır. Britanya ve 13. Koloni gibi yeni kurulmuş devletlere karşı ucuz hammadde limanı olarak görülmeye başlanan Hun pazarı hızla yabancı mallarla dolmuş, Hun askeriyesi ilk 3'ten düşmüş ve son çağda kurulan devletlere karşı Göktürk politik gücü çatlamıştır.
+
+<h2>9. Son Dönem: Sverige Etki Bölgesi
+    Sverige kitaplarında "Sverige etki bölgesi" olarak adlandırılan politik nüfuz alanına dahil edilen imparatorluk, bir daha toparlanamamış, iyi komutanlar yetiştirememiş ve borçlarını kapatamamıştır. Bu dönem, Göktürk Hanlığı'nın iki farklı döneminden ikincisinin, yani son döneminin karakteristik özelliklerini oluşturur. Devlet, artık eski ihtişamını yitirmiş, bölgesel bir güç olarak dahi varlığını sürdürememiştir.
+
+    <randomfunfact>
+        Göktürklerin devasa kalesi, dönemin en büyük savunma yapılarından biri olarak kabul edilir. Kale, yalnızca askeri bir tesis değil, aynı zamanda Göktürklerin "yenilmezlik" doktrininin somut bir göstergesiydi. Rivayete göre kale, Sverige Feodalitesi'nin Alman kalesinin inşaatına başlama kararında doğrudan etkili olmuştur. Kalenin surları, Göktürk çadırlarına paralel uzanan Roma surlarının aksine, çevresindeki tüm yerleşimleri gölgesi altına alacak şekilde tasarlanmıştı.
+    <randomfunfact.left /end>
+
+<h1>İç İşler
+    Göktürk Hanlığı'nın iç yönetimi, göçebe gelenekler ile yerleşik devlet yapısı arasında bir geçiş dönemi olarak nitelendirilebilir. Hanlık döneminde boylar halinde örgütlenen Göktürkler, krallık ve imparatorluk dönemlerinde merkezi bir yapıya evrilmiştir. EmiGrimes the Hun'un reformları, bu merkezileşme sürecinin en önemli aşamasını oluşturur. Devletin temel karar alma organı, hanın başkanlık ettiği boy beyleri konseyiydi. Ancak imparatorluk döneminde bu yapı, daha kurumsal bir nitelik kazanmıştır.
+
+    <h2>Yönetim Yapısı
+        Göktürk yönetimi, hanın otoritesi altında şekillenmiştir. Han, hem askeri hem de siyasi lider olarak devletin en üst otoritesi konumundaydı. Boy beyleri, hanın danışma kurulunu oluşturur ve kararların alınmasında söz sahibi olurlardı. Ancak EmiGrimes döneminde, hanın otoritesi daha da pekiştirilmiş, merkezi kale yönetimi ve askeri hiyerarşi bu otoritenin temel dayanakları haline gelmiştir. Devletin yazılı kayıtları sınırlıdır; bu nedenle iç işlerine dair bilgiler büyük ölçüde dönemin oyuncularının aktarımlarına dayanmaktadır.
+
+    <h2>Askeri Yapılanma
+        Göktürk askeri yapısı, EmiGrimes the Hun'un reformlarıyla birlikte kurumsallaşmıştır. Devasa silah depoları, merkezi kale yapılaşması ve disiplinli askeri birlikler, Göktürkleri dönemin en güçlü devleti haline getirmiştir. Ancak Roma ile yapılan savaşlarda, Roma'nın üstün zırhı ve sayısal üstünlüğüne karşı Göktürkler taktiksel ve diplomatik üstünlük geliştirmiştir. Deniz kuşatması, Göktürklerin en etkili askeri taktiklerinden biri olarak öne çıkmıştır. Son dönemde ise askeri gücün ilk 3'ten düşmesi, devletin genel çöküşünün bir göstergesi olmuştur.
+
+    <h2>Ekonomi ve Borçlanma
+        Göktürk ekonomisi, kuruluş döneminde göçebe ve yağma temelli bir yapıdan, zamanla yerleşik ve ticari bir yapıya evrilmiştir. Kuzey Hırvat topraklarındaki elmas madeni, devletin en önemli gelir kaynaklarından biri haline gelmiştir. Ancak Göktürkler, tarihleri boyunca borçlanma karşıtı bir politika izlemelerine rağmen, bölgesel ekonomik krizler ve durgun piyasa koşulları nedeniyle borçlanmaya mecbur kalmıştır. Sverige kaynaklı demir krizi, bu borçlanmanın en önemli tetikleyicilerinden biri olmuştur. Roma ile yapılan savaşlar ve sonrasındaki ekonomik çöküş, devletin borç yükünü daha da artırmıştır.
+
+<h1>Ayrıca Bakınız
+
+<açılır kapanır pencere> Coğrafya ve Stratejik Konum
+Göktürk Hanlığı, sunucu haritasına özel Rote kıtasında kurulmuştur. Kuzeyde Prussleh Adası/Kıtası, bu ikisinin arasında ise Lowyer Adası yer alır. Bölge, kuzey denizi hakimiyeti açısından stratejik bir öneme sahiptir. Göktürklerin batı sınırları Hırvat Denizi'ne kadar uzanmış, doğuda ise Rusya'nın Slav buz düzlükleri ile komşu olmuştur. Merkezi kale ve çevresindeki savunma yapıları, devletin askeri doktrininin temelini oluşturmuştur. Lowyer Adası, Prussleh ile Rote kıtası arasında bir köprü konumunda olup, deniz hakimiyeti açısından kritik bir öneme sahipti.
+
+<açılır kapanır pencere> Diplomasi ve İttifaklar
+Göktürk Hanlığı'nın diplomatik stratejisi, dönemin güç dengesine göre şekillenmiştir. Lehistan Şehir Krallığı ile başlayan ilişkiler, zamanla savaş ve ittifak arasında gidip gelmiştir. En önemli ittifak, Tsar Iswhl ile yapılan ve Rus Çarlığı ile ortak hareketi öngören antlaşmadır. Roma İmparatorluğu ile ilişkiler ise ilk temastan itibaren rekabet ve çatışma ekseninde gelişmiştir. Sverige Feodalitesi ile kurulan ticari antlaşmalar, gizli bir gerilimi de beraberinde getirmiştir. Frank Krallığı'na yapılan sefer, Göktürklerin bölgesel güç projeksiyonunun bir göstergesidir. Sverige'in Roma'yı düşük faizle fonlaması ve Romalı diplomatları satın alması, Göktürklerin diplomatik izolasyonunu derinleştirmiştir.
+
+<açılır kapanır pencere> Kültürel Miras ve Semboller
+Göktürk İmparatorluğu'nun en önemli simgesi, bölgesine yerleştirdiği devasa kaledir. Bu kale, yalnızca bir savunma yapısı değil, aynı zamanda devletin yenilmezlik iddiasının somut bir göstergesi olarak kabul edilir. EmiGrimes the Hun'un liderliği ve reformları, Göktürk kimliğinin merkezinde yer alır. EmiGrimes'in "Dağların tepesinde ulu devletimizi kurmaya 7 kişi başladık" sözleri, devletin kuruluş mitolojisinin temelini oluşturur. Sverige kaynaklarında "Sverige etki bölgesi" olarak anılması, Göktürklerin son dönemdeki siyasi ve kültürel nüfuz kaybını yansıtır. Göktürklerin mirası, sonraki dönemlerde bölgede kurulan devletler üzerinde derin izler bırakmıştır.
+
+<açılır kapanır pencere> Kronoloji
+- M.Ö. 1. Binyıl – Göktürk Hanlığı'nın Rote kıtasında kuruluşu
+- Kuruluş sonrası – Prussleh Adası/Kıtası'na akın hazırlıkları
+- Lehistan ile gizli diplomasi dönemi
+- Lehistan'ın bağımsızlık kararı ve ilişkilerin kopması
+- Prussleh akınları ve Lehistan başkentine ulaşılması
+- Göktürk Krallığı'nın ilanı
+- Lowyer Adası'nın ele geçirilmesi ve deniz haklarının kazanılması
+- Devasa kalenin inşası
+- Lehistan'ın savaş ilanı – Orta Göktürk Çağı'nın başlangıcı
+- Lehistan'ın yenilgisi ve güney Prussleh kıyılarının kaybı
+- EmiGrimes the Hun'un imparatorluk reformu
+- Batı sınırlarının Hırvat Denizi'ne ulaşması
+- Roma ile ilk temas
+- Lowyer Adası ve güney PrussLeh'in Lehistan'a geri verilmesi
+- Tsar Iswhl ile ittifak antlaşması
+- Roma'ya savaş ilanı (Rus desteğiyle)
+- Sverige müdahalesi ve savaşın akına dönüşmesi
+- Roma'nın Hırvatı-Rote'yi işgali
+- Hırvatı-Rote sınırının aşağılayıcı dizaynı
+- Frank Krallığı'na sefer
+- İkinci Göktürk-Roma Savaşı
+- Göktürk zaferi ve Orta-Roma Çağı'nın başlangıcı
+- Kuzey Hırvat topraklarının (elmas madeni) kazanılması
+- Ekonomik durgunluk ve borçlanma süreci
+- Sverige'in Roma'yı fonlaması
+- Son Göktürk-Roma Savaşı
+- Hun başkentinin Roma tarafından ele geçirilmesi
+- Hırvata ve batı Prussleh'in Roma'ya geri verilmesi
+- Hun pazarının yabancı mallarla dolması
+- Askeri gücün ilk 3'ten düşmesi
+- "Sverige etki bölgesi"ne dahil edilme
+- Devletin toparlanamaması ve son dönem
+
+<açılır kapanır pencere> Sverige Kaynaklarında Göktürkler
+Sverige kaynakları, Göktürk Hanlığı'nı "Rote Kıtası Hanlığı" olarak anmakta ve devletin son dönemini "Sverige etki bölgesi" kavramı çerçevesinde değerlendirmektedir. Bu kaynaklara göre Göktürkler, başlangıçta bölgesel bir güç olarak ortaya çıkmış, EmiGrimes the Hun döneminde zirveye ulaşmış, ancak ekonomik ve diplomatik hatalar sonucu Sverige'in nüfuz alanına girmekten kurtulamamıştır. Sverige kaynakları, özellikle Göktürklerin borçlanma politikalarını ve Roma ile ilişkilerini eleştirel bir dille ele almaktadır. Buna karşın, Göktürklerin askeri yenilikleri ve devasa kalesi, Sverige kaynaklarında dahi takdirle anılmaktadır.

@@ -1,5 +1,5 @@
 // =============================================
-// ELciKMP-DataPad – Tam Betik (v13.0 – SRCR Entegre)
+// ELciKMP-DataPad – Tam Betik (v13.1 – SRCR Entegre + & Desteği)
 // =============================================
 
 /* ---------- Favicon ---------- */
@@ -20,6 +20,27 @@ let _srcListCache = null;
 let _srcListPromise = null;
 
 /* ===========================================
+   MINECRAFT BİÇİMLENDİRME YARDIMCILARI
+   (§ VE & DESTEKLİ)
+   =========================================== */
+function isMCFormatChar(ch) {
+    return ch === '§' || ch === '&';
+}
+function startsWithMCFormat(line) {
+    return typeof line === 'string' && (line.startsWith('§') || line.startsWith('&'));
+}
+function startsWithMCCode(line, code) {
+    return typeof line === 'string' &&
+        (line.startsWith('§' + code) || line.startsWith('&' + code));
+}
+function replaceMCCode(text, code) {
+    return text.replace(new RegExp('[§&]' + code), '');
+}
+function stripMCFormatting(text) {
+    return text.replace(/[§&][0-9a-fk-or]/gi, '');
+}
+
+/* ===========================================
    MINECRAFT BİÇİMLENDİRME
    =========================================== */
 function applyMinecraftFormatting(text) {
@@ -37,7 +58,7 @@ function applyMinecraftFormatting(text) {
     function openSpan(style) { output += `<span style="${style}">`; spanStack++; }
     function closeAll() { for (let j = 0; j < spanStack; j++) output += '</span>'; spanStack = 0; }
     for (let i = 0; i < text.length; i++) {
-        if (text[i] === '§' && i + 1 < text.length) {
+        if (isMCFormatChar(text[i]) && i + 1 < text.length) {
             const code = text[i + 1];
             if (code === 'r') { closeAll(); i++; continue; }
             if (colorMap[code]) { closeAll(); openSpan(`color:${colorMap[code]};`); i++; continue; }
@@ -113,7 +134,7 @@ function renderSrcrBadge(id) {
 }
 
 function generateHeadingId(rawText) {
-    const cleaned = rawText.replace(/§[0-9a-fk-or]/gi, '').trim();
+    const cleaned = stripMCFormatting(rawText).trim();
     const match = cleaned.match(/^(\d+(?:\.\d+)*)\.?(?:\s|$)/);
     if (match) return 'anchor-' + match[1].replace(/\./g, '-');
     return null;
@@ -248,7 +269,7 @@ function enableVideoLinks(container) {
    RENK KODU BULUCU
    =========================================== */
 function extractTitleColor(titleLine) {
-    const match = titleLine.match(/§([0-9a-f])/);
+    const match = titleLine.match(/[§&]([0-9a-f])/);
     if (match) {
         const colorMap = {
             '0': '#000000', '1': '#0000AA', '2': '#00AA00', '3': '#00AAAA',
@@ -292,11 +313,11 @@ function parseWarInfobox(rawText, titleColor) {
     if (i < lines.length && lines[i].startsWith('img.')) {
         const src = resolveImagePath(lines[i++]);
         html += `<tr><td class="war-image" colspan="2"><img src="${src}" alt=""></td></tr>`;
-        if (i < lines.length && !lines[i].includes(':') && !lines[i].startsWith('§') && !lines[i].startsWith('flag.')) {
+        if (i < lines.length && !lines[i].includes(':') && !startsWithMCFormat(lines[i]) && !lines[i].startsWith('flag.')) {
             html += `<tr><td class="war-image-caption" colspan="2">${applyMinecraftFormatting(lines[i++])}</td></tr>`;
         }
     }
-    while (i < lines.length && lines[i].includes(':') && !lines[i].startsWith('§') && !lines[i].startsWith('flag.')) {
+    while (i < lines.length && lines[i].includes(':') && !startsWithMCFormat(lines[i]) && !lines[i].startsWith('flag.')) {
         const line = lines[i++];
         const idx = line.indexOf(':');
         const label = line.substring(0, idx).trim();
@@ -313,8 +334,8 @@ function parseWarInfobox(rawText, titleColor) {
             html += `</td></tr>`;
             continue;
         }
-        if (line.startsWith('§l')) {
-            const sectionTitle = lines[i++].replace('§l', '').trim();
+        if (startsWithMCCode(line, 'l')) {
+            const sectionTitle = replaceMCCode(lines[i++], 'l').trim();
             html += `<tr><th class="war-section" colspan="2" style="background-color:${titleColor};">${applyMinecraftFormatting(sectionTitle)}</th></tr>`;
             const result = parseMainSection(lines, i);
             html += result.html; i = result.newIdx;
@@ -330,7 +351,7 @@ function parseMainSection(lines, startIdx) {
     let html = '', groups = [], currentGroup = null, i = startIdx;
     while (i < lines.length) {
         const line = lines[i];
-        if (line.startsWith('§l') || (line.includes('Cephesi') && line.endsWith(':'))) break;
+        if (startsWithMCCode(line, 'l') || (line.includes('Cephesi') && line.endsWith(':'))) break;
         if (line === '') { i++; continue; }
         if (line === '-') { if (currentGroup) groups.push(currentGroup); currentGroup = null; i++; continue; }
         if (line.endsWith(':') && !line.startsWith('flag.')) {
@@ -376,14 +397,14 @@ function parseTheaterBlock(lines, startIdx) {
     let html = '<div style="padding:6px;">', i = startIdx;
     while (i < lines.length) {
         const line = lines[i];
-        if ((line.includes('Cephesi') && line.endsWith(':')) || line.startsWith('§l')) break;
+        if ((line.includes('Cephesi') && line.endsWith(':')) || startsWithMCCode(line, 'l')) break;
         if (line === '') { i++; continue; }
-        if (line.startsWith('§l')) {
-            const sectionTitle = lines[i++].replace('§l', '').trim();
+        if (startsWithMCCode(line, 'l')) {
+            const sectionTitle = replaceMCCode(lines[i++], 'l').trim();
             html += `<div class="war-belligerent-title" style="text-align:left; margin-top:4px;">${applyMinecraftFormatting(sectionTitle)}</div>`;
             while (i < lines.length) {
                 const subLine = lines[i];
-                if (subLine.startsWith('§l') || (subLine.includes('Cephesi') && subLine.endsWith(':')) || subLine === '') break;
+                if (startsWithMCCode(subLine, 'l') || (subLine.includes('Cephesi') && subLine.endsWith(':')) || subLine === '') break;
                 if (subLine === '-') { html += '<div style="margin: 4px 0; border-top: 1px dotted #555;"></div>'; i++; continue; }
                 if (subLine.startsWith('flag.')) {
                     const parsed = parseFlagLine(subLine);
@@ -421,7 +442,7 @@ function parseWikiText(raw) {
         html += `<h1 class="article-title">${applyMinecraftFormatting(lines[idx].replace(/<h1>/i, '').trim())}</h1>`;
         idx++;
     }
-    if (idx < lines.length && lines[idx] && !lines[idx].startsWith('<') && !lines[idx].startsWith('§o')) {
+    if (idx < lines.length && lines[idx] && !lines[idx].startsWith('<') && !startsWithMCCode(lines[idx], 'o')) {
         html += `<div class="article-subtitle">${applyMinecraftFormatting(lines[idx])}</div>`;
         idx++;
     }
@@ -516,8 +537,8 @@ function parseWikiText(raw) {
             while (i < lines.length && !lines[i].startsWith('<tablo /end>')) {
                 const row = lines[i];
                 if (row === '') { i++; continue; }
-                if (row.startsWith('§')) {
-                    if (row.startsWith('§o')) subtitleHtml = applyMinecraftFormatting(row.replace('§o', '').trim());
+                if (startsWithMCFormat(row)) {
+                    if (startsWithMCCode(row, 'o')) subtitleHtml = applyMinecraftFormatting(replaceMCCode(row, 'o').trim());
                     else titleHtml = applyMinecraftFormatting(row);
                     i++; continue;
                 }

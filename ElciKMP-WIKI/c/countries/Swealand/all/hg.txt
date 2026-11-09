@@ -6,3 +6,4 @@
 <"Atilla Romasının"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
 <"Atilla Romasına"> --ur:countries.Atillaroma-exp<"Minecraft öncesi 1. Binyılda İtalya üzerine kurulmuş, radikal sağ yönetime sahip, bağımsızlığı tartışmalı Roma Mirasçısı devlet">
 <"Latin Türk Savaşı"> --ur:wars.latinoturkowar-exp<"Minecraft öncesi 1. Binyılda global anlamda etkili olmuş ve binyılı sonlandırdığı kabul edilen kanlı savaş">
+<"MrElci"> --ur:players.mrElci-exp<"İran kökenli, sunucunun en eski oyuncusu. "Kukla Ustası" unvanı almış, tartışmalı eylemleri ile gündemde tutunmuş önemli bir tarihi figürdür.">
