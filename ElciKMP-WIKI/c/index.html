@@ -10,9 +10,9 @@
   <div class="app-window">
     <div class="title-bar">
       <div class="title-bar-text">
-  <img src="img/site/logo.png" class="title-bar-logo" alt="ElciKMP-DataPad">
-  <span>ElciKMP-DATAPAD</span>
-</div>
+        <img src="img/site/logo.png" class="title-bar-logo" alt="ElciKMP-DataPad">
+        <span>ElciKMP-DATAPAD</span>
+      </div>
       <div class="window-buttons">
         <span> </span><span> </span><span> </span>
       </div>
@@ -27,7 +27,7 @@
       <a href="wars.html">Savaşlar</a>
       <a href="#">Olaylar</a>
       <a href="#">Kronoloji</a>
-      <a href="cmd.html" class="qa-button">Q&A</a>
+      <a href="cmd.html" class="qa-button">Q&amp;A</a>
     </div>
     <div class="main-area">
       <div class="sidebar">
@@ -40,10 +40,33 @@
         </ul>
       </div>
       <div class="content-pane">
-        
-        <h1 class="article-title">ElciKMP-DataPad</h1>
-        <p>Bu platform, Minecraft evreninde şekillenen ortak bir hayalin, sayısız bloğun ve satır satır kodun bir araya gelmesiyle doğmuş bir komün çalışmasıdır. Sunucularımızın temelleri atılırken yalnızca oyun mekanikleri değil; dostluk, dayanışma ve yaratıcılık da inşa edildi.</p>
-        <p>Katılan, emek veren, fikir sunan, hata ayıklayan, rehber hazırlayan, sunucuya kaynak sağlayan ya da sadece varlığıyla bu topluluğa renk katan herkese sonsuz teşekkürler.</p>
+
+        <h1 class="article-title">ElciKMP Datapad projesine hoşgeldiniz!</h1>
+
+        <!-- SLAYTSHOW: her sekmedeki sayfaların birinci resmi + ilk dört cümlesi -->
+        <div class="slideshow-box" id="homeSlideshow">
+          <div class="slideshow-loading">▊ yükleniyor...</div>
+        </div>
+
+        <h1 class="article-title">Hakkımızda</h1>
+        <p>ElciKMP Datapad projesi, kendisine ait KMP konsepti ile yılları aşmış olan; ideolojik, politik, askeri ve ekonomik açıdan eşsiz anlarla farklılığını göstermiş ElciKMP sunucusunun, sunucu tarihine ait özel kavramlarını, eşsiz olaylarını, destansı savaşlarını ve daha nice farklı içeriğini kayıt altına almak, oyuncular tarafından ve ziyaretçiler tarafından okunabilir kılmak ve düzenli bir wiki altında toplamak gibi amaçlar doğrultusunda kurulmuştur.</p>
+        <p>Sunucu içerisinde oluşmuş olan niche kültürün ve tarihi ögelerin yeni oyunculara tanıtılması ve kayıt altına alınmış tarihin geleceğe ışık tutması açısından proje diğer girişimlere göre eşsiz bir zenginlik sunmaktadır.</p>
+
+        <h1 class="article-title">Önsöz</h1>
+        <p>Elci Datapad, KMP sunucusunun başlangıç hikayesinden bugüne kadar geçen sürecin tüm önemli detaylarını, yaratıcı projelerini ve unutulmaz anılarını içeren kapsamlı bir veri tabanıdır. Veriler olabildiğince tarafsız değerlendirilmeye çalışılıyor olup, verilerin tarafsızlığı konusunda karar kullanıcıların kaynakça yorumlarına bırakılmıştır. Proje düzenli olarak yeni eklemelerle daha zengin hale getirilmeye çalışılmaktadır ve bitmemiş birçok sayfa bulunmaktadır. Sayfalar ile ilgili eksik gördüğünüz bilgileri aşağıda verilmiş e-posta adresine bildirebilirsiniz.</p>
+
+        <h1 class="article-title">Sekmeler</h1>
+        <p><strong>Oyuncular:</strong> Sunucuda bulunmuş her oyuncuya ait veri kaydını içeren sekmedir. Oyunculara ait sunucu içindeki ilerlemelerini görebilmenizi veya eastereggleri deneyimlemenizi sağlar.</p>
+        <p><strong>Ülkeler:</strong> Sunucuda kurulmuş devletlerin dönemlerine ait tarihi kayıtlarını ve elde edilebilmiş verileri içeren sekmedir. Ülkelere ait temel bilgi dışında detaylı veri sunmaya çalışır.</p>
+        <p><strong>Savaşlar:</strong> Binyıllarda yaşanan savaşlara ait veri kaydını içeren sekmedir. Savaşlara ait ulaşılabilen tüm verileri görebilmenizi sağlar.</p>
+        <p><strong>Q&amp;A:</strong> Sıkça sorulan sorulara erişmeniz için kullanılabilecek bir sekmedir. Sekmede aradığınız soruya ulaşamazsanız aşağıdaki iletişim adresinden bize ulaşabilirsiniz.</p>
+
+        <blockquote>
+          <p>"Ee sunucu ne zaman açılır?" — Leblebi Tamatea</p>
+        </blockquote>
+
+        <p><a href="mailto:elciKMP@gmail.com">elciKMP@gmail.com</a></p>
+
       </div>
     </div>
     <div class="status-bar">
@@ -52,5 +75,12 @@
     </div>
   </div>
   <script src="menu-fix.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof buildHomeSlideshow === 'function') {
+        buildHomeSlideshow('homeSlideshow');
+      }
+    });
+  </script>
 </body>
 </html>

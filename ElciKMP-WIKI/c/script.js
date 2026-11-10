@@ -1,5 +1,5 @@
 // =============================================
-// ELciKMP-DataPad – Tam Betik (v13.1 – SRCR Entegre + & Desteği)
+// ELciKMP-DataPad – Tam Betik (v13.2 – SRCR + & Desteği + Ana Sayfa Slaytı)
 // =============================================
 
 /* ---------- Favicon ---------- */
@@ -87,13 +87,14 @@ function resolveVideoPath(raw) {
 /* ===========================================
    SRCR – KAYNAKÇA SİSTEMİ
    =========================================== */
-async function loadSourceList() {
+async function loadSourceList(force = false) {
+    if (force) { _srcListCache = null; _srcListPromise = null; }
     if (_srcListCache) return _srcListCache;
     if (_srcListPromise) return _srcListPromise;
     _srcListPromise = (async () => {
         try {
             const res = await fetch('additional/sourcerer/list.txt', { cache: 'no-store' });
-            if (!res.ok) { _srcListCache = {}; return _srcListCache; }
+            if (!res.ok) { _srcListPromise = null; return null; }
             const text = await res.text();
             const map = {};
             text.split('\n').forEach(line => {
@@ -107,14 +108,16 @@ async function loadSourceList() {
                         image: match[3],
                         anchor: match[4].trim()
                     };
+                } else {
+                    console.warn('[srcr] ayrıştırılamayan satır:', line);
                 }
             });
             _srcListCache = map;
             return map;
         } catch (e) {
             console.warn('[srcr] list.txt yüklenemedi:', e);
-            _srcListCache = {};
-            return _srcListCache;
+            _srcListPromise = null;
+            return null;
         }
     })();
     return _srcListPromise;
@@ -451,7 +454,6 @@ function parseWikiText(raw) {
         const line = lines[i];
         if (line === '') continue;
 
-        // Standalone <srcr> N line
         const standaloneSrcr = line.match(/^<srcr>\s*(\d+)\s*$/);
         if (standaloneSrcr) {
             html += `<div class="srcr-block">${renderSrcrBadge(standaloneSrcr[1])}</div>`;
@@ -647,7 +649,6 @@ function parseWikiText(raw) {
             continue;
         }
 
-        // Default: paragraph with inline srcr replacement
         const withBadges = applyMinecraftFormatting(line).replace(/<srcr>\s*(\d+)/g, (m, id) => renderSrcrBadge(id));
         html += `<p>${withBadges}</p>`;
     }
@@ -726,7 +727,7 @@ async function loadContent(folder, type) {
     if (!info) throw new Error('Bilgi alınamadı');
     const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
 
-    await loadSourceList();   // <srcr> desteği için
+    await loadSourceList();
 
     const res = await fetch(`${base}/${folder}/all/${info.mainFile}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Dosya bulunamadı');
@@ -919,6 +920,115 @@ function applyAccentColor() {
 }
 
 /* ===========================================
+   ANA SAYFA SLAYTSHOW
+   Her sekmedeki (oyuncu/ülke/savaş) rastgele bir sayfanın
+   birinci resmini ve ilk dört cümlesini döndürür.
+   =========================================== */
+async function buildHomeSlideshow(containerId, options = {}) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const intervalMs = options.intervalMs || 8000;
+
+    const [players, countries, wars] = await Promise.all([
+        fetchPlayerFolders(),
+        fetchCountryFolders(),
+        fetchWarFolders()
+    ]);
+
+    const allItems = [];
+    const pushAll = (folders, infoFn, type) => {
+        for (const f of folders) {
+            const info = infoFn(f);
+            allItems.push({ type, folder: f, infoPromise: info });
+        }
+    };
+    pushAll(players, fetchPlayerInfo, 'player');
+    pushAll(countries, fetchCountryInfo, 'country');
+    pushAll(wars, fetchWarInfo, 'war');
+
+    // info'ları paralel çöz
+    const resolved = [];
+    for (const item of allItems) {
+        const info = await item.infoPromise;
+        if (info) resolved.push({ type: item.type, folder: item.folder, info });
+    }
+
+    if (resolved.length === 0) {
+        container.innerHTML = '<div class="slideshow-loading">Slayt için sayfa bulunamadı</div>';
+        return;
+    }
+
+    // Rastgele karıştır
+    resolved.sort(() => Math.random() - 0.5);
+
+    let currentIndex = 0;
+    let timer = null;
+
+    async function getExcerpt(type, folder, mainFile) {
+        const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
+        try {
+            const res = await fetch(`${base}/${folder}/all/${mainFile}`, { cache: 'no-store' });
+            if (!res.ok) return '';
+            const raw = await res.text();
+            const lines = raw.split('\n')
+                .map(l => l.trim())
+                .filter(l => l && !l.startsWith('<') && !startsWithMCFormat(l));
+            const text = lines.join(' ');
+            const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
+            return sentences.slice(0, 4).join(' ').trim();
+        } catch (e) { return ''; }
+    }
+
+    async function getImage(item) {
+        if (item.info.previewImage) return item.info.previewImage;
+        if (item.info.flagImage) return `img/flag/${item.info.flagImage}`;
+        const base = item.type === 'player' ? 'players' : item.type === 'country' ? 'countries' : 'wars';
+        try {
+            const res = await fetch(`${base}/${item.folder}/all/${item.info.mainFile}`, { cache: 'no-store' });
+            if (res.ok) {
+                const raw = await res.text();
+                return extractFirstImageFromTxt(raw);
+            }
+        } catch (e) {}
+        return null;
+    }
+
+    async function showSlide(index) {
+        const item = resolved[index % resolved.length];
+        const { type, folder, info } = item;
+
+        const [imgSrc, excerpt] = await Promise.all([
+            getImage(item),
+            getExcerpt(type, folder, info.mainFile)
+        ]);
+
+        const href = type === 'player' ? `player.html?player=${encodeURIComponent(folder)}` :
+                     type === 'country' ? `country.html?country=${encodeURIComponent(folder)}` :
+                     `war.html?war=${encodeURIComponent(folder)}`;
+
+        const typeLabel = type === 'player' ? 'Oyuncu' : type === 'country' ? 'Ülke' : 'Savaş';
+
+        container.innerHTML = `
+            <a href="${href}" class="slideshow-link">
+                ${imgSrc ? `<img src="${imgSrc}" class="slideshow-img" alt="${info.displayName}">` : '<div class="slideshow-img-placeholder">⌀</div>'}
+                <div class="slideshow-info">
+                    <div class="slideshow-title">${info.displayName}</div>
+                    <div class="slideshow-type">${typeLabel}</div>
+                    ${excerpt ? `<div class="slideshow-excerpt">${excerpt}</div>` : ''}
+                </div>
+            </a>
+        `;
+    }
+
+    await showSlide(0);
+    timer = setInterval(() => {
+        currentIndex++;
+        showSlide(currentIndex);
+    }, intervalMs);
+}
+
+/* ===========================================
    CMD TERMİNAL SİSTEMİ
    =========================================== */
 async function fetchQA() {
@@ -957,9 +1067,6 @@ function parseQAData(text) {
     }
     return data;
 }
-
-/* ... BOOT_TEXT, terminal yardımcıları ve initCmdPage aynen korunur ... */
-/* (Bu kısım önceki mesajlardakiyle aynıdır, değişiklik gerekmez) */
 
 /* ===========================================
    MOBİL SIDEBAR (FAB)
@@ -1305,3 +1412,4 @@ window.enableImageLightbox = enableImageLightbox;
 window.enableVideoLinks = enableVideoLinks;
 window.buildQuickAccess = buildQuickAccess;
 window.applyAccentColor = applyAccentColor;
+window.buildHomeSlideshow = buildHomeSlideshow;

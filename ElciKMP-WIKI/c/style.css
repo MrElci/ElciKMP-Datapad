@@ -1963,3 +1963,111 @@ body {
 a, button, .toolbar a, .menu-bar span, .sidebar li, .xp-file-item, .qa-button, .vid-button {
   cursor: url('img/site/cursor-pointer.png') 4 4, pointer;
 }
+/* ===========================================
+   ANA SAYFA SLAYTSHOW
+   =========================================== */
+.slideshow-box {
+  float: right;
+  width: 300px;
+  height: 300px;
+  margin: 0 0 20px 20px;
+  background: var(--gh-canvas-default);
+  border: 1px solid var(--gh-border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.slideshow-box:hover {
+  border-color: var(--data-coral);
+  transform: translateY(-2px);
+}
+.slideshow-box::after {
+  content: "▣ SLIDE";
+  position: absolute;
+  top: 6px; right: 8px;
+  font-size: 8px;
+  color: var(--data-amber);
+  letter-spacing: 1px;
+  opacity: 0.9;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 2;
+}
+.slideshow-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--gh-fg-muted);
+  font-size: 12px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.slideshow-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.slideshow-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+  background: var(--gh-canvas-inset);
+}
+.slideshow-img-placeholder {
+  width: 100%;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gh-canvas-inset);
+  font-size: 48px;
+  color: var(--gh-fg-muted);
+}
+.slideshow-info {
+  padding: 10px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+.slideshow-title {
+  font-weight: 600;
+  color: var(--gh-fg-bright);
+  font-size: 14px;
+  line-height: 1.3;
+}
+.slideshow-type {
+  font-size: 9px;
+  color: var(--gh-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+.slideshow-excerpt {
+  font-size: 11px;
+  color: var(--gh-fg-muted);
+  line-height: 1.45;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin-top: 2px;
+}
+@media (max-width: 900px) {
+  .slideshow-box {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 16px 0;
+  }
+  .slideshow-img,
+  .slideshow-img-placeholder {
+    height: 200px;
+  }
+}
