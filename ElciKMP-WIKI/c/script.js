@@ -965,21 +965,35 @@ async function buildHomeSlideshow(containerId, options = {}) {
     let currentIndex = 0;
     let timer = null;
 
-    async function getExcerpt(type, folder, mainFile) {
+       async function getExcerpt(type, folder, mainFile) {
         const base = type === 'player' ? 'players' : type === 'country' ? 'countries' : 'wars';
         try {
             const res = await fetch(`${base}/${folder}/all/${mainFile}`, { cache: 'no-store' });
             if (!res.ok) return '';
             const raw = await res.text();
+            
+            // Teknik satırları, resim yollarını ve flag'leri filtrele
             const lines = raw.split('\n')
                 .map(l => l.trim())
-                .filter(l => l && !l.startsWith('<') && !startsWithMCFormat(l));
-            const text = lines.join(' ');
+                .filter(l => {
+                    if (!l) return false;
+                    if (l.startsWith('<')) return false;      // HTML benzeri etiketler
+                    if (l.startsWith('img.')) return false;   // Resim yolları
+                    if (l.startsWith('flag.')) return false;  // Bayrak yolları
+                    if (l.startsWith('*')) return false;      // Tablo verileri
+                    if (l.includes('img.')) return false;     // İçinde img geçen satırlar
+                    if (l.includes('flag.')) return false;    // İçinde flag geçen satırlar
+                    if (startsWithMCFormat(l)) return false;  // Başında § veya & olanlar
+                    return true;
+                });
+            
+            let text = lines.join(' ');
+            text = stripMCFormatting(text); // Satır içindeki § ve & kodlarını temizle
+            
             const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
             return sentences.slice(0, 4).join(' ').trim();
         } catch (e) { return ''; }
     }
-
     async function getImage(item) {
         if (item.info.previewImage) return item.info.previewImage;
         if (item.info.flagImage) return `img/flag/${item.info.flagImage}`;

@@ -40,13 +40,13 @@
         </ul>
       </div>
       <div class="content-pane">
-
-        <h1 class="article-title">ElciKMP Datapad projesine hoşgeldiniz!</h1>
-
-        <!-- SLAYTSHOW: her sekmedeki sayfaların birinci resmi + ilk dört cümlesi -->
         <div class="slideshow-box" id="homeSlideshow">
           <div class="slideshow-loading">▊ yükleniyor...</div>
         </div>
+
+        <h1 class="article-title">ElciKMP Datapad projesine hoşgeldiniz!</h1>
+
+        
 
         <h1 class="article-title">Hakkımızda</h1>
         <p>ElciKMP Datapad projesi, kendisine ait KMP konsepti ile yılları aşmış olan; ideolojik, politik, askeri ve ekonomik açıdan eşsiz anlarla farklılığını göstermiş ElciKMP sunucusunun, sunucu tarihine ait özel kavramlarını, eşsiz olaylarını, destansı savaşlarını ve daha nice farklı içeriğini kayıt altına almak, oyuncular tarafından ve ziyaretçiler tarafından okunabilir kılmak ve düzenli bir wiki altında toplamak gibi amaçlar doğrultusunda kurulmuştur.</p>
@@ -74,13 +74,16 @@
       <span>ElciKMP-DataPad Arşiv Sistemi v1.0</span>
     </div>
   </div>
-  <script src="menu-fix.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof buildHomeSlideshow === 'function') {
-        buildHomeSlideshow('homeSlideshow');
-      }
-    });
-  </script>
+<script src="menu-fix.js"></script>
+<script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof buildHomeSlideshow === 'function') {
+      buildHomeSlideshow('homeSlideshow');
+    } else {
+      console.warn('[slayt] script.js yüklenmedi');
+    }
+  });
+</script>
 </body>
 </html>

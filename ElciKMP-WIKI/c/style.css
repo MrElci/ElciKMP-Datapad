@@ -1964,10 +1964,11 @@ a, button, .toolbar a, .menu-bar span, .sidebar li, .xp-file-item, .qa-button, .
   cursor: url('img/site/cursor-pointer.png') 4 4, pointer;
 }
 /* ===========================================
-   ANA SAYFA SLAYTSHOW
+   ANA SAYFA SLAYTSHOW — KARE VE SAĞDA
    =========================================== */
 .slideshow-box {
   float: right;
+  clear: right;
   width: 300px;
   height: 300px;
   margin: 0 0 20px 20px;
@@ -1978,6 +1979,8 @@ a, button, .toolbar a, .menu-bar span, .sidebar li, .xp-file-item, .qa-button, .
   position: relative;
   box-shadow: var(--shadow-xs);
   transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  isolation: isolate;
+  z-index: 5;
 }
 .slideshow-box:hover {
   border-color: var(--data-coral);
@@ -2007,40 +2010,47 @@ a, button, .toolbar a, .menu-bar span, .sidebar li, .xp-file-item, .qa-button, .
 .slideshow-link {
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
   text-decoration: none;
   color: inherit;
 }
 .slideshow-img {
   width: 100%;
-  height: 170px;
+  height: 160px;
   object-fit: cover;
   display: block;
   background: var(--gh-canvas-inset);
+  flex-shrink: 0;
 }
 .slideshow-img-placeholder {
   width: 100%;
-  height: 170px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--gh-canvas-inset);
   font-size: 48px;
   color: var(--gh-fg-muted);
+  flex-shrink: 0;
 }
 .slideshow-info {
-  padding: 10px 12px;
   flex: 1;
+  min-height: 0;
+  padding: 8px 12px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
   overflow: hidden;
 }
 .slideshow-title {
   font-weight: 600;
   color: var(--gh-fg-bright);
   font-size: 14px;
-  line-height: 1.3;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .slideshow-type {
   font-size: 9px;
@@ -2052,22 +2062,20 @@ a, button, .toolbar a, .menu-bar span, .sidebar li, .xp-file-item, .qa-button, .
   font-size: 11px;
   color: var(--gh-fg-muted);
   line-height: 1.45;
+  margin-top: 2px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  margin-top: 2px;
 }
-@media (max-width: 900px) {
+
+/* Sadece mobilde tam genişlik (750px altı) */
+@media (max-width: 750px) {
   .slideshow-box {
     float: none;
     width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 300px;
     margin: 0 0 16px 0;
-  }
-  .slideshow-img,
-  .slideshow-img-placeholder {
-    height: 200px;
   }
 }
